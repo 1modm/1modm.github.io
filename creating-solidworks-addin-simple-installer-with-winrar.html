@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Creating SolidWorks Add-in Simple Installer With WinRAR &middot; Heiswayi Nrird on Tech
+    
+  </title>
+
+  
+    <meta name="description" content="Using WinRAR SFX and batch scripting for creating simple package installer."/>
+    <meta name="keywords" content="solidworks addin, simple installer, winrar sfx">
+  
+  <meta name="author" content="Heiswayi Nrird">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@HeiswayiNrird">
+  <meta name="twitter:creator" content="@HeiswayiNrird">
+  
+    <meta name="twitter:title" content="Creating SolidWorks Add-in Simple Installer With WinRAR">
+    <meta name="twitter:description" content="Using WinRAR SFX and batch scripting for creating simple package installer.">
+  
+
+  <meta property="og:type" content="website"/>
+  
+    <meta property="og:title" content="Creating SolidWorks Add-in Simple Installer With WinRAR"/>
+    <meta property="og:url" content="/creating-solidworks-addin-simple-installer-with-winrar.html"/>
+    <meta property="og:description" content="Using WinRAR SFX and batch scripting for creating simple package installer."/>
+    <meta property="og:site_name" content="Creating SolidWorks Add-in Simple Installer With WinRAR"/>
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#f3f3f3">
+  <meta name="msapplication-TileImage" content="/public/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="aSavCGGU0uSN5HEHnI7ZiMqVKxn7mfUPCGMVJvmDQ1w" />
+  <meta name="wot-verification" content="6da2597a332a1fadad8f"/>
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/jquery-1.11.2.min.js"></script>
+  <script src="/public/js/masonry.pkgd.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script src="/public/js/rem.min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="master-nav">
+        <div class="nav">
+            <ul class="top-menu">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+              <li><a href="/notes.html"><i class="fa fa-pencil"></i> Notes</a></li>
+              <li><a class="resume" href="http://heiswayi.github.io/resume/"><i class="fa fa-file-text-o"></i> Resume</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-repos/"><i class="fa fa-github-alt"></i> Repositories</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-gists/"><i class="fa fa-code"></i> Gists</a></li>
+              <li><a class="unique" href="http://heiswayi.nrird.com"><i class="fa fa-camera-retro"></i> Photography</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="container">
+          <h2 class="masthead-title">
+            <a href="/" title="Home">Heiswayi Nrird on Tech</a>
+            <small>Another Software Guy's Blog</small>
+          </h2>
+
+          <div class="footer-social-links">
+  <a href="http://heiswayi.nrird.com/atom.xml" title="RSS Feed" target="_blank"><i class="fa fa-rss"></i></a>
+  <a href="https://my.linkedin.com/in/nrird" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=1257583160" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+  <a href="https://twitter.com/HeiswayiNrird" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/heiswayi" title="GitHub" target="_blank"><i class="fa fa-github-alt"></i></a>
+  <a href="https://gist.github.com/heiswayi" title="GitHub Gist" target="_blank"><i class="fa fa-code"></i></a>
+  <a href="http://codepen.io/heiswayi/" title="CodePen" target="_blank"><i class="fa fa-codepen"></i></a>
+  <a href="https://500px.com/heiswayi_nrird" title="500px" target="_blank"><i class="fa fa-500px"></i></a>
+  <a href="https://instagram.com/heiswayi.nrird/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+</div>
+
+
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">September 18, 2015 &middot; <span class="reading-time" title="Estimated Reading Time">
+  
+  
+    4 minutes read
+  
+</span>
+</div>
+    <h1 class="post-title">Creating SolidWorks Add-in Simple Installer With WinRAR</h1>
+  </div>
+
+  <div class="hrline"></div>
+
+  <p>When I was working as Application Engineer for one of the top SolidWorks Reseller local companies, I was assigned to develop a company’s first SolidWorks Add-in DLL. To make the installation process of the add-in as simple as possible, I opted to use WinRAR SFX and batch scripting to automate the assembly (DLL) registration with Microsoft .NET Framework.</p>
+
+<blockquote>
+  <p><strong>PREREQUISITE:</strong> This process required a <a href="http://www.rarlab.com/download.htm">WinRAR</a> software to be installed in my PC and prepared my add-in files or folders before I can use WinRAR SFX to create a package installer for my add-in.</p>
+</blockquote>
+
+<p>These are the steps I used to create my add-in package installer using the WinRAR SFX:-</p>
+
+<h3 id="step-01">Step 01</h3>
+
+<p><img src="http://i.imgur.com/B3LvCup.png" alt="Step 01" /></p>
+
+<p>I added all of my add-in files and folders to the WinRAR archive.</p>
+
+<h3 id="step-02">Step 02</h3>
+
+<p><img src="http://i.imgur.com/B9sW5YC.png" alt="Step 02" /></p>
+
+<p>Under General tab, I selected <strong>Create SFX archive</strong> in Archiving options and enter my Archive name. Other options are optional or I just leave it as <strong>defaults</strong>.</p>
+
+<h3 id="step-03">Step 03</h3>
+
+<p><img src="http://i.imgur.com/4mzS7A3.png" alt="Step 03" /></p>
+
+<p>Under Advanced tab, I clicked on <strong>SFX options</strong> button.</p>
+
+<h3 id="step-04">Step 04</h3>
+
+<p><img src="http://i.imgur.com/W2LNfxl.png" alt="Step 04" /></p>
+
+<p>In the <strong>Advanced SFX options</strong>, under General tab, I entered the Path to extract. In my case, I used <code class="highlighter-rouge">C:\IME</code> as the Absolute path for my add-in installation directory.</p>
+
+<h3 id="step-05">Step 05</h3>
+
+<p><img src="http://i.imgur.com/AzJSVxy.png" alt="Step 05" /></p>
+
+<p>Under Setup tab, I entered the filename that I want to run/execute after extraction is finished. In my case, <code class="highlighter-rouge">INSTALL64.BAT</code> is a batch file that I want it to run/execute after the package extraction.</p>
+
+<h3 id="step-06">Step 06</h3>
+
+<p><img src="http://i.imgur.com/K2b3WiE.png" alt="Step 06" /></p>
+
+<p>Under Advanced tab, I marked <strong>Request administrative access</strong> as checked since I need to register my add-in assembly into Microsoft .NET Framework. So, the user will be prompted to run the package installer with administrative access.</p>
+
+<h3 id="step-07">Step 07</h3>
+
+<p><img src="http://i.imgur.com/BuPgFLY.png" alt="Step 07" /></p>
+
+<p>Under Update tab, I checked <strong>Extract and replace files</strong> for Update mode and <strong>Overwrite all files</strong> for Overwrite mode. This will be useful when in the future time I deliver a new update or release of the current program, the new installation will replace and overwrite all of the old files.</p>
+
+<h3 id="step-08">Step 08</h3>
+
+<p><img src="http://i.imgur.com/IJ2GJUm.png" alt="Step 08" /></p>
+
+<p>Under Text and icon tab, here I entered the Title of SFX window, Text to display in SFX window and assign the SFX icon/logo.</p>
+
+<h3 id="step-09">Step 09</h3>
+
+<p><img src="http://i.imgur.com/gZNspH3.png" alt="Step 09" /></p>
+
+<p>Finally, under Module tab, I selected the SFX module that I want to use. In my case, I chose <strong>Default.SFX</strong> - Windows GUI RAR SFX.</p>
+
+<h3 id="step-10-final">Step 10 (Final)</h3>
+
+<p><img src="http://i.imgur.com/AWFrHVC.png" alt="Step 10" /></p>
+
+<p>Then, I pressed OK and OK again to finish it.</p>
+
+<h3 id="viola">Viola..</h3>
+
+<p>At the end, I got my add-in package installer (setup.exe) as shown in the picture below:</p>
+
+<p><img src="http://i.imgur.com/Drqud3n.png" alt="Step 11" /></p>
+
+<p>To test if the file is OK, I tried to run it (double-clicked), it showed up something like this (refer the picture below):</p>
+
+<p><img src="http://i.imgur.com/Jn8p8gs.png" alt="Step 12" /></p>
+
+<p>That means my add-in installer file is working!</p>
+
+<h3 id="the-batch-files">The Batch files</h3>
+
+<p>I used the batch scripting to automate some commands. If you noticed, there were two batch files in my add-in installation package; <code class="highlighter-rouge">INSTALL64.BAT</code> and <code class="highlighter-rouge">UNINSTALL64.BAT</code>. Both were used for the installation and uninstallation of my SolidWorks Add-in. By using the batch scripting, I can register my add-in assembly into Microsoft .NET Framework so that it will work with the main SolidWorks software.</p>
+
+<p>Here’s the batch script inside the <code class="highlighter-rouge">INSTALL64.BAT</code> file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@echo off
+
+set TargetLocation=c:\IME\
+set FolderToCopy=IMEInterX64
+set FileToCopy1=UNINSTALL64.BAT
+
+echo.
+echo 1. Setup configuration data
+
+start "" /d "%~dp0%FolderToCopy%" "addconfigs.exe"
+
+echo #1 DONE
+echo.
+echo 2. Register assemblies
+
+SET AssemblyPath="%TargetLocation%%FolderToCopy%\IMEInterX2_SwAddin.dll"
+set FMWK=Framework64
+IF EXIST "%Windir%\Microsoft.NET\%FMWK%\v4.0.30319" (set FMWKVersion=v4.0.30319) ELSE (set FMWKVersion=v2.0.50727)
+echo Detected %FMWK% %FMWKVersion%
+echo Running command...
+@ECHO ON
+"%Windir%\Microsoft.NET\%FMWK%\%FMWKVersion%\regasm" /codebase %AssemblyPath%
+@ECHO OFF
+
+echo #2 DONE
+
+echo.
+echo INSTALLATION COMPLETE
+pause
+</code></pre>
+</div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">addconfigs.exe</code> is a mini program to create and load configuration data into Windows Registry.</p>
+</blockquote>
+
+<blockquote>
+  <p><code class="highlighter-rouge">IMEInterX2_SwAddin.dll</code> is my SolidWorks Add-in program (assembly) that need to be registered (regasm) with Microsoft .NET Framework in order to work in the main SolidWorks software.</p>
+</blockquote>
+
+<h3 id="the-uninstallation-process">The Uninstallation process</h3>
+
+<p>Basically, <code class="highlighter-rouge">UNINSTALL64.BAT</code> file is for removing all the add-in files and folders, deleting configuration data in the Windows Registry and finally the file will terminate itself. If I want to create the Uninstaller shortcut for my program, I can do that inside <code class="highlighter-rouge">INSTALL64.BAT</code> file, then link the shortcut to <code class="highlighter-rouge">UNINSTALL64.BAT</code> file when executed.</p>
+
+  
+</div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
+
+      </div>
+    </div>
+
+	  <div class="footer">
+	<div class="hrline"></div>
+	<div class="license">Unless otherwise stated, all original code presented on this site is licensed under the <a href="http://heiswayi.github.io/mit-license">MIT license</a>. All original photographs and text on this website are licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives</a> license. If you have any questions about using any of this material for commercial purposes, please <a href="https://github.com/heiswayi/ama">ask me here</a> or <a href="mailto:asd@gmail.com">write an email to me</a>.</div>
+	<div class="copyright">Made with <span style="color:#e00"><i class="fa fa-heart"></i></span> using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code"></i> on <a href="https://github.com/heiswayi/heiswayi.github.io_jekyll_source">GitHub</a> <i class="fa fa-github-alt"></i><br>&copy; 2016 Heiswayi Nrird</div>
+</div>
+
+<script>
+$(window).load(function() {
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		gutter: 10
+	});
+});
+</script>
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-58296043-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  </body>
+</html>

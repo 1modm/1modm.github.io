@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      MVVM Common Classes Into a Single File (MVVM.cs) &middot; Heiswayi Nrird on Tech
+    
+  </title>
+
+  
+    <meta name="description" content="MVVM.cs is a collection of MVVM common classes that can be implemented by any view model (VM)."/>
+    <meta name="keywords" content="mvvm common classes, viewmodelbase, onpropertychanged, raisepropertychanged, icommand, delegatecommand, relaycommand, lambda expression">
+  
+  <meta name="author" content="Heiswayi Nrird">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@HeiswayiNrird">
+  <meta name="twitter:creator" content="@HeiswayiNrird">
+  
+    <meta name="twitter:title" content="MVVM Common Classes Into a Single File (MVVM.cs)">
+    <meta name="twitter:description" content="MVVM.cs is a collection of MVVM common classes that can be implemented by any view model (VM).">
+  
+
+  <meta property="og:type" content="website"/>
+  
+    <meta property="og:title" content="MVVM Common Classes Into a Single File (MVVM.cs)"/>
+    <meta property="og:url" content="/mvvm-common-classes-into-a-single-file.html"/>
+    <meta property="og:description" content="MVVM.cs is a collection of MVVM common classes that can be implemented by any view model (VM)."/>
+    <meta property="og:site_name" content="MVVM Common Classes Into a Single File (MVVM.cs)"/>
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#f3f3f3">
+  <meta name="msapplication-TileImage" content="/public/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="aSavCGGU0uSN5HEHnI7ZiMqVKxn7mfUPCGMVJvmDQ1w" />
+  <meta name="wot-verification" content="6da2597a332a1fadad8f"/>
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/jquery-1.11.2.min.js"></script>
+  <script src="/public/js/masonry.pkgd.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script src="/public/js/rem.min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="master-nav">
+        <div class="nav">
+            <ul class="top-menu">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+              <li><a href="/notes.html"><i class="fa fa-pencil"></i> Notes</a></li>
+              <li><a class="resume" href="http://heiswayi.github.io/resume/"><i class="fa fa-file-text-o"></i> Resume</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-repos/"><i class="fa fa-github-alt"></i> Repositories</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-gists/"><i class="fa fa-code"></i> Gists</a></li>
+              <li><a class="unique" href="http://heiswayi.nrird.com"><i class="fa fa-camera-retro"></i> Photography</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="container">
+          <h2 class="masthead-title">
+            <a href="/" title="Home">Heiswayi Nrird on Tech</a>
+            <small>Another Software Guy's Blog</small>
+          </h2>
+
+          <div class="footer-social-links">
+  <a href="http://heiswayi.nrird.com/atom.xml" title="RSS Feed" target="_blank"><i class="fa fa-rss"></i></a>
+  <a href="https://my.linkedin.com/in/nrird" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=1257583160" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+  <a href="https://twitter.com/HeiswayiNrird" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/heiswayi" title="GitHub" target="_blank"><i class="fa fa-github-alt"></i></a>
+  <a href="https://gist.github.com/heiswayi" title="GitHub Gist" target="_blank"><i class="fa fa-code"></i></a>
+  <a href="http://codepen.io/heiswayi/" title="CodePen" target="_blank"><i class="fa fa-codepen"></i></a>
+  <a href="https://500px.com/heiswayi_nrird" title="500px" target="_blank"><i class="fa fa-500px"></i></a>
+  <a href="https://instagram.com/heiswayi.nrird/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+</div>
+
+
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">June 05, 2016 &middot; <span class="reading-time" title="Estimated Reading Time">
+  
+  
+    23 minutes read
+  
+</span>
+</div>
+    <h1 class="post-title">MVVM Common Classes Into a Single File (MVVM.cs)</h1>
+  </div>
+
+  <div class="hrline"></div>
+
+  <p>Whenever I want to create a .NET/WPF application that required me to implement MVVM design pattern, I have to do some code rewriting or creating some class files to enable the MVVM implementation. So without wasting my time, I created a collection of MVVM common classes into a single file called <code class="highlighter-rouge">MVVM.cs</code>.</p>
+
+<p>This collection contains a <code class="highlighter-rouge">ViewModelBase</code> class that can be implemented (inherited) by any view model class, and also <code class="highlighter-rouge">ICommand</code> implementation which has two option classes called <code class="highlighter-rouge">DelegateCommand</code> and <code class="highlighter-rouge">RelayCommand</code>. You may use either one.</p>
+
+<blockquote>
+  <p>If you don’t want to go through this long paste code here, I have put this on <a href="https://gist.github.com/heiswayi/215e5588fbbd712930ed3e0689d155d0">my gist</a>. Have a look!</p>
+</blockquote>
+
+<p><strong>TL;DR</strong></p>
+
+<p>Here’s the source code of <strong>MVVM.cs</strong> file:</p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq.Expressions</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows.Input</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">HeiswayiNrird.MVVM.Common</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// This is a base of ViewModel that implements INotifyPropertyChanged.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">ViewModelBase</span> <span class="p">:</span> <span class="n">INotifyPropertyChanged</span>
+    <span class="p">{</span>
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Multicast event for property change notifications.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="k">public</span> <span class="k">event</span> <span class="n">PropertyChangedEventHandler</span> <span class="n">PropertyChanged</span><span class="p">;</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Notifies listeners that a property value has changed.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="c1">/// &lt;param name="propertyName"&gt;Name of the property used to notify listeners.&lt;/param&gt;
+</span>        <span class="k">protected</span> <span class="k">void</span> <span class="nf">OnPropertyChanged</span><span class="p">(</span><span class="kt">string</span> <span class="n">propertyName</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//PropertyChangedEventHandler handler = PropertyChanged;
+</span>
+            <span class="c1">//if (handler != null)
+</span>            <span class="c1">//{
+</span>            <span class="c1">//    handler(this, new PropertyChangedEventArgs(propertyName));
+</span>            <span class="c1">//}
+</span>
+            <span class="n">PropertyChanged</span><span class="p">?.</span><span class="nf">Invoke</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">new</span> <span class="nf">PropertyChangedEventArgs</span><span class="p">(</span><span class="n">propertyName</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Raises this object's PropertyChanged event.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="c1">/// &lt;typeparam name="T"&gt;The type of the property that has a new value.&lt;/typeparam&gt;
+</span>        <span class="c1">/// &lt;param name="propertyExpression"&gt;A Lambda expression representing the property that has a new value.&lt;/param&gt;
+</span>        <span class="k">protected</span> <span class="k">void</span> <span class="n">RaisePropertyChanged</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;(</span><span class="n">Expression</span><span class="p">&lt;</span><span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;&gt;</span> <span class="n">propertyExpression</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">memberExpr</span> <span class="p">=</span> <span class="n">propertyExpression</span><span class="p">.</span><span class="n">Body</span> <span class="k">as</span> <span class="n">MemberExpression</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">memberExpr</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentException</span><span class="p">(</span><span class="s">"propertyExpression should represent access to a member"</span><span class="p">);</span>
+            <span class="kt">string</span> <span class="n">memberName</span> <span class="p">=</span> <span class="n">memberExpr</span><span class="p">.</span><span class="n">Member</span><span class="p">.</span><span class="n">Name</span><span class="p">;</span>
+            <span class="nf">OnPropertyChanged</span><span class="p">(</span><span class="n">memberName</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// This class facilitates associating a key binding in XAML markup to a command
+</span>    <span class="c1">/// defined in a View Model by exposing a Command dependency property.
+</span>    <span class="c1">/// The class derives from Freezable to work around a limitation in WPF when data-binding from XAML.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">CommandReference</span> <span class="p">:</span> <span class="n">Freezable</span><span class="p">,</span> <span class="n">ICommand</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="nf">CommandReference</span><span class="p">()</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">static</span> <span class="k">readonly</span> <span class="n">DependencyProperty</span> <span class="n">CommandProperty</span> <span class="p">=</span> <span class="n">DependencyProperty</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="s">"Command"</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">ICommand</span><span class="p">),</span> <span class="k">typeof</span><span class="p">(</span><span class="n">CommandReference</span><span class="p">),</span> <span class="k">new</span> <span class="nf">PropertyMetadata</span><span class="p">(</span><span class="k">new</span> <span class="nf">PropertyChangedCallback</span><span class="p">(</span><span class="n">OnCommandChanged</span><span class="p">)));</span>
+
+        <span class="k">public</span> <span class="n">ICommand</span> <span class="n">Command</span>
+        <span class="p">{</span>
+            <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">ICommand</span><span class="p">)</span><span class="nf">GetValue</span><span class="p">(</span><span class="n">CommandProperty</span><span class="p">);</span> <span class="p">}</span>
+            <span class="k">set</span> <span class="p">{</span> <span class="nf">SetValue</span><span class="p">(</span><span class="n">CommandProperty</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="k">public</span> <span class="kt">bool</span> <span class="nf">CanExecute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">Command</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">Command</span><span class="p">.</span><span class="nf">CanExecute</span><span class="p">(</span><span class="n">parameter</span><span class="p">);</span>
+            <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Command</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">CanExecuteChanged</span><span class="p">;</span>
+
+        <span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">OnCommandChanged</span><span class="p">(</span><span class="n">DependencyObject</span> <span class="n">d</span><span class="p">,</span> <span class="n">DependencyPropertyChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">CommandReference</span> <span class="n">commandReference</span> <span class="p">=</span> <span class="n">d</span> <span class="k">as</span> <span class="n">CommandReference</span><span class="p">;</span>
+            <span class="n">ICommand</span> <span class="n">oldCommand</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">OldValue</span> <span class="k">as</span> <span class="n">ICommand</span><span class="p">;</span>
+            <span class="n">ICommand</span> <span class="n">newCommand</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">NewValue</span> <span class="k">as</span> <span class="n">ICommand</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">oldCommand</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">oldCommand</span><span class="p">.</span><span class="n">CanExecuteChanged</span> <span class="p">-=</span> <span class="n">commandReference</span><span class="p">.</span><span class="n">CanExecuteChanged</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">newCommand</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">newCommand</span><span class="p">.</span><span class="n">CanExecuteChanged</span> <span class="p">+=</span> <span class="n">commandReference</span><span class="p">.</span><span class="n">CanExecuteChanged</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Freezable</span>
+
+        <span class="k">protected</span> <span class="k">override</span> <span class="n">Freezable</span> <span class="nf">CreateInstanceCore</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Freezable</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// This class allows delegating the commanding logic to methods passed as parameters,
+</span>    <span class="c1">/// and enables a View to bind commands to objects that are not part of the element tree.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">DelegateCommand</span> <span class="p">:</span> <span class="n">ICommand</span>
+    <span class="p">{</span>
+        <span class="err">#</span><span class="n">region</span> <span class="n">Constructors</span>
+
+        <span class="k">public</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">Action</span> <span class="n">executeMethod</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">executeMethod</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">Action</span> <span class="n">executeMethod</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">canExecuteMethod</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">executeMethod</span><span class="p">,</span> <span class="n">canExecuteMethod</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">Action</span> <span class="n">executeMethod</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">canExecuteMethod</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">isAutomaticRequeryDisabled</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">executeMethod</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentNullException</span><span class="p">(</span><span class="s">"executeMethod"</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">_executeMethod</span> <span class="p">=</span> <span class="n">executeMethod</span><span class="p">;</span>
+            <span class="n">_canExecuteMethod</span> <span class="p">=</span> <span class="n">canExecuteMethod</span><span class="p">;</span>
+            <span class="n">_isAutomaticRequeryDisabled</span> <span class="p">=</span> <span class="n">isAutomaticRequeryDisabled</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Constructors</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Public</span> <span class="n">Methods</span>
+
+        <span class="k">public</span> <span class="kt">bool</span> <span class="nf">CanExecute</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">_canExecuteMethod</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="nf">_canExecuteMethod</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">_executeMethod</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">_executeMethod</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">bool</span> <span class="n">IsAutomaticRequeryDisabled</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">_isAutomaticRequeryDisabled</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">set</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_isAutomaticRequeryDisabled</span> <span class="p">!=</span> <span class="k">value</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="k">value</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">RemoveHandlersFromRequerySuggested</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span>
+                    <span class="p">{</span>
+                        <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">AddHandlersToRequerySuggested</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="n">_isAutomaticRequeryDisabled</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">RaiseCanExecuteChanged</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">OnCanExecuteChanged</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnCanExecuteChanged</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">CallWeakReferenceHandlers</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Public</span> <span class="n">Methods</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">CanExecuteChanged</span>
+        <span class="p">{</span>
+            <span class="k">add</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">_isAutomaticRequeryDisabled</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">+=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">AddWeakReferenceHandler</span><span class="p">(</span><span class="k">ref</span> <span class="n">_canExecuteChangedHandlers</span><span class="p">,</span> <span class="k">value</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">remove</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">_isAutomaticRequeryDisabled</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">-=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">RemoveWeakReferenceHandler</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">bool</span> <span class="n">ICommand</span><span class="p">.</span><span class="nf">CanExecute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nf">CanExecute</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">void</span> <span class="n">ICommand</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">Execute</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Data</span>
+
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Action</span> <span class="n">_executeMethod</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Func</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">&gt;</span> <span class="n">_canExecuteMethod</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="k">private</span> <span class="kt">bool</span> <span class="n">_isAutomaticRequeryDisabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+        <span class="k">private</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">_canExecuteChangedHandlers</span><span class="p">;</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Data</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// This class allows delegating the commanding logic to methods passed as parameters,
+</span>    <span class="c1">/// and enables a View to bind commands to objects that are not part of the element tree.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="c1">/// &lt;typeparam name="T"&gt;Type of the parameter passed to the delegates.&lt;/typeparam&gt;
+</span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">DelegateCommand</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">ICommand</span>
+    <span class="p">{</span>
+        <span class="err">#</span><span class="n">region</span> <span class="n">Constructors</span>
+
+        <span class="k">public</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">executeMethod</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">executeMethod</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">executeMethod</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;</span> <span class="n">canExecuteMethod</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">executeMethod</span><span class="p">,</span> <span class="n">canExecuteMethod</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">executeMethod</span><span class="p">,</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;</span> <span class="n">canExecuteMethod</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">isAutomaticRequeryDisabled</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">executeMethod</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentNullException</span><span class="p">(</span><span class="s">"executeMethod"</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="n">_executeMethod</span> <span class="p">=</span> <span class="n">executeMethod</span><span class="p">;</span>
+            <span class="n">_canExecuteMethod</span> <span class="p">=</span> <span class="n">canExecuteMethod</span><span class="p">;</span>
+            <span class="n">_isAutomaticRequeryDisabled</span> <span class="p">=</span> <span class="n">isAutomaticRequeryDisabled</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Constructors</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Public</span> <span class="n">Methods</span>
+
+        <span class="k">public</span> <span class="kt">bool</span> <span class="nf">CanExecute</span><span class="p">(</span><span class="n">T</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">_canExecuteMethod</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="nf">_canExecuteMethod</span><span class="p">(</span><span class="n">parameter</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span><span class="n">T</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">_executeMethod</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nf">_executeMethod</span><span class="p">(</span><span class="n">parameter</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">RaiseCanExecuteChanged</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">OnCanExecuteChanged</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">protected</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">OnCanExecuteChanged</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">CallWeakReferenceHandlers</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="kt">bool</span> <span class="n">IsAutomaticRequeryDisabled</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">_isAutomaticRequeryDisabled</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">set</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_isAutomaticRequeryDisabled</span> <span class="p">!=</span> <span class="k">value</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="k">value</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">RemoveHandlersFromRequerySuggested</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span>
+                    <span class="p">{</span>
+                        <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">AddHandlersToRequerySuggested</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="n">_isAutomaticRequeryDisabled</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Public</span> <span class="n">Methods</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">CanExecuteChanged</span>
+        <span class="p">{</span>
+            <span class="k">add</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">_isAutomaticRequeryDisabled</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">+=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">AddWeakReferenceHandler</span><span class="p">(</span><span class="k">ref</span> <span class="n">_canExecuteChangedHandlers</span><span class="p">,</span> <span class="k">value</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">remove</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(!</span><span class="n">_isAutomaticRequeryDisabled</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">-=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">CommandManagerHelper</span><span class="p">.</span><span class="nf">RemoveWeakReferenceHandler</span><span class="p">(</span><span class="n">_canExecuteChangedHandlers</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">bool</span> <span class="n">ICommand</span><span class="p">.</span><span class="nf">CanExecute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">parameter</span> <span class="p">==</span> <span class="k">null</span> <span class="p">&amp;&amp;</span>
+                <span class="k">typeof</span><span class="p">(</span><span class="n">T</span><span class="p">).</span><span class="n">IsValueType</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">_canExecuteMethod</span> <span class="p">==</span> <span class="k">null</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="nf">CanExecute</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">void</span> <span class="n">ICommand</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">Execute</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Data</span>
+
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">_executeMethod</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;</span> <span class="n">_canExecuteMethod</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="k">private</span> <span class="kt">bool</span> <span class="n">_isAutomaticRequeryDisabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+        <span class="k">private</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">_canExecuteChangedHandlers</span><span class="p">;</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Data</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// This class contains methods for the CommandManager that
+</span>    <span class="c1">/// help avoid memory leaks by using weak references.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="k">internal</span> <span class="k">class</span> <span class="nc">CommandManagerHelper</span>
+    <span class="p">{</span>
+        <span class="k">internal</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">CallWeakReferenceHandlers</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">handlers</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">handlers</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">EventHandler</span><span class="p">[]</span> <span class="n">callees</span> <span class="p">=</span> <span class="k">new</span> <span class="n">EventHandler</span><span class="p">[</span><span class="n">handlers</span><span class="p">.</span><span class="n">Count</span><span class="p">];</span>
+                <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="n">handlers</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span><span class="p">--)</span>
+                <span class="p">{</span>
+                    <span class="n">WeakReference</span> <span class="n">reference</span> <span class="p">=</span> <span class="n">handlers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                    <span class="n">EventHandler</span> <span class="n">handler</span> <span class="p">=</span> <span class="n">reference</span><span class="p">.</span><span class="n">Target</span> <span class="k">as</span> <span class="n">EventHandler</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">handler</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">handlers</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span>
+                    <span class="p">{</span>
+                        <span class="n">callees</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="p">=</span> <span class="n">handler</span><span class="p">;</span>
+                        <span class="n">count</span><span class="p">++;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+                <span class="p">{</span>
+                    <span class="n">EventHandler</span> <span class="n">handler</span> <span class="p">=</span> <span class="n">callees</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                    <span class="nf">handler</span><span class="p">(</span><span class="k">null</span><span class="p">,</span> <span class="n">EventArgs</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">internal</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">AddHandlersToRequerySuggested</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">handlers</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">handlers</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="n">WeakReference</span> <span class="n">handlerRef</span> <span class="k">in</span> <span class="n">handlers</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">EventHandler</span> <span class="n">handler</span> <span class="p">=</span> <span class="n">handlerRef</span><span class="p">.</span><span class="n">Target</span> <span class="k">as</span> <span class="n">EventHandler</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">handler</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">+=</span> <span class="n">handler</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">internal</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">RemoveHandlersFromRequerySuggested</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">handlers</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">handlers</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="n">WeakReference</span> <span class="n">handlerRef</span> <span class="k">in</span> <span class="n">handlers</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">EventHandler</span> <span class="n">handler</span> <span class="p">=</span> <span class="n">handlerRef</span><span class="p">.</span><span class="n">Target</span> <span class="k">as</span> <span class="n">EventHandler</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">handler</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">-=</span> <span class="n">handler</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">internal</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">AddWeakReferenceHandler</span><span class="p">(</span><span class="k">ref</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">handlers</span><span class="p">,</span> <span class="n">EventHandler</span> <span class="n">handler</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">AddWeakReferenceHandler</span><span class="p">(</span><span class="k">ref</span> <span class="n">handlers</span><span class="p">,</span> <span class="n">handler</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">internal</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">AddWeakReferenceHandler</span><span class="p">(</span><span class="k">ref</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">handlers</span><span class="p">,</span> <span class="n">EventHandler</span> <span class="n">handler</span><span class="p">,</span> <span class="kt">int</span> <span class="n">defaultListSize</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">handlers</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">handlers</span> <span class="p">=</span> <span class="p">(</span><span class="n">defaultListSize</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">?</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;(</span><span class="n">defaultListSize</span><span class="p">)</span> <span class="p">:</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;());</span>
+            <span class="p">}</span>
+
+            <span class="n">handlers</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="nf">WeakReference</span><span class="p">(</span><span class="n">handler</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">internal</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">RemoveWeakReferenceHandler</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">WeakReference</span><span class="p">&gt;</span> <span class="n">handlers</span><span class="p">,</span> <span class="n">EventHandler</span> <span class="n">handler</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">handlers</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="n">handlers</span><span class="p">.</span><span class="n">Count</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span><span class="p">--)</span>
+                <span class="p">{</span>
+                    <span class="n">WeakReference</span> <span class="n">reference</span> <span class="p">=</span> <span class="n">handlers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                    <span class="n">EventHandler</span> <span class="n">existingHandler</span> <span class="p">=</span> <span class="n">reference</span><span class="p">.</span><span class="n">Target</span> <span class="k">as</span> <span class="n">EventHandler</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">((</span><span class="n">existingHandler</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">existingHandler</span> <span class="p">==</span> <span class="n">handler</span><span class="p">))</span>
+                    <span class="p">{</span>
+                        <span class="n">handlers</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// A command whose sole purpose is to relay its functionality to other objects by invoking delegates.
+</span>    <span class="c1">/// The default return value for the CanExecute method is 'true'.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">RelayCommand</span> <span class="p">:</span> <span class="n">ICommand</span>
+    <span class="p">{</span>
+        <span class="err">#</span><span class="n">region</span> <span class="n">Fields</span>
+
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;</span> <span class="n">_execute</span><span class="p">;</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Predicate</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;</span> <span class="n">_canExecute</span><span class="p">;</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Fields</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Constructors</span>
+
+        <span class="k">public</span> <span class="nf">RelayCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;</span> <span class="n">execute</span><span class="p">)</span>
+        <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">execute</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="nf">RelayCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;</span> <span class="n">execute</span><span class="p">,</span> <span class="n">Predicate</span><span class="p">&lt;</span><span class="kt">object</span><span class="p">&gt;</span> <span class="n">canExecute</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">execute</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentNullException</span><span class="p">(</span><span class="s">"execute"</span><span class="p">);</span>
+
+            <span class="n">_execute</span> <span class="p">=</span> <span class="n">execute</span><span class="p">;</span>
+            <span class="n">_canExecute</span> <span class="p">=</span> <span class="n">canExecute</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Constructors</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="p">[</span><span class="n">DebuggerStepThrough</span><span class="p">]</span>
+        <span class="k">public</span> <span class="kt">bool</span> <span class="nf">CanExecute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">_canExecute</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">true</span> <span class="p">:</span> <span class="nf">_canExecute</span><span class="p">(</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">CanExecuteChanged</span>
+        <span class="p">{</span>
+            <span class="k">add</span> <span class="p">{</span> <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">+=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">remove</span> <span class="p">{</span> <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">-=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">_execute</span><span class="p">(</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">ICommand</span> <span class="n">Members</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// A command whose sole purpose is to relay its functionality to other objects by invoking delegates.
+</span>    <span class="c1">/// The default return value for the CanExecute method is 'true'.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="c1">/// &lt;typeparam name="T"&gt;Type of the parameter passed to the delegates.&lt;/typeparam&gt;
+</span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">RelayCommand</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">ICommand</span>
+    <span class="p">{</span>
+        <span class="err">#</span><span class="n">region</span> <span class="n">Fields</span>
+
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">_execute</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+        <span class="k">private</span> <span class="k">readonly</span> <span class="n">Predicate</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">_canExecute</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Fields</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Constructors</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Initializes a new instance of &lt;see cref="DelegateCommand{T}"/&gt;.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="c1">/// &lt;param name="execute"&gt;Delegate to execute when Execute is called on the command. This can be null to just hook up a CanExecute delegate.&lt;/param&gt;
+</span>        <span class="c1">/// &lt;remarks&gt;&lt;seealso cref="CanExecute"/&gt; will always return true.&lt;/remarks&gt;
+</span>        <span class="k">public</span> <span class="nf">RelayCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">execute</span><span class="p">)</span>
+            <span class="p">:</span> <span class="k">this</span><span class="p">(</span><span class="n">execute</span><span class="p">,</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+        <span class="p">}</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Creates a new command.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="c1">/// &lt;param name="execute"&gt;The execution logic.&lt;/param&gt;
+</span>        <span class="c1">/// &lt;param name="canExecute"&gt;The execution status logic.&lt;/param&gt;
+</span>        <span class="k">public</span> <span class="nf">RelayCommand</span><span class="p">(</span><span class="n">Action</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">execute</span><span class="p">,</span> <span class="n">Predicate</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="n">canExecute</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">execute</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentNullException</span><span class="p">(</span><span class="s">"execute"</span><span class="p">);</span>
+
+            <span class="n">_execute</span> <span class="p">=</span> <span class="n">execute</span><span class="p">;</span>
+            <span class="n">_canExecute</span> <span class="p">=</span> <span class="n">canExecute</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">Constructors</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">ICommand</span> <span class="n">Members</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Defines the method that determines whether the command can execute in its current state.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="c1">/// &lt;param name="parameter"&gt;Data used by the command.  If the command does not require data to be passed, this object can be set to null.&lt;/param&gt;
+</span>        <span class="c1">/// &lt;returns&gt;
+</span>        <span class="c1">/// true if this command can be executed; otherwise, false.
+</span>        <span class="c1">/// &lt;/returns&gt;
+</span>        <span class="k">public</span> <span class="kt">bool</span> <span class="nf">CanExecute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">_canExecute</span> <span class="p">==</span> <span class="k">null</span> <span class="p">?</span> <span class="k">true</span> <span class="p">:</span> <span class="nf">_canExecute</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Occurs when changes occur that affect whether or not the command should execute.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="k">public</span> <span class="k">event</span> <span class="n">EventHandler</span> <span class="n">CanExecuteChanged</span>
+        <span class="p">{</span>
+            <span class="k">add</span> <span class="p">{</span> <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">+=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">remove</span> <span class="p">{</span> <span class="n">CommandManager</span><span class="p">.</span><span class="n">RequerySuggested</span> <span class="p">-=</span> <span class="k">value</span><span class="p">;</span> <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">/// &lt;summary&gt;
+</span>        <span class="c1">/// Defines the method to be called when the command is invoked.
+</span>        <span class="c1">/// &lt;/summary&gt;
+</span>        <span class="c1">/// &lt;param name="parameter"&gt;Data used by the command. If the command does not require data to be passed, this object can be set to &lt;see langword="null" /&gt;.&lt;/param&gt;
+</span>        <span class="k">public</span> <span class="k">void</span> <span class="nf">Execute</span><span class="p">(</span><span class="kt">object</span> <span class="n">parameter</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nf">_execute</span><span class="p">((</span><span class="n">T</span><span class="p">)</span><span class="n">parameter</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span> <span class="n">ICommand</span> <span class="n">Members</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="examples-on-how-you-can-use-them">Examples on how you can use them</h3>
+
+<p>I have concluded everything inside here, assuming your view model filename is <strong>ViewModelExample.cs</strong>:</p>
+
+<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="k">using</span> <span class="nn">HeiswayiNrird.MVVM.Common</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows.Input</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">MVVMExampleApp</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;
+</span>    <span class="c1">/// Example of view model.
+</span>    <span class="c1">/// &lt;/summary&gt;
+</span>    <span class="k">public</span> <span class="k">class</span> <span class="nc">ViewModelExample</span> <span class="p">:</span> <span class="n">ViewModelBase</span>
+    <span class="p">{</span>
+        <span class="err">#</span><span class="n">region</span> <span class="n">Properties</span>
+
+        <span class="c1">// Example 1
+</span>        <span class="k">private</span> <span class="kt">object</span> <span class="n">_propertyName1</span><span class="p">;</span>
+        <span class="k">public</span> <span class="kt">object</span> <span class="n">PropertyName1</span>
+        <span class="p">{</span>
+            <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_propertyName1</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">set</span>
+            <span class="p">{</span>
+                <span class="n">_propertyName1</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="nf">OnPropertyChanged</span><span class="p">(</span><span class="s">"PropertyName1"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Example 2
+</span>        <span class="k">private</span> <span class="kt">object</span> <span class="n">_propertyName2</span><span class="p">;</span>
+        <span class="k">public</span> <span class="kt">object</span> <span class="n">PropertyName2</span>
+        <span class="p">{</span>
+            <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_propertyName2</span><span class="p">;</span> <span class="p">}</span>
+            <span class="k">set</span>
+            <span class="p">{</span>
+                <span class="n">_propertyName2</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+                <span class="nf">RaisePropertyChanged</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="n">PropertyName2</span><span class="p">);</span> <span class="c1">// Use of lambda expression
+</span>            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">ICommand</span>
+
+        <span class="c1">// Example 1 : DelegateCommand
+</span>        <span class="k">private</span> <span class="n">ICommand</span> <span class="n">_commandProperty1</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">ICommand</span> <span class="n">CommandProperty1</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_commandProperty1</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="c1">//_commandProperty1 = new DelegateCommand(methodToExecute);
+</span>                    <span class="n">_commandProperty1</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">DelegateCommand</span><span class="p">(</span><span class="n">methodToExecute</span><span class="p">,</span> <span class="n">canExecuteMethodToExecute</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">_commandProperty1</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Example 2 : DelegateCommand with type
+</span>        <span class="k">private</span> <span class="n">ICommand</span> <span class="n">_commandProperty2</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">ICommand</span> <span class="n">CommandProperty2</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_commandProperty2</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">_commandProperty2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">DelegateCommand</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="n">methodToExecute2</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">_commandProperty2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Example 3 : RelayCommand
+</span>        <span class="k">private</span> <span class="n">ICommand</span> <span class="n">_commandProperty3</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">ICommand</span> <span class="n">CommandProperty3</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_commandProperty3</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">_commandProperty3</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RelayCommand</span><span class="p">(</span>
+                        <span class="n">param</span> <span class="p">=&gt;</span> <span class="nf">methodToExecute</span><span class="p">(),</span>
+                        <span class="n">param</span> <span class="p">=&gt;</span> <span class="nf">canExecuteMethodToExecute</span><span class="p">()</span>
+                        <span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">_commandProperty3</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Example 4 : RelayCommand with parameter
+</span>        <span class="k">private</span> <span class="n">ICommand</span> <span class="n">_commandProperty4</span><span class="p">;</span>
+        <span class="k">public</span> <span class="n">ICommand</span> <span class="n">CommandProperty4</span>
+        <span class="p">{</span>
+            <span class="k">get</span>
+            <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">_commandProperty4</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">_commandProperty4</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RelayCommand</span><span class="p">(</span>
+                        <span class="n">param</span> <span class="p">=&gt;</span> <span class="nf">methodToExecute2</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">param</span><span class="p">),</span> <span class="c1">// Use with UI control CommandParameter property
+</span>                        <span class="n">param</span> <span class="p">=&gt;</span> <span class="nf">canExecuteMethodToExecute</span><span class="p">()</span>
+                        <span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">_commandProperty4</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">region</span> <span class="n">Execution</span> <span class="n">Methods</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">methodToExecute2</span><span class="p">(</span><span class="kt">int</span> <span class="n">param</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">methodToExecute</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// Logic to execute...
+</span>        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="kt">bool</span> <span class="nf">canExecuteMethodToExecute</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="c1">// Put your expression/condition here, return true/false...
+</span>            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="err">#</span><span class="n">endregion</span>
+
+        <span class="err">#</span><span class="n">endregion</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>I hope this collection will benefit you, happy coding!</p>
+
+  
+</div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
+
+      </div>
+    </div>
+
+	  <div class="footer">
+	<div class="hrline"></div>
+	<div class="license">Unless otherwise stated, all original code presented on this site is licensed under the <a href="http://heiswayi.github.io/mit-license">MIT license</a>. All original photographs and text on this website are licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives</a> license. If you have any questions about using any of this material for commercial purposes, please <a href="https://github.com/heiswayi/ama">ask me here</a> or <a href="mailto:asd@gmail.com">write an email to me</a>.</div>
+	<div class="copyright">Made with <span style="color:#e00"><i class="fa fa-heart"></i></span> using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code"></i> on <a href="https://github.com/heiswayi/heiswayi.github.io_jekyll_source">GitHub</a> <i class="fa fa-github-alt"></i><br>&copy; 2016 Heiswayi Nrird</div>
+</div>
+
+<script>
+$(window).load(function() {
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		gutter: 10
+	});
+});
+</script>
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-58296043-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  </body>
+</html>

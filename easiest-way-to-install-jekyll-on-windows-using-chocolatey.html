@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Easiest Way to Install Jekyll on Windows using Chocolatey &middot; Heiswayi Nrird on Tech
+    
+  </title>
+
+  
+    <meta name="description" content="Chocolatey is the BEST way to install and keep applications updated on Windows."/>
+    <meta name="keywords" content="jekyll installation, windows os, chocolatey">
+  
+  <meta name="author" content="Heiswayi Nrird">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@HeiswayiNrird">
+  <meta name="twitter:creator" content="@HeiswayiNrird">
+  
+    <meta name="twitter:title" content="Easiest Way to Install Jekyll on Windows using Chocolatey">
+    <meta name="twitter:description" content="Chocolatey is the BEST way to install and keep applications updated on Windows.">
+  
+
+  <meta property="og:type" content="website"/>
+  
+    <meta property="og:title" content="Easiest Way to Install Jekyll on Windows using Chocolatey"/>
+    <meta property="og:url" content="/easiest-way-to-install-jekyll-on-windows-using-chocolatey.html"/>
+    <meta property="og:description" content="Chocolatey is the BEST way to install and keep applications updated on Windows."/>
+    <meta property="og:site_name" content="Easiest Way to Install Jekyll on Windows using Chocolatey"/>
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#f3f3f3">
+  <meta name="msapplication-TileImage" content="/public/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="aSavCGGU0uSN5HEHnI7ZiMqVKxn7mfUPCGMVJvmDQ1w" />
+  <meta name="wot-verification" content="6da2597a332a1fadad8f"/>
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/jquery-1.11.2.min.js"></script>
+  <script src="/public/js/masonry.pkgd.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script src="/public/js/rem.min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="master-nav">
+        <div class="nav">
+            <ul class="top-menu">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+              <li><a href="/notes.html"><i class="fa fa-pencil"></i> Notes</a></li>
+              <li><a class="resume" href="http://heiswayi.github.io/resume/"><i class="fa fa-file-text-o"></i> Resume</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-repos/"><i class="fa fa-github-alt"></i> Repositories</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-gists/"><i class="fa fa-code"></i> Gists</a></li>
+              <li><a class="unique" href="http://heiswayi.nrird.com"><i class="fa fa-camera-retro"></i> Photography</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="container">
+          <h2 class="masthead-title">
+            <a href="/" title="Home">Heiswayi Nrird on Tech</a>
+            <small>Another Software Guy's Blog</small>
+          </h2>
+
+          <div class="footer-social-links">
+  <a href="http://heiswayi.nrird.com/atom.xml" title="RSS Feed" target="_blank"><i class="fa fa-rss"></i></a>
+  <a href="https://my.linkedin.com/in/nrird" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=1257583160" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+  <a href="https://twitter.com/HeiswayiNrird" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/heiswayi" title="GitHub" target="_blank"><i class="fa fa-github-alt"></i></a>
+  <a href="https://gist.github.com/heiswayi" title="GitHub Gist" target="_blank"><i class="fa fa-code"></i></a>
+  <a href="http://codepen.io/heiswayi/" title="CodePen" target="_blank"><i class="fa fa-codepen"></i></a>
+  <a href="https://500px.com/heiswayi_nrird" title="500px" target="_blank"><i class="fa fa-500px"></i></a>
+  <a href="https://instagram.com/heiswayi.nrird/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+</div>
+
+
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">April 14, 2016 &middot; <span class="reading-time" title="Estimated Reading Time">
+  
+  
+    1 minute read
+  
+</span>
+</div>
+    <h1 class="post-title">Easiest Way to Install Jekyll on Windows using Chocolatey</h1>
+  </div>
+
+  <div class="hrline"></div>
+
+  <p>Have you heard about Chocolatey? Chocolatey is the BEST way to install and keep applications updated on Windows. Let’s not waste the time, here are the steps.</p>
+
+<p><strong>STEP01.</strong> Open a command prompt with Administrator access</p>
+
+<p><strong>STEP02.</strong> Paste this to install <a href="https://chocolatey.org/">Chocolatey</a>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+</code></pre>
+</div>
+
+<p><strong>STEP03.</strong> Close the command prompt as Chocolatey will not be available until we close and reopen.</p>
+
+<p><strong>STEP04.</strong> Open a command prompt again with Administrator access</p>
+
+<p><strong>STEP05.</strong> Paste this to install <a href="https://chocolatey.org/packages/ruby">Ruby</a>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>choco install ruby -y
+</code></pre>
+</div>
+
+<p><strong>STEP06.</strong> Close and reopen a new command prompt again with Administrator access</p>
+
+<p><strong>STEP07.</strong> Paste this to install <a href="https://jekyllrb.com/">Jekyll</a>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gem install jekyll
+</code></pre>
+</div>
+
+<p><strong>STEP08.</strong> Done! Now we can use standard Jekyll commands to create a new site and serve it:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>jekyll new myblog
+cd myblog
+jekyll serve
+</code></pre>
+</div>
+
+<p>Credit: <a href="https://davidburela.wordpress.com/2015/11/28/easily-install-jekyll-on-windows-with-3-command-prompt-entries-and-chocolatey/">David Burela</a></p>
+
+  
+</div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
+
+      </div>
+    </div>
+
+	  <div class="footer">
+	<div class="hrline"></div>
+	<div class="license">Unless otherwise stated, all original code presented on this site is licensed under the <a href="http://heiswayi.github.io/mit-license">MIT license</a>. All original photographs and text on this website are licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives</a> license. If you have any questions about using any of this material for commercial purposes, please <a href="https://github.com/heiswayi/ama">ask me here</a> or <a href="mailto:asd@gmail.com">write an email to me</a>.</div>
+	<div class="copyright">Made with <span style="color:#e00"><i class="fa fa-heart"></i></span> using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code"></i> on <a href="https://github.com/heiswayi/heiswayi.github.io_jekyll_source">GitHub</a> <i class="fa fa-github-alt"></i><br>&copy; 2016 Heiswayi Nrird</div>
+</div>
+
+<script>
+$(window).load(function() {
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		gutter: 10
+	});
+});
+</script>
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-58296043-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  </body>
+</html>

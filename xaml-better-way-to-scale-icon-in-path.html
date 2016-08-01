@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      XAML - Better Way To Scale Icon In Path &middot; Heiswayi Nrird on Tech
+    
+  </title>
+
+  
+    <meta name="description" content="A better way to scale an icon built using Path element."/>
+    <meta name="keywords" content="xaml icon, icon scaling, wpf">
+  
+  <meta name="author" content="Heiswayi Nrird">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@HeiswayiNrird">
+  <meta name="twitter:creator" content="@HeiswayiNrird">
+  
+    <meta name="twitter:title" content="XAML - Better Way To Scale Icon In Path">
+    <meta name="twitter:description" content="A better way to scale an icon built using Path element.">
+  
+
+  <meta property="og:type" content="website"/>
+  
+    <meta property="og:title" content="XAML - Better Way To Scale Icon In Path"/>
+    <meta property="og:url" content="/xaml-better-way-to-scale-icon-in-path.html"/>
+    <meta property="og:description" content="A better way to scale an icon built using Path element."/>
+    <meta property="og:site_name" content="XAML - Better Way To Scale Icon In Path"/>
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#f3f3f3">
+  <meta name="msapplication-TileImage" content="/public/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="aSavCGGU0uSN5HEHnI7ZiMqVKxn7mfUPCGMVJvmDQ1w" />
+  <meta name="wot-verification" content="6da2597a332a1fadad8f"/>
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/jquery-1.11.2.min.js"></script>
+  <script src="/public/js/masonry.pkgd.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script src="/public/js/rem.min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="master-nav">
+        <div class="nav">
+            <ul class="top-menu">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+              <li><a href="/notes.html"><i class="fa fa-pencil"></i> Notes</a></li>
+              <li><a class="resume" href="http://heiswayi.github.io/resume/"><i class="fa fa-file-text-o"></i> Resume</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-repos/"><i class="fa fa-github-alt"></i> Repositories</a></li>
+              <li><a class="special" href="http://heiswayi.github.io/my-gists/"><i class="fa fa-code"></i> Gists</a></li>
+              <li><a class="unique" href="http://heiswayi.nrird.com"><i class="fa fa-camera-retro"></i> Photography</a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="container">
+          <h2 class="masthead-title">
+            <a href="/" title="Home">Heiswayi Nrird on Tech</a>
+            <small>Another Software Guy's Blog</small>
+          </h2>
+
+          <div class="footer-social-links">
+  <a href="http://heiswayi.nrird.com/atom.xml" title="RSS Feed" target="_blank"><i class="fa fa-rss"></i></a>
+  <a href="https://my.linkedin.com/in/nrird" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <a href="https://www.facebook.com/profile.php?id=1257583160" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+  <a href="https://twitter.com/HeiswayiNrird" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/heiswayi" title="GitHub" target="_blank"><i class="fa fa-github-alt"></i></a>
+  <a href="https://gist.github.com/heiswayi" title="GitHub Gist" target="_blank"><i class="fa fa-code"></i></a>
+  <a href="http://codepen.io/heiswayi/" title="CodePen" target="_blank"><i class="fa fa-codepen"></i></a>
+  <a href="https://500px.com/heiswayi_nrird" title="500px" target="_blank"><i class="fa fa-500px"></i></a>
+  <a href="https://instagram.com/heiswayi.nrird/" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+</div>
+
+
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">August 18, 2015 &middot; <span class="reading-time" title="Estimated Reading Time">
+  
+  
+    2 minutes read
+  
+</span>
+</div>
+    <h1 class="post-title">XAML - Better Way To Scale Icon In Path</h1>
+  </div>
+
+  <div class="hrline"></div>
+
+  <p>Creating an icon in XAML gives us a flexibility in our software UI development. The best tool to do that is <a href="http://www.microsoft.com/en-my/download/details.aspx?id=36180">Microsoft Expression Design 4</a>. The ability to export the design into any popular format such as BMP, JPG, PNG, XAML, etc. is a beautiful feature. Assuming we have designed our icon and exported it into XAML in order to get the <code class="highlighter-rouge">StreamGeometry</code> mini-language. Then, we can use this <code class="highlighter-rouge">StreamGeometry</code> data for <code class="highlighter-rouge">Data</code> property in a <code class="highlighter-rouge">Path</code> element.</p>
+
+<p><img src="http://i.imgur.com/jPcRXZL.png" alt="Using ScaleTransform" /></p>
+
+<p>Let’s say the original dimension of the designed icon is 44x44 pixels and we need to scale it bigger to fit our development requirements. INSTEAD of using <code class="highlighter-rouge">ScaleTransform</code> element from the <code class="highlighter-rouge">Path.RenderTransform</code> element just to make the icon size bigger, it’s BETTER to assign directly the <code class="highlighter-rouge">Width</code>, <code class="highlighter-rouge">Height</code> and <code class="highlighter-rouge">Stretch</code> property in the <code class="highlighter-rouge">Path</code> element.</p>
+
+<h3 id="example">Example</h3>
+
+<p>Instead of this:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Path</span> <span class="na">Fill=</span><span class="s">"White"</span> <span class="na">Data=</span><span class="s">"F1 M 22.9583,31.6667C 24.27, ..., ..., ... Z "</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Path.RenderTransform&gt;</span>
+        <span class="nt">&lt;ScaleTransform</span> <span class="na">ScaleX=</span><span class="s">"1"</span> <span class="na">ScaleY=</span><span class="s">"1"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Path.RenderTransform&gt;</span>
+<span class="nt">&lt;/Path&gt;</span>
+</code></pre>
+</div>
+
+<p>Change it to use something like this:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;Path</span> <span class="na">Width=</span><span class="s">"100"</span> <span class="na">Height=</span><span class="s">"100"</span> <span class="na">Stretch=</span><span class="s">"Uniform"</span> <span class="na">Fill=</span><span class="s">"White"</span> <span class="na">Data=</span><span class="s">"F1 M 22.9583,31.6667C 24.27,31.6667 25.3333,32.73 25.3333,34.0417L 25.3333, ..., ..., ... Z "</span><span class="nt">/&gt;</span>
+</code></pre>
+</div>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p><img src="http://i.imgur.com/ljsnCT0.png" alt="Using Path icon scale" /></p>
+
+<blockquote>
+  <p>The <code class="highlighter-rouge">Stretch="Uniform"</code> property makes the <code class="highlighter-rouge">Path</code> element (the icon) can be scaled up or down with a correct ratio.</p>
+</blockquote>
+
+<p>This is the sample of mini-language (the <code class="highlighter-rouge">StreamGeometry</code> data) for the <strong>Android</strong> icon I used:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>F1 M 22.9583,31.6667C 24.27,31.6667 25.3333,32.73 25.3333,34.0417L 25.3333,43.5417C 25.3333,44.8533 24.27,45.9167 22.9583,45.9167C 21.6467,45.9167 20.5833,44.8533 20.5833,43.5417L 20.5833,34.0417C 20.5833,32.73 21.6467,31.6667 22.9583,31.6667 Z M 53.0416,31.6667C 54.3533,31.6667 55.4166,32.73 55.4166,34.0417L 55.4166,43.5417C 55.4166,44.8533 54.3533,45.9167 53.0416,45.9167C 51.7299,45.9167 50.6666,44.8533 50.6666,43.5417L 50.6666,34.0417C 50.6666,32.73 51.7299,31.6667 53.0416,31.6667 Z M 26.9166,31.6667L 49.0833,31.6667L 49.0833,48.2917C 49.0833,49.6034 48.02,50.6667 46.7083,50.6667L 44.3333,50.6667L 44.3333,55.4167C 44.3333,56.7284 43.27,57.7917 41.9583,57.7917C 40.6466,57.7917 39.5833,56.7284 39.5833,55.4167L 39.5833,50.6667L 36.4166,50.6667L 36.4166,55.4167C 36.4166,56.7284 35.3533,57.7917 34.0416,57.7917C 32.73,57.7917 31.6666,56.7284 31.6666,55.4167L 31.6667,50.6667L 29.2916,50.6667C 27.98,50.6667 26.9166,49.6034 26.9166,48.2917L 26.9166,31.6667 Z M 29.6875,19C 29.9967,18.6909 30.4979,18.6909 30.8071,19L 33.402,21.595C 34.8777,20.9478 36.4641,20.5834 38,20.5834C 39.5494,20.5834 41.1502,20.9543 42.637,21.6122L 45.2491,19C 45.5583,18.6909 46.0596,18.6909 46.3687,19C 46.6779,19.3092 46.6779,19.8105 46.3687,20.1196L 44.1084,22.38C 46.9524,24.1057 49.0833,26.9132 49.0833,30.0834L 26.9166,30.0834C 26.9166,26.9002 29.065,24.0827 31.9266,22.3588L 29.6875,20.1196C 29.3783,19.8105 29.3783,19.3092 29.6875,19 Z M 34.0417,24.5417C 33.1672,24.5417 32.4583,25.2506 32.4583,26.125C 32.4583,26.9995 33.1672,27.7083 34.0417,27.7083C 34.9161,27.7083 35.625,26.9995 35.625,26.125C 35.625,25.2506 34.9161,24.5417 34.0417,24.5417 Z M 41.9583,24.5417C 41.0839,24.5417 40.375,25.2505 40.375,26.125C 40.375,26.9995 41.0839,27.7083 41.9583,27.7083C 42.8328,27.7083 43.5417,26.9995 43.5417,26.125C 43.5417,25.2505 42.8328,24.5417 41.9583,24.5417 Z
+</code></pre>
+</div>
+
+<p>The reason I’m writing about this because I found out that some people use the <code class="highlighter-rouge">ScaleTransform</code> element just to resize the icon. This is not the best method when if we intend to keep the icon ratio resized proportionally. Unless we don’t care about the scale ratio at all. Since there is a simpler method, why not we apply it as a standard, so we can reduce the probability of human errors. Resizing the icon requires it to keep its scale ratio in order to maintain its shape correctly.</p>
+
+  
+</div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
+
+      </div>
+    </div>
+
+	  <div class="footer">
+	<div class="hrline"></div>
+	<div class="license">Unless otherwise stated, all original code presented on this site is licensed under the <a href="http://heiswayi.github.io/mit-license">MIT license</a>. All original photographs and text on this website are licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives</a> license. If you have any questions about using any of this material for commercial purposes, please <a href="https://github.com/heiswayi/ama">ask me here</a> or <a href="mailto:asd@gmail.com">write an email to me</a>.</div>
+	<div class="copyright">Made with <span style="color:#e00"><i class="fa fa-heart"></i></span> using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code"></i> on <a href="https://github.com/heiswayi/heiswayi.github.io_jekyll_source">GitHub</a> <i class="fa fa-github-alt"></i><br>&copy; 2016 Heiswayi Nrird</div>
+</div>
+
+<script>
+$(window).load(function() {
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		gutter: 10
+	});
+});
+</script>
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-58296043-7', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  </body>
+</html>
