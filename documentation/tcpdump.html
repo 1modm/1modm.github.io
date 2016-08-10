@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | Notes</title>
+<meta name="description" content="tcpdump">
+<meta name="keywords" content=" tcpdump">
+<title>tcpdump | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="tcpdump">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -150,8 +150,89 @@
 
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle"> </li>
+    <li class="sidebarTitle">Notes 1.0</li>
     
+    
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">Get started</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Networking</a>
+        <ul>
+            
+            
+            
+            <li class="active"><a href="tcpdump.html">tcpdump</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="netstat.html">netstat</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="lsof.html">lsof</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="netcat.html">netcat</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="arping.html">arping</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="ethtool.html">ethtool</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="netstat.html">netstat</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tshark.html">tshark</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
         <!-- if you aren't using the accordion, uncomment this block:
            <p class="external">
                <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
@@ -167,13 +248,15 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">tcpdump</h1>
 </div>
 
 
 
 <div class="post-content">
 
+   
+    <div class="summary">tcpdump</div>
    
 
     
@@ -207,23 +290,131 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <div class="printTitleArea">
-    <div class="printTitle"></div>
-    <div class="printSubtitle"></div>
-    <div class="lastGeneratedDate">Last generated: August 10, 2016</div>
-    <hr />
+  <h2 id="tcpdump">tcpdump</h2>
 
-    <div class="printTitleImage">
-        <img src="//images/company_logo_big.png"/>
-    </div>
-
-    <div class="copyrightBoilerplate">
-        <p>&copy; 2016 Your company. This is a boilerplate copyright statement... All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
-        </p>
-
-    </div>
-
+<div class="highlighter-rouge"><pre class="highlight"><code>    -i any : Listen on all interfaces just to see if you’re seeing any traffic.
+    -i eth0 : Listen on the eth0 interface.
+    -D : Show the list of available interfaces
+    -n : Don’t resolve hostnames.
+    -nn : Don’t resolve hostnames or port names.
+    -q : Be less verbose (more quiet) with your output.
+    -X : Show the packet’s contents in both hex and ASCII.
+    -XX : Same as -X, but also shows the ethernet header.
+    -v, -vv, -vvv : Increase the amount of packet information you get back.
+    -c : Only get x number of packets and then stop.
+    icmp : Only get ICMP packets.
+    -s : Define the snaplength (size) of the capture in bytes. Use -s0 to get everything, unless you are intentionally capturing less.
+    -S : Print absolute sequence numbers.
+    -e : Get the ethernet header as well.
+    -q : Show less protocol information.
+    -E : Decrypt IPSEC traffic by providing an encryption key.
+</code></pre>
 </div>
+
+<p><strong>Examples:</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tcpdump -nnvvS
+tcpdump -nnvvXSs 1514
+tcpdump -D
+
+tcpdump -v icmp
+tcpdump -i eth0 not broadcast 
+
+tcpdump -vv -n host 192.168.1.1
+tcpdump -vv src 192.168.1.1
+tcpdump -vv dst 192.168.1.1
+tcpdump net 192.168.1.0/24
+
+tcpdump port 3389
+tcpdump portrange 21-23
+tcpdump src port 1025 and tcp
+
+tcpdump -vv -i eth0 <span class="s1">'port 22'</span>
+tcpdump -l -i eth0 <span class="s1">'port 514'</span> |  awk <span class="s1">'{print $3}'</span> 
+tcpdump -n -i eth0 not tcp port 443 and not tcp port 22
+
+tcpdump -i eth0 -n  ip | awk <span class="s1">'{ print gensub(/(.*)\..*/,"\\1","g",$3), $4, gensub(/(.*)\..*/,"\\1","g",$5) }'</span>
+tcpdump -n -i eth0 | egrep -v <span class="s2">"21.34.141|62.2.21"</span>
+tcpdump -n -i eth0 not tcp port 443 and not tcp port 22 and not icmp and not udp port 53
+tcpdump -nvX src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
+tcpdump src 10.0.2.4 and <span class="o">(</span>dst port 3389 or 22<span class="o">)</span>
+
+
+tcpdump -n -i eth0 -A -x dst port 443 and greater 100
+tcpdump -s 1514 -evvv    <span class="c"># 1514 bytes - Ethernet header = 1500 bytes</span>
+
+tcpdump portrange 21-23 
+tcpdump less 32 
+tcpdump greater 128 
+
+tcpdump -s 1514 port 80 -w capture_file
+tcpdump -r capture_file
+</code></pre>
+</div>
+
+<p>Show me all URGENT (URG) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 32!=0‘
+</code></pre>
+</div>
+
+<p>Show me all ACKNOWLEDGE (ACK) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 16!=0‘
+</code></pre>
+</div>
+
+<p>Show me all PUSH (PSH) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 8!=0‘
+</code></pre>
+</div>
+
+<p>Show me all RESET (RST) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 4!=0‘
+</code></pre>
+</div>
+
+<p>Show me all SYNCHRONIZE (SYN) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 2!=0‘
+</code></pre>
+</div>
+
+<p>Show me all FINISH (FIN) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 1!=0‘
+</code></pre>
+</div>
+
+<p>Show me all SYNCHRONIZE/ACKNOWLEDGE (SYNACK) packets…
+<code class="highlighter-rouge">
+# tcpdump ‘tcp[13]=18‘
+</code></p>
+
+<p>IPv6 traffic</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ip6
+</code></pre>
+</div>
+
+<p>Packets with both the RST and SYN flags set (why?)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] = 6’
+</code></pre>
+</div>
+
+<p>Traffic with the ‘Evil Bit’ Set</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘ip[6] &amp; 128 != 0‘
+</code></pre>
+</div>
+
+<p>More examples 
+<a href="https://danielmiessler.com/study/tcpdump/">tcpdump</a>.
+<a href="https://danielmiessler.com/study/synpackets/">synpackets</a>.
+<a href="https://danielmiessler.com/study/icmp/">icmp</a>.</p>
 
 
     <div class="tags">
@@ -240,7 +431,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Aug 10, 2016 <br />
+<span>Page last updated:</span> August 5, 2016<br/> Site last generated: Aug 10, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

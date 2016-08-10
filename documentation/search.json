@@ -8,16 +8,16 @@
 {
 "title": "Index",
 "tags": "",
-"keywords": "sample homepage",
+"keywords": "Homepage",
 "url": "index.html",
-"summary": "Test."
+"summary": "Index."
 },
 
 
 
 {
 "title": "About the author",
-"tags": "getting_started",
+"tags": "",
 "keywords": "documentation theme, jekyll, technical writers, help authoring tools, hat replacements",
 "url": "mydoc_about.html",
 "summary": "I have used this theme for projects that I've worked on as a professional technical writer."
@@ -38,6 +38,16 @@
 
 
 
+
+
+
+{
+"title": "tcpdump",
+"tags": "",
+"keywords": "tcpdump",
+"url": "tcpdump.html",
+"summary": "tcpdump"
+},
 
 
 

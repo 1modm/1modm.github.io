@@ -5,28 +5,9 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 01 Aug 2016 11:33:56 +0100</pubDate>
-    <lastBuildDate>Mon, 01 Aug 2016 11:33:56 +0100</lastBuildDate>
+    <pubDate>Wed, 10 Aug 2016 23:17:45 +0100</pubDate>
+    <lastBuildDate>Wed, 10 Aug 2016 23:17:45 +0100</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
-    
-      <item>
-        <title>Test</title>
-        <description>&lt;p&gt;Introducing &lt;strong&gt;Test&lt;/strong&gt;, Test&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://heiswayi.github.io/thinkspace/&quot;&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/a&gt; / &lt;a href=&quot;https://github.com/heiswayi/thinkspace&quot;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/WHcnbYF.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Be minimalist. No hypocrisy.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 10 Jun 2016 00:00:00 +0100</pubDate>
-        <link>/thinkspace.html</link>
-        <guid isPermaLink="true">/thinkspace.html</guid>
-        
-        
-      </item>
     
   </channel>
 </rss>
