@@ -351,6 +351,8 @@ $('#toc').on('click', 'a', function() {
 
   <h2 id="tcpdump">tcpdump</h2>
 
+<div class="bs-callout bs-callout-primary">tcpdump - dump traffic on a network</div>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>    -i any : Listen on all interfaces just to see if you’re seeing any traffic.
     -i eth0 : Listen on the eth0 interface.
     -D : Show the list of available interfaces
@@ -413,44 +415,45 @@ tcpdump -r capture_file
 
 <p>Show me all URGENT (URG) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 32!=0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 32!=0'
 </code></pre>
 </div>
 
 <p>Show me all ACKNOWLEDGE (ACK) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 16!=0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 16!=0'
 </code></pre>
 </div>
 
 <p>Show me all PUSH (PSH) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 8!=0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 8!=0'
 </code></pre>
 </div>
 
 <p>Show me all RESET (RST) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 4!=0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 4!=0'
 </code></pre>
 </div>
 
 <p>Show me all SYNCHRONIZE (SYN) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 2!=0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 2!=0'
 </code></pre>
 </div>
 
 <p>Show me all FINISH (FIN) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] &amp; 1!=0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 1!=0'
 </code></pre>
 </div>
 
-<p>Show me all SYNCHRONIZE/ACKNOWLEDGE (SYNACK) packets…
-<code class="highlighter-rouge">
-# tcpdump ‘tcp[13]=18‘
-</code></p>
+<p>Show me all SYNCHRONIZE/ACKNOWLEDGE (SYNACK) packets…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13]=18'
+</code></pre>
+</div>
 
 <p>IPv6 traffic</p>
 
@@ -460,20 +463,23 @@ tcpdump -r capture_file
 
 <p>Packets with both the RST and SYN flags set (why?)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘tcp[13] = 6’
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="nx">tcpdump</span> <span class="s1">'tcp[13] = 6'</span>
 </code></pre>
 </div>
 
 <p>Traffic with the ‘Evil Bit’ Set</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ‘ip[6] &amp; 128 != 0‘
+<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'ip[6] &amp; 128 != 0'
 </code></pre>
 </div>
 
-<p>More examples 
-<a href="https://danielmiessler.com/study/tcpdump/">tcpdump</a>.
-<a href="https://danielmiessler.com/study/synpackets/">synpackets</a>.
-<a href="https://danielmiessler.com/study/icmp/">icmp</a>.</p>
+<p>More examples:</p>
+
+<p><a href="https://danielmiessler.com/study/tcpdump/">tcpdump</a>.</p>
+
+<p><a href="https://danielmiessler.com/study/synpackets/">synpackets</a>.</p>
+
+<p><a href="https://danielmiessler.com/study/icmp/">icmp</a>.</p>
 
 
     <div class="tags">
