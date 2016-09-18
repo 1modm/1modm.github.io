@@ -10,7 +10,25 @@
   
   
   <url>
+    <loc>/files.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/gitcommands.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/mat.html</loc>
   </url>
   
   
@@ -27,6 +45,24 @@
   
   
   
+  <url>
+    <loc>/ngrep.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/pentestcheat.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>/scapycheat.html</loc>
+  </url>
+  
   
   
   
@@ -35,6 +71,12 @@
   
   <url>
     <loc>/tcpdump.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/testdisk.html</loc>
   </url>
   
   

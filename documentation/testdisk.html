@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="Bad sector, Badblocks, badsectors, check disk for errors, checkdisk, Device file, disk">
+<meta name="keywords" content=" testdisk">
+<title>testdisk | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="testdisk">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -211,7 +211,7 @@
             
             
             
-            <li><a href="testdisk.html">TestDisk</a></li>
+            <li class="active"><a href="testdisk.html">TestDisk</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">testdisk</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">Bad sector, Badblocks, badsectors, check disk for errors, checkdisk, Device file, disk</div>
    
 
     
@@ -406,7 +406,77 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="bad-blocks">Bad Blocks</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo badblocks -v /dev/sdc1
+
+Checking blocks 0 to 130954239
+Checking <span class="k">for </span>bad blocks <span class="o">(</span><span class="nb">read</span>-only <span class="nb">test</span><span class="o">)</span>: 5621828 <span class="k">done</span>, 3:37 elapsed
+5621860 <span class="k">done</span>, 8:43 elapsed
+5621861 <span class="k">done</span>, 13:25 elapsed
+5621862 <span class="k">done</span>, 17:57 elapsed
+<span class="k">done
+</span>Pass completed, 4 bad blocks found.
+
+</code></pre>
+</div>
+
+<h2 id="write-bad-sectors-into-a-file">Write bad sectors into a file</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo badblocks /dev/sdc &gt; /home/hacks/bad-blocks
+
+</code></pre>
+</div>
+
+<h2 id="mark-bad-sectors-as-unusable">Mark bad sectors as ‘unusable’</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo fsck -l bad-blocks /dev/sdc
+
+</code></pre>
+</div>
+
+<h2 id="test-hard-disk-read-speed-using-dd">Test Hard Disk Read Speed Using «dd»</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># dd if=tempfile of=/dev/null bs=1M count=1024</span>
+1024+0 records <span class="k">in
+</span>1024+0 records out
+1073741824 bytes <span class="o">(</span>1.1 GB<span class="o">)</span> copied, 14.1893 s, 75.7 MB/s
+
+</code></pre>
+</div>
+
+<h2 id="disk-io-test">Disk IO test</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Prepare the test
+sysbench --test=fileio --file-total-size=5G prepare &gt; /dev/null
+
+# Sequential Write
+sysbench --test=fileio --file-total-size=5G --file-test-mode=seqwr --max-time=120 --max-requests=0 run
+
+#Sequential Rewrite
+sysbench --test=fileio --file-total-size=5G --file-test-mode=seqrewr --max-time=120 --max-requests=0 run
+
+#Sequential Read
+sysbench --test=fileio --file-total-size=5G --file-test-mode=seqrd --max-time=120 --max-requests=0 run
+
+#Random Read
+sysbench --test=fileio --file-total-size=5G --file-test-mode=rndrd --max-time=120 --max-requests=0 run
+
+#Random Write
+sysbench --test=fileio --file-total-size=5G --file-test-mode=rndwr --max-time=120 --max-requests=0 run
+
+#Combined Random Read/Write
+sysbench --test=fileio --file-total-size=5G --file-test-mode=rndrw --max-time=120 --max-requests=0 run
+
+#Clean the test
+sysbench --test=fileio --file-total-size=5G cleanup
+</code></pre>
+</div>
+
+<h2 id="external-links">External links</h2>
+
+<p><a href="http://www.cgsecurity.org/wiki/TestDisk_Paso_A_Paso">TesDisk</a>.</p>
+
 
 
     <div class="tags">
@@ -423,7 +493,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 18, 2016 <br />
+<span>Page last updated:</span> September 16, 2016<br/> Site last generated: Sep 18, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="network grep">
+<meta name="keywords" content=" ngrep">
+<title>ngrep | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="ngrep">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -247,7 +247,7 @@
             
             
             
-            <li><a href="ngrep.html">ngrep</a></li>
+            <li class="active"><a href="ngrep.html">ngrep</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">ngrep</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">network grep</div>
    
 
     
@@ -406,7 +406,112 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="ngrep">ngrep</h2>
+
+<div class="bs-callout bs-callout-primary">ngrep strives to provide most of GNU grep’s common features, applying them to the network layer. ngrep is a pcap-aware tool that will allow you to specify extended regular or hexadecimal expressions to match against data payloads of packets.</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usage: ngrep &lt;-hNXViwqpevxlDtTRM&gt; &lt;-IO pcap_dump&gt; &lt;-n num&gt; &lt;-d dev&gt; &lt;-A num&gt;
+             &lt;-s snaplen&gt; &lt;-S limitlen&gt; &lt;-W normal|byline|single|none&gt; &lt;-c cols&gt;
+             &lt;-P char&gt; &lt;-F file&gt; &lt;match expression&gt; &lt;bpf filter&gt;
+   -h  is help/usage
+   -V  is version information
+   -q  is be quiet (don't print packet reception hash marks)
+   -e  is show empty packets
+   -i  is ignore case
+   -v  is invert match
+   -R  is don't do privilege revocation logic
+   -x  is print in alternate hexdump format
+   -X  is interpret match expression as hexadecimal
+   -w  is word-regex (expression must match as a word)
+   -p  is don't go into promiscuous mode
+   -l  is make stdout line buffered
+   -D  is replay pcap_dumps with their recorded time intervals
+   -t  is print timestamp every time a packet is matched
+   -T  is print delta timestamp every time a packet is matched
+   -M  is don't do multi-line match (do single-line match instead)
+   -I  is read packet stream from pcap format file pcap_dump
+   -O  is dump matched packets in pcap format to pcap_dump
+   -n  is look at only num packets
+   -A  is dump num packets after a match
+   -s  is set the bpf caplen
+   -S  is set the limitlen on matched packets
+   -W  is set the dump format (normal, byline, single, none)
+   -c  is force the column width to the specified size
+   -P  is set the non-printable display char to what is specified
+   -F  is read the bpf filter from the specified file
+   -N  is show sub protocol number
+   -d  is use specified device instead of the pcap default
+   -K  is kill matching TCP connections
+
+</code></pre>
+</div>
+
+<h2 id="examples">Examples</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ngrep -d any host 192.168.1.10
+ngrep -d any port 8080
+ngrep -d any host 192.168.1.10 and port 22
+ngrep -d any <span class="nv">id</span><span class="o">=</span><span class="se">\"</span>1234567<span class="se">\"</span> port 3456
+
+ngrep -d1 -x PASS
+ngrep -d1 -e -x PASS
+
+ngrep -d1 -q <span class="s2">"^GET .* HTTP/1.[01]"</span> <span class="s2">"host www.google.es"</span>
+
+ngrep -l -q -d eth0 udp and port 514
+
+ngrep -q <span class="s1">'HTTP'</span>
+
+ngrep -d any -q “abcd” icmp
+
+ngrep -d any -i -q “user-agent” tcp port 80 
+</code></pre>
+</div>
+
+<h2 id="more-examples">More examples</h2>
+
+<p>List interfaces</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -L
+</code></pre>
+</div>
+
+<p>Syslog</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -d any 'archiveServerUnreachable' port syslog
+ngrep -d any 'error' port syslog
+</code></pre>
+</div>
+
+<p>Looking case-insensitively words user or pass</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -wi -d any 'user|pass' port 21
+</code></pre>
+</div>
+
+<p>Byline mode used to see all headers and aspects of the HTTP transmission</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -W byline port 80
+</code></pre>
+</div>
+
+<p>Save a PCAP dump file</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -O /tmp/dns.dump -d any -T port domain
+</code></pre>
+</div>
+
+<p>Search in a pcap file</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -w 'm'  -I /tmp/dns.dump
+</code></pre>
+</div>
+
+<p>Observing binary being transferred, let’s assume we have a GIF on a web server that has the data pattern ``0xc5d5e5f55666768696a6b6c6d6e6’’</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ngrep -xX '0xc5d5e5f55666768696a6b6c6d6e6' port 80
+</code></pre>
+</div>
 
 
     <div class="tags">
@@ -423,7 +528,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 18, 2016 <br />
+<span>Page last updated:</span> September 3, 2016<br/> Site last generated: Sep 18, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>
