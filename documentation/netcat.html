@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="netcat">
+<meta name="keywords" content=" netcat">
+<title>netcat | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="netcat">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -275,7 +275,7 @@
             
             
             
-            <li><a href="netcat.html">netcat</a></li>
+            <li class="active"><a href="netcat.html">netcat</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">netcat</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">netcat</div>
    
 
     
@@ -406,7 +406,94 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="netcat">netcat</h2>
+
+<div class="bs-callout bs-callout-primary">unix utility which reads and writes data across network connections, using TCP or UDP protocol.</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>connect to somewhere:   nc [-options] hostname port[s] [ports] ... 
+listen for inbound: nc -l -p port [-options] [hostname] [port]
+options:
+    -c shell commands   as `-e'; use /bin/sh to exec [dangerous!!]
+    -e filename     program to exec after connect [dangerous!!]
+    -b          allow broadcasts
+    -g gateway      source-routing hop point[s], up to 8
+    -G num          source-routing pointer: 4, 8, 12, ...
+    -h          this cruft
+    -i secs         delay interval for lines sent, ports scanned
+        -k                      set keepalive option on socket
+    -l          listen mode, for inbound connects
+    -n          numeric-only IP addresses, no DNS
+    -o file         hex dump of traffic
+    -p port         local port number
+    -r          randomize local and remote ports
+    -q secs         quit after EOF on stdin and delay of secs
+    -s addr         local source address
+    -T tos          set Type Of Service
+    -t          answer TELNET negotiation
+    -u          UDP mode
+    -v          verbose [use twice to be more verbose]
+    -w secs         timeout for connects and final net reads
+    -C          Send CRLF as line-ending
+    -z          zero-I/O mode [used for scanning]
+port numbers can be individual or ranges: lo-hi [inclusive];
+hyphens in port names must be backslash escaped (e.g. 'ftp\-data').
+
+
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>netcat <span class="o">[</span>options] host port
+</code></pre>
+</div>
+
+<h2 id="examples">Examples</h2>
+
+<p>Port Scanning</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netcat -z -v domain.com 1-1000
+</code></pre>
+</div>
+
+<p>Communicate through Netcat</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Listener
+netcat -l 4444
+nc -lvp 4444
+
+# Client
+netcat &lt;IP&gt; 4444
+nc &lt;IP&gt; 4444 
+</code></pre>
+</div>
+
+<p>Send UDP packets to port 514</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>nc -u 192.168.1.5 514
+</code></pre>
+</div>
+
+<p>Send Files through Netcat</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Listener
+netcat -l 4444 &gt; received_file
+netcat -l 4444 | tar xzvf -
+
+# Client
+netcat &lt;IP&gt; 4444 &lt; original_file
+tar -czf - * | netcat &lt;IP&gt; 4444
+</code></pre>
+</div>
+
+<p>Netcat as a Simple Web Server</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netcat -l 8888 &lt; index.html
+while true; do nc -l 8888 &lt; index.html; done
+</code></pre>
+</div>
+
+<h2 id="cheat-sheet">Cheat Sheet</h2>
+
+<p><a href="https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf">https://www.sans.org/security-resources/sec560/netcat_cheat_sheet_v1.pdf</a>.</p>
 
 
     <div class="tags">
@@ -423,7 +510,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 19, 2016 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 19, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

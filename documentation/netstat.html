@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="netstat">
+<meta name="keywords" content=" netstat">
+<title>netstat | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="netstat">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -261,7 +261,7 @@
             
             
             
-            <li><a href="netstat.html">netstat</a></li>
+            <li class="active"><a href="netstat.html">netstat</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">netstat</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">netstat</div>
    
 
     
@@ -406,7 +406,92 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="netstat">netstat</h2>
+
+<div class="bs-callout bs-callout-primary">Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>usage: netstat [-vWeenNcCF] [&lt;Af&gt;] -r         netstat {-V|--version|-h|--help}
+       netstat [-vWnNcaeol] [&lt;Socket&gt; ...]
+       netstat { [-vWeenNac] -i | [-cWnNe] -M | -s }
+
+        -r, --route              display routing table
+        -i, --interfaces         display interface table
+        -g, --groups             display multicast group memberships
+        -s, --statistics         display networking statistics (like SNMP)
+        -M, --masquerade         display masqueraded connections
+
+        -v, --verbose            be verbose
+        -W, --wide               don't truncate IP addresses
+        -n, --numeric            don't resolve names
+        --numeric-hosts          don't resolve host names
+        --numeric-ports          don't resolve port names
+        --numeric-users          don't resolve user names
+        -N, --symbolic           resolve hardware names
+        -e, --extend             display other/more information
+        -p, --programs           display PID/Program name for sockets
+        -c, --continuous         continuous listing
+
+        -l, --listening          display listening server sockets
+        -a, --all, --listening   display all sockets (default: connected)
+        -o, --timers             display timers
+        -F, --fib                display Forwarding Information Base (default)
+        -C, --cache              display routing cache instead of FIB
+
+  &lt;Socket&gt;={-t|--tcp} {-u|--udp} {-w|--raw} {-x|--unix} --ax25 --ipx --netrom
+  &lt;AF&gt;=Use '-6|-4' or '-A &lt;af&gt;' or '--&lt;af&gt;'; default: inet
+  List of possible address families (which support routing):
+    inet (DARPA Internet) inet6 (IPv6) ax25 (AMPR AX.25) 
+    netrom (AMPR NET/ROM) ipx (Novell IPX) ddp (Appletalk DDP) 
+    x25 (CCITT X.25) 
+
+</code></pre>
+</div>
+
+<h2 id="examples">Examples</h2>
+
+<p>List Sockets and connections</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -A inet -p
+
+netstat -A inet -p | grep '^tcp' | grep '/' | sed 's_.*/__' | sort | uniq
+</code></pre>
+</div>
+
+<p>Check for ports open for local only connections</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -tupan
+</code></pre>
+</div>
+
+<p>Kernel interface table</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -i 
+</code></pre>
+</div>
+
+<p>List Sockets listening TCP Ports</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -lt
+</code></pre>
+</div>
+
+<p>Active Internet connections (TCP ports)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -ta
+</code></pre>
+</div>
+
+<p>Statistics for each protocol</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -s
+</code></pre>
+</div>
+
+<p>PID and process port</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>netstat -pt
+</code></pre>
+</div>
 
 
     <div class="tags">
@@ -423,7 +508,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 19, 2016 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 19, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

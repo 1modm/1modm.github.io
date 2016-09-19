@@ -7,6 +7,18 @@
   
   
   
+  <url>
+    <loc>/arping.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/ethtool.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -23,6 +35,12 @@
   
   <url>
     <loc>/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/lsof_net.html</loc>
   </url>
   
   
@@ -46,7 +64,25 @@
   
   
   <url>
+    <loc>/netcat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/netstat.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/ngrep.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/opensourcetools.html</loc>
   </url>
   
   
@@ -56,6 +92,12 @@
   </url>
   
   
+  
+  
+  
+  <url>
+    <loc>/processes.html</loc>
+  </url>
   
   
   
@@ -86,6 +128,12 @@
   
   
   
+  
+  
+  
+  <url>
+    <loc>/tshark.html</loc>
+  </url>
   
   
 </urlset>

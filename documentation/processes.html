@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="processes">
+<meta name="keywords" content=" processes">
+<title>processes | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="processes">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -225,7 +225,7 @@
             
             
             
-            <li><a href="processes.html">Processes</a></li>
+            <li class="active"><a href="processes.html">Processes</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">processes</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">processes</div>
    
 
     
@@ -406,7 +406,58 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="list-processes-sorted-by-consumption">List processes sorted by consumption</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ps -e -o pid,vsz,comm<span class="o">=</span> | sort -n -k 2 
+</code></pre>
+</div>
+
+<h2 id="kill-amount-of-processes">Kill amount of processes</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">kill</span> <span class="k">$(</span>ps aux | grep <span class="s1">'openvas'</span> | awk <span class="s1">'{print $2}'</span><span class="k">)</span>
+</code></pre>
+</div>
+
+<h2 id="display-activities-for-each-available-processor">Display activities for each available processor</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mpstat -P ALL
+</code></pre>
+</div>
+
+<h2 id="running-system-information">Running system information</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>top -n1 -b1
+</code></pre>
+</div>
+
+<h2 id="files-opened-by-processes">Files opened by processes</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lsof
+</code></pre>
+</div>
+
+<h2 id="files-opened-by-processes-in-tmp">Files opened by processes in /tmp</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lsof +D /tmp
+</code></pre>
+</div>
+
+<h2 id="files-deleted-still-opened">Files deleted still opened</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lsof +L1
+</code></pre>
+</div>
+
+<h2 id="ipv6-related-files-opened">ipv6-related files opened</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lsof -i6
+</code></pre>
+</div>
+
+<h2 id="files-opened-by-processes-by-www-data-user">Files opened by processes by www-data user</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lsof -a -i -u www-data
+</code></pre>
+</div>
+
+<h2 id="porcesses-using-the-port-port">Porcesses using the &lt;PORT&gt; Port</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lsof +c 0 -i:&lt;PORT&gt; -n
+</code></pre>
+</div>
 
 
     <div class="tags">
@@ -423,7 +474,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 19, 2016 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 19, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

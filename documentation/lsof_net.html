@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="lsof">
+<meta name="keywords" content=" lsof">
+<title>lsof | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="lsof">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -268,7 +268,7 @@
             
             
             
-            <li><a href="lsof_net.html">lsof</a></li>
+            <li class="active"><a href="lsof_net.html">lsof</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">lsof</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">lsof</div>
    
 
     
@@ -406,7 +406,60 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="lsof">lsof</h2>
+
+<div class="bs-callout bs-callout-primary">list open files</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> latest revision: ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/
+ latest FAQ: ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/FAQ
+ latest man page: ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_man
+ usage: [-?abhKlnNoOPRtUvVX] [+|-c c] [+|-d s] [+D D] [+|-f[gG]] [+|-e s]
+ [-F [f]] [-g [s]] [-i [i]] [+|-L [l]] [+m [m]] [+|-M] [-o [o]] [-p s]
+[+|-r [t]] [-s [p:s]] [-S [t]] [-T [t]] [-u s] [+|-w] [-x [fl]] [--] [names]
+Defaults in parentheses; comma-separated set (s) items; dash-separated ranges.
+  -?|-h list help          -a AND selections (OR)     -b avoid kernel blocks
+  -c c  cmd c ^c /c/[bix]  +c w  COMMAND width (9)    +d s  dir s files
+  -d s  select by FD set   +D D  dir D tree *SLOW?*   +|-e s  exempt s *RISKY*
+  -i select IPv[46] files  -K list tasKs              -l list UID numbers
+  -n no host names         -N select NFS files        -o list file offset
+  -O no overhead *RISKY*   -P no port names           -R list paRent PID
+  -s list file size        -t terse listing           -T disable TCP/TPI info
+  -U select Unix socket    -v list version info       -V verbose search
+  +|-w  Warnings (+)       -X skip TCP&amp;UDP* files     -- end option scan
+  +f|-f  +filesystem or -file names     +|-f[gG] flaGs 
+  -F [f] select fields; -F? for help  
+  +|-L [l] list (+) suppress (-) link counts &lt; l (0 = all; default = 0)
+                                        +m [m] use|create mount supplement
+  +|-M   portMap registration (-)       -o o   o 0t offset digits (8)
+  -p s   exclude(^)|select PIDs         -S [t] t second stat timeout (15)
+  -T qs TCP/TPI Q,St (s) info
+  -g [s] exclude(^)|select and print process group IDs
+  -i i   select by IPv[46] address: [46][proto][@host|addr][:svc_list|port_list]
+  +|-r [t[m&lt;fmt&gt;]] repeat every t seconds (15);  + until no files, - forever.
+       An optional suffix to t is m&lt;fmt&gt;; m must separate t from &lt;fmt&gt; and
+      &lt;fmt&gt; is an strftime(3) format for the marker line.
+  -s p:s  exclude(^)|select protocol (p = TCP|UDP) states by name(s).
+  -u s   exclude(^)|select login|UID set s
+  -x [fl] cross over +d|+D File systems or symbolic Links
+  names  select named files or files on named file systems
+Anyone can list all files; /dev warnings disabled; kernel ID check disabled.
+
+</code></pre>
+</div>
+
+<h2 id="examples">Examples</h2>
+
+<p>List IPv[46] files</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lsof -nPi
+</code></pre>
+</div>
+
+<p>List IPv[46] files for &lt;PORT&gt;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lsof +c 0 -i:&lt;PORT&gt; -n
+</code></pre>
+</div>
 
 
     <div class="tags">
@@ -423,7 +476,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 19, 2016 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 19, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

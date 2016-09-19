@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="tshark">
+<meta name="keywords" content=" tshark">
+<title>tshark | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="tshark">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -296,7 +296,7 @@
             
             
             
-            <li><a href="tshark.html">tshark</a></li>
+            <li class="active"><a href="tshark.html">tshark</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">tshark</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">tshark</div>
    
 
     
@@ -406,7 +406,168 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="tshark">tshark</h2>
+
+<div class="bs-callout bs-callout-primary">Dump and analyze network traffic</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Usage: tshark <span class="o">[</span>options] ...
+
+Capture interface:
+  -i &lt;interface&gt;           name or idx of interface <span class="o">(</span>def: first non-loopback<span class="o">)</span>
+  -f &lt;capture filter&gt;      packet filter <span class="k">in </span>libpcap filter syntax
+  -s &lt;snaplen&gt;             packet snapshot length <span class="o">(</span>def: 65535<span class="o">)</span>
+  -p                       don<span class="s1">'t capture in promiscuous mode
+  -I                       capture in monitor mode, if available
+  -B &lt;buffer size&gt;         size of kernel buffer (def: 2MB)
+  -y &lt;link type&gt;           link layer type (def: first appropriate)
+  -D                       print list of interfaces and exit
+  -L                       print list of link-layer types of iface and exit
+
+Capture stop conditions:
+  -c &lt;packet count&gt;        stop after n packets (def: infinite)
+  -a &lt;autostop cond.&gt; ...  duration:NUM - stop after NUM seconds
+                           filesize:NUM - stop this file after NUM KB
+                              files:NUM - stop after NUM files
+Capture output:
+  -b &lt;ringbuffer opt.&gt; ... duration:NUM - switch to next file after NUM secs
+                           filesize:NUM - switch to next file after NUM KB
+                              files:NUM - ringbuffer: replace after NUM files
+Input file:
+  -r &lt;infile&gt;              set the filename to read from (- to read from stdin)
+
+Processing:
+  -2                       perform a two-pass analysis
+  -R &lt;read filter&gt;         packet Read filter in Wireshark display filter syntax
+  -Y &lt;display filter&gt;      packet displaY filter in Wireshark display filter
+                           syntax
+  -n                       disable all name resolutions (def: all enabled)
+  -N &lt;name resolve flags&gt;  enable specific name resolution(s): "mnNtCd"
+  -d &lt;layer_type&gt;==&lt;selector&gt;,&lt;decode_as_protocol&gt; ...
+                           "Decode As", see the man page for details
+                           Example: tcp.port==8888,http
+  -H &lt;hosts file&gt;          read a list of entries from a hosts file, which will
+                           then be written to a capture file. (Implies -W n)
+  --disable-protocol &lt;proto_name&gt;
+                           disable dissection of proto_name
+  --enable-heuristic &lt;short_name&gt;
+                           enable dissection of heuristic protocol
+  --disable-heuristic &lt;short_name&gt;
+                           disable dissection of heuristic protocol
+Output:
+  -w &lt;outfile|-&gt;           write packets to a pcap-format file named "outfile"
+                           (or to the standard output for "-")
+  -C &lt;config profile&gt;      start with specified configuration profile
+  -F &lt;output file type&gt;    set the output file type, default is pcapng
+                           an empty "-F" option will list the file types
+  -V                       add output of packet tree        (Packet Details)
+  -O &lt;protocols&gt;           Only show packet details of these protocols, comma
+                           separated
+  -P                       print packet summary even when writing to a file
+  -S &lt;separator&gt;           the line separator to print between packets
+  -x                       add output of hex and ASCII dump (Packet Bytes)
+  -T pdml|ps|psml|text|fields
+                           format of text output (def: text)
+  -e &lt;field&gt;               field to print if -Tfields selected (e.g. tcp.port,
+                           _ws.col.Info)
+                           this option can be repeated to print multiple fields
+  -E&lt;fieldsoption&gt;=&lt;value&gt; set options for output when -Tfields selected:
+     header=y|n            switch headers on and off
+     separator=/t|/s|&lt;char&gt; select tab, space, printable character as separator
+     occurrence=f|l|a      print first, last or all occurrences of each field
+     aggregator=,|/s|&lt;char&gt; select comma, space, printable character as
+                           aggregator
+     quote=d|s|n           select double, single, no quotes for values
+  -t a|ad|d|dd|e|r|u|ud    output format of time stamps (def: r: rel. to first)
+  -u s|hms                 output format of seconds (def: s: seconds)
+  -l                       flush standard output after each packet
+  -q                       be more quiet on stdout (e.g. when using statistics)
+  -Q                       only log true errors to stderr (quieter than -q)
+  -g                       enable group read access on the output file(s)
+  -W n                     Save extra information in the file, if supported.
+                           n = write network address resolution information
+  -X &lt;key&gt;:&lt;value&gt;         eXtension options, see the man page for details
+  -z &lt;statistics&gt;          various statistics, see the man page for details
+  --capture-comment &lt;comment&gt;
+                           add a capture comment to the newly created
+                           output file (only for pcapng)
+
+Miscellaneous:
+  -h                       display this help and exit
+  -v                       display version info and exit
+  -o &lt;name&gt;:&lt;value&gt; ...    override preference setting
+  -K &lt;keytab&gt;              keytab file to use for kerberos decryption
+  -G [report]              dump one of several available reports and exit
+                           default report="fields"
+                           use "-G ?" for more help
+
+
+
+</span></code></pre>
+</div>
+
+<h2 id="read-pcap-file-disabling-name-resolution">Read pcap file disabling name resolution</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -nr packet.pcap -V
+</code></pre>
+</div>
+
+<h2 id="read-pcap-file-disabling-name-resolution-add-output-of-hex-and-ascii-dump">Read pcap file disabling name resolution, add output of hex and ASCII dump</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -xr packet.pcap -V
+</code></pre>
+</div>
+
+<h2 id="capturing-network-traffic">Capturing Network Traffic</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -D
+</code></pre>
+</div>
+
+<h2 id="saving-and-reading-network-data">Saving and Reading Network Data</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -c 500 -w packet.pcap
+</code></pre>
+</div>
+
+<h2 id="extract-data-from-any-http-requests">Extract data from any HTTP requests</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -i eth0 -Y http.request -T fields -e http.host -e http.user_agent
+</code></pre>
+</div>
+
+<h2 id="extracts-both-the-dns-query-and-the-response-address">Extracts both the DNS query and the response address</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -i eth0 -f <span class="s2">"src port 53"</span> -n -T fields -e dns.qry.name -e dns.resp.addr
+
+tshark -i eth0 -f <span class="s2">"src port 53"</span> -n -T fields -e frame.time -e ip.src -e ip.dst -e dns.qry.name -e dns.resp.addr 
+</code></pre>
+</div>
+
+<h2 id="get-passwords-in-http">Get passwords in HTTP</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -i eth0 -Y <span class="s1">'http.request.method == POST and tcp contains "password"'</span> | grep password
+</code></pre>
+</div>
+
+<h2 id="capture-only-dhcp-packets">capture only DHCP packets</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -w packet.pcap -f <span class="s2">"port 67 or port 68"</span> -i eth0 -P
+
+tshark -r packet.pcap bootp.option.dhcp <span class="o">==</span> 1
+</code></pre>
+</div>
+
+<h2 id="shows-protocol-hierarchy-statistics">Shows protocol hierarchy statistics</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -nr packet.pcap -qz <span class="s2">"io,phs"</span>
+</code></pre>
+</div>
+
+<h2 id="displaying-statistics-for-a-specific-protocol">Displaying Statistics for a Specific Protocol</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -q -r packet.pcap -Y http -z http,tree
+</code></pre>
+</div>
 
 
     <div class="tags">
@@ -423,7 +584,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 19, 2016 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 19, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

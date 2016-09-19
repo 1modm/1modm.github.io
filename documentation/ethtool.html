@@ -3,9 +3,9 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Index.">
-<meta name="keywords" content=" Homepage">
-<title>Index | Notes</title>
+<meta name="description" content="ethtool">
+<meta name="keywords" content=" ethtool">
+<title>ethtool | Notes</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -121,7 +121,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Index">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="ethtool">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -160,7 +160,7 @@
             
             
             
-            <li class="active"><a href="index.html">Get started</a></li>
+            <li><a href="index.html">Get started</a></li>
             
             
             
@@ -289,7 +289,7 @@
             
             
             
-            <li><a href="ethtool.html">Network driver and hardware settings</a></li>
+            <li class="active"><a href="ethtool.html">Network driver and hardware settings</a></li>
             
             
             
@@ -364,7 +364,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Index</h1>
+   <h1 class="post-title-main">ethtool</h1>
 </div>
 
 
@@ -372,7 +372,7 @@
 <div class="post-content">
 
    
-    <div class="summary">Index.</div>
+    <div class="summary">ethtool</div>
    
 
     
@@ -406,7 +406,96 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  
+  <h2 id="ethtool">ethtool</h2>
+
+<div class="bs-callout bs-callout-primary">Query or control network driver and hardware settings</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ethtool eth0
+Settings <span class="k">for </span>eth0:
+  Supported ports: <span class="o">[</span> TP <span class="o">]</span>
+  Supported link modes:   10baseT/Half 10baseT/Full 
+                          100baseT/Half 100baseT/Full 
+                          1000baseT/Full 
+  Supports auto-negotiation: Yes
+  Advertised link modes:  10baseT/Half 10baseT/Full 
+                          100baseT/Half 100baseT/Full 
+                          1000baseT/Full 
+  Advertised pause frame use: No
+  Advertised auto-negotiation: Yes
+  Speed: 1000Mb/s
+  Duplex: Full
+  Port: Twisted Pair
+  PHYAD: 0
+  Transceiver: internal
+  Auto-negotiation: on
+  MDI-X: Unknown
+  Supports Wake-on: d
+  Wake-on: d
+  Current message level: 0x00000007 <span class="o">(</span>7<span class="o">)</span>
+  Link detected: yes
+
+</code></pre>
+</div>
+
+<h2 id="to-query-interface-statistics">To query interface statistics</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ethtool -S eth0
+</code></pre>
+</div>
+
+<h2 id="blink-ethernet-device-0-for-15-seconds">Blink ethernet device 0 for 15 seconds</h2>
+<p>where [N] is Number of seconds to blink</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ethtool -p eth0 15
+</code></pre>
+</div>
+
+<h2 id="check-network-hardware">Check Network Hardware</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>lshw -C Network
+</code></pre>
+</div>
+
+<h2 id="mii-tool">mii-tool</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mii-tool eth0
+eth0: no autonegotiation, 1000baseT-FD flow-control, link ok
+</code></pre>
+</div>
+
+<h2 id="change-auto-negotiation">Change Auto-negotiation</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ifdown eth0
+ethtool -s eth0 autoneg off
+ifup eth0
+
+</code></pre>
+</div>
+
+<h2 id="change-the-speed">Change the Speed</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ethtool -s eth0 speed 100 autoneg off
+
+</code></pre>
+</div>
+
+<h2 id="display-ethernet-driver-settings">Display Ethernet Driver Settings</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ethtool -i eth0
+</code></pre>
+</div>
+
+<h2 id="display-auto-negotiation-rx-and-tx">Display Auto-negotiation, RX and TX</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ethtool -a eth0
+</code></pre>
+</div>
+
+<h2 id="display-network-statistics">Display Network Statistics</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ethtool -S eth0
+</code></pre>
+</div>
 
 
     <div class="tags">
@@ -423,7 +512,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 M. All rights reserved. <br />
- Site last generated: Sep 19, 2016 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 19, 2016 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>
