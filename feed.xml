@@ -5,13 +5,16 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 31 Oct 2016 22:24:20 +0000</pubDate>
-    <lastBuildDate>Mon, 31 Oct 2016 22:24:20 +0000</lastBuildDate>
+    <pubDate>Tue, 01 Nov 2016 22:34:08 +0000</pubDate>
+    <lastBuildDate>Tue, 01 Nov 2016 22:34:08 +0000</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
         <title>SIP and RTP decoders for Dshell</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell&quot;&gt;Dshell&lt;/a&gt; is an extensible network forensic analysis framework and enables rapid development of plugins to support the dissection of network packet captures.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: 
+This pull request has been approved. &lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell/pull/93&quot;&gt;Merged #93&lt;/a&gt;. The decoders for SIP and RTP are now merged to Dshell. Thanks to USArmyResearchLab and dev195!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell&quot;&gt;Dshell&lt;/a&gt; is an extensible network forensic analysis framework and enables rapid development of plugins to support the dissection of network packet captures.&lt;/p&gt;
 
 &lt;p&gt;While I was testing some VoIP packets, I discover that doesn’t exist VoIP specific decoders, so I created the first one to detect SIP Request and Response packets, and a second decoder to extract all the information for RTP packets used in a VoIP communication.&lt;/p&gt;
 
