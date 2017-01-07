@@ -5,9 +5,193 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Nov 2016 22:34:08 +0000</pubDate>
-    <lastBuildDate>Tue, 01 Nov 2016 22:34:08 +0000</lastBuildDate>
+    <pubDate>Sat, 07 Jan 2017 23:22:45 +0000</pubDate>
+    <lastBuildDate>Sat, 07 Jan 2017 23:22:45 +0000</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Troubleshooting Suricata</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://suricata-ids.org/&quot;&gt;Suricata&lt;/a&gt; is a free and open source, mature, fast and robust network threat detection engine.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;Suricata&lt;/strong&gt; engine is capable of real time intrusion detection (IDS), inline intrusion prevention (IPS), network security monitoring (NSM) and offline pcap processing.&lt;/p&gt;
+
+&lt;h3 id=&quot;documentation&quot;&gt;Documentation&lt;/h3&gt;
+&lt;p&gt;Once we have Suricata installed and running the best way to check all the available options is to go to the official doc site: &lt;a href=&quot;http://suricata.readthedocs.io/en/latest/&quot;&gt;http://suricata.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;configuration-files&quot;&gt;Configuration files&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/suricata/suricata.yaml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Remember to set your &lt;strong&gt;$HOMENET&lt;/strong&gt; variable in &lt;strong&gt;/etc/suricata/suricata.yaml&lt;/strong&gt;, any traffic out of the value set in this variable will be ignored also make sure you are logging to &lt;strong&gt;/var/log/suricata&lt;/strong&gt;, and that the directory exists.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Configuring Suricata to log to disk&lt;/strong&gt;:
+Configure the &lt;strong&gt;logging outputs&lt;/strong&gt; for Suricata, in &lt;strong&gt;suricata.yaml&lt;/strong&gt; configuration file, enable “file” logging by changing the value of the “enabled” key values set to “yes” from “no”. The config file should look like the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  # Define your logging outputs.  If none are defined, or they are all
+  # disabled you will get the default - console output.
+  outputs:
+  - console:
+      enabled: yes
+  - file:
+      enabled: yes
+      filename: /var/log/suricata/suricata.log
+  - syslog:
+      enabled: no
+      facility: local5
+      format: &quot;[%i] &amp;lt;%d&amp;gt; -- &quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Configuring Suricata to enable DNS and TLS logging&lt;/strong&gt;
+In &lt;strong&gt;suricata.yaml&lt;/strong&gt; configuration file ensure that http-log, tls-log and dns-log have the “enabled” key values set to “yes”. When you have completed this step. The config file should look like the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - http-log:
+      enabled: yes
+      filename: http.log
+      append: yes
+      #extended: yes     # enable this for extended logging information
+      #custom: yes       # enabled the custom logging format (defined by customformat)
+      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+
+  # a line based log of TLS handshake parameters (no alerts)
+  - tls-log:
+      enabled: yes  # Log TLS connections.
+      filename: tls.log # File to store TLS logs.
+      append: yes
+      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+      #extended: yes # Log extended information like fingerprint
+      certs-log-dir: certs # directory to store the certificates files
+
+  # a line based log of DNS requests and/or replies (no alerts)
+  - dns-log:
+      enabled: yes
+      filename: dns.log
+      append: yes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;log-files&quot;&gt;Log files&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/log/suricata/suricata-start.log
+/var/log/suricata/suricata.log
+/var/log/suricata/stats.log
+/var/log/suricata/core/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The folder &lt;strong&gt;/var/log/suricata/core/&lt;/strong&gt; will contain any core dumps in case of a segfault. 
+Further reading on what to do and &lt;a href=&quot;https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Reporting_Bugs&quot;&gt;how to report Suricata bugs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Check drops in stats.log file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tail -f /var/log/suricata/stats.log | grep -i capture.kernel_drops
+tail -f /var/log/suricata/stats.log | grep -i drop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;manual-start&quot;&gt;Manual start&lt;/h3&gt;
+
+&lt;p&gt;Run the command with the &lt;strong&gt;–init-errors-fatal&lt;/strong&gt; option at first to see if there are any issues.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/suricata -c /etc/suricata/suricata.yaml -i eth0 --init-errors-fatal
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;-D&lt;/strong&gt; option to run in daemon mode and &lt;strong&gt;–pfring&lt;/strong&gt; option. PF_RING is a new type of network socket that dramatically improves the packet capture speed, and is available for Linux kernels 2.6.32 and newer.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /var/run/suricata.pid -D --pfring=eth0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Manually start in debug mode:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /var/run/suricata.pid -D --pfring=eth0 --enable-debug
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;run-in-pcap-offline-mode&quot;&gt;Run in pcap offline mode&lt;/h3&gt;
+
+&lt;p&gt;Reading files from pcap file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;suricata -r &amp;lt;PCAP&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;threads-used-by-suricata&quot;&gt;Threads used by Suricata&lt;/h3&gt;
+
+&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt; to see if the individual af_packet threads&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Enter &lt;code class=&quot;highlighter-rouge&quot;&gt;top -H&lt;/code&gt; to view threads in top&lt;/li&gt;
+  &lt;li&gt;Press &lt;code class=&quot;highlighter-rouge&quot;&gt;o&lt;/code&gt; to add a filter&lt;/li&gt;
+  &lt;li&gt;Enter &lt;code class=&quot;highlighter-rouge&quot;&gt;COMMAND=AFPacket&lt;/code&gt; then press Enter key&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;testing-suricata&quot;&gt;Testing Suricata&lt;/h3&gt;
+
+&lt;p&gt;1- Check that you have enable the next rule in /etc/suricata/rules/emerging-user_agents.rules&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert http $HOME_NET any -&amp;gt; $EXTERNAL_NET any (msg:&quot;ET USER_AGENTS Suspicious User Agent (BlackSun)&quot;; flow:to_server,established; content:&quot;User-Agent|3a| BlackSun&quot;; nocase; http_header; reference:url,www.bitdefender.com/VIRUS-1000328-en--Trojan.Pws.Wow.NCY.html; reference:url,doc.emergingthreats.net/bin/view/Main/2008983; classtype:trojan-activity; sid:2008983; rev:6;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;2- Issue traffic to google.com using the user-agent string “BlackSun”&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# apt-get install curl
+# curl -A &quot;BlackSun&quot; www.google.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3- Generate fake malware traffic&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# wget testmyids.com 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4- Create a fake scan to generate port scan traffic&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap -sS &amp;lt;NETWORK INTERNAL HOST IP&amp;gt; -D 118.186.71.134
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jasonish/py-idstools&quot;&gt;py-idstools&lt;/a&gt;: Snort and Suricata Rule and Event Utilities in Python (Including an easy to use Unified2 File Reader)&lt;/p&gt;
+
+&lt;p&gt;Check the documentation for further analysis: &lt;a href=&quot;https://idstools.readthedocs.io&quot;&gt;https://idstools.readthedocs.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With &lt;a href=&quot;https://idstools.readthedocs.io/en/latest/tools/u2json.html&quot;&gt;u2json&lt;/a&gt; you can read the alerts generated and convert to JSON, for example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;idstools-u2json /var/log/suricata/unified2.alert.1473071280
+
+idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/suricata  --prefix unified2.alert  --follow  --delete --output /tmp/alerts.json 
+
+idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/suricata  --prefix unified2.alert  --follow  --output /tmp/alerts.json 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The next example will read the &lt;strong&gt;unified2.alert&lt;/strong&gt; files generated by Suricata and will print the output of every alert/event:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -*- coding: UTF-8 -*-&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;idstools&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unified2&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Event Reader&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unified2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SpoolEventReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/var/log/suricata&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;unified2.alert&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;follow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Output&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
+        <link>/Troubleshooting_with_Suricata.html</link>
+        <guid isPermaLink="true">/Troubleshooting_with_Suricata.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>SIP and RTP decoders for Dshell</title>
