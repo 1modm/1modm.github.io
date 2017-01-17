@@ -5,8 +5,8 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 17 Jan 2017 23:05:33 +0000</pubDate>
-    <lastBuildDate>Tue, 17 Jan 2017 23:05:33 +0000</lastBuildDate>
+    <pubDate>Tue, 17 Jan 2017 23:11:28 +0000</pubDate>
+    <lastBuildDate>Tue, 17 Jan 2017 23:11:28 +0000</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -524,7 +524,7 @@ wrpcap              : Write a list of packets to a pcap file
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;If need to know the details for a certain function we can use help()&lt;/p&gt;
+&lt;p&gt;If it is needed to know the details for a certain function we can use help()&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; help(arpcachepoison)
 
