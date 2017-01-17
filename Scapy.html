@@ -112,7 +112,7 @@
     <div class="post-date">January 17, 2017 &middot; <span class="reading-time" title="Estimated Reading Time">
   
   
-    11 minutes read
+    12 minutes read
   
 </span>
 </div>
@@ -646,9 +646,79 @@ arpcachepoison(target, victim, interval=60)
 </code></pre>
 </div>
 
+<p><strong>Check layer fields</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls(UDP)
+sport      : ShortEnumField       = (53)
+dport      : ShortEnumField       = (53)
+len        : ShortField           = (None)
+chksum     : XShortField          = (None)
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls(IP)
+version    : BitField             = (4)
+ihl        : BitField             = (None)
+tos        : XByteField           = (0)
+len        : ShortField           = (None)
+id         : ShortField           = (1)
+flags      : FlagsField           = (0)
+frag       : BitField             = (0)
+ttl        : ByteField            = (64)
+proto      : ByteEnumField        = (0)
+chksum     : XShortField          = (None)
+src        : Emph                 = (None)
+dst        : Emph                 = ('127.0.0.1')
+options    : PacketListField      = ([])
+</code></pre>
+</div>
+
+<p><strong>Check layer params</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; udp=UDP()
+&gt;&gt;&gt; udp.show()
+###[ UDP ]###
+  sport= domain
+  dport= domain
+  len= None
+  chksum= None
+&gt;&gt;&gt; udp.dport=5060
+&gt;&gt;&gt; udp.show()
+###[ UDP ]###
+  sport= domain
+  dport= sip
+  len= None
+  chksum= None
+</code></pre>
+</div>
+
 <h3 id="packet-manipulation">Packet manipulation</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
+
+&gt;&gt;&gt; packet.show()
+###[ IP ]###
+  version= 4
+  ihl= None
+  tos= 0x0
+  len= None
+  id= 1
+  flags= 
+  frag= 0
+  ttl= 64
+  proto= icmp
+  chksum= None
+  src= 192.168.1.12
+  dst= Net('192.168.1.1-254')
+  \options\
+###[ ICMP ]###
+     type= echo-request
+     code= 0
+     chksum= None
+     id= 0x0
+     seq= 0x0
+
+
 &gt;&gt;&gt; send(packet)
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
@@ -660,6 +730,38 @@ Sent 254 packets.
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
 &gt;&gt;&gt; 
+</code></pre>
+</div>
+
+<p><strong>difference between send() and sendp()</strong></p>
+
+<p>send() function will send packets at layer 3. It will handle routing and layer 2 for you.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1")/ICMP())
+</code></pre>
+</div>
+
+<p>sendp() function will work at layer 2. Then can be used the right “or not” interface and the right “or not” link layer protocol.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; sendp(Ether()/IP(dst="192.168.1.1",ttl=(1,4)), iface="eth1")
+</code></pre>
+</div>
+
+<p><strong>TCP/IP layers</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; IP()
+&lt;IP  |&gt;
+&gt;&gt;&gt; IP()/TCP()
+&lt;IP  frag=0 proto=tcp |&lt;TCP  |&gt;&gt;
+&gt;&gt;&gt; Ether()/IP()/TCP()
+&lt;Ether  type=0x800 |&lt;IP  frag=0 proto=tcp |&lt;TCP  |&gt;&gt;&gt;
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.cisco.com")/TCP(dport=80)/"GET / HTTP/1.1" 
+&gt;&gt;&gt; sendp(packet)
+.
+Sent 1 packets.
 </code></pre>
 </div>
 

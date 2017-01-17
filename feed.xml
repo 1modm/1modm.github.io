@@ -5,8 +5,8 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 17 Jan 2017 23:11:28 +0000</pubDate>
-    <lastBuildDate>Tue, 17 Jan 2017 23:11:28 +0000</lastBuildDate>
+    <pubDate>Tue, 17 Jan 2017 23:47:43 +0000</pubDate>
+    <lastBuildDate>Tue, 17 Jan 2017 23:47:43 +0000</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -536,9 +536,79 @@ arpcachepoison(target, victim, interval=60)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;&lt;strong&gt;Check layer fields&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; ls(UDP)
+sport      : ShortEnumField       = (53)
+dport      : ShortEnumField       = (53)
+len        : ShortField           = (None)
+chksum     : XShortField          = (None)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; ls(IP)
+version    : BitField             = (4)
+ihl        : BitField             = (None)
+tos        : XByteField           = (0)
+len        : ShortField           = (None)
+id         : ShortField           = (1)
+flags      : FlagsField           = (0)
+frag       : BitField             = (0)
+ttl        : ByteField            = (64)
+proto      : ByteEnumField        = (0)
+chksum     : XShortField          = (None)
+src        : Emph                 = (None)
+dst        : Emph                 = ('127.0.0.1')
+options    : PacketListField      = ([])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Check layer params&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; udp=UDP()
+&amp;gt;&amp;gt;&amp;gt; udp.show()
+###[ UDP ]###
+  sport= domain
+  dport= domain
+  len= None
+  chksum= None
+&amp;gt;&amp;gt;&amp;gt; udp.dport=5060
+&amp;gt;&amp;gt;&amp;gt; udp.show()
+###[ UDP ]###
+  sport= domain
+  dport= sip
+  len= None
+  chksum= None
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;h3 id=&quot;packet-manipulation&quot;&gt;Packet manipulation&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; packet=IP(dst=&quot;192.168.1.1-254&quot;)/ICMP()
+
+&amp;gt;&amp;gt;&amp;gt; packet.show()
+###[ IP ]###
+  version= 4
+  ihl= None
+  tos= 0x0
+  len= None
+  id= 1
+  flags= 
+  frag= 0
+  ttl= 64
+  proto= icmp
+  chksum= None
+  src= 192.168.1.12
+  dst= Net('192.168.1.1-254')
+  \options\
+###[ ICMP ]###
+     type= echo-request
+     code= 0
+     chksum= None
+     id= 0x0
+     seq= 0x0
+
+
 &amp;gt;&amp;gt;&amp;gt; send(packet)
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
@@ -550,6 +620,38 @@ Sent 254 packets.
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
 &amp;gt;&amp;gt;&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;difference between send() and sendp()&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;send() function will send packets at layer 3. It will handle routing and layer 2 for you.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; send(IP(dst=&quot;192.168.1.1&quot;)/ICMP())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;sendp() function will work at layer 2. Then can be used the right “or not” interface and the right “or not” link layer protocol.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sendp(Ether()/IP(dst=&quot;192.168.1.1&quot;,ttl=(1,4)), iface=&quot;eth1&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;TCP/IP layers&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; IP()
+&amp;lt;IP  |&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; IP()/TCP()
+&amp;lt;IP  frag=0 proto=tcp |&amp;lt;TCP  |&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; Ether()/IP()/TCP()
+&amp;lt;Ether  type=0x800 |&amp;lt;IP  frag=0 proto=tcp |&amp;lt;TCP  |&amp;gt;&amp;gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; packet=Ether()/IP(dst=&quot;www.cisco.com&quot;)/TCP(dport=80)/&quot;GET / HTTP/1.1&quot; 
+&amp;gt;&amp;gt;&amp;gt; sendp(packet)
+.
+Sent 1 packets.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
