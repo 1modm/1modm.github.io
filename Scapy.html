@@ -14,7 +14,7 @@
   </title>
 
   
-    <meta name="description" content="Scapy notes and examples"/>
+    <meta name="description" content="Packet manipulation and reading PCAP files"/>
     <meta name="keywords" content="">
   
   <meta name="author" content="Heiswayi Nrird">
@@ -24,14 +24,14 @@
   <meta name="twitter:creator" content="@1_mod_m">
   
     <meta name="twitter:title" content="Scapy">
-    <meta name="twitter:description" content="Scapy notes and examples">
+    <meta name="twitter:description" content="Packet manipulation and reading PCAP files">
   
 
   <meta property="og:type" content="website"/>
   
     <meta property="og:title" content="Scapy"/>
     <meta property="og:url" content="/Scapy.html"/>
-    <meta property="og:description" content="Scapy notes and examples"/>
+    <meta property="og:description" content="Packet manipulation and reading PCAP files"/>
     <meta property="og:site_name" content="Scapy"/>
   
 
@@ -109,10 +109,10 @@
       <div class="container content">
         <div class="post">
   <div class="post-top-meta">
-    <div class="post-date">January 17, 2017 &middot; <span class="reading-time" title="Estimated Reading Time">
+    <div class="post-date">February 12, 2017 &middot; <span class="reading-time" title="Estimated Reading Time">
   
   
-    12 minutes read
+    45 minutes read
   
 </span>
 </div>
@@ -132,6 +132,76 @@
 Welcome to Scapy (2.2.0)
 &gt;&gt;&gt; 
 
+</code></pre>
+</div>
+
+<p>Scapy Configuration File</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; conf
+ASN1_default_codec = &lt;ASN1Codec BER[1]&gt;
+AS_resolver = &lt;scapy.as_resolvers.AS_resolver_multi instance at 0x7fcc150574d0&gt;
+BTsocket   = &lt;BluetoothL2CAPSocket: read/write packets on a connected L2CAP ...
+L2listen   = &lt;L2ListenSocket: read packets at layer 2 using Linux PF_PACKET ...
+L2socket   = &lt;L2Socket: read/write packets at layer 2 using Linux PF_PACKET ...
+L3socket   = &lt;L3PacketSocket: read/write packets at layer 3 using Linux PF_P...
+auto_fragment = 1
+checkIPID  = 0
+checkIPaddr = 1
+checkIPsrc = 1
+check_TCPerror_seqack = 0
+color_theme = &lt;DefaultTheme&gt;
+commands   = arpcachepoison : Poison target's cache with (your MAC,victim's ...
+debug_dissector = 0
+debug_match = 0
+default_l2 = &lt;class 'scapy.packet.Raw'&gt;
+emph       = &lt;Emphasize []&gt;
+ethertypes = &lt;/etc/ethertypes/ &gt;
+except_filter = ''
+extensions_paths = '.'
+histfile   = '/home/xxxx/.scapy_history'
+iface      = 'wlan0'
+iface6     = 'lo'
+interactive = True
+interactive_shell = ''
+ipv6_enabled = True
+l2types    = 0x1 &lt;- Dot3 (802.3) 0x1 &lt;-&gt; Ether (Ethernet) 0xc -&gt; IP (IP) 0x1...
+l3types    = 0x3 -&gt; IP (IP) 0x800 &lt;-&gt; IP (IP) 0x806 &lt;-&gt; ARP (ARP) 0x86dd &lt;-&gt;...
+layers     = Packet : None NoPayload : None Raw : Raw Padding : Padding ASN1...
+load_layers = ['l2', 'inet', 'dhcp', 'dns', 'dot11', 'gprs', 'hsrp', 'inet6'...
+logLevel   = 20
+manufdb    = &lt;/usr/share/wireshark/wireshark/manuf/ &gt;
+mib        = &lt;MIB/ &gt;
+neighbor   = Ether -&gt; Dot1Q Ether -&gt; IPv6 Ether -&gt; IP Ether -&gt; LLC Dot3 -&gt; L...
+netcache   = arp_cache: 0 valid items. Timeout=120s in6_neighbor: 0 valid it...
+noenum     = &lt;Resolve []&gt;
+padding    = 1
+prog       = display = 'display' dot = 'dot' hexedit = 'hexer' pdfreader = '...
+promisc    = 1
+prompt     = '&gt;&gt;&gt; '
+protocols  = &lt;/etc/protocols/ pim ip ax_25 esp tcp ah mpls_in_ip rohc ipv6_o...
+raw_layer  = &lt;class 'scapy.packet.Raw'&gt;
+raw_summary = False
+readfunc   = None
+resolve    = &lt;Resolve []&gt;
+route      = Network Netmask Gateway Iface Output IP 127.0.0.0 255.0.0.0 0.0...
+route6     = Destination Next Hop iface src candidates fe80::/64 :: wlan0 fe...
+services_tcp = &lt;/etc/services-tcp/ kpop zabbix_trapper noclog svn cmip_man b...
+services_udp = &lt;/etc/services-udp/ zabbix_trapper noclog cmip_man z3950 root...
+session    = ''
+sniff_promisc = 1
+stats_classic_protocols = [&lt;class 'scapy.layers.inet.TCP'&gt;, &lt;class 'scapy.la...
+stats_dot11_protocols = [&lt;class 'scapy.layers.inet.TCP'&gt;, &lt;class 'scapy.laye...
+stealth    = 'not implemented'
+temp_files = []
+teredoPrefix = '2001::'
+teredoServerPort = 3544
+use_dnet   = False
+use_pcap   = False
+verb       = 2
+version    = '2.2.0'
+warning_threshold = 5
+wepkey     = ''
+&gt;&gt;&gt; 
 </code></pre>
 </div>
 
@@ -576,7 +646,7 @@ IP6Field                                           TFTP_Option                  
 </code></pre>
 </div>
 
-<h3 id="help">Help</h3>
+<h3 id="built-in-functions-and-help">Built-in Functions and help</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls()
 ARP        : ARP
@@ -673,6 +743,27 @@ options    : PacketListField      = ([])
 </code></pre>
 </div>
 
+<p><strong>Check layer information</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ip = IP()
+&gt;&gt;&gt; ip.show2()
+###[ IP ]###
+  version= 4L
+  ihl= 5L
+  tos= 0x0
+  len= 20
+  id= 1
+  flags= 
+  frag= 0L
+  ttl= 64
+  proto= hopopt
+  chksum= 0x7ce7
+  src= 127.0.0.1
+  dst= 127.0.0.1
+  \options\
+</code></pre>
+</div>
+
 <p><strong>Check layer params</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; udp=UDP()
@@ -692,7 +783,236 @@ options    : PacketListField      = ([])
 </code></pre>
 </div>
 
+<p><strong>Binary information</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ip.tos = 0xA
+&gt;&gt;&gt; ip.show()
+###[ IP ]###
+  version= 4
+  ihl= None
+  tos= 0xa
+  len= None
+  id= 1
+  flags= 
+  frag= 0
+  ttl= 64
+  proto= hopopt
+  chksum= None
+  src= 127.0.0.1
+  dst= 127.0.0.1
+  \options\
+</code></pre>
+</div>
+
+<h3 id="build-a-packet-and-show-packet-info">Build a packet and show packet info</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; a=IP(ttl=10)
+&gt;&gt;&gt; a
+&lt; IP ttl=10 |&gt;
+&gt;&gt;&gt; a.src
+’127.0.0.1’
+&gt;&gt;&gt; a.dst="192.168.1.1"
+&gt;&gt;&gt; a
+&lt; IP ttl=10 dst=192.168.1.1 |&gt;
+&gt;&gt;&gt; a.src
+’192.168.1.14’
+&gt;&gt;&gt; del(a.ttl)
+&gt;&gt;&gt; a
+&lt; IP dst=192.168.1.1 |&gt;
+&gt;&gt;&gt; a.ttl
+64
+</code></pre>
+</div>
+
+<p><strong>ICMP Packet</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
+
+&gt;&gt;&gt; str(packet)
+'E\x00\x00\x1c\x00\x01\x00\x00@\x01\xef\x82\xc0\xa8\t\x0c\xc0\xa8\x01\x01\x08\x00\xf7\xff\x00\x00\x00\x00'
+
+&gt;&gt;&gt; packet.show()
+###[ IP ]###
+  version= 4
+  ihl= None
+  tos= 0x0
+  len= None
+  id= 1
+  flags= 
+  frag= 0
+  ttl= 64
+  proto= icmp
+  chksum= None
+  src= 192.168.1.12
+  dst= Net('192.168.1.1-254')
+  \options\
+###[ ICMP ]###
+     type= echo-request
+     code= 0
+     chksum= None
+     id= 0x0
+     seq= 0x0
+</code></pre>
+</div>
+
+<p><strong>HTTP GET Packet</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.google.com")/TCP()/"GET /index.html HTTP/1.1"
+&gt;&gt;&gt; hexdump(packet)
+0000   C0 3E 0F D2 24 DC 68 A3  C4 F0 D6 CE 08 00 45 00   .&gt;..$.h.......E.
+0010   00 40 00 01 00 00 40 06  54 81 C0 A8 09 0C C1 5F   .@....@.T......_
+0020   9B 22 00 14 00 50 00 00  00 00 00 00 00 00 50 02   ."...P........P.
+0030   20 00 C1 87 00 00 47 45  54 20 2F 69 6E 64 65 78    .....GET /index
+0040   2E 68 74 6D 6C 20 48 54  54 50 2F 31 2E 31         .html HTTP/1.1
+
+&gt;&gt;&gt; packet.show()
+###[ Ethernet ]###
+  dst= c0:3e:0f:d2:24:dc
+  src= 68:a3:c4:f0:d6:ce
+  type= 0x800
+###[ IP ]###
+     version= 4
+     ihl= None
+     tos= 0x0
+     len= None
+     id= 1
+     flags= 
+     frag= 0
+     ttl= 64
+     proto= tcp
+     chksum= None
+     src= 192.168.9.12
+     dst= Net('www.google.com')
+     \options\
+###[ TCP ]###
+        sport= ftp_data
+        dport= http
+        seq= 0
+        ack= 0
+        dataofs= None
+        reserved= 0
+        flags= S
+        window= 8192
+        chksum= None
+        urgptr= 0
+        options= {}
+###[ Raw ]###
+           load= 'GET /index.html HTTP/1.1'
+
+</code></pre>
+</div>
+
+<p><strong>Traceroute</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; traceroute('www.google.com')
+Begin emission:
+*********************Finished to send 30 packets.
+*********
+Received 30 packets, got 30 answers, remaining 0 packets
+   193.95.155.23:tcp80 
+1  192.168.9.1     11  
+2  193.95.131.7    11  
+3  193.95.138.1    11  
+4  193.95.155.23   SA  
+5  193.95.155.23   SA  
+6  193.95.155.23   SA  
+7  193.95.155.23   SA  
+8  193.95.155.23   SA  
+9  193.95.155.23   SA  
+10 193.95.155.23   SA  
+11 193.95.155.23   SA  
+12 193.95.155.23   SA  
+13 193.95.155.23   SA  
+14 193.95.155.23   SA  
+15 193.95.155.23   SA  
+16 193.95.155.23   SA  
+17 193.95.155.23   SA  
+18 193.95.155.23   SA  
+19 193.95.155.23   SA  
+20 193.95.155.23   SA  
+21 193.95.155.23   SA  
+22 193.95.155.23   SA  
+23 193.95.155.23   SA  
+24 193.95.155.23   SA  
+25 193.95.155.23   SA  
+26 193.95.155.23   SA  
+27 193.95.155.23   SA  
+28 193.95.155.23   SA  
+29 193.95.155.23   SA  
+30 193.95.155.23   SA  
+(&lt;Traceroute: TCP:27 UDP:0 ICMP:3 Other:0&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
+</code></pre>
+</div>
+
+<p><strong>ARPing</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; arping('192.168.9.1')
+Begin emission:
+Finished to send 1 packets.
+*
+Received 1 packets, got 1 answers, remaining 0 packets
+  c0:1e:af:d2:34:bc 192.168.1.1
+(&lt;ARPing: TCP:0 UDP:0 ICMP:0 Other:1&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
+</code></pre>
+</div>
+
 <h3 id="packet-manipulation">Packet manipulation</h3>
+
+<p><strong>Generating sets of packets</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1/30")
+&gt;&gt;&gt; packet
+&lt;IP  dst=Net('192.168.9.1/30') |&gt;
+&gt;&gt;&gt; [p for p in packet]
+[&lt;IP  dst=192.168.9.0 |&gt;, &lt;IP  dst=192.168.9.1 |&gt;, &lt;IP  dst=192.168.9.2 |&gt;, &lt;IP  dst=192.168.9.3 |&gt;]
+&gt;&gt;&gt; ttl_packet=IP(ttl=[1,2,(5,9)])
+&gt;&gt;&gt; ttl_packet
+&lt;IP  ttl=[1, 2, (5, 9)] |&gt;
+&gt;&gt;&gt; tcp_port=TCP(dport=[80,443])
+&gt;&gt;&gt; tcp_port
+&lt;TCP  dport=['http', 'https'] |&gt;
+&gt;&gt;&gt; [p for p in packet/tcp_port]
+[&lt;IP  frag=0 proto=tcp dst=192.168.9.0 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.0 |&lt;TCP  dport=https |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.1 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.1 |&lt;TCP  dport=https |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.2 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.2 |&lt;TCP  dport=https |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.3 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.3 |&lt;TCP  dport=https |&gt;&gt;]
+&gt;&gt;&gt; 
+
+</code></pre>
+</div>
+
+<p><strong>sprintf example</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1",ttl=12)/UDP(dport=123)
+&gt;&gt;&gt; packet
+&lt;IP  frag=0 ttl=12 proto=udp dst=192.168.9.1 |&lt;UDP  dport=ntp |&gt;&gt;
+&gt;&gt;&gt; packet.sprintf("The source is %IP.src%")
+'The source is 192.168.9.12'
+</code></pre>
+</div>
+
+<p><strong>The next packet contains a single SYN packet to 192.168.9.1 port 80</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1")/TCP(dport=80,flags="S") 
+&gt;&gt;&gt; packet
+&lt;IP  frag=0 proto=tcp dst=192.168.9.1 |&lt;TCP  dport=http flags=S |&gt;&gt;
+</code></pre>
+</div>
+
+<h3 id="sending-packets">Sending packets</h3>
+
+<p><strong>difference between send() and sendp()</strong></p>
+
+<p>send() function will send packets at layer 3. It will handle routing and layer 2 for you.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1")/ICMP())
+</code></pre>
+</div>
+
+<p>sendp() function will work at layer 2. Can be used the selected “or not” interface and link layer protocol.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; sendp(Ether()/IP(dst="192.168.1.1",ttl=(1,4)), iface="eth0")
+</code></pre>
+</div>
+
+<p><strong>ICMP</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
 
@@ -733,20 +1053,6 @@ Sent 254 packets.
 </code></pre>
 </div>
 
-<p><strong>difference between send() and sendp()</strong></p>
-
-<p>send() function will send packets at layer 3. It will handle routing and layer 2 for you.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1")/ICMP())
-</code></pre>
-</div>
-
-<p>sendp() function will work at layer 2. Then can be used the right “or not” interface and the right “or not” link layer protocol.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; sendp(Ether()/IP(dst="192.168.1.1",ttl=(1,4)), iface="eth1")
-</code></pre>
-</div>
-
 <p><strong>TCP/IP layers</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; IP()
@@ -758,10 +1064,597 @@ Sent 254 packets.
 </code></pre>
 </div>
 
+<p><strong>Sending a TCP (HTTP) packet</strong></p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.cisco.com")/TCP(dport=80)/"GET / HTTP/1.1" 
 &gt;&gt;&gt; sendp(packet)
 .
 Sent 1 packets.
+</code></pre>
+</div>
+
+<p><strong>Send and receive packets: the sr() functions</strong></p>
+
+<p>With send and sendp send functions we can send the information we need to the network, but we can not receive or handle the answers.</p>
+
+<p>We can use the sr() functions:</p>
+
+<ul>
+  <li>sr(): Send and receive a package (in layer 3, so use the system routes), and wait until a response has been received to all packets sent.</li>
+  <li>sr1(): Like the sr() function but only captures the first response received ignoring the rest of them.</li>
+  <li>srp(): Like the sr() function but in layer 2, we can send the information through an specific network card (is not needed a route).</li>
+  <li>srp1(): Like the function sr1() but in layer 2.</li>
+  <li>srbt(): Sends information through a Bluetooth connection.</li>
+  <li>srloop(): Let us send and receive information N times, where we can specify actions to take when a package is received and or the response is not received.</li>
+  <li>srploop(): Like the srloop() function but works on layer 2.</li>
+</ul>
+
+<p>Packet sent:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packets=sr(IP(dst="192.168.9.1")/ICMP(seq=[x for x in range(20)]))
+Begin emission:
+******************Finished to send 20 packets.
+**
+Received 20 packets, got 20 answers, remaining 0 packets
+&gt;&gt;&gt; packets
+(&lt;Results: TCP:0 UDP:0 ICMP:20 Other:0&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
+</code></pre>
+</div>
+
+<p>Print Answers:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; answer_received=packets[0]
+&gt;&gt;&gt; answer_received
+&lt;Results: TCP:0 UDP:0 ICMP:20 Other:0&gt;
+
+&gt;&gt;&gt; answer_received[0]
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x0 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8140 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffff id=0x0 seq=0x0 |&gt;&gt;)
+
+&gt;&gt;&gt; for p in answer_received:
+...  print p
+... 
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x0 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8140 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffff id=0x0 seq=0x0 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x1 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8141 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b6 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffe id=0x0 seq=0x1 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x2 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8142 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffd id=0x0 seq=0x2 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x3 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8143 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b4 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffc id=0x0 seq=0x3 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x4 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8144 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b3 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffb id=0x0 seq=0x4 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x5 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8145 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b2 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffa id=0x0 seq=0x5 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x6 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8146 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b1 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff9 id=0x0 seq=0x6 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x7 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8147 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b0 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff8 id=0x0 seq=0x7 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x8 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8148 flags= frag=0L ttl=64 proto=icmp chksum=0xc7af src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff7 id=0x0 seq=0x8 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x9 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8149 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ae src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff6 id=0x0 seq=0x9 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xa |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8150 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ad src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff5 id=0x0 seq=0xa |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xb |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8151 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ac src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff4 id=0x0 seq=0xb |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xc |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8152 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ab src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff3 id=0x0 seq=0xc |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xd |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8153 flags= frag=0L ttl=64 proto=icmp chksum=0xc7aa src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff2 id=0x0 seq=0xd |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xe |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8154 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a9 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff1 id=0x0 seq=0xe |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xf |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8155 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a8 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff0 id=0x0 seq=0xf |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x10 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8156 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffef id=0x0 seq=0x10 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x11 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8157 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a6 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffee id=0x0 seq=0x11 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x12 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8158 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffed id=0x0 seq=0x12 |&gt;&gt;)
+(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x13 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8159 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a4 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffec id=0x0 seq=0x13 |&gt;&gt;)
+
+
+
+&gt;&gt;&gt; list_answer_received=list(answer_received)
+&gt;&gt;&gt; list_answer_received
+[(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x0 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8140 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffff id=0x0 seq=0x0 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x1 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8141 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b6 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffe id=0x0 seq=0x1 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x2 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8142 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffd id=0x0 seq=0x2 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x3 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8143 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b4 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffc id=0x0 seq=0x3 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x4 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8144 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b3 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffb id=0x0 seq=0x4 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x5 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8145 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b2 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffa id=0x0 seq=0x5 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x6 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8146 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b1 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff9 id=0x0 seq=0x6 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x7 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8147 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b0 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff8 id=0x0 seq=0x7 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x8 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8148 flags= frag=0L ttl=64 proto=icmp chksum=0xc7af src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff7 id=0x0 seq=0x8 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x9 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8149 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ae src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff6 id=0x0 seq=0x9 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xa |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8150 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ad src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff5 id=0x0 seq=0xa |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xb |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8151 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ac src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff4 id=0x0 seq=0xb |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xc |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8152 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ab src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff3 id=0x0 seq=0xc |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xd |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8153 flags= frag=0L ttl=64 proto=icmp chksum=0xc7aa src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff2 id=0x0 seq=0xd |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xe |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8154 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a9 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff1 id=0x0 seq=0xe |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xf |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8155 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a8 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff0 id=0x0 seq=0xf |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x10 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8156 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffef id=0x0 seq=0x10 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x11 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8157 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a6 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffee id=0x0 seq=0x11 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x12 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8158 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffed id=0x0 seq=0x12 |&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x13 |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8159 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a4 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffec id=0x0 seq=0x13 |&gt;&gt;)]
+&gt;&gt;&gt; 
+
+
+
+&gt;&gt;&gt; from pprint import pprint
+&gt;&gt;&gt; pprint(list_answer_received)
+[(&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x0 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8140 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffff id=0x0 seq=0x0 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x1 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8141 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b6 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffe id=0x0 seq=0x1 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x2 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8142 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffd id=0x0 seq=0x2 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x3 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8143 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b4 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffc id=0x0 seq=0x3 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x4 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8144 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b3 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffb id=0x0 seq=0x4 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x5 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8145 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b2 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffa id=0x0 seq=0x5 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x6 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8146 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b1 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff9 id=0x0 seq=0x6 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x7 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8147 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b0 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff8 id=0x0 seq=0x7 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x8 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8148 flags= frag=0L ttl=64 proto=icmp chksum=0xc7af src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff7 id=0x0 seq=0x8 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x9 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8149 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ae src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff6 id=0x0 seq=0x9 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xa |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8150 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ad src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff5 id=0x0 seq=0xa |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xb |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8151 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ac src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff4 id=0x0 seq=0xb |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xc |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8152 flags= frag=0L ttl=64 proto=icmp chksum=0xc7ab src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff3 id=0x0 seq=0xc |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xd |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8153 flags= frag=0L ttl=64 proto=icmp chksum=0xc7aa src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff2 id=0x0 seq=0xd |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xe |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8154 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a9 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff1 id=0x0 seq=0xe |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0xf |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8155 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a8 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfff0 id=0x0 seq=0xf |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x10 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8156 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a7 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffef id=0x0 seq=0x10 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x11 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8157 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a6 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffee id=0x0 seq=0x11 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x12 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8158 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffed id=0x0 seq=0x12 |&gt;&gt;),
+ (&lt;IP  frag=0 proto=icmp dst=192.168.9.1 |&lt;ICMP  seq=0x13 |&gt;&gt;,
+  &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8159 flags= frag=0L ttl=64 proto=icmp chksum=0xc7a4 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xffec id=0x0 seq=0x13 |&gt;&gt;)]
+
+</code></pre>
+</div>
+
+<p>Answer received stream:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; answer.show()
+0000 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0001 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0002 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0003 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0004 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0005 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0006 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0007 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0008 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0009 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0010 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0011 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0012 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0013 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0014 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0015 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0016 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0017 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0018 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+0019 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
+</code></pre>
+</div>
+
+<p>** DoS generating an amount of packets to send</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.1")/ICMP() for x in range(100)]
+&gt;&gt;&gt; sendp(pkg_list, count=100)
+..............................................................................................................................................................................................................................................
+Sent 10000 packets.
+
+
+&gt;&gt;&gt; sendp(pkg_list, count=100, verbose=0)
+Sent 10000 packets.
+</code></pre>
+</div>
+
+<p><strong>Packet details</strong></p>
+
+<p>It could be possible to analyze a packet generated to be sent or received with all the layers. In python we can use a dictionary to show in detail all the packet layers.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; response_packet=srp1(Ether()/IP(dst="www.cisco.com")/TCP(dport=80, flags="S"), verbose=0)
+
+&gt;&gt;&gt; response_packet
+&lt;Ether  dst=68:a3:c4:f0:d6:ce src=c0:3e:0f:d2:24:dc type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=44 id=0 flags=DF frag=0L ttl=58 proto=tcp chksum=0xfed1 src=23.200.96.126 dst=192.168.9.12 options=[] |&lt;TCP  sport=http dport=ftp_data seq=2958228935 ack=1 dataofs=6L reserved=0L flags=SA window=29200 chksum=0x3594 urgptr=0 options=[('MSS', 1452)] |&gt;&gt;&gt;
+
+&gt;&gt;&gt; response_packet.show()
+###[ Ethernet ]###
+  dst= 68:a3:c4:f0:d6:ce
+  src= c0:3e:0f:d2:24:dc
+  type= 0x800
+###[ IP ]###
+     version= 4L
+     ihl= 5L
+     tos= 0x0
+     len= 44
+     id= 0
+     flags= DF
+     frag= 0L
+     ttl= 58
+     proto= tcp
+     chksum= 0xfed1
+     src= 23.200.96.126
+     dst= 192.168.9.12
+     \options\
+###[ TCP ]###
+        sport= http
+        dport= ftp_data
+        seq= 2958228935
+        ack= 1
+        dataofs= 6L
+        reserved= 0L
+        flags= SA
+        window= 29200
+        chksum= 0x3594
+        urgptr= 0
+        options= [('MSS', 1452)]
+
+
+&gt;&gt;&gt; response_packet[TCP]
+&lt;TCP  sport=http dport=ftp_data seq=2958228935 ack=1 dataofs=6L reserved=0L flags=SA window=29200 chksum=0x3594 urgptr=0 options=[('MSS', 1452)] |&gt;
+
+&gt;&gt;&gt; response_packet[IP]
+&lt;IP  version=4L ihl=5L tos=0x0 len=44 id=0 flags=DF frag=0L ttl=58 proto=tcp chksum=0xfed1 src=23.200.96.126 dst=192.168.9.12 options=[] |&lt;TCP  sport=http dport=ftp_data seq=2958228935 ack=1 dataofs=6L reserved=0L flags=SA window=29200 chksum=0x3594 urgptr=0 options=[('MSS', 1452)] |&gt;&gt;
+</code></pre>
+</div>
+
+<p>If we analyze in detail the TCP packet, we can see the flags used, in the next case SA which means SYN ACK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; tcp=response_packet[TCP]
+&gt;&gt;&gt; tcp.show()
+###[ TCP ]###
+  sport= http
+  dport= ftp_data
+  seq= 2958228935
+  ack= 1
+  dataofs= 6L
+  reserved= 0L
+  flags= SA
+  window= 29200
+  chksum= 0x3594
+  urgptr= 0
+  options= [('MSS', 1452)]
+
+</code></pre>
+</div>
+
+<p>Also we can verify if in a type of packet is contained in the response received:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; TCP in response_packet
+True
+
+&gt;&gt;&gt; ICMP in response_packet
+False
+
+&gt;&gt;&gt; IP in response_packet
+True
+</code></pre>
+</div>
+
+<h3 id="reading-pcap-files">Reading PCAP files</h3>
+
+<p>The functions that we can use to read and write in pcap files are:</p>
+
+<ul>
+  <li>rdpcap(): Read a pcap file.</li>
+  <li>wrpcap(): Write the selected packets into a pcap file.</li>
+</ul>
+
+<p>A great article about this functionality:
+<a href="https://thepacketgeek.com/importing-packets-from-trace-files/">Importing packets from trace files</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
+&gt;&gt;&gt; pcap_loaded
+&lt;test.pcap: TCP:23 UDP:15 ICMP:0 Other:1&gt;
+
+&gt;&gt;&gt; pcap_loaded.summary()
+Ether / IP / TCP 192.168.9.12:38250 &gt; 209.85.203.95:https PA / Raw
+Ether / IP / TCP 209.85.203.95:https &gt; 192.168.9.12:38250 A
+Ether / IP / TCP 209.85.203.95:https &gt; 192.168.9.12:38250 PA / Raw
+Ether / IP / TCP 192.168.9.12:38250 &gt; 209.85.203.95:https A
+Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+Ether / IPv6 / ICMPv6ND_NS / ICMPv6 Neighbor Discovery Option - Source Link-Layer Address 84:10:0d:98:01:43
+Ether / IP / UDP 192.168.9.5:55901 &gt; 239.255.255.250:1900 / Raw
+Ether / IP / UDP 192.168.9.5:55901 &gt; 239.255.255.250:1900 / Raw
+Ether / IP / UDP / DNS Qry "www.secdev.org." 
+Ether / IP / UDP / DNS Qry "www.secdev.org." 
+Ether / IP / UDP / DNS Qry "www.secdev.org." 
+Ether / IP / UDP / DNS Ans "secdev.org." 
+Ether / IP / UDP / DNS Ans "secdev.org." 
+Ether / IP / UDP / DNS Ans "secdev.org." 
+Ether / IP / TCP 192.168.9.12:55664 &gt; 217.25.178.5:http S
+Ether / IP / TCP 217.25.178.5:http &gt; 192.168.9.12:55664 SA
+Ether / IP / TCP 192.168.9.12:55664 &gt; 217.25.178.5:http A
+Ether / IP / TCP 192.168.9.12:36974 &gt; 216.58.211.161:https PA / Raw
+Ether / IP / UDP 192.168.9.12:mdns &gt; 224.0.0.251:mdns / Raw
+Ether / IP / TCP 216.58.211.161:https &gt; 192.168.9.12:36974 A
+Ether / IP / TCP 216.58.211.161:https &gt; 192.168.9.12:36974 PA / Raw
+Ether / IP / TCP 192.168.9.12:36974 &gt; 216.58.211.161:https A
+Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+Ether / IP / TCP 192.168.9.12:59574 &gt; 216.58.211.174:http A
+Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59574 A
+Ether / IP / TCP 192.168.9.12:59576 &gt; 216.58.211.174:http A
+Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59576 A
+Ether / IP / TCP 192.168.9.12:59550 &gt; 216.58.211.174:http A
+Ether / IP / TCP 192.168.9.12:59578 &gt; 216.58.211.174:http A
+Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59550 A
+Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59578 A
+Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+Ether / IP / TCP 192.168.9.12:46560 &gt; 216.58.211.165:https PA / Raw
+Ether / IP / TCP 216.58.211.165:https &gt; 192.168.9.12:46560 A
+Ether / IP / TCP 216.58.211.165:https &gt; 192.168.9.12:46560 PA / Raw
+Ether / IP / TCP 192.168.9.12:46560 &gt; 216.58.211.165:https A
+Ether / IP / UDP 192.168.9.6:14951 &gt; 239.255.255.250:1900 / Raw
+Ether / IP / UDP 192.168.9.6:14951 &gt; 239.255.255.250:1900 / Raw
+Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+
+
+&gt;&gt;&gt; pcap_loaded.show()
+0000 Ether / IP / TCP 192.168.9.12:38250 &gt; 209.85.203.95:https PA / Raw
+0001 Ether / IP / TCP 209.85.203.95:https &gt; 192.168.9.12:38250 A
+0002 Ether / IP / TCP 209.85.203.95:https &gt; 192.168.9.12:38250 PA / Raw
+0003 Ether / IP / TCP 192.168.9.12:38250 &gt; 209.85.203.95:https A
+0004 Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+0005 Ether / IPv6 / ICMPv6ND_NS / ICMPv6 Neighbor Discovery Option - Source Link-Layer Address 84:10:0d:98:01:43
+0006 Ether / IP / UDP 192.168.9.5:55901 &gt; 239.255.255.250:1900 / Raw
+0007 Ether / IP / UDP 192.168.9.5:55901 &gt; 239.255.255.250:1900 / Raw
+0008 Ether / IP / UDP / DNS Qry "www.secdev.org." 
+0009 Ether / IP / UDP / DNS Qry "www.secdev.org." 
+0010 Ether / IP / UDP / DNS Qry "www.secdev.org." 
+0011 Ether / IP / UDP / DNS Ans "secdev.org." 
+0012 Ether / IP / UDP / DNS Ans "secdev.org." 
+0013 Ether / IP / UDP / DNS Ans "secdev.org." 
+0014 Ether / IP / TCP 192.168.9.12:55664 &gt; 217.25.178.5:http S
+0015 Ether / IP / TCP 217.25.178.5:http &gt; 192.168.9.12:55664 SA
+0016 Ether / IP / TCP 192.168.9.12:55664 &gt; 217.25.178.5:http A
+0017 Ether / IP / TCP 192.168.9.12:36974 &gt; 216.58.211.161:https PA / Raw
+0018 Ether / IP / UDP 192.168.9.12:mdns &gt; 224.0.0.251:mdns / Raw
+0019 Ether / IP / TCP 216.58.211.161:https &gt; 192.168.9.12:36974 A
+0020 Ether / IP / TCP 216.58.211.161:https &gt; 192.168.9.12:36974 PA / Raw
+0021 Ether / IP / TCP 192.168.9.12:36974 &gt; 216.58.211.161:https A
+0022 Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+0023 Ether / IP / TCP 192.168.9.12:59574 &gt; 216.58.211.174:http A
+0024 Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59574 A
+0025 Ether / IP / TCP 192.168.9.12:59576 &gt; 216.58.211.174:http A
+0026 Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59576 A
+0027 Ether / IP / TCP 192.168.9.12:59550 &gt; 216.58.211.174:http A
+0028 Ether / IP / TCP 192.168.9.12:59578 &gt; 216.58.211.174:http A
+0029 Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59550 A
+0030 Ether / IP / TCP 216.58.211.174:http &gt; 192.168.9.12:59578 A
+0031 Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+0032 Ether / IP / TCP 192.168.9.12:46560 &gt; 216.58.211.165:https PA / Raw
+0033 Ether / IP / TCP 216.58.211.165:https &gt; 192.168.9.12:46560 A
+0034 Ether / IP / TCP 216.58.211.165:https &gt; 192.168.9.12:46560 PA / Raw
+0035 Ether / IP / TCP 192.168.9.12:46560 &gt; 216.58.211.165:https A
+0036 Ether / IP / UDP 192.168.9.6:14951 &gt; 239.255.255.250:1900 / Raw
+0037 Ether / IP / UDP 192.168.9.6:14951 &gt; 239.255.255.250:1900 / Raw
+0038 Ether / IP / UDP 192.168.9.6:mdns &gt; 224.0.0.251:mdns / Raw
+
+
+
+&gt;&gt;&gt; pcap_loaded.sessions()
+{'TCP 192.168.9.12:38250 &gt; 209.85.203.95:443': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'TCP 216.58.211.165:443 &gt; 192.168.9.12:46560': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59576 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 209.85.203.95:443 &gt; 192.168.9.12:38250': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:46560 &gt; 216.58.211.165:443': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'Ethernet type=86dd': &lt;PacketList: TCP:0 UDP:0 ICMP:0 Other:1&gt;, 'TCP 192.168.9.12:59550 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'UDP 192.168.9.12:32338 &gt; 192.168.9.1:53': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'UDP 192.168.9.12:5353 &gt; 224.0.0.251:5353': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'UDP 192.168.9.1:53 &gt; 192.168.9.12:32338': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'UDP 192.168.9.6:5353 &gt; 224.0.0.251:5353': &lt;PacketList: TCP:0 UDP:4 ICMP:0 Other:0&gt;, 'UDP 192.168.9.6:14951 &gt; 239.255.255.250:1900': &lt;PacketList: TCP:0 UDP:2 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59574': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'UDP 192.168.9.5:55901 &gt; 239.255.255.250:1900': &lt;PacketList: TCP:0 UDP:2 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59550': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 216.58.211.161:443 &gt; 192.168.9.12:36974': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'TCP 217.25.178.5:80 &gt; 192.168.9.12:55664': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59578 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:36974 &gt; 216.58.211.161:443': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'UDP 192.168.9.12:54718 &gt; 192.168.9.1:53': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59578': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59576': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'UDP 192.168.9.12:55658 &gt; 192.168.9.1:53': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'UDP 192.168.9.1:53 &gt; 192.168.9.12:54718': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:55664 &gt; 217.25.178.5:80': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;, 'UDP 192.168.9.1:53 &gt; 192.168.9.12:55658': &lt;PacketList: TCP:0 UDP:1 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59574 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;}
+
+
+
+&gt;&gt;&gt; for x in pcap_loaded.sessions():
+...  print x
+... 
+TCP 192.168.9.12:38250 &gt; 209.85.203.95:443
+TCP 216.58.211.165:443 &gt; 192.168.9.12:46560
+TCP 192.168.9.12:59576 &gt; 216.58.211.174:80
+TCP 209.85.203.95:443 &gt; 192.168.9.12:38250
+TCP 192.168.9.12:46560 &gt; 216.58.211.165:443
+Ethernet type=86dd
+TCP 192.168.9.12:59550 &gt; 216.58.211.174:80
+UDP 192.168.9.12:32338 &gt; 192.168.9.1:53
+UDP 192.168.9.12:5353 &gt; 224.0.0.251:5353
+UDP 192.168.9.1:53 &gt; 192.168.9.12:32338
+UDP 192.168.9.6:5353 &gt; 224.0.0.251:5353
+UDP 192.168.9.6:14951 &gt; 239.255.255.250:1900
+TCP 216.58.211.174:80 &gt; 192.168.9.12:59574
+UDP 192.168.9.5:55901 &gt; 239.255.255.250:1900
+TCP 216.58.211.174:80 &gt; 192.168.9.12:59550
+TCP 216.58.211.161:443 &gt; 192.168.9.12:36974
+TCP 217.25.178.5:80 &gt; 192.168.9.12:55664
+TCP 192.168.9.12:59578 &gt; 216.58.211.174:80
+TCP 192.168.9.12:36974 &gt; 216.58.211.161:443
+UDP 192.168.9.12:54718 &gt; 192.168.9.1:53
+TCP 216.58.211.174:80 &gt; 192.168.9.12:59578
+TCP 216.58.211.174:80 &gt; 192.168.9.12:59576
+UDP 192.168.9.12:55658 &gt; 192.168.9.1:53
+UDP 192.168.9.1:53 &gt; 192.168.9.12:54718
+TCP 192.168.9.12:55664 &gt; 217.25.178.5:80
+UDP 192.168.9.1:53 &gt; 192.168.9.12:55658
+TCP 192.168.9.12:59574 &gt; 216.58.211.174:80
+
+
+&gt;&gt;&gt; pcap_loaded.stats
+[&lt;class 'scapy.layers.inet.TCP'&gt;, &lt;class 'scapy.layers.inet.UDP'&gt;, &lt;class 'scapy.layers.inet.ICMP'&gt;]
+
+</code></pre>
+</div>
+
+<p><strong>Content and sessions manipulation</strong></p>
+
+<p>The organized stream loaded by scapy can be accessed to check the sessions and packet content.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
+&gt;&gt;&gt; pcap_loaded
+&lt;test.pcap: TCP:23 UDP:15 ICMP:0 Other:1&gt;
+&gt;&gt;&gt; len(pcap_loaded.sessions())
+27
+&gt;&gt;&gt; tcp_port_80={x:y for x,y in pcap_loaded.sessions().iteritems() if "TCP" in x and "80" in x}
+&gt;&gt;&gt; tcp_port_80
+{'TCP 216.58.211.174:80 &gt; 192.168.9.12:59574': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59550': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 217.25.178.5:80 &gt; 192.168.9.12:55664': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59578 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59574 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59578': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59550 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 216.58.211.174:80 &gt; 192.168.9.12:59576': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:59576 &gt; 216.58.211.174:80': &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;, 'TCP 192.168.9.12:55664 &gt; 217.25.178.5:80': &lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;}
+
+
+&gt;&gt;&gt; element1=tcp_port_80.popitem()
+&gt;&gt;&gt; element1
+('TCP 216.58.211.174:80 &gt; 192.168.9.12:59574', &lt;PacketList: TCP:1 UDP:0 ICMP:0 Other:0&gt;)
+&gt;&gt;&gt; session1=tcp_port_80["TCP 216.58.211.165:443 &gt; 192.168.9.12:46560"]
+&gt;&gt;&gt; session1
+&lt;PacketList: TCP:2 UDP:0 ICMP:0 Other:0&gt;
+&gt;&gt;&gt; session1.show()
+0000 Ether / IP / TCP 216.58.211.165:https &gt; 192.168.9.12:46560 A
+0001 Ether / IP / TCP 216.58.211.165:https &gt; 192.168.9.12:46560 PA / Raw
+
+
+&gt;&gt;&gt; for x in session1:
+...  print x
+...  sleep(2)
+... 
+h������&gt;�$E4w8��:ӥ�� 
+                        �����;�c:+��e
+�;y��l
+h������&gt;�$Ebw8���:ӥ�� 
+                        �����;�c:+��Q
+�g�|q�MYٵ&amp;ͮӆ#S
+&gt;&gt;&gt; 
+
+</code></pre>
+</div>
+
+<p>And also we can read and print the content of a packet, for example from a HTTP packet with a png in the content.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
+&gt;&gt;&gt; pcap_loaded
+&lt;test.pcap: TCP:14599 UDP:11476 ICMP:1 Other:12&gt;
+&gt;&gt;&gt; len(pcap_loaded.sessions())
+678
+&gt;&gt;&gt; http=[x for x in pcap_loaded.res if TCP in x and x[TCP].dport==80]
+
+&gt;&gt;&gt; png_pkg=[y for y in http if Raw in y and "png" in str(y[Raw])]
+&gt;&gt;&gt; len(png_pkg)
+1
+&gt;&gt;&gt; png_files=[]
+&gt;&gt;&gt; for x in png_pkg:
+...  for y in str(x[Raw]).split("\n"):
+...   if "png" in y:
+...    png_files.append(y)
+
+&gt;&gt;&gt; png_files
+["GET /pixel;r=2118400465;a=p-cc6zkdHuZwUDM;fpan=0;fpa=P0-1368788983-1484692941895;ns=0;ce=1;cm=;je=1;sr=1366x768x24;enc=n;dst=1;et=1485989147585;tzo=0;ref=https%3A%2F%2Fwww.linkedin.com%2F;url=http%3A%2F%2Fhackaday.com%2F2017%2F01%2F15%2Fshmoocon-2017-a-simple-tool-for-reverse-engineering-rf%2F%3Futm_content%3Dbuffer81f58%26utm_medium%3Dsocial%26utm_source%3Dlinkedin.com%26utm_campaign%3Dbuffer;ogl=title.Shmoocon%202017%3A%20A%20Simple%20Tool%20For%20Reverse%20Engineering%20RF%2Ctype.article%2Cimage.https%3A%2F%2Fhackadaycom%252Efiles%252Ewordpress%252Ecom%2F2017%2F01%2Fwaveconvertherthmb%252Epng%3Fw%3D600%26h%3D6%2Curl.http%3A%2F%2Fhackaday%252Ecom%2F2017%2F01%2F15%2Fshmoocon-2017-a-simple-tool-for-reverse-engineeri%2Cdescription.Anyone%20can%20hack%20a%20radio%252C%20but%20that%20doesn't%20mean%20it's%20easy%3A%20there's%20a%20lot%20of%20mecha%2Csite_name.Hackaday HTTP/1.1\r"]
+
+&gt;&gt;&gt; for x in png_files:
+...  print x
+... 
+GET /pixel;r=2118400465;a=p-cc6zkdHuZwUDM;fpan=0;fpa=P0-1368788983-1484692941895;ns=0;ce=1;cm=;je=1;sr=1366x768x24;enc=n;dst=1;et=1485989147585;tzo=0;ref=https%3A%2F%2Fwww.linkedin.com%2F;url=http%3A%2F%2Fhackaday.com%2F2017%2F01%2F15%2Fshmoocon-2017-a-simple-tool-for-reverse-engineering-rf%2F%3Futm_content%3Dbuffer81f58%26utm_medium%3Dsocial%26utm_source%3Dlinkedin.com%26utm_campaign%3Dbuffer;ogl=title.Shmoocon%202017%3A%20A%20Simple%20Tool%20For%20Reverse%20Engineering%20RF%2Ctype.article%2Cimage.https%3A%2F%2Fhackadaycom%252Efiles%252Ewordpress%252Ecom%2F2017%2F01%2Fwaveconvertherthmb%252Epng%3Fw%3D600%26h%3D6%2Curl.http%3A%2F%2Fhackaday%252Ecom%2F2017%2F01%2F15%2Fshmoocon-2017-a-simple-tool-for-reverse-engineeri%2Cdescription.Anyone%20can%20hack%20a%20radio%252C%20but%20that%20doesn't%20mean%20it's%20easy%3A%20there's%20a%20lot%20of%20mecha%2Csite_name.Hackaday HTTP/1.1
+</code></pre>
+</div>
+
+<p>And why not check some content like login or passwords in plain text:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+&gt;&gt;&gt; password_pkg=[y for y in http if Raw in y and "login" in str(y[Raw])]
+&gt;&gt;&gt; len(password_pkg)
+2
+&gt;&gt;&gt; password_pkg
+[&lt;Ether  dst=00:11:32:3f:36:72 src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=614 id=33393 flags=DF frag=0L ttl=64 proto=tcp chksum=0x22bf src=192.168.9.12 dst=192.168.9.5 options=[] |&lt;TCP  sport=46958 dport=5000 seq=3055532688 ack=570948961 dataofs=8L reserved=0L flags=PA window=229 chksum=0xd970 urgptr=0 options=[('NOP', None), ('NOP', None), ('Timestamp', (866530, 162386984))] |&lt;Raw  load='POST /webapi/encryption.cgi HTTP/1.1\r\nHost: 192.168.9.5:5000\r\nUser-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\nX-Requested-With: XMLHttpRequest\r\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\r\nReferer: http://192.168.9.5:5000/index.cgi\r\nContent-Length: 62\r\nCookie: stay_login=0\r\nConnection: keep-alive\r\n\r\nformat=module&amp;api=SYNO.API.Encryption&amp;method=getinfo&amp;version=1' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=00:11:32:3f:36:72 src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=1500 id=33396 flags=DF frag=0L ttl=64 proto=tcp chksum=0x1f46 src=192.168.9.12 dst=192.168.9.5 options=[] |&lt;TCP  sport=46958 dport=5000 seq=3055533250 ack=570950087 dataofs=8L reserved=0L flags=A window=246 chksum=0xf17d urgptr=0 options=[('NOP', None), ('NOP', None), ('Timestamp', (866583, 162386995))] |&lt;Raw  load='POST /webman/login.cgi?enable_syno_token=yes HTTP/1.1\r\nHost: 192.168.9.5:5000\r\nUser-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\nReferer: http://192.168.9.5:5000/index.cgi\r\nCookie: stay_login=0\r\nConnection: keep-alive\r\nUpgrade-Insecure-Requests: 1\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 998\r\n\r\nOTPcode=&amp;__cIpHeRtExT=%7B%22rsa%22%3A%22rjtq6PjnMCnoqiPWIdvtrmszeeN8P3aUPqpgXrFCThYyNIZoK38qR4bZfQrJOD173%2BxQSm2VTjBhr8S0FsLrMVbkmydKfm73M3c5JHsfEj4UtwzKgLy3W8oR5fGaUXecsQBHNMWxWvAuBQrGgdN5qp2NRF5K9Z%2BcW0UfhDTzikNZnwohxp1gnRcNJW1H%2BEt91WPrTa30dlSgNFDseV0EymrED0fB%2FWk%2BvxEk8H80uYhnc2L4iM4jmJGDzyTDsRpjCxcmGnoRdBM80paBmaUQAmypFyW9c%2B2SAfRUfsjoD88ky5hAF2mUybV3dca%2FhHnNnrDhLhTMkRtpEXO9fMgvRym7XTg3v5o0kk5CP0ddPPwG06u6rXcpHYq1Faud1oVQYgz3lP0%2B8ytiUcxaVUAjxh1Y6sFX1LvCQHLfr4V9QNdiZw7QTBBnBI3XxhjgHWPsBGfcTUXwKby%2BQKTjIU1gErHPX705oB7RlmWnwTA2STbL8vp6nLd5Gtbn42HX%2FT%2BGdo83F%2BxMpFP1%2BmITDtnHGIxMnJ3k7ltzt69%2FM3A6B5o0MXfS2oHqn5kSh45fGP9oykZnsfwaH7WrPIYM7%2Fg%2BcUyR73Mb6Vb6ethLgpegD3b3oSOyoHnHoK%2B9quVd1%2BOZKmZfirAJt3bkWpZWzK6goFqh5ewOkArk6GmzYIxNHoY%3D%22%2C%22aes%22%3A%22U2FsdGVkX1%2F2pDiIssET69lOd6L6ZilsN3ZzrWyfe4%2Fnlug84qsb%2BIIw9XCRRmJIQ6DOBCK432z9Iy5fMGgX6lf0DMzh9B%2FWvbSqaCzn07XVray1tOOEInaPy%2By8mA%2BOG55A2Rw9ueGAgZmRQRXVcw%3D%' |&gt;&gt;&gt;&gt;]
+
+</code></pre>
+</div>
+
+<p>Or a DNS query:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; udp_pkg=[x for x in pcap_loaded.res if UDP in x]
+&gt;&gt;&gt; udp_pkg
+=udp chksum=0xdde4 src=200.74.99.116 dst=192.168.9.12 options=[] |&lt;UDP  sport=61091 dport=53159 len=72 chksum=0x1c76 |&lt;Raw  load='\x01\x01\x00,!\x12\xa4B\x928\x8e\xd3p(WN\xd71\xbf\xe3\x00 \x00\x08\x00\x01\xee\xb5o\x03\xce_\x00\x08\x00\x14\xfc\xcfi\x81@\x14\xa3t,$\xb7\x81+\xc4\xed\x952\xd5x\xa3\x80(\x00\x04\x08\xdaAW' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=68:a3:c4:f0:d6:ce src=c0:3e:0f:d2:24:dc type=0x800 |&lt;IP  version=4L ihl=5L tos=0x8 len=128 id=29190 flags= frag=0L ttl=110 proto=udp chksum=0xa05 src=85.152.177.13 dst=192.168.9.12 options=[] |&lt;UDP  sport=51177 dport=46675 len=108 chksum=0x1f26 |&lt;Raw  load='\x00\x01\x00P!\x12\xa4BKNSkguht8DNJ\x00\x06\x00\r6c62b455:K1gM\x00\x00\x00\xc0W\x00\x04\x00\x00\x002\x80)\x00\x08\xff\xe3C\x87\x04N\xc3\x85\x00$\x00\x04n\x00\x1e\xff\x00\x08\x00\x14\xe1\xb7\xae\xfe\x0bB\xecC\xebQ&gt;\xcc-l\x86f\xd7\xf7\xa2\x1d\x80(\x00\x04\x0cE\xd3\xc5' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=c0:3e:0f:d2:24:dc src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=92 id=33861 flags=DF frag=0L ttl=64 proto=udp chksum=0xe5f1 src=192.168.9.12 dst=85.152.177.13 options=[] |&lt;UDP  sport=46675 dport=51177 len=72 chksum=0xe49d |&lt;Raw  load='\x01\x01\x00,!\x12\xa4BKNSkguht8DNJ\x00 \x00\x08\x00\x01\xe6\xfbt\x8a\x15O\x00\x08\x00\x14;\x82\xb7\xfb$\xb4\xb8\xb6\xf8y.-\xb2\xc8\xa9\xc4\xb8:\xce\x05\x80(\x00\x04e\xd0\xde\xff' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=68:a3:c4:f0:d6:ce src=c0:3e:0f:d2:24:dc type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=132 id=30522 flags= frag=0L ttl=112 proto=udp chksum=0xddbb src=200.74.99.116 dst=192.168.9.12 options=[] |&lt;UDP  sport=61091 dport=53159 len=112 chksum=0xeed4 |&lt;Raw  load='\x00\x01\x00T!\x12\xa4B1DwJ/p0BJGR1\x00\x06\x00\re733a838:Dm+r\x00\x00\x00\xc0W\x00\x04\x00\x00\x002\x80*\x00\x08\xcf\xd0\x0b\x06\xa9\xefl\xfc\x00%\x00\x00\x00$\x00\x04n\x00\x1e\xff\x00\x08\x00\x14\xe2\xc74\xce\xa8\x0bqm\xbc\xbd\xd4\xfe\x87\xdbm\xe1\xcbM\xd9\r\x80(\x00\x04\xa6\x89h2' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=c0:3e:0f:d2:24:dc src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=92 id=22612 flags=DF frag=0L ttl=64 proto=udp chksum=0xecc9 src=192.168.9.12 dst=200.74.99.116 options=[] |&lt;UDP  sport=53159 dport=61091 len=72 chksum=0xa5f5 |&lt;Raw  load='\x01\x01\x00,!\x12\xa4B1DwJ/p0BJGR1\x00 \x00\x08\x00\x01\xcf\xb1\xe9X\xc76\x00\x08\x00\x14\xef\xb65js\x18\x13]\xd4\x19\xee\xc9\xa5\xc25BXa\x1b\xa0\x80(\x00\x04&lt;\xf4?F' |&gt;&gt;&gt;&gt;]
+
+
+&gt;&gt;&gt; for x in udp_pkg:
+...  print x[DNSQR].qname
+
+
+</code></pre>
+</div>
+
+<p><strong>PCAP generation</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.1")/ICMP() for x in range(1000)]
+&gt;&gt;&gt; wrpcap("test_packets.pcap", pkg_list)
+&gt;&gt;&gt; t1=time.time(); sendp(rdpcap("test_packets.pcap"), verbose=0); t2=time.time()
+&gt;&gt;&gt; t2-t1
+</code></pre>
+</div>
+
+<p><strong>Using TCP Replay</strong></p>
+
+<p>Scapy provide sendpfast() that works on Layer2, and needs tcpreplay to be installed.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.12")/ICMP() for x in range(5)]
+&gt;&gt;&gt; t1=time.time(); sendpfast(pkg_list, file_cache=True); t2=time.time()
+sending out wlan0 
+Actual: 5 packets (140 bytes) sent in 5.15 seconds.   Rated: 27.2 bps, 0.00 Mbps, 0.97 pps
+Statistics for network device: wlan0
+  Attempted packets:         8115876
+  Successful packets:        5
+  Failed packets:            0
+  Retried packets (ENOBUFS): 8115871
+  Retried packets (EAGAIN):  0
+
+</code></pre>
+</div>
+
+<h3 id="layers">Layers</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/usr/share/pyshared/scapy/layers$ ls
+all.py        gprs.py      isakmp.py    netbios.py  rip.py     snmp.py
+bluetooth.py  hsrp.py      l2.py        netflow.py  rtp.py     tftp.py
+dhcp6.py      inet6.py     l2tp.py      ntp.py      sctp.py    vrrp.py
+dhcp.py       inet.py      llmnr.py     pflog.py    sebek.py   x509.py
+dns.py        __init__.py  mgcp.py      ppp.py      skinny.py
+dot11.py      ir.py        mobileip.py  radius.py   smb.py
+
+</code></pre>
+</div>
+
+<h3 id="exporting-data">Exporting Data</h3>
+
+<p><strong>Export in hexadecimal</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
+&gt;&gt;&gt; str(pkg)
+'E\x00\x00\x1c\x00\x01\x00\x00@\x01\xe7w\xc0\xa8\t\x0c\xc0\xa8\t\x0c\x08\x00\xf7\xff\x00\x00\x00\x00'
+
+</code></pre>
+</div>
+
+<p><strong>Export in base64</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
+&gt;&gt;&gt; base64=export_object(str(pkg))
+eNprYAqVcWVgkGFgZGBwYHxefmAFJw8IczB8/88ABIWMegCRVgiN
+
+
+</code></pre>
+</div>
+
+<p><strong>Graphical dumps. Export to a PDF</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
+&gt;&gt;&gt; pkg.pdfdump("/tmp/scapy.pdf")
+Ignoring line 11259 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBol'
+Ignoring line 11260 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBol'
+Ignoring line 11261 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBol'
+Ignoring line 11262 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBolIta'
+Ignoring line 11263 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBolIta'
+Ignoring line 11264 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBolIta'
+Ignoring line 11265 in mapping file 'pdftex.map': Unknown token '&lt;MinLibIta'
+Ignoring line 11266 in mapping file 'pdftex.map': Unknown token '&lt;MinLibIta'
+Ignoring line 11267 in mapping file 'pdftex.map': Unknown token '&lt;MinLibIta'
+Ignoring line 11268 in mapping file 'pdftex.map': Unknown token '&lt;MinLibReg'
+Ignoring line 11269 in mapping file 'pdftex.map': Unknown token '&lt;MinLibReg'
+Ignoring line 11270 in mapping file 'pdftex.map': Unknown token '&lt;MinLibReg'
+&gt;&gt;&gt; 
+
+</code></pre>
+</div>
+
+<p><img src="http://i.imgur.com/MiEPLBN.png" alt="Screenshot" /></p>
+
+<p><strong>Gnuplot</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; a.plpackets=IP(dst="192.168.9.1")/ICMP(id=[x for x in range(500)])
+&gt;&gt;&gt; a,u=sr(packets)
+Begin emission:
+.****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************Finished to send 500 packets.
+****
+Received 501 packets, got 500 answers, remaining 0 packets
+&gt;&gt;&gt; a.plot(lambda x: (x[1].time - x[0].sent_time)*1000)
+&lt;Gnuplot._Gnuplot.Gnuplot instance at 0x7fda13717ab8&gt;
+
+</code></pre>
+</div>
+
+<p><img src="http://i.imgur.com/Csi0CBZ.png" alt="Screenshot" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; sniffer=sniff(filter="tcp and port 80")
+^C
+&gt;&gt;&gt; sniffer
+&lt;Sniffed: TCP:99 UDP:0 ICMP:0 Other:0&gt;
+&gt;&gt;&gt; sniffer.plot(lambda x: x.seq)
+&lt;Gnuplot._Gnuplot.Gnuplot instance at 0x7fda13717cb0&gt;
 </code></pre>
 </div>
 
