@@ -5,8 +5,8 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Feb 2017 00:41:01 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Feb 2017 00:41:01 +0000</lastBuildDate>
+    <pubDate>Tue, 21 Feb 2017 00:43:05 +0000</pubDate>
+    <lastBuildDate>Tue, 21 Feb 2017 00:43:05 +0000</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
     
       <item>
@@ -1008,7 +1008,7 @@ Received 20 packets, got 20 answers, remaining 0 packets
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Answer received stream:&lt;/p&gt;
+&lt;p&gt;Answer received by the stream:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; answer.show()
 0000 IP / ICMP 192.168.9.12 &amp;gt; 192.168.9.1 echo-request 0 ==&amp;gt; IP / ICMP 192.168.9.1 &amp;gt; 192.168.9.12 echo-reply 0
