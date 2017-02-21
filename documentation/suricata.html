@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="suricata">
+<meta name="keywords" content=" suricata">
+<title>suricata | Notes</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-green.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Notes</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="https://1modm.github.io/" target="_blank">Gitpage</a></li>
+                
+                
+                
+                <li><a href="https://github.com/1modm" target="_blank">Github</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="suricata">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Notes 1.0</li>
+    
+    
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">Get started</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Tools</a>
+        <ul>
+            
+            
+            
+            <li><a href="opensourcetools.html">Open Source Security Tools</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mat.html">Metadata Anonymisation Toolkit</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="pentestcheat.html">Penetration Testing Tools Cheat Sheet</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="scapycheat.html">Scapy Cheat Sheet from SANS SEC560</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="gitcommands.html">Git Commands and Best Practices Cheat Sheet</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Troubleshooting</a>
+        <ul>
+            
+            
+            
+            <li><a href="testdisk.html">Disk</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="processes.html">Processes</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="files.html">Files</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Networking</a>
+        <ul>
+            
+            
+            
+            <li><a href="tcpdump.html">tcpdump</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="ngrep.html">ngrep</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="netstat.html">netstat</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="lsof_net.html">lsof</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="netcat.html">netcat</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="arping.html">arping</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="ethtool.html">Network driver and hardware settings</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tshark.html">tshark</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Databases</a>
+        <ul>
+            
+            
+            
+            <li><a href="mysql.html">MySQL</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="postgres.html">PostgreSQL</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">IDS</a>
+        <ul>
+            
+            
+            
+            <li><a href="snort.html">Snort</a></li>
+            
+            
+            
+            
+            
+            
+            <li class="active"><a href="suricata.html">Suricata</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">suricata</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+    <div class="summary">suricata</div>
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+    
+
+    
+
+    
+
+  <h2 id="suricata">suricata</h2>
+
+<div class="bs-callout bs-callout-primary">Dump and analyze network traffic</div>
+
+<p><a href="https://suricata-ids.org/">Suricata</a> is a free and open source, mature, fast and robust network threat detection engine.</p>
+
+<p>The <strong>Suricata</strong> engine is capable of real time intrusion detection (IDS), inline intrusion prevention (IPS), network security monitoring (NSM) and offline pcap processing.</p>
+
+<h3 id="documentation">Documentation</h3>
+<p>Once we have Suricata installed and running the best way to check all the available options is to go to the official doc site: <a href="http://suricata.readthedocs.io/en/latest/">http://suricata.readthedocs.io/en/latest/</a></p>
+
+<h3 id="configuration-files">Configuration files</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/etc/suricata/suricata.yaml
+</code></pre>
+</div>
+
+<p>Remember to set your <strong>$HOMENET</strong> variable in <strong>/etc/suricata/suricata.yaml</strong>, any traffic out of the value set in this variable will be ignored also make sure you are logging to <strong>/var/log/suricata</strong>, and that the directory exists.</p>
+
+<p><strong>Configuring Suricata to log to disk</strong>:
+Configure the <strong>logging outputs</strong> for Suricata, in <strong>suricata.yaml</strong> configuration file, enable “file” logging by changing the value of the “enabled” key values set to “yes” from “no”. The config file should look like the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  # Define your logging outputs.  If none are defined, or they are all
+  # disabled you will get the default - console output.
+  outputs:
+  - console:
+      enabled: yes
+  - file:
+      enabled: yes
+      filename: /var/log/suricata/suricata.log
+  - syslog:
+      enabled: no
+      facility: local5
+      format: "[%i] &lt;%d&gt; -- "
+</code></pre>
+</div>
+
+<p><strong>Configuring Suricata to enable DNS and TLS logging</strong>
+In <strong>suricata.yaml</strong> configuration file ensure that http-log, tls-log and dns-log have the “enabled” key values set to “yes”. When you have completed this step. The config file should look like the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  - http-log:
+      enabled: yes
+      filename: http.log
+      append: yes
+      #extended: yes     # enable this for extended logging information
+      #custom: yes       # enabled the custom logging format (defined by customformat)
+      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+
+  # a line based log of TLS handshake parameters (no alerts)
+  - tls-log:
+      enabled: yes  # Log TLS connections.
+      filename: tls.log # File to store TLS logs.
+      append: yes
+      #filetype: regular # 'regular', 'unix_stream' or 'unix_dgram'
+      #extended: yes # Log extended information like fingerprint
+      certs-log-dir: certs # directory to store the certificates files
+
+  # a line based log of DNS requests and/or replies (no alerts)
+  - dns-log:
+      enabled: yes
+      filename: dns.log
+      append: yes
+</code></pre>
+</div>
+
+<h3 id="log-files">Log files</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/var/log/suricata/suricata-start.log
+/var/log/suricata/suricata.log
+/var/log/suricata/stats.log
+/var/log/suricata/core/
+</code></pre>
+</div>
+
+<p>The folder <strong>/var/log/suricata/core/</strong> will contain any core dumps in case of a segfault. 
+Further reading on what to do and <a href="https://redmine.openinfosecfoundation.org/projects/suricata/wiki/Reporting_Bugs">how to report Suricata bugs</a>.</p>
+
+<p>Check drops in stats.log file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tail -f /var/log/suricata/stats.log | grep -i capture.kernel_drops
+tail -f /var/log/suricata/stats.log | grep -i drop
+</code></pre>
+</div>
+
+<h3 id="manual-start">Manual start</h3>
+
+<p>Run the command with the <strong>–init-errors-fatal</strong> option at first to see if there are any issues.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/usr/bin/suricata -c /etc/suricata/suricata.yaml -i eth0 --init-errors-fatal
+</code></pre>
+</div>
+
+<p><strong>-D</strong> option to run in daemon mode and <strong>–pfring</strong> option. PF_RING is a new type of network socket that dramatically improves the packet capture speed, and is available for Linux kernels 2.6.32 and newer.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/usr/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /var/run/suricata.pid -D --pfring=eth0
+</code></pre>
+</div>
+
+<p>Manually start in debug mode:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/usr/bin/suricata -c /etc/suricata/suricata.yaml --pidfile /var/run/suricata.pid -D --pfring=eth0 --enable-debug
+</code></pre>
+</div>
+
+<h3 id="run-in-pcap-offline-mode">Run in pcap offline mode</h3>
+
+<p>Reading files from pcap file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>suricata -r &lt;PCAP&gt;
+</code></pre>
+</div>
+
+<h3 id="threads-used-by-suricata">Threads used by Suricata</h3>
+
+<p>Using <code class="highlighter-rouge">top</code> to see if the individual af_packet threads</p>
+
+<ol>
+  <li>Enter <code class="highlighter-rouge">top -H</code> to view threads in top</li>
+  <li>Press <code class="highlighter-rouge">o</code> to add a filter</li>
+  <li>Enter <code class="highlighter-rouge">COMMAND=AFPacket</code> then press Enter key</li>
+</ol>
+
+<h3 id="testing-suricata">Testing Suricata</h3>
+
+<p>1- Check that you have enable the next rule in /etc/suricata/rules/emerging-user_agents.rules</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alert http $HOME_NET any -&gt; $EXTERNAL_NET any (msg:"ET USER_AGENTS Suspicious User Agent (BlackSun)"; flow:to_server,established; content:"User-Agent|3a| BlackSun"; nocase; http_header; reference:url,www.bitdefender.com/VIRUS-1000328-en--Trojan.Pws.Wow.NCY.html; reference:url,doc.emergingthreats.net/bin/view/Main/2008983; classtype:trojan-activity; sid:2008983; rev:6;)
+
+</code></pre>
+</div>
+<p>2- Issue traffic to google.com using the user-agent string “BlackSun”</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># apt-get install curl
+# curl -A "BlackSun" www.google.com
+</code></pre>
+</div>
+
+<p>3- Generate fake malware traffic</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># wget testmyids.com 
+</code></pre>
+</div>
+
+<p>4- Create a fake scan to generate port scan traffic</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>nmap -sS &lt;NETWORK INTERNAL HOST IP&gt; -D 118.186.71.134
+</code></pre>
+</div>
+
+<h3 id="tools">Tools</h3>
+
+<p><a href="https://github.com/jasonish/py-idstools">py-idstools</a>: Snort and Suricata Rule and Event Utilities in Python (Including an easy to use Unified2 File Reader)</p>
+
+<p>Check the documentation for further analysis: <a href="https://idstools.readthedocs.io">https://idstools.readthedocs.io</a></p>
+
+<p>With <a href="https://idstools.readthedocs.io/en/latest/tools/u2json.html">u2json</a> you can read the alerts generated and convert to JSON, for example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>idstools-u2json /var/log/suricata/unified2.alert.1473071280
+
+idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/suricata  --prefix unified2.alert  --follow  --delete --output /tmp/alerts.json 
+
+idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/suricata  --prefix unified2.alert  --follow  --output /tmp/alerts.json 
+</code></pre>
+</div>
+
+<p>The next example will read the <strong>unified2.alert</strong> files generated by Suricata and will print the output of every alert/event:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: UTF-8 -*-</span>
+<span class="kn">from</span> <span class="nn">idstools</span> <span class="kn">import</span> <span class="n">unified2</span>
+
+<span class="c"># Event Reader</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">unified2</span><span class="o">.</span><span class="n">SpoolEventReader</span><span class="p">(</span><span class="s">"/var/log/suricata"</span><span class="p">,</span> <span class="s">"unified2.alert"</span><span class="p">,</span> <span class="n">follow</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># Output</span>
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2017 M. All rights reserved. <br />
+<span>Page last updated:</span> February 21, 2017<br/> Site last generated: Feb 21, 2017 <br />
+<!--
+<p><img src="images/company_logo.png" alt="Company logo"/></p> -->
+Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+</html>
