@@ -34,6 +34,12 @@
   
   
   <url>
+    <loc>/hak5.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/index.html</loc>
   </url>
   
@@ -41,6 +47,18 @@
   
   <url>
     <loc>/lsof_net.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/malware-links.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/malware-tools.html</loc>
   </url>
   
   
@@ -89,6 +107,12 @@
   
   <url>
     <loc>/opensourcetools.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/osint-tools.html</loc>
   </url>
   
   

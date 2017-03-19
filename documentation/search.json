@@ -46,6 +46,16 @@
 
 
 {
+"title": "Hak5 Tools",
+"tags": "",
+"keywords": "Hak5 Tools",
+"url": "hak5.html",
+"summary": "Opensource, Security, Tools, Hak5"
+},
+
+
+
+{
 "title": "Index",
 "tags": "",
 "keywords": "Homepage",
@@ -61,6 +71,26 @@
 "keywords": "lsof",
 "url": "lsof_net.html",
 "summary": "lsof"
+},
+
+
+
+{
+"title": "Malware Links",
+"tags": "",
+"keywords": "Malware Links",
+"url": "malware-links.html",
+"summary": "Opensource, Security, Links, Malware"
+},
+
+
+
+{
+"title": "Malware Tools",
+"tags": "",
+"keywords": "Malware Tools",
+"url": "malware-tools.html",
+"summary": "Opensource, Security, Tools, Malware"
 },
 
 
@@ -141,6 +171,16 @@
 "keywords": "Opensource Sec Tools",
 "url": "opensourcetools.html",
 "summary": "Opensource, Security, Tools"
+},
+
+
+
+{
+"title": "OSINT Sec Tools",
+"tags": "",
+"keywords": "OSINT Sec Tools",
+"url": "osint-tools.html",
+"summary": "Opensource, Security, Tools, OSINT"
 },
 
 
