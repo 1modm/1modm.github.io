@@ -14,6 +14,12 @@
   
   
   <url>
+    <loc>/django.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/ethtool.html</loc>
   </url>
   
@@ -112,6 +118,12 @@
   
   
   <url>
+    <loc>/openvpn.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/osint-tools.html</loc>
   </url>
   
@@ -119,6 +131,24 @@
   
   <url>
     <loc>/pentestcheat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/pentesting.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/postgresql.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/powershell-tutorials.html</loc>
   </url>
   
   
@@ -132,12 +162,30 @@
   
   
   <url>
+    <loc>/pxe.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/python.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/scapycheat.html</loc>
   </url>
   
   
   
   
+  
+  
+  
+  <url>
+    <loc>/ssl.html</loc>
+  </url>
   
   
   
@@ -168,7 +216,19 @@
   
   
   <url>
+    <loc>/training.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/tshark.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/wordlists.html</loc>
   </url>
   
   
