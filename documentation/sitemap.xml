@@ -14,6 +14,12 @@
   
   
   <url>
+    <loc>/ccn-cert.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/django.html</loc>
   </url>
   
@@ -178,6 +184,18 @@
   </url>
   
   
+  
+  <url>
+    <loc>/sdr.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>/selinux.html</loc>
+  </url>
   
   
   
