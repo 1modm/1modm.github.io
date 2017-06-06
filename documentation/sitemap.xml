@@ -14,7 +14,25 @@
   
   
   <url>
+    <loc>/blogs.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>/ccn-cert.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/dfir_links.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>/dfir_tools.html</loc>
   </url>
   
   
@@ -158,6 +176,12 @@
   </url>
   
   
+  
+  
+  
+  <url>
+    <loc>/privacy.html</loc>
+  </url>
   
   
   

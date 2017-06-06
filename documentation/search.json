@@ -14,11 +14,41 @@
 
 
 {
+"title": "Blogs and resources",
+"tags": "",
+"keywords": "Blogs and resources",
+"url": "blogs.html",
+"summary": "Opensource, Security, Tools, Blogs and resources"
+},
+
+
+
+{
 "title": "CCN-CERT",
 "tags": "",
 "keywords": "CCN-CERT",
 "url": "ccn-cert.html",
 "summary": "Opensource, Security, Tools, CCN-CERT"
+},
+
+
+
+{
+"title": "DFIR (Digital Forensics Incident Response) Links",
+"tags": "",
+"keywords": "DFIR (Digital Forensics Incident Response) Links",
+"url": "dfir_links.html",
+"summary": "Opensource, Security, Links, DFIR (Digital Forensics Incident Response)"
+},
+
+
+
+{
+"title": "DFIR (Digital Forensics Incident Response) Tools",
+"tags": "",
+"keywords": "DFIR (Digital Forensics Incident Response) Tools",
+"url": "dfir_tools.html",
+"summary": "Opensource, Security, Tools, DFIR (Digital Forensics Incident Response)"
 },
 
 
@@ -254,6 +284,16 @@
 },
 
 
+
+
+
+{
+"title": "Privacy tools",
+"tags": "",
+"keywords": "Privacy tools",
+"url": "privacy.html",
+"summary": "Opensource, Security, Tools, Privacy tools"
+},
 
 
 
