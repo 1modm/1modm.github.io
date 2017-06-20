@@ -9,13 +9,13 @@
 
   <title>
     
-      Archives &middot; M
+      Python exceptions &middot; M
     
   </title>
 
   
-    <meta name="description" content=""/>
-    <meta name="keywords" content="">
+    <meta name="description" content="Python method to identify the Exception ocurred for certains events"/>
+    <meta name="keywords" content="exception python try">
   
   <meta name="author" content="Heiswayi Nrird">
 
@@ -23,16 +23,16 @@
   <meta name="twitter:site" content="@1_mod_m">
   <meta name="twitter:creator" content="@1_mod_m">
   
-    <meta name="twitter:title" content="Archives">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Python exceptions">
+    <meta name="twitter:description" content="Python method to identify the Exception ocurred for certains events">
   
 
   <meta property="og:type" content="website"/>
   
-    <meta property="og:title" content="Archives"/>
-    <meta property="og:url" content="/archives.html"/>
-    <meta property="og:description" content=""/>
-    <meta property="og:site_name" content="Archives"/>
+    <meta property="og:title" content="Python exceptions"/>
+    <meta property="og:url" content="/try_python.html"/>
+    <meta property="og:description" content="Python method to identify the Exception ocurred for certains events"/>
+    <meta property="og:site_name" content="Python exceptions"/>
   
 
   <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
@@ -107,87 +107,39 @@
       </div>
 
       <div class="container content">
-        <div class="posts">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">June 10, 2017 &middot; <span class="reading-time" title="Estimated Reading Time">
   
-    
-      <h2>Notes 2017</h2>
-    
-
-    <div class="post-list">
-      <div class="post-list-date"><small>Jun 10, 2017</small></div>
-	    <div class="text-truncate"><a href="/try_python.html">Python exceptions</a></div>
-      <div class="post-list-desc">Python method to identify the Exception ocurred for certains events</div>
-    </div>
-
   
-    
-      
-      
-      
-    
-
-    <div class="post-list">
-      <div class="post-list-date"><small>Feb 12, 2017</small></div>
-	    <div class="text-truncate"><a href="/Scapy.html">Scapy</a></div>
-      <div class="post-list-desc">Packet manipulation and reading PCAP files</div>
-    </div>
-
+    1 minute read
   
-    
-      
-      
-      
-    
+</span>
+</div>
+    <h1 class="post-title">Python exceptions</h1>
+  </div>
 
-    <div class="post-list">
-      <div class="post-list-date"><small>Jan 06, 2017</small></div>
-	    <div class="text-truncate"><a href="/Troubleshooting_with_Suricata.html">Troubleshooting Suricata</a></div>
-      <div class="post-list-desc">Troubleshooting Suricata IDS</div>
-    </div>
+  <div class="hrline"></div>
 
-  
-    
-      
-      
-      
-        <h2>Notes 2016</h2>
-      
-    
+  <p>Sometimes in Python is not easy to use the correct exception in a try block, this is a way to do it</p>
 
-    <div class="post-list">
-      <div class="post-list-date"><small>Oct 17, 2016</small></div>
-	    <div class="text-truncate"><a href="/Dshell_VoIP_decoders.html">SIP and RTP decoders for Dshell</a></div>
-      <div class="post-list-desc">Custom Dshell SIP and RTP decoders</div>
-    </div>
+<h3 id="usage">Usage</h3>
 
-  
-    
-      
-      
-      
-    
+<div class="highlighter-rouge"><pre class="highlight"><code>        try:
+        	&lt;code&gt;
+        	&lt;/code&gt;
+        except Exception as excep:
+            type_msg = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            exception_msg = type_msg.format(type(excep).__name__, excep.args)
+            print exception_msg
 
-    <div class="post-list">
-      <div class="post-list-date"><small>Sep 21, 2016</small></div>
-	    <div class="text-truncate"><a href="/Ettercap.html">MITM with ettercap</a></div>
-      <div class="post-list-desc">MITM with ettercap</div>
-    </div>
+</code></pre>
+</div>
 
-  
-    
-      
-      
-      
-    
-
-    <div class="post-list">
-      <div class="post-list-date"><small>Jul 16, 2016</small></div>
-	    <div class="text-truncate"><a href="/stegator.html">Stegator</a></div>
-      <div class="post-list-desc">A Python based backdoor that uses Steganography and a Cloud Image Service as a command and control server..</div>
-    </div>
 
   
 </div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
 
       </div>
     </div>

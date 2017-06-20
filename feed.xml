@@ -5,9 +5,34 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Feb 2017 22:51:49 +0000</pubDate>
-    <lastBuildDate>Tue, 21 Feb 2017 22:51:49 +0000</lastBuildDate>
+    <pubDate>Tue, 20 Jun 2017 22:16:50 +0100</pubDate>
+    <lastBuildDate>Tue, 20 Jun 2017 22:16:50 +0100</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Python exceptions</title>
+        <description>&lt;p&gt;Sometimes in Python is not easy to use the correct exception in a try block, this is a way to do it&lt;/p&gt;
+
+&lt;h3 id=&quot;usage&quot;&gt;Usage&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        try:
+        	&amp;lt;code&amp;gt;
+        	&amp;lt;/code&amp;gt;
+        except Exception as excep:
+            type_msg = &quot;An exception of type {0} occurred. Arguments:\n{1!r}&quot;
+            exception_msg = type_msg.format(type(excep).__name__, excep.args)
+            print exception_msg
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 10 Jun 2017 00:00:00 +0100</pubDate>
+        <link>/try_python.html</link>
+        <guid isPermaLink="true">/try_python.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Scapy</title>
@@ -1622,7 +1647,8 @@ Output --&amp;gt; [(&lt;span class=&quot;nt&quot;&gt;&amp;lt;IP&lt;/span&gt;  &l
 &lt;h3 id=&quot;sources&quot;&gt;Sources&lt;/h3&gt;
 &lt;p&gt;https://thepacketgeek.com/series/building-network-tools-with-scapy/
 http://bt3gl.github.io/black-hat-python-infinite-possibilities-with-the-scapy-module.html
-http://www.secdev.org/projects/scapy/doc/usage.html&lt;/p&gt;
+http://www.secdev.org/projects/scapy/doc/usage.html
+http://www.secdev.org/conf/scapy_Aachen.pdf&lt;/p&gt;
 </description>
         <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
         <link>/Scapy.html</link>
