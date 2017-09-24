@@ -632,118 +632,104 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="free-swap">Free swap</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/etc/init.d/mysql stop
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>/etc/init.d/mysql stop
 swapoff -a
 swapon -a, 
 /etc/init.d/mysql start
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="number-of-connections">Number of connections</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>netstat -nupta | grep 3306 | grep ESTABLISHED | wc -l
+<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -nupta | grep 3306 | grep ESTABLISHED | wc -l
 
 show status like 'max_used_connections';
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="load-huge-number-of-sql-files">Load huge number of sql files</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cat *.sql | mysql -u root -p xxxx
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>cat *.sql | mysql -u root -p xxxx
+</code></pre></div>
 
 <h2 id="proceduresfunctions">Procedures/Functions</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>SHOW PROCEDURE STATUS;
+<div class="highlighter-rouge"><pre class="codehilite"><code>SHOW PROCEDURE STATUS;
 SHOW FUNCTION STATUS;
 
 # To see a procedure or function
 
 show create function xxxxxxxxx;
 show create procedure xxxxxxxxx;
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="check-queries-status">Check queries status</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>show processlist;
+<div class="highlighter-rouge"><pre class="codehilite"><code>show processlist;
 
 show processlist\G;
 
 show full processlist;
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="debug-mode">Debug mode</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Discomment #general_log=On in /etc/mysql/my.cnf
+<div class="highlighter-rouge"><pre class="codehilite"><code>Discomment #general_log=On in /etc/mysql/my.cnf
 
 /etc/init.d/mysql restart
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="user-permissions">User permissions</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>show grants;
+<div class="highlighter-rouge"><pre class="codehilite"><code>show grants;
 
 select user,host,password from mysql.user;
 
 mysqladmin -u USER -p password NEWPASSWORD 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="check-mysql-certificates-configuration">Check MySQL certificates configuration</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Verify in /etc/mysql/mysql.conf.d/mysqld.cnf
+<div class="highlighter-rouge"><pre class="codehilite"><code># Verify in /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ssl-ca=/etc/mysql/cacert.pem
 ssl-cert=/etc/mysql/server-cert.pem
 ssl-key=/etc/mysql/server-key.pem
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="check-mysql-cipher-configuration">Check MySQL cipher configuration</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Verify in /etc/mysql/mysql.conf.d/mysqld.cnf
+<div class="highlighter-rouge"><pre class="codehilite"><code># Verify in /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ssl-cipher=AES128+EECDH:AES128+EDH
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="troubleshooting-slow-mysql-performance">Troubleshooting slow MySQL performance</h2>
 
 <p>Getting the data</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Check if the MySQL slow query log is enabled.
+<div class="highlighter-rouge"><pre class="codehilite"><code>Check if the MySQL slow query log is enabled.
 You can find instructions on how to do this at: Enabling MySQL slow query logs
 Restart MySQL.
-</code></pre>
-</div>
+</code></pre></div>
 
 <p>Converting data into information</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mysqldumpslow -t 10 mysql-slow-query.log &gt; mysqldumpslow.out
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>mysqldumpslow -t 10 mysql-slow-query.log &gt; mysqldumpslow.out
+</code></pre></div>
 
 <h2 id="check-innodb-status">Check InnoDB Status</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>SHOW ENGINE INNODB STATUS
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>SHOW ENGINE INNODB STATUS
+</code></pre></div>
 
 <h2 id="check-tokudb-status">Check TokuDB Status</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>SHOW ENGINE TokuDB STATUS
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>SHOW ENGINE TokuDB STATUS
+</code></pre></div>
 
 <h2 id="check-global-status">Check Global Status</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>SHOW GLOBAL STATUS\G
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>SHOW GLOBAL STATUS\G
+</code></pre></div>
 
 
 
@@ -761,7 +747,7 @@ Restart MySQL.
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Aug 3, 2017 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

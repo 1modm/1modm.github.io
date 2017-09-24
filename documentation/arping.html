@@ -630,7 +630,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">send ARP REQUEST to a neighbour host</div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Usage: arping <span class="o">[</span>-fqbDUAV] <span class="o">[</span>-c count] <span class="o">[</span>-w timeout] <span class="o">[</span>-I device] <span class="o">[</span>-s <span class="nb">source</span><span class="o">]</span> destination
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>Usage: arping <span class="o">[</span>-fqbDUAV] <span class="o">[</span>-c count] <span class="o">[</span>-w timeout] <span class="o">[</span>-I device] <span class="o">[</span>-s <span class="nb">source</span><span class="o">]</span> destination
   -f : quit on first reply
   -q : be quiet
   -b : keep broadcasting, don<span class="s1">'t go unicast
@@ -644,12 +644,11 @@ $('#toc').on('click', 'a', function() {
   -s source : source ip address
   destination : ask for what ip address
 
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h2 id="arp-packets-using-eth0-to-ip">3 ARP packets using eth0 to &lt;IP&gt;</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>arping -I eth0 -c 3 192.168.9.1
+<div class="highlighter-rouge"><pre class="codehilite"><code>arping -I eth0 -c 3 192.168.9.1
 ARPING 192.168.9.1 from 192.168.9.12 wlan0
 Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.679ms
 Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.214ms
@@ -657,12 +656,11 @@ Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.013ms
 Sent 3 probes (1 broadcast(s))
 Received 3 response(s)
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="howto-force-devices-to-refresh-arp-cache-entry-for-a-machine">Howto force Devices to refresh Arp Cache Entry for a machine</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># that will broadcast our source IP and direct it to the broadcast address (255.255.255.255) 
+<div class="highlighter-rouge"><pre class="codehilite"><code># that will broadcast our source IP and direct it to the broadcast address (255.255.255.255) 
 
 arping -I wlan0  192.168.9.1 -b
 ARPING 192.168.9.1 from 192.168.9.12 wlan0
@@ -670,18 +668,16 @@ Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.378ms
 Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.033ms
 Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.725ms
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="gratuitous-arp">Gratuitous ARP</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># 192.168.9.12 is your IP
+<div class="highlighter-rouge"><pre class="codehilite"><code># 192.168.9.12 is your IP
 
 arping -A -I wlan0 192.168.9.12
 ARPING 192.168.9.12 from 192.168.9.12 wlan0
 
-</code></pre>
-</div>
+</code></pre></div>
 
 
     <div class="tags">
@@ -698,7 +694,7 @@ ARPING 192.168.9.12 from 192.168.9.12 wlan0
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Aug 3, 2017 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

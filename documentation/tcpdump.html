@@ -630,7 +630,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">Tcpdump prints out a description of the contents of packets on a network interface that match the boolean expression</div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Usage: tcpdump [-aAbdDefhHIJKlLnNOpqRStuUvxX#] [ -B size ] [ -c count ]
+<div class="highlighter-rouge"><pre class="codehilite"><code>Usage: tcpdump [-aAbdDefhHIJKlLnNOpqRStuUvxX#] [ -B size ] [ -c count ]
 		[ -C file_size ] [ -E algo:secret ] [ -F file ] [ -G seconds ]
 		[ -i interface ] [ -j tstamptype ] [ -M secret ] [ --number ]
 		[ -Q in|out|inout ]
@@ -655,12 +655,11 @@ $('#toc').on('click', 'a', function() {
     -e : Get the ethernet header as well.
     -q : Show less protocol information.
     -E : Decrypt IPSEC traffic by providing an encryption key.
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="examples">Examples</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tcpdump -nnvvS
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tcpdump -nnvvS
 tcpdump -nnvvXSs 1514
 tcpdump -D
 
@@ -696,70 +695,59 @@ tcpdump greater 128
 
 tcpdump -s 1514 port 80 -w capture_file
 tcpdump -r capture_file
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="more-examples">More examples</h2>
 
 <p>All URGENT (URG) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 32!=0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13] &amp; 32!=0'
+</code></pre></div>
 
 <p>All ACKNOWLEDGE (ACK) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 16!=0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13] &amp; 16!=0'
+</code></pre></div>
 
 <p>All PUSH (PSH) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 8!=0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13] &amp; 8!=0'
+</code></pre></div>
 
 <p>All RESET (RST) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 4!=0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13] &amp; 4!=0'
+</code></pre></div>
 
 <p>All SYNCHRONIZE (SYN) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 2!=0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13] &amp; 2!=0'
+</code></pre></div>
 
 <p>All FINISH (FIN) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 1!=0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13] &amp; 1!=0'
+</code></pre></div>
 
 <p>All SYNCHRONIZE/ACKNOWLEDGE (SYNACK) packets…</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'tcp[13]=18'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'tcp[13]=18'
+</code></pre></div>
 
 <p>IPv6 traffic</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump ip6
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump ip6
+</code></pre></div>
 
 <p>Packets with both the RST and SYN flags set (why?)</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="nx">tcpdump</span> <span class="s1">'tcp[13] = 6'</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><pre class="codehilite"><code><span class="err">#</span> <span class="nx">tcpdump</span> <span class="s1">'tcp[13] = 6'</span>
+</code></pre></div>
 
 <p>Traffic with the ‘Evil Bit’ Set</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># tcpdump 'ip[6] &amp; 128 != 0'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code># tcpdump 'ip[6] &amp; 128 != 0'
+</code></pre></div>
 
 <h2 id="external-links">External links</h2>
 
@@ -784,7 +772,7 @@ tcpdump -r capture_file
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> August 5, 2016<br/> Site last generated: Aug 3, 2017 <br />
+<span>Page last updated:</span> August 5, 2016<br/> Site last generated: Sep 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

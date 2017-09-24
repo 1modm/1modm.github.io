@@ -630,7 +630,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">Dump and analyze network traffic</div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>Usage: tshark <span class="o">[</span>options] ...
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>Usage: tshark <span class="o">[</span>options] ...
 
 Capture interface:
   -i &lt;interface&gt;           name or idx of interface <span class="o">(</span>def: first non-loopback<span class="o">)</span>
@@ -722,72 +722,61 @@ Miscellaneous:
 
 
 
-</span></code></pre>
-</div>
+</span></code></pre></div>
 
 <h2 id="read-pcap-file-disabling-name-resolution">Read pcap file disabling name resolution</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -nr packet.pcap -V
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -nr packet.pcap -V
+</code></pre></div>
 
 <h2 id="read-pcap-file-disabling-name-resolution-add-output-of-hex-and-ascii-dump">Read pcap file disabling name resolution, add output of hex and ASCII dump</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -xr packet.pcap -V
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -xr packet.pcap -V
+</code></pre></div>
 
 <h2 id="capturing-network-traffic">Capturing Network Traffic</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -D
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -D
+</code></pre></div>
 
 <h2 id="saving-and-reading-network-data">Saving and Reading Network Data</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -c 500 -w packet.pcap
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -c 500 -w packet.pcap
+</code></pre></div>
 
 <h2 id="extract-data-from-any-http-requests">Extract data from any HTTP requests</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -i eth0 -Y http.request -T fields -e http.host -e http.user_agent
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -i eth0 -Y http.request -T fields -e http.host -e http.user_agent
+</code></pre></div>
 
 <h2 id="extracts-both-the-dns-query-and-the-response-address">Extracts both the DNS query and the response address</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -i eth0 -f <span class="s2">"src port 53"</span> -n -T fields -e dns.qry.name -e dns.resp.addr
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -i eth0 -f <span class="s2">"src port 53"</span> -n -T fields -e dns.qry.name -e dns.resp.addr
 
 tshark -i eth0 -f <span class="s2">"src port 53"</span> -n -T fields -e frame.time -e ip.src -e ip.dst -e dns.qry.name -e dns.resp.addr 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="get-passwords-in-http">Get passwords in HTTP</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -i eth0 -Y <span class="s1">'http.request.method == POST and tcp contains "password"'</span> | grep password
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -i eth0 -Y <span class="s1">'http.request.method == POST and tcp contains "password"'</span> | grep password
+</code></pre></div>
 
 <h2 id="capture-only-dhcp-packets">capture only DHCP packets</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -w packet.pcap -f <span class="s2">"port 67 or port 68"</span> -i eth0 -P
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -w packet.pcap -f <span class="s2">"port 67 or port 68"</span> -i eth0 -P
 
 tshark -r packet.pcap bootp.option.dhcp <span class="o">==</span> 1
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="shows-protocol-hierarchy-statistics">Shows protocol hierarchy statistics</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -nr packet.pcap -qz <span class="s2">"io,phs"</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -nr packet.pcap -qz <span class="s2">"io,phs"</span>
+</code></pre></div>
 
 <h2 id="displaying-statistics-for-a-specific-protocol">Displaying Statistics for a Specific Protocol</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>tshark -q -r packet.pcap -Y http -z http,tree
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>tshark -q -r packet.pcap -Y http -z http,tree
+</code></pre></div>
 
 
     <div class="tags">
@@ -804,7 +793,7 @@ tshark -r packet.pcap bootp.option.dhcp <span class="o">==</span> 1
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Aug 3, 2017 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

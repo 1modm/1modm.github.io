@@ -628,7 +628,7 @@ $('#toc').on('click', 'a', function() {
 
   <h2 id="bad-blocks">Bad Blocks</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo badblocks -v /dev/sdc1
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>sudo badblocks -v /dev/sdc1
 
 Checking blocks 0 to 130954239
 Checking <span class="k">for </span>bad blocks <span class="o">(</span><span class="nb">read</span>-only <span class="nb">test</span><span class="o">)</span>: 5621828 <span class="k">done</span>, 3:37 elapsed
@@ -638,36 +638,32 @@ Checking <span class="k">for </span>bad blocks <span class="o">(</span><span cla
 <span class="k">done
 </span>Pass completed, 4 bad blocks found.
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="write-bad-sectors-into-a-file">Write bad sectors into a file</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo badblocks /dev/sdc &gt; /home/hacks/bad-blocks
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>sudo badblocks /dev/sdc &gt; /home/hacks/bad-blocks
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="mark-bad-sectors-as-unusable">Mark bad sectors as ‘unusable’</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo fsck -l bad-blocks /dev/sdc
+<div class="highlighter-rouge"><pre class="codehilite"><code>sudo fsck -l bad-blocks /dev/sdc
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="test-hard-disk-read-speed-using-dd">Test Hard Disk Read Speed Using «dd»</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># dd if=tempfile of=/dev/null bs=1M count=1024</span>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code><span class="c"># dd if=tempfile of=/dev/null bs=1M count=1024</span>
 1024+0 records <span class="k">in
 </span>1024+0 records out
 1073741824 bytes <span class="o">(</span>1.1 GB<span class="o">)</span> copied, 14.1893 s, 75.7 MB/s
 
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="disk-io-test">Disk IO test</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Prepare the test
+<div class="highlighter-rouge"><pre class="codehilite"><code># Prepare the test
 sysbench --test=fileio --file-total-size=5G prepare &gt; /dev/null
 
 # Sequential Write
@@ -690,8 +686,7 @@ sysbench --test=fileio --file-total-size=5G --file-test-mode=rndrw --max-time=12
 
 #Clean the test
 sysbench --test=fileio --file-total-size=5G cleanup
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="external-links">External links</h2>
 
@@ -713,7 +708,7 @@ sysbench --test=fileio --file-total-size=5G cleanup
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 16, 2016<br/> Site last generated: Aug 3, 2017 <br />
+<span>Page last updated:</span> September 16, 2016<br/> Site last generated: Sep 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

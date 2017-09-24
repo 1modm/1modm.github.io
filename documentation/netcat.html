@@ -630,7 +630,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">unix utility which reads and writes data across network connections, using TCP or UDP protocol.</div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>connect to somewhere:   nc [-options] hostname port[s] [ports] ... 
+<div class="highlighter-rouge"><pre class="codehilite"><code>connect to somewhere:   nc [-options] hostname port[s] [ports] ... 
 listen for inbound: nc -l -p port [-options] [hostname] [port]
 options:
     -c shell commands   as `-e'; use /bin/sh to exec [dangerous!!]
@@ -659,57 +659,50 @@ port numbers can be individual or ranges: lo-hi [inclusive];
 hyphens in port names must be backslash escaped (e.g. 'ftp\-data').
 
 
-</code></pre>
-</div>
+</code></pre></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>netcat <span class="o">[</span>options] host port
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>netcat <span class="o">[</span>options] host port
+</code></pre></div>
 
 <h2 id="examples">Examples</h2>
 
 <p>Port Scanning</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>netcat -z -v domain.com 1-1000
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>netcat -z -v domain.com 1-1000
+</code></pre></div>
 
 <p>Communicate through Netcat</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Listener
+<div class="highlighter-rouge"><pre class="codehilite"><code># Listener
 netcat -l 4444
 nc -lvp 4444
 
 # Client
 netcat &lt;IP&gt; 4444
 nc &lt;IP&gt; 4444 
-</code></pre>
-</div>
+</code></pre></div>
 
 <p>Send UDP packets to port 514</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>nc -u 192.168.1.5 514
-</code></pre>
-</div>
+<div class="highlighter-rouge"><pre class="codehilite"><code>nc -u 192.168.1.5 514
+</code></pre></div>
 
 <p>Send Files through Netcat</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Listener
+<div class="highlighter-rouge"><pre class="codehilite"><code># Listener
 netcat -l 4444 &gt; received_file
 netcat -l 4444 | tar xzvf -
 
 # Client
 netcat &lt;IP&gt; 4444 &lt; original_file
 tar -czf - * | netcat &lt;IP&gt; 4444
-</code></pre>
-</div>
+</code></pre></div>
 
 <p>Netcat as a Simple Web Server</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>netcat -l 8888 &lt; index.html
+<div class="highlighter-rouge"><pre class="codehilite"><code>netcat -l 8888 &lt; index.html
 while true; do nc -l 8888 &lt; index.html; done
-</code></pre>
-</div>
+</code></pre></div>
 
 <h2 id="cheat-sheet">Cheat Sheet</h2>
 
@@ -730,7 +723,7 @@ while true; do nc -l 8888 &lt; index.html; done
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Aug 3, 2017 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Sep 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>
