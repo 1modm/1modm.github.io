@@ -5,8 +5,8 @@
     <description>test</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 24 Sep 2017 23:46:17 +0100</pubDate>
-    <lastBuildDate>Sun, 24 Sep 2017 23:46:17 +0100</lastBuildDate>
+    <pubDate>Sun, 24 Sep 2017 23:49:33 +0100</pubDate>
+    <lastBuildDate>Sun, 24 Sep 2017 23:49:33 +0100</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -16,7 +16,7 @@ This pull request has been approved. &lt;a href=&quot;https://github.com/USArmyR
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell&quot;&gt;Dshell&lt;/a&gt; is an extensible network forensic analysis framework and enables rapid development of plugins to support the dissection of network packet captures.&lt;/p&gt;
 
-&lt;p&gt;While I was updating my personal server I checked tons of malicious requests into the HTTP server. I decided to develop a simple “honeypot” for this kind of exploits attempts. With django I stored into a DB all HTTP headers and information about this attempts, also I printed in a world map all the connections made from June and September 2017, 29450 attempts in total:&lt;/p&gt;
+&lt;p&gt;While I was updating my personal server I checked tons of malicious requests into the HTTP server. I decided to develop a simple “honeypot” for this kind of exploits attempts. With django I stored into a DB all HTTP headers and information about this attempts, also I printed in a world map all the connections made from June to September 2017, &lt;strong&gt;29450&lt;/strong&gt; attempts in total!:&lt;/p&gt;
 
 &lt;h3 id=&quot;honeypot-map&quot;&gt;Honeypot Map&lt;/h3&gt;
 
@@ -24,7 +24,7 @@ This pull request has been approved. &lt;a href=&quot;https://github.com/USArmyR
 
 &lt;h3 id=&quot;penetrationexploithijacking-tools&quot;&gt;Penetration/Exploit/Hijacking Tools&lt;/h3&gt;
 
-&lt;p&gt;Most of the Penetration/Exploit/Hijacking Tools use the HTTP methods to try to inject or execute code into the attacked server, also this tools usually have a well known “hardcoded” User-Agent, URI or request content. This attack is looking to take advantage using a vulnerability in the system. This tools probes a port, network, api, or any other attack vector to find a vulnerability that can be exploited.&lt;/p&gt;
+&lt;p&gt;Most of the Penetration/Exploit/Hijacking Tools use the HTTP methods to try to inject or execute code into the attacked server, also this tools usually have a well known “hardcoded” User-Agent, URI or request content. This attacks are looking to take advantage using a vulnerability in the system. This tools probes a port, network, api, or any other attack vector to find a vulnerability that can be exploited.&lt;/p&gt;
 
 &lt;p&gt;PHP exploits, Remote Code Execution, and SQL Injections are commonly used by this tools. Some of the most commons tools source and information:&lt;/p&gt;
 
