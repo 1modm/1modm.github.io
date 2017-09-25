@@ -126,6 +126,26 @@
 
 
 {
+"title": "Machine Learning Blogs and resources",
+"tags": "",
+"keywords": "machine learning Blogs and resources",
+"url": "machine_learning_blogs.html",
+"summary": "Opensource, Security, Tools, Machine Learning Blogs and resources"
+},
+
+
+
+{
+"title": "Machine Learning Resources",
+"tags": "",
+"keywords": "machine learning resources",
+"url": "machine_learning_resources.html",
+"summary": "Opensource, Security, Tools, Machine Learning, Resources"
+},
+
+
+
+{
 "title": "Malware Links",
 "tags": "",
 "keywords": "Malware Links",
@@ -323,6 +343,16 @@
 "keywords": "Python",
 "url": "python.html",
 "summary": "Opensource, Security, Tools, Python"
+},
+
+
+
+{
+"title": "Resources",
+"tags": "",
+"keywords": "resources",
+"url": "resources.html",
+"summary": "Opensource, Security, Tools, Resources"
 },
 
 
