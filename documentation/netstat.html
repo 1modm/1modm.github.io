@@ -35,7 +35,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4005feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -674,7 +674,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.</div>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>usage: netstat [-vWeenNcCF] [&lt;Af&gt;] -r         netstat {-V|--version|-h|--help}
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: netstat [-vWeenNcCF] [&lt;Af&gt;] -r         netstat {-V|--version|-h|--help}
        netstat [-vWnNcaeol] [&lt;Socket&gt; ...]
        netstat { [-vWeenNac] -i | [-cWnNe] -M | -s }
 
@@ -708,46 +708,46 @@ $('#toc').on('click', 'a', function() {
     netrom (AMPR NET/ROM) ipx (Novell IPX) ddp (Appletalk DDP) 
     x25 (CCITT X.25) 
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="examples">Examples</h2>
 
 <p>List Sockets and connections</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -A inet -p
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -A inet -p
 
 netstat -A inet -p | grep '^tcp' | grep '/' | sed 's_.*/__' | sort | uniq
-</code></pre></div>
+</code></pre></div></div>
 
 <p>Check for ports open for local only connections</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -tupan
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -tupan
+</code></pre></div></div>
 
 <p>Kernel interface table</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -i 
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -i 
+</code></pre></div></div>
 
 <p>List Sockets listening TCP Ports</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -lt
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -lt
+</code></pre></div></div>
 
 <p>Active Internet connections (TCP ports)</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -ta
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -ta
+</code></pre></div></div>
 
 <p>Statistics for each protocol</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -s
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -s
+</code></pre></div></div>
 
 <p>PID and process port</p>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>netstat -pt
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -pt
+</code></pre></div></div>
 
 
     <div class="tags">
@@ -764,7 +764,7 @@ netstat -A inet -p | grep '^tcp' | grep '/' | sed 's_.*/__' | sort | uniq
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Oct 17, 2017 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Nov 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>

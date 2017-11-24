@@ -8,189 +8,43 @@
   
   
   <url>
-    <loc>/arping.html</loc>
+    <loc>http://localhost:4005/arping.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/blogs.html</loc>
+    <loc>http://localhost:4005/blogs.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/ccn-cert.html</loc>
+    <loc>http://localhost:4005/ccn-cert.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/dfir_links.html</loc>
+    <loc>http://localhost:4005/dfir_links.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/dfir_tools.html</loc>
+    <loc>http://localhost:4005/dfir_tools.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/django.html</loc>
+    <loc>http://localhost:4005/django.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/ethtool.html</loc>
-  </url>
-  
-  
-  
-  
-  
-  <url>
-    <loc>/files.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/gitcommands.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/hak5.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/hardening.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/lsof_net.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/machine_learning_blogs.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/machine_learning_resources.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/malware-links.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/malware-tools.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/mat.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/mydoc_about.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/js/mydoc_scroll.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/mysql.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/netcat.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/netstat.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/ngrep.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/opensourcetools.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/openvpn.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/osint-tools.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/pentestcheat.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/pentesting.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/postgresql.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/powershell-tutorials.html</loc>
+    <loc>http://localhost:4005/ethtool.html</loc>
   </url>
   
   
@@ -198,43 +52,145 @@
   
   
   <url>
-    <loc>/privacy.html</loc>
+    <loc>http://localhost:4005/files.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/processes.html</loc>
+    <loc>http://localhost:4005/gitcommands.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/pxe.html</loc>
+    <loc>http://localhost:4005/hak5.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/python.html</loc>
+    <loc>http://localhost:4005/hardening.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/resources.html</loc>
+    <loc>http://localhost:4005/index.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/scapycheat.html</loc>
+    <loc>http://localhost:4005/lsof_net.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/sdr.html</loc>
+    <loc>http://localhost:4005/machine_learning_blogs.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/machine_learning_resources.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/malware-links.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/malware-tools.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/mat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/mydoc_about.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/js/mydoc_scroll.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/mysql.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/netcat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/netstat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/ngrep.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/opensourcetools.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/openvpn.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/osint-tools.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/pentestcheat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/pentesting.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/postgresql.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/powershell-tutorials.html</loc>
   </url>
   
   
@@ -242,7 +198,43 @@
   
   
   <url>
-    <loc>/selinux.html</loc>
+    <loc>http://localhost:4005/privacy.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/processes.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/pxe.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/python.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/resources.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/scapycheat.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/sdr.html</loc>
   </url>
   
   
@@ -250,51 +242,59 @@
   
   
   <url>
-    <loc>/ssl.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/suricata.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/tcpdump.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>/testdisk.html</loc>
+    <loc>http://localhost:4005/selinux.html</loc>
   </url>
   
   
   
   
   
-  
-  
-  
-  
-  
-  
   <url>
-    <loc>/training.html</loc>
+    <loc>http://localhost:4005/ssl.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/tshark.html</loc>
+    <loc>http://localhost:4005/suricata.html</loc>
   </url>
   
   
   
   <url>
-    <loc>/wordlists.html</loc>
+    <loc>http://localhost:4005/tcpdump.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/testdisk.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/training.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/tshark.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/wordlists.html</loc>
   </url>
   
   

@@ -3,11 +3,11 @@
     <channel>
         <title></title>
         <description>Intended as a documentation site based on Jekyll</description>
-        <link>/</link>
-        <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 17 Oct 2017 23:30:56 +0100</pubDate>
-        <lastBuildDate>Tue, 17 Oct 2017 23:30:56 +0100</lastBuildDate>
-        <generator>Jekyll v3.1.6</generator>
+        <link>http://localhost:4005/</link>
+        <atom:link href="http://localhost:4005/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 24 Nov 2017 00:03:37 +0000</pubDate>
+        <lastBuildDate>Fri, 24 Nov 2017 00:03:37 +0000</lastBuildDate>
+        <generator>Jekyll v3.6.2</generator>
         
     </channel>
 </rss>

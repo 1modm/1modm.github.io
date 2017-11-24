@@ -35,7 +35,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link rel="alternate" type="application/rss+xml" title="" href="feed.xml">
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4005feed.xml">
 
     <script>
         $(document).ready(function() {
@@ -674,7 +674,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">Query or control network driver and hardware settings</div>
 
-<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>ethtool eth0
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool eth0
 Settings <span class="k">for </span>eth0:
   Supported ports: <span class="o">[</span> TP <span class="o">]</span>
   Supported link modes:   10baseT/Half 10baseT/Full 
@@ -698,58 +698,58 @@ Settings <span class="k">for </span>eth0:
   Current message level: 0x00000007 <span class="o">(</span>7<span class="o">)</span>
   Link detected: yes
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="to-query-interface-statistics">To query interface statistics</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>ethtool -S eth0
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool <span class="nt">-S</span> eth0
+</code></pre></div></div>
 
 <h2 id="blink-ethernet-device-0-for-15-seconds">Blink ethernet device 0 for 15 seconds</h2>
 <p>where [N] is Number of seconds to blink</p>
 
-<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>ethtool -p eth0 15
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool <span class="nt">-p</span> eth0 15
+</code></pre></div></div>
 
 <h2 id="check-network-hardware">Check Network Hardware</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="codehilite"><code>lshw -C Network
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lshw <span class="nt">-C</span> Network
+</code></pre></div></div>
 
 <h2 id="mii-tool">mii-tool</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>mii-tool eth0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mii-tool eth0
 eth0: no autonegotiation, 1000baseT-FD flow-control, link ok
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="change-auto-negotiation">Change Auto-negotiation</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>ifdown eth0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifdown eth0
 ethtool -s eth0 autoneg off
 ifup eth0
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="change-the-speed">Change the Speed</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>ethtool -s eth0 speed 100 autoneg off
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -s eth0 speed 100 autoneg off
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h2 id="display-ethernet-driver-settings">Display Ethernet Driver Settings</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>ethtool -i eth0
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -i eth0
+</code></pre></div></div>
 
 <h2 id="display-auto-negotiation-rx-and-tx">Display Auto-negotiation, RX and TX</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>ethtool -a eth0
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -a eth0
+</code></pre></div></div>
 
 <h2 id="display-network-statistics">Display Network Statistics</h2>
 
-<div class="highlighter-rouge"><pre class="codehilite"><code>ethtool -S eth0
-</code></pre></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -S eth0
+</code></pre></div></div>
 
 
     <div class="tags">
@@ -766,7 +766,7 @@ ifup eth0
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 M. All rights reserved. <br />
-<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Oct 17, 2017 <br />
+<span>Page last updated:</span> September 19, 2016<br/> Site last generated: Nov 24, 2017 <br />
 <!--
 <p><img src="images/company_logo.png" alt="Company logo"/></p> -->
 Cloned from <a href="http://idratherbewriting.com/documentation-theme-jekyll/">idratherbewriting</a>
