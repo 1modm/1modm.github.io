@@ -128,16 +128,15 @@
 
 <h3 id="command-line">Command line</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># scapy 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># scapy 
 Welcome to Scapy (2.2.0)
 &gt;&gt;&gt; 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Scapy Configuration File</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; conf
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; conf
 ASN1_default_codec = &lt;ASN1Codec BER[1]&gt;
 AS_resolver = &lt;scapy.as_resolvers.AS_resolver_multi instance at 0x7fcc150574d0&gt;
 BTsocket   = &lt;BluetoothL2CAPSocket: read/write packets on a connected L2CAP ...
@@ -202,12 +201,11 @@ version    = '2.2.0'
 warning_threshold = 5
 wepkey     = ''
 &gt;&gt;&gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If we press twice Tab key we will see all the available functions</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; 
 Display all 1299 possibilities? (y or n)
 AES                                                IP6ListField                                       TFTP_Options
 ARC2                                               IP6PrefixField                                     TFTP_RRQ
@@ -643,12 +641,11 @@ IOError                                            TFTP_Error_Codes             
 IP                                                 TFTP_OACK                                          zip
 IP6Field                                           TFTP_Option                                        zlib
 &gt;&gt;&gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="built-in-functions-and-help">Built-in Functions and help</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; ls()
 ARP        : ARP
 ASN1_Packet : None
 BOOTP      : BOOTP
@@ -657,10 +654,9 @@ DHCP       : DHCP options
 DHCP6      : DHCPv6 Generic Message)
 DHCP6OptAuth : DHCP6 Option - Authentication
 ...
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; lsc()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; lsc()
 arpcachepoison      : Poison target's cache with (your MAC,victim's IP) couple
 arping              : Send ARP who-has requests to determine which hosts are up
 bind_layers         : Bind 2 layers on some specific fields' values
@@ -701,32 +697,29 @@ traceroute          : Instant TCP traceroute
 tshark              : Sniff packets and print them calling pkt.show(), a bit like text wireshark
 wireshark           : Run wireshark on a list of packets
 wrpcap              : Write a list of packets to a pcap file
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If it is needed to know the details for a certain function we can use help()</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; help(arpcachepoison)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; help(arpcachepoison)
 
 Help on function arpcachepoison in module scapy.layers.l2:
 
 arpcachepoison(target, victim, interval=60)
     Poison target's cache with (your MAC,victim's IP) couple
     arpcachepoison(target, victim, [interval=60]) -&gt; None
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Check layer fields</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls(UDP)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; ls(UDP)
 sport      : ShortEnumField       = (53)
 dport      : ShortEnumField       = (53)
 len        : ShortField           = (None)
 chksum     : XShortField          = (None)
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ls(IP)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; ls(IP)
 version    : BitField             = (4)
 ihl        : BitField             = (None)
 tos        : XByteField           = (0)
@@ -740,12 +733,11 @@ chksum     : XShortField          = (None)
 src        : Emph                 = (None)
 dst        : Emph                 = ('127.0.0.1')
 options    : PacketListField      = ([])
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Check layer information</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ip = IP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; ip = IP()
 &gt;&gt;&gt; ip.show2()
 ###[ IP ]###
   version= 4L
@@ -761,12 +753,11 @@ options    : PacketListField      = ([])
   src= 127.0.0.1
   dst= 127.0.0.1
   \options\
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Check layer params</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; udp=UDP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; udp=UDP()
 &gt;&gt;&gt; udp.show()
 ###[ UDP ]###
   sport= domain
@@ -780,12 +771,11 @@ options    : PacketListField      = ([])
   dport= sip
   len= None
   chksum= None
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Binary information</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; ip.tos = 0xA
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; ip.tos = 0xA
 &gt;&gt;&gt; ip.show()
 ###[ IP ]###
   version= 4
@@ -801,12 +791,11 @@ options    : PacketListField      = ([])
   src= 127.0.0.1
   dst= 127.0.0.1
   \options\
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="build-a-packet-and-show-packet-info">Build a packet and show packet info</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; a=IP(ttl=10)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; a=IP(ttl=10)
 &gt;&gt;&gt; a
 &lt; IP ttl=10 |&gt;
 &gt;&gt;&gt; a.src
@@ -821,12 +810,11 @@ options    : PacketListField      = ([])
 &lt; IP dst=192.168.1.1 |&gt;
 &gt;&gt;&gt; a.ttl
 64
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>ICMP Packet</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
 
 &gt;&gt;&gt; str(packet)
 'E\x00\x00\x1c\x00\x01\x00\x00@\x01\xef\x82\xc0\xa8\t\x0c\xc0\xa8\x01\x01\x08\x00\xf7\xff\x00\x00\x00\x00'
@@ -852,12 +840,11 @@ options    : PacketListField      = ([])
      chksum= None
      id= 0x0
      seq= 0x0
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>HTTP GET Packet</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.google.com")/TCP()/"GET /index.html HTTP/1.1"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.google.com")/TCP()/"GET /index.html HTTP/1.1"
 &gt;&gt;&gt; hexdump(packet)
 0000   C0 3E 0F D2 24 DC 68 A3  C4 F0 D6 CE 08 00 45 00   .&gt;..$.h.......E.
 0010   00 40 00 01 00 00 40 06  54 81 C0 A8 09 0C C1 5F   .@....@.T......_
@@ -899,12 +886,11 @@ options    : PacketListField      = ([])
 ###[ Raw ]###
            load= 'GET /index.html HTTP/1.1'
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Traceroute</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; traceroute('www.google.com')
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; traceroute('www.google.com')
 Begin emission:
 *********************Finished to send 30 packets.
 *********
@@ -918,26 +904,24 @@ Received 30 packets, got 30 answers, remaining 0 packets
 6  193.95.153.26   SA  
 ...
 (&lt;Traceroute: TCP:27 UDP:0 ICMP:3 Other:0&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>ARPing</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; arping('192.168.9.1')
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; arping('192.168.9.1')
 Begin emission:
 Finished to send 1 packets.
 *
 Received 1 packets, got 1 answers, remaining 0 packets
   c0:1e:af:d2:34:bc 192.168.1.1
 (&lt;ARPing: TCP:0 UDP:0 ICMP:0 Other:1&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="packet-manipulation">Packet manipulation</h3>
 
 <p><strong>Generating sets of packets</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1/30")
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1/30")
 &gt;&gt;&gt; packet
 &lt;IP  dst=Net('192.168.9.1/30') |&gt;
 &gt;&gt;&gt; [p for p in packet]
@@ -951,26 +935,23 @@ Received 1 packets, got 1 answers, remaining 0 packets
 &gt;&gt;&gt; [p for p in packet/tcp_port]
 [&lt;IP  frag=0 proto=tcp dst=192.168.9.0 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.0 |&lt;TCP  dport=https |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.1 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.1 |&lt;TCP  dport=https |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.2 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.2 |&lt;TCP  dport=https |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.3 |&lt;TCP  dport=http |&gt;&gt;, &lt;IP  frag=0 proto=tcp dst=192.168.9.3 |&lt;TCP  dport=https |&gt;&gt;]
 &gt;&gt;&gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>sprintf example</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1",ttl=12)/UDP(dport=123)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1",ttl=12)/UDP(dport=123)
 &gt;&gt;&gt; packet
 &lt;IP  frag=0 ttl=12 proto=udp dst=192.168.9.1 |&lt;UDP  dport=ntp |&gt;&gt;
 &gt;&gt;&gt; packet.sprintf("The source is %IP.src%")
 'The source is 192.168.9.12'
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>The next packet contains a single SYN packet to 192.168.9.1 port 80</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1")/TCP(dport=80,flags="S") 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.9.1")/TCP(dport=80,flags="S") 
 &gt;&gt;&gt; packet
 &lt;IP  frag=0 proto=tcp dst=192.168.9.1 |&lt;TCP  dport=http flags=S |&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="sending-packets">Sending packets</h3>
 
@@ -978,19 +959,17 @@ Received 1 packets, got 1 answers, remaining 0 packets
 
 <p>send() function will send packets at layer 3. It will handle routing and layer 2 for you.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1")/ICMP())
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1")/ICMP())
+</code></pre></div></div>
 
 <p>sendp() function will work at layer 2. Can be used the selected “or not” interface and link layer protocol.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; sendp(Ether()/IP(dst="192.168.1.1",ttl=(1,4)), iface="eth0")
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; sendp(Ether()/IP(dst="192.168.1.1",ttl=(1,4)), iface="eth0")
+</code></pre></div></div>
 
 <p><strong>ICMP</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=IP(dst="192.168.1.1-254")/ICMP()
 
 &gt;&gt;&gt; packet.show()
 ###[ IP ]###
@@ -1019,35 +998,31 @@ Received 1 packets, got 1 answers, remaining 0 packets
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
 &gt;&gt;&gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1-254")/ICMP())
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; send(IP(dst="192.168.1.1-254")/ICMP())
 ..............................................................................................................................................................................................................................................................
 Sent 254 packets.
 &gt;&gt;&gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>TCP/IP layers</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; IP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; IP()
 &lt;IP  |&gt;
 &gt;&gt;&gt; IP()/TCP()
 &lt;IP  frag=0 proto=tcp |&lt;TCP  |&gt;&gt;
 &gt;&gt;&gt; Ether()/IP()/TCP()
 &lt;Ether  type=0x800 |&lt;IP  frag=0 proto=tcp |&lt;TCP  |&gt;&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Sending a TCP (HTTP) packet</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.cisco.com")/TCP(dport=80)/"GET / HTTP/1.1" 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packet=Ether()/IP(dst="www.cisco.com")/TCP(dport=80)/"GET / HTTP/1.1" 
 &gt;&gt;&gt; sendp(packet)
 .
 Sent 1 packets.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Send and receive packets: the sr() functions</strong></p>
 
@@ -1067,19 +1042,18 @@ Sent 1 packets.
 
 <p>Packet sent:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; packets=sr(IP(dst="192.168.9.1")/ICMP(seq=[x for x in range(20)]))
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; packets=sr(IP(dst="192.168.9.1")/ICMP(seq=[x for x in range(20)]))
 Begin emission:
 ******************Finished to send 20 packets.
 **
 Received 20 packets, got 20 answers, remaining 0 packets
 &gt;&gt;&gt; packets
 (&lt;Results: TCP:0 UDP:0 ICMP:20 Other:0&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Print Answers:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; answer_received=packets[0]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; answer_received=packets[0]
 &gt;&gt;&gt; answer_received
 &lt;Results: TCP:0 UDP:0 ICMP:20 Other:0&gt;
 
@@ -1115,24 +1089,22 @@ Received 20 packets, got 20 answers, remaining 0 packets
   &lt;IP  version=4L ihl=5L tos=0x0 len=28 id=8142 flags= frag=0L ttl=64 proto=icmp chksum=0xc7b5 src=192.168.9.1 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0xfffd id=0x0 seq=0x2 |&gt;&gt;),
  ....
  ]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Answer received by the stream:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; answer.show()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; answer.show()
 0000 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
 0001 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
 0002 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
 0003 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
 0004 IP / ICMP 192.168.9.12 &gt; 192.168.9.1 echo-request 0 ==&gt; IP / ICMP 192.168.9.1 &gt; 192.168.9.12 echo-reply 0
 ....
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>** DoS generating an amount of packets to send</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.1")/ICMP() for x in range(100)]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.1")/ICMP() for x in range(100)]
 &gt;&gt;&gt; sendp(pkg_list, count=100)
 ..............................................................................................................................................................................................................................................
 Sent 10000 packets.
@@ -1140,14 +1112,13 @@ Sent 10000 packets.
 
 &gt;&gt;&gt; sendp(pkg_list, count=100, verbose=0)
 Sent 10000 packets.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Packet details</strong></p>
 
 <p>It could be possible to analyze a packet generated to be sent or received with all the layers. In python we can use a dictionary to show in detail all the packet layers.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; response_packet=srp1(Ether()/IP(dst="www.cisco.com")/TCP(dport=80, flags="S"), verbose=0)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; response_packet=srp1(Ether()/IP(dst="www.cisco.com")/TCP(dport=80, flags="S"), verbose=0)
 
 &gt;&gt;&gt; response_packet
 &lt;Ether  dst=68:a3:c4:f0:d6:ce src=c0:3e:0f:d2:24:dc type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=44 id=0 flags=DF frag=0L ttl=58 proto=tcp chksum=0xfed1 src=23.200.96.126 dst=192.168.9.12 options=[] |&lt;TCP  sport=http dport=ftp_data seq=2958228935 ack=1 dataofs=6L reserved=0L flags=SA window=29200 chksum=0x3594 urgptr=0 options=[('MSS', 1452)] |&gt;&gt;&gt;
@@ -1190,12 +1161,11 @@ Sent 10000 packets.
 
 &gt;&gt;&gt; response_packet[IP]
 &lt;IP  version=4L ihl=5L tos=0x0 len=44 id=0 flags=DF frag=0L ttl=58 proto=tcp chksum=0xfed1 src=23.200.96.126 dst=192.168.9.12 options=[] |&lt;TCP  sport=http dport=ftp_data seq=2958228935 ack=1 dataofs=6L reserved=0L flags=SA window=29200 chksum=0x3594 urgptr=0 options=[('MSS', 1452)] |&gt;&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If we analyze in detail the TCP packet, we can see the flags used, in the next case SA which means SYN ACK</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; tcp=response_packet[TCP]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; tcp=response_packet[TCP]
 &gt;&gt;&gt; tcp.show()
 ###[ TCP ]###
   sport= http
@@ -1209,12 +1179,11 @@ Sent 10000 packets.
   chksum= 0x3594
   urgptr= 0
   options= [('MSS', 1452)]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Also we can verify if in a type of packet is contained in the response received:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; TCP in response_packet
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; TCP in response_packet
 True
 
 &gt;&gt;&gt; ICMP in response_packet
@@ -1222,8 +1191,7 @@ False
 
 &gt;&gt;&gt; IP in response_packet
 True
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="reading-pcap-files">Reading PCAP files</h3>
 
@@ -1237,7 +1205,7 @@ True
 <p>A great article about this functionality:
 <a href="https://thepacketgeek.com/importing-packets-from-trace-files/">Importing packets from trace files</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
 &gt;&gt;&gt; pcap_loaded
 &lt;test.pcap: TCP:23 UDP:15 ICMP:0 Other:1&gt;
 
@@ -1366,14 +1334,13 @@ TCP 192.168.9.12:59574 &gt; 216.58.211.174:80
 &gt;&gt;&gt; pcap_loaded.stats
 [&lt;class 'scapy.layers.inet.TCP'&gt;, &lt;class 'scapy.layers.inet.UDP'&gt;, &lt;class 'scapy.layers.inet.ICMP'&gt;]
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Content and sessions manipulation</strong></p>
 
 <p>The organized stream loaded by scapy can be accessed to check the sessions and packet content.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
 &gt;&gt;&gt; pcap_loaded
 &lt;test.pcap: TCP:23 UDP:15 ICMP:0 Other:1&gt;
 &gt;&gt;&gt; len(pcap_loaded.sessions())
@@ -1406,12 +1373,11 @@ h������&gt;�$Ebw8���:ӥ��
 �g�|q�MYٵ&amp;ͮӆ#S
 &gt;&gt;&gt; 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And also we can read and print the content of a packet, for example from a HTTP packet with a png in the content.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pcap_loaded=rdpcap("test.pcap")
 &gt;&gt;&gt; pcap_loaded
 &lt;test.pcap: TCP:14599 UDP:11476 ICMP:1 Other:12&gt;
 &gt;&gt;&gt; len(pcap_loaded.sessions())
@@ -1434,24 +1400,22 @@ h������&gt;�$Ebw8���:ӥ��
 ...  print x
 ... 
 GET /pixel;r=2118400465;a=p-cc6zkdHuZwUDM;fpan=0;fpa=P0-1368788983-1484692941895;ns=0;ce=1;cm=;je=1;sr=1366x768x24;enc=n;dst=1;et=1485989147585;tzo=0;ref=https%3A%2F%2Fwww.linkedin.com%2F;url=http%3A%2F%2Fhackaday.com%2F2017%2F01%2F15%2Fshmoocon-2017-a-simple-tool-for-reverse-engineering-rf%2F%3Futm_content%3Dbuffer81f58%26utm_medium%3Dsocial%26utm_source%3Dlinkedin.com%26utm_campaign%3Dbuffer;ogl=title.Shmoocon%202017%3A%20A%20Simple%20Tool%20For%20Reverse%20Engineering%20RF%2Ctype.article%2Cimage.https%3A%2F%2Fhackadaycom%252Efiles%252Ewordpress%252Ecom%2F2017%2F01%2Fwaveconvertherthmb%252Epng%3Fw%3D600%26h%3D6%2Curl.http%3A%2F%2Fhackaday%252Ecom%2F2017%2F01%2F15%2Fshmoocon-2017-a-simple-tool-for-reverse-engineeri%2Cdescription.Anyone%20can%20hack%20a%20radio%252C%20but%20that%20doesn't%20mean%20it's%20easy%3A%20there's%20a%20lot%20of%20mecha%2Csite_name.Hackaday HTTP/1.1
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And why not check some content like login or passwords in plain text:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 &gt;&gt;&gt; password_pkg=[y for y in http if Raw in y and "login" in str(y[Raw])]
 &gt;&gt;&gt; len(password_pkg)
 2
 &gt;&gt;&gt; password_pkg
 [&lt;Ether  dst=00:11:32:3f:36:72 src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=614 id=33393 flags=DF frag=0L ttl=64 proto=tcp chksum=0x22bf src=192.168.9.12 dst=192.168.9.5 options=[] |&lt;TCP  sport=46958 dport=5000 seq=3055532688 ack=570948961 dataofs=8L reserved=0L flags=PA window=229 chksum=0xd970 urgptr=0 options=[('NOP', None), ('NOP', None), ('Timestamp', (866530, 162386984))] |&lt;Raw  load='POST /webapi/encryption.cgi HTTP/1.1\r\nHost: 192.168.9.5:5000\r\nUser-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\nX-Requested-With: XMLHttpRequest\r\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\r\nReferer: http://192.168.9.5:5000/index.cgi\r\nContent-Length: 62\r\nCookie: stay_login=0\r\nConnection: keep-alive\r\n\r\nformat=module&amp;api=SYNO.API.Encryption&amp;method=getinfo&amp;version=1' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=00:11:32:3f:36:72 src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=1500 id=33396 flags=DF frag=0L ttl=64 proto=tcp chksum=0x1f46 src=192.168.9.12 dst=192.168.9.5 options=[] |&lt;TCP  sport=46958 dport=5000 seq=3055533250 ack=570950087 dataofs=8L reserved=0L flags=A window=246 chksum=0xf17d urgptr=0 options=[('NOP', None), ('NOP', None), ('Timestamp', (866583, 162386995))] |&lt;Raw  load='POST /webman/login.cgi?enable_syno_token=yes HTTP/1.1\r\nHost: 192.168.9.5:5000\r\nUser-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\nReferer: http://192.168.9.5:5000/index.cgi\r\nCookie: stay_login=0\r\nConnection: keep-alive\r\nUpgrade-Insecure-Requests: 1\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 998\r\n\r\nOTPcode=&amp;__cIpHeRtExT=%7B%22rsa%22%3A%22rjtq6PjnMCnoqiPWIdvtrmszeeN8P3aUPqpgXrFCThYyNIZoK38qR4bZfQrJOD173%2BxQSm2VTjBhr8S0FsLrMVbkmydKfm73M3c5JHsfEj4UtwzKgLy3W8oR5fGaUXecsQBHNMWxWvAuBQrGgdN5qp2NRF5K9Z%2BcW0UfhDTzikNZnwohxp1gnRcNJW1H%2BEt91WPrTa30dlSgNFDseV0EymrED0fB%2FWk%2BvxEk8H80uYhnc2L4iM4jmJGDzyTDsRpjCxcmGnoRdBM80paBmaUQAmypFyW9c%2B2SAfRUfsjoD88ky5hAF2mUybV3dca%2FhHnNnrDhLhTMkRtpEXO9fMgvRym7XTg3v5o0kk5CP0ddPPwG06u6rXcpHYq1Faud1oVQYgz3lP0%2B8ytiUcxaVUAjxh1Y6sFX1LvCQHLfr4V9QNdiZw7QTBBnBI3XxhjgHWPsBGfcTUXwKby%2BQKTjIU1gErHPX705oB7RlmWnwTA2STbL8vp6nLd5Gtbn42HX%2FT%2BGdo83F%2BxMpFP1%2BmITDtnHGIxMnJ3k7ltzt69%2FM3A6B5o0MXfS2oHqn5kSh45fGP9oykZnsfwaH7WrPIYM7%2Fg%2BcUyR73Mb6Vb6ethLgpegD3b3oSOyoHnHoK%2B9quVd1%2BOZKmZfirAJt3bkWpZWzK6goFqh5ewOkArk6GmzYIxNHoY%3D%22%2C%22aes%22%3A%22U2FsdGVkX1%2F2pDiIssET69lOd6L6ZilsN3ZzrWyfe4%2Fnlug84qsb%2BIIw9XCRRmJIQ6DOBCK432z9Iy5fMGgX6lf0DMzh9B%2FWvbSqaCzn07XVray1tOOEInaPy%2By8mA%2BOG55A2Rw9ueGAgZmRQRXVcw%3D%' |&gt;&gt;&gt;&gt;]
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Or a DNS query:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; udp_pkg=[x for x in pcap_loaded.res if UDP in x]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; udp_pkg=[x for x in pcap_loaded.res if UDP in x]
 &gt;&gt;&gt; udp_pkg
 =udp chksum=0xdde4 src=200.74.99.116 dst=192.168.9.12 options=[] |&lt;UDP  sport=61091 dport=53159 len=72 chksum=0x1c76 |&lt;Raw  load='\x01\x01\x00,!\x12\xa4B\x928\x8e\xd3p(WN\xd71\xbf\xe3\x00 \x00\x08\x00\x01\xee\xb5o\x03\xce_\x00\x08\x00\x14\xfc\xcfi\x81@\x14\xa3t,$\xb7\x81+\xc4\xed\x952\xd5x\xa3\x80(\x00\x04\x08\xdaAW' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=68:a3:c4:f0:d6:ce src=c0:3e:0f:d2:24:dc type=0x800 |&lt;IP  version=4L ihl=5L tos=0x8 len=128 id=29190 flags= frag=0L ttl=110 proto=udp chksum=0xa05 src=85.152.177.13 dst=192.168.9.12 options=[] |&lt;UDP  sport=51177 dport=46675 len=108 chksum=0x1f26 |&lt;Raw  load='\x00\x01\x00P!\x12\xa4BKNSkguht8DNJ\x00\x06\x00\r6c62b455:K1gM\x00\x00\x00\xc0W\x00\x04\x00\x00\x002\x80)\x00\x08\xff\xe3C\x87\x04N\xc3\x85\x00$\x00\x04n\x00\x1e\xff\x00\x08\x00\x14\xe1\xb7\xae\xfe\x0bB\xecC\xebQ&gt;\xcc-l\x86f\xd7\xf7\xa2\x1d\x80(\x00\x04\x0cE\xd3\xc5' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=c0:3e:0f:d2:24:dc src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=92 id=33861 flags=DF frag=0L ttl=64 proto=udp chksum=0xe5f1 src=192.168.9.12 dst=85.152.177.13 options=[] |&lt;UDP  sport=46675 dport=51177 len=72 chksum=0xe49d |&lt;Raw  load='\x01\x01\x00,!\x12\xa4BKNSkguht8DNJ\x00 \x00\x08\x00\x01\xe6\xfbt\x8a\x15O\x00\x08\x00\x14;\x82\xb7\xfb$\xb4\xb8\xb6\xf8y.-\xb2\xc8\xa9\xc4\xb8:\xce\x05\x80(\x00\x04e\xd0\xde\xff' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=68:a3:c4:f0:d6:ce src=c0:3e:0f:d2:24:dc type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=132 id=30522 flags= frag=0L ttl=112 proto=udp chksum=0xddbb src=200.74.99.116 dst=192.168.9.12 options=[] |&lt;UDP  sport=61091 dport=53159 len=112 chksum=0xeed4 |&lt;Raw  load='\x00\x01\x00T!\x12\xa4B1DwJ/p0BJGR1\x00\x06\x00\re733a838:Dm+r\x00\x00\x00\xc0W\x00\x04\x00\x00\x002\x80*\x00\x08\xcf\xd0\x0b\x06\xa9\xefl\xfc\x00%\x00\x00\x00$\x00\x04n\x00\x1e\xff\x00\x08\x00\x14\xe2\xc74\xce\xa8\x0bqm\xbc\xbd\xd4\xfe\x87\xdbm\xe1\xcbM\xd9\r\x80(\x00\x04\xa6\x89h2' |&gt;&gt;&gt;&gt;, &lt;Ether  dst=c0:3e:0f:d2:24:dc src=68:a3:c4:f0:d6:ce type=0x800 |&lt;IP  version=4L ihl=5L tos=0x0 len=92 id=22612 flags=DF frag=0L ttl=64 proto=udp chksum=0xecc9 src=192.168.9.12 dst=200.74.99.116 options=[] |&lt;UDP  sport=53159 dport=61091 len=72 chksum=0xa5f5 |&lt;Raw  load='\x01\x01\x00,!\x12\xa4B1DwJ/p0BJGR1\x00 \x00\x08\x00\x01\xcf\xb1\xe9X\xc76\x00\x08\x00\x14\xef\xb65js\x18\x13]\xd4\x19\xee\xc9\xa5\xc25BXa\x1b\xa0\x80(\x00\x04&lt;\xf4?F' |&gt;&gt;&gt;&gt;]
 
@@ -1460,23 +1424,21 @@ GET /pixel;r=2118400465;a=p-cc6zkdHuZwUDM;fpan=0;fpa=P0-1368788983-1484692941895
 ...  print x[DNSQR].qname
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>PCAP generation</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.1")/ICMP() for x in range(1000)]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.1")/ICMP() for x in range(1000)]
 &gt;&gt;&gt; wrpcap("test_packets.pcap", pkg_list)
 &gt;&gt;&gt; t1=time.time(); sendp(rdpcap("test_packets.pcap"), verbose=0); t2=time.time()
 &gt;&gt;&gt; t2-t1
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Using TCP Replay</strong></p>
 
 <p>Scapy provide sendpfast() that works on Layer2, and needs tcpreplay to be installed.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.12")/ICMP() for x in range(5)]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pkg_list=[IP(dst="192.168.9.12")/ICMP() for x in range(5)]
 &gt;&gt;&gt; t1=time.time(); sendpfast(pkg_list, file_cache=True); t2=time.time()
 sending out wlan0 
 Actual: 5 packets (140 bytes) sent in 5.15 seconds.   Rated: 27.2 bps, 0.00 Mbps, 0.97 pps
@@ -1487,12 +1449,11 @@ Statistics for network device: wlan0
   Retried packets (ENOBUFS): 8115871
   Retried packets (EAGAIN):  0
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="layers">Layers</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/usr/share/pyshared/scapy/layers$ ls
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/pyshared/scapy/layers$ ls
 all.py        gprs.py      isakmp.py    netbios.py  rip.py     snmp.py
 bluetooth.py  hsrp.py      l2.py        netflow.py  rtp.py     tftp.py
 dhcp6.py      inet6.py     l2tp.py      ntp.py      sctp.py    vrrp.py
@@ -1500,33 +1461,30 @@ dhcp.py       inet.py      llmnr.py     pflog.py    sebek.py   x509.py
 dns.py        __init__.py  mgcp.py      ppp.py      skinny.py
 dot11.py      ir.py        mobileip.py  radius.py   smb.py
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="exporting-data">Exporting Data</h3>
 
 <p><strong>Export in hexadecimal</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
 &gt;&gt;&gt; str(pkg)
 'E\x00\x00\x1c\x00\x01\x00\x00@\x01\xe7w\xc0\xa8\t\x0c\xc0\xa8\t\x0c\x08\x00\xf7\xff\x00\x00\x00\x00'
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Export in base64</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
 &gt;&gt;&gt; base64=export_object(str(pkg))
 eNprYAqVcWVgkGFgZGBwYHxefmAFJw8IczB8/88ABIWMegCRVgiN
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Graphical dumps. Export to a PDF</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; pkg=IP(dst="192.168.9.12")/ICMP()
 &gt;&gt;&gt; pkg.pdfdump("/tmp/scapy.pdf")
 Ignoring line 11259 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBol'
 Ignoring line 11260 in mapping file 'pdftex.map': Unknown token '&lt;MinLibBol'
@@ -1542,14 +1500,13 @@ Ignoring line 11269 in mapping file 'pdftex.map': Unknown token '&lt;MinLibReg'
 Ignoring line 11270 in mapping file 'pdftex.map': Unknown token '&lt;MinLibReg'
 &gt;&gt;&gt; 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="http://i.imgur.com/MiEPLBN.png" alt="Screenshot" /></p>
 
 <p><strong>Gnuplot</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; a.plpackets=IP(dst="192.168.9.1")/ICMP(id=[x for x in range(500)])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; a.plpackets=IP(dst="192.168.9.1")/ICMP(id=[x for x in range(500)])
 &gt;&gt;&gt; a,u=sr(packets)
 Begin emission:
 .****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************Finished to send 500 packets.
@@ -1558,25 +1515,23 @@ Received 501 packets, got 500 answers, remaining 0 packets
 &gt;&gt;&gt; a.plot(lambda x: (x[1].time - x[0].sent_time)*1000)
 &lt;Gnuplot._Gnuplot.Gnuplot instance at 0x7fda13717ab8&gt;
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><img src="http://i.imgur.com/Csi0CBZ.png" alt="Screenshot" /></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&gt;&gt;&gt; sniffer=sniff(filter="tcp and port 80")
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; sniffer=sniff(filter="tcp and port 80")
 ^C
 &gt;&gt;&gt; sniffer
 &lt;Sniffed: TCP:99 UDP:0 ICMP:0 Other:0&gt;
 &gt;&gt;&gt; sniffer.plot(lambda x: x.seq)
 &lt;Gnuplot._Gnuplot.Gnuplot instance at 0x7fda13717cb0&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="snippets">Snippets</h3>
 
 <p><strong>ICMP Packets</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">scapy.all</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1593,12 +1548,11 @@ Received 501 packets, got 500 answers, remaining 0 packets
 <span class="k">print</span> <span class="s">'Output --&gt; '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 <span class="n">result</span><span class="p">,</span> <span class="n">unanswered</span><span class="o">=</span><span class="n">output</span>
 <span class="k">print</span> <span class="s">'Result --&gt; '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And the output:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># python send_receive_icmp.py 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># python send_receive_icmp.py 
 
 --------- ICMP ---------
 Begin emission:
@@ -1617,12 +1571,11 @@ Received 5 packets, got 5 answers, remaining 0 packets
 Output --&gt; (&lt;Results: TCP:0 UDP:0 ICMP:5 Other:0&gt;, &lt;Unanswered: TCP:0 UDP:0 ICMP:0 Other:0&gt;)
 Result --&gt; [(&lt;IP  frag=0 proto=icmp dst=72.163.4.161 |&lt;ICMP  |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=32 id=42797 flags= frag=0L ttl=239 proto=icmp chksum=0xdb7 src=72.163.4.161 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0x0 id=0x0 seq=0x0 |&lt;Raw  load='\x00\x00\x00\x00' |&gt;&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=72.163.4.161 |&lt;ICMP  |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=32 id=42798 flags= frag=0L ttl=239 proto=icmp chksum=0xdb6 src=72.163.4.161 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0x0 id=0x0 seq=0x0 |&lt;Raw  load='\x00\x00\x00\x00' |&gt;&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=72.163.4.161 |&lt;ICMP  |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=32 id=42799 flags= frag=0L ttl=239 proto=icmp chksum=0xdb5 src=72.163.4.161 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0x0 id=0x0 seq=0x0 |&lt;Raw  load='\x00\x00\x00\x00' |&gt;&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=72.163.4.161 |&lt;ICMP  |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=32 id=42800 flags= frag=0L ttl=239 proto=icmp chksum=0xdb4 src=72.163.4.161 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0x0 id=0x0 seq=0x0 |&lt;Raw  load='\x00\x00\x00\x00' |&gt;&gt;&gt;), (&lt;IP  frag=0 proto=icmp dst=72.163.4.161 |&lt;ICMP  |&gt;&gt;, &lt;IP  version=4L ihl=5L tos=0x0 len=32 id=42801 flags= frag=0L ttl=239 proto=icmp chksum=0xdb3 src=72.163.4.161 dst=192.168.9.12 options=[] |&lt;ICMP  type=echo-reply code=0 chksum=0x0 id=0x0 seq=0x0 |&lt;Raw  load='\x00\x00\x00\x00' |&gt;&gt;&gt;)]
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>TCP Three-way Handshake</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">scapy.all</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1672,12 +1625,11 @@ Result --&gt; [(&lt;IP  frag=0 proto=icmp dst=72.163.4.161 |&lt;ICMP  |&gt;&gt;,
 
 <span class="c"># Remove iptables rule</span>
 <span class="n">iptables_remove</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s">"iptables -D OUTPUT -p tcp --dport 80 --tcp-flags RST RST -j DROP"</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And the output:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># python send_receive_tcp.py 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># python send_receive_tcp.py 
 
 --------- Sending a TCP packet to Port 80 to www.cisco.com ---------
 
@@ -1726,8 +1678,7 @@ Received 1 packets, got 1 answers, remaining 0 packets
 0000 IP / TCP 192.168.9.12:1024 &gt; 192.168.9.1:5000  / Raw ==&gt; IP / TCP 192.168.9.1:5000 &gt; 192.168.9.12:1024 RA
 None
 Output --&gt; [(<span class="nt">&lt;IP</span>  <span class="na">frag=</span><span class="s">0</span> <span class="na">proto=</span><span class="s">tcp</span> <span class="na">src=</span><span class="s">192.168.9.12</span> <span class="na">dst=</span><span class="s">192.168.9.1</span> <span class="err">|&lt;</span><span class="na">TCP</span>  <span class="na">sport=</span><span class="s">1024</span> <span class="na">dport=</span><span class="s">5000</span> <span class="na">seq=</span><span class="s">12346</span> <span class="na">ack=</span><span class="s">1</span> <span class="na">flags=</span><span class="err"> </span><span class="s">|&lt;Raw</span>  <span class="na">load=</span><span class="s">'HELLO!'</span> <span class="err">|</span><span class="nt">&gt;</span>&gt;&gt;, <span class="nt">&lt;IP</span>  <span class="na">version=</span><span class="s">4L</span> <span class="na">ihl=</span><span class="s">5L</span> <span class="na">tos=</span><span class="s">0x0</span> <span class="na">len=</span><span class="s">40</span> <span class="na">id=</span><span class="s">0</span> <span class="na">flags=</span><span class="s">DF</span> <span class="na">frag=</span><span class="s">0L</span> <span class="na">ttl=</span><span class="s">64</span> <span class="na">proto=</span><span class="s">tcp</span> <span class="na">chksum=</span><span class="s">0xa772</span> <span class="na">src=</span><span class="s">192.168.9.1</span> <span class="na">dst=</span><span class="s">192.168.9.12</span> <span class="na">options=</span><span class="s">[]</span> <span class="err">|&lt;</span><span class="na">TCP</span>  <span class="na">sport=</span><span class="s">5000</span> <span class="na">dport=</span><span class="s">1024</span> <span class="na">seq=</span><span class="s">0</span> <span class="na">ack=</span><span class="s">12352</span> <span class="na">dataofs=</span><span class="s">5L</span> <span class="na">reserved=</span><span class="s">0L</span> <span class="na">flags=</span><span class="s">RA</span> <span class="na">window=</span><span class="s">0</span> <span class="na">chksum=</span><span class="s">0xd4aa</span> <span class="na">urgptr=</span><span class="s">0</span> <span class="err">|</span><span class="nt">&gt;</span>&gt;)]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="sources">Sources</h3>
 <p>https://thepacketgeek.com/series/building-network-tools-with-scapy/
