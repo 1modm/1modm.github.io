@@ -4,92 +4,32 @@
     
     
     {
-      "title": "Welcome",
-      "url": "/doc-theme/docs/home/"
+      "title": "CoderDojo",
+      "url": "/documentation/docs/home/"
 
     },
   
     
     
     {
-      "title": "Themes",
-      "url": "/doc-theme/docs/themes/"
+      "title": "Localization",
+      "url": "/documentation/docs/localization/"
 
     },
   
     
     
     {
-      "title": "Customization",
-      "url": "/doc-theme/docs/customization/"
-
-    },
-  
-
-  
-    
-    
-    {
-      "title": "Scratch Level 0",
-      "url": "/doc-theme/docs/level0/"
+      "title": "Contact",
+      "url": "/documentation/docs/contact/"
 
     },
   
     
     
     {
-      "title": "Scratch Level 1",
-      "url": "/doc-theme/docs/level1/"
-
-    },
-  
-    
-    
-    {
-      "title": "Scratch Level 2",
-      "url": "/doc-theme/docs/level2/"
-
-    },
-  
-    
-    
-    {
-      "title": "Scratch Level 3",
-      "url": "/doc-theme/docs/level3/"
-
-    },
-  
-    
-    
-    {
-      "title": "Scratch Level 4",
-      "url": "/doc-theme/docs/level4/"
-
-    },
-  
-
-  
-    
-    
-    {
-      "title": "Markdown Cheatsheet",
-      "url": "/doc-theme/docs/cheatsheet/"
-
-    },
-  
-    
-    
-    {
-      "title": "Font Awesome Icon List",
-      "url": "/doc-theme/docs/font-awesome/"
-
-    },
-  
-    
-    
-    {
-      "title": "Bootstrap Features",
-      "url": "/doc-theme/docs/bootstrap/"
+      "title": "Attend a Session",
+      "url": "/documentation/docs/attend-a-session/"
 
     },
   
@@ -98,12 +38,12 @@
   
   {
   "title": "Jekyll Doc Theme is published!",
-  "url": "/doc-theme/blog/2017/05/03/jekyll-doc-theme/"
+  "url": "/documentation/blog/2017/05/03/jekyll-doc-theme/"
   },
   
   {
   "title": "Welcome to Jekyll!",
-  "url": "/doc-theme/blog/2017/02/01/welcome-to-jekyll/"
+  "url": "/documentation/blog/2017/02/01/welcome-to-jekyll/"
   }
   
 ]
