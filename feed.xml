@@ -3,10 +3,10 @@
   <channel>
     <title>M</title>
     <description>M</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Dec 2017 15:55:45 +0000</pubDate>
-    <lastBuildDate>Sat, 02 Dec 2017 15:55:45 +0000</lastBuildDate>
+    <link>https://1modm.github.io/</link>
+    <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 02 Dec 2017 16:04:54 +0000</pubDate>
+    <lastBuildDate>Sat, 02 Dec 2017 16:04:54 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -126,8 +126,8 @@ Destination IP: 192.168.1.1 - Destination port: 80 - MAC: a4:42:7b:56:b6:23
 
 </description>
         <pubDate>Thu, 21 Sep 2017 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/Dshell_Penetration-Exploit-Hijacking_decoders.html</link>
-        <guid isPermaLink="true">http://localhost:4000/Dshell_Penetration-Exploit-Hijacking_decoders.html</guid>
+        <link>https://1modm.github.io/Dshell_Penetration-Exploit-Hijacking_decoders.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Dshell_Penetration-Exploit-Hijacking_decoders.html</guid>
         
         
       </item>
@@ -250,8 +250,8 @@ dd if=/dev/zero of=/dev/sda bs=1M
 &lt;p&gt;&lt;a href=&quot;https://github.com/andrew-d/static-binaries&quot;&gt;static-binaries&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 16 Jul 2017 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/Post-Exploitation.html</link>
-        <guid isPermaLink="true">http://localhost:4000/Post-Exploitation.html</guid>
+        <link>https://1modm.github.io/Post-Exploitation.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Post-Exploitation.html</guid>
         
         
       </item>
@@ -274,8 +274,8 @@ dd if=/dev/zero of=/dev/sda bs=1M
 
 </description>
         <pubDate>Sat, 10 Jun 2017 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/try_python.html</link>
-        <guid isPermaLink="true">http://localhost:4000/try_python.html</guid>
+        <link>https://1modm.github.io/try_python.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/try_python.html</guid>
         
         
       </item>
@@ -1848,8 +1848,8 @@ http://www.secdev.org/projects/scapy/doc/usage.html
 http://www.secdev.org/conf/scapy_Aachen.pdf&lt;/p&gt;
 </description>
         <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/Scapy.html</link>
-        <guid isPermaLink="true">http://localhost:4000/Scapy.html</guid>
+        <link>https://1modm.github.io/Scapy.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Scapy.html</guid>
         
         
       </item>
@@ -2017,8 +2017,8 @@ idstools-u2json --snort-conf /etc/suricata/suricata.yaml --directory /var/log/su
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/Troubleshooting_with_Suricata.html</link>
-        <guid isPermaLink="true">http://localhost:4000/Troubleshooting_with_Suricata.html</guid>
+        <link>https://1modm.github.io/Troubleshooting_with_Suricata.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Troubleshooting_with_Suricata.html</guid>
         
         
       </item>
@@ -2211,8 +2211,8 @@ Src IP addr  Port    Dest IP addr  Port       SSRC          Payload  Pkts       
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Mon, 17 Oct 2016 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/Dshell_VoIP_decoders.html</link>
-        <guid isPermaLink="true">http://localhost:4000/Dshell_VoIP_decoders.html</guid>
+        <link>https://1modm.github.io/Dshell_VoIP_decoders.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Dshell_VoIP_decoders.html</guid>
         
         
       </item>
@@ -2259,8 +2259,8 @@ Src IP addr  Port    Dest IP addr  Port       SSRC          Payload  Pkts       
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 21 Sep 2016 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/Ettercap.html</link>
-        <guid isPermaLink="true">http://localhost:4000/Ettercap.html</guid>
+        <link>https://1modm.github.io/Ettercap.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Ettercap.html</guid>
         
         
       </item>
@@ -2376,8 +2376,8 @@ C&amp;amp;C console &amp;gt;
 &lt;p&gt;&lt;a href=&quot;https://asciinema.org/a/4oo26ixuqfzyknztyamw8qgdw?autoplay=1&quot;&gt;&lt;img src=&quot;https://asciinema.org/a/4oo26ixuqfzyknztyamw8qgdw.png&quot; alt=&quot;cast&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Jul 2016 00:00:00 +0100</pubDate>
-        <link>http://localhost:4000/stegator.html</link>
-        <guid isPermaLink="true">http://localhost:4000/stegator.html</guid>
+        <link>https://1modm.github.io/stegator.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/stegator.html</guid>
         
         
       </item>
