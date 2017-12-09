@@ -5,9 +5,212 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Dec 2017 16:04:54 +0000</pubDate>
-    <lastBuildDate>Sat, 02 Dec 2017 16:04:54 +0000</lastBuildDate>
+    <pubDate>Sat, 09 Dec 2017 00:05:22 +0000</pubDate>
+    <lastBuildDate>Sat, 09 Dec 2017 00:05:22 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>AJAX and JSON-RPC with Django</title>
+        <description>&lt;h2 id=&quot;json-rpc-and-django&quot;&gt;JSON-RPC and Django&lt;/h2&gt;
+
+&lt;p&gt;JSON-RPC is a stateless, light-weight remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing. It is transport agnostic in that the concepts can be used within the same process, over sockets, over http, or in many various message passing environments. It uses JSON (RFC 4627) as data format.&lt;/p&gt;
+
+&lt;h3 id=&quot;url-dispatcher&quot;&gt;URL dispatcher&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajaxjsonrpc/$', views.jsonrpc, name='jsonrpc')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;viewcontroller&quot;&gt;View/Controller&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@methods.add
+def ping(request):
+    data = request
+    # Work with json data received
+    return 'pong'
+
+
+@csrf_protect
+def jsonrpc(request):
+    print &quot;jsonrpc&quot;
+    response = methods.dispatch(request.body.decode())
+    return JsonResponse(response, status=response.http_status)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
+
+&lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error &lt;code class=&quot;highlighter-rouge&quot;&gt;CSRF verification failed. Request aborted.&lt;/code&gt; it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie &amp;amp;&amp;amp; document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i &amp;lt; cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) &amp;amp;&amp;amp; !this.crossDomain) {
+            xhr.setRequestHeader(&quot;X-CSRFToken&quot;, csrftoken);
+        }
+    }
+});
+
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using json rpc we can send the data via HTTP POST to our url previously created in order to be able to manage by our custom view/controller ping.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+
+data = { &quot;item&quot;: &quot;one&quot;, &quot;item2&quot;: &quot;two&quot;  }
+
+$.jrpc(&quot;http://127.0.0.1:8000/ajaxjsonrpc/&quot;,
+      &quot;ping&quot;,
+      [data],
+      function(data) {
+          alert(data);
+          console.log(data);
+      }
+);
+
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;ajax-and-django&quot;&gt;AJAX and Django&lt;/h1&gt;
+
+&lt;p&gt;AJAX (Asynchronous JavaScript And XML) is not a programming language. AJAX just uses a combination of, a browser built-in XMLHttpRequest object (to request data from a web server) and, JavaScript and HTML DOM (to display or use the data). AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.&lt;/p&gt;
+
+&lt;h3 id=&quot;url-dispatcher-1&quot;&gt;URL dispatcher&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajax/AJAXviewsExample/$', views.AJAXviewsExample, name='AJAXviewsExample')
+url(r'^ajax/AJAXviewsGET/$', views.AJAXviewsGET, name='AJAXviewsGET')
+url(r'^ajax/AJAXviewsPOST/$', views.AJAXviewsPOST, name='AJAXviewsPOST')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;viewcontroller-1&quot;&gt;View/Controller&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@csrf_protect
+def AJAXviewsExample(request):
+  if request.method == 'GET':
+       print &quot;DATA&quot; + str(request)
+  elif request.method == 'POST':
+       print &quot;DATA&quot; + str(request.POST.get('data'))
+
+@csrf_protect
+def AJAXviewsGET(request):
+    if request.is_ajax():
+        items = ['one 1', 'two 2']
+        data = json.dumps(items)
+        return HttpResponse(data, content_type='application/json')
+    else:
+        raise Http404
+
+@csrf_protect
+def AJAXviewsPOST(request):
+    print &quot;add_todo 1&quot;
+    if request.is_ajax() and request.POST:
+        print &quot;add_todo 2&quot;
+        data = {'message': &quot;%s added&quot; % request.POST.get('item')}
+        return HttpResponse(json.dumps(data), content_type='application/json')
+    else:
+        raise Http404
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;javascript-1&quot;&gt;JavaScript&lt;/h3&gt;
+
+&lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error ‘CSRF verification failed. Request aborted.’ it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie &amp;amp;&amp;amp; document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i &amp;lt; cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+var csrftoken = getCookie('csrftoken');
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) &amp;amp;&amp;amp; !this.crossDomain) {
+            xhr.setRequestHeader(&quot;X-CSRFToken&quot;, csrftoken);
+        }
+    }
+});
+
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using AJAX we can send the data via HTTP GET or POST to our url previously created in order to be manage by our custom views/controllers AJAXviewsGET and AJAXviewsPOST.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+
+// GET 
+
+$.ajax({
+    type: &quot;GET&quot;,
+    url: &quot;http://127.0.0.1:8000/ajax/AJAXviewsGET/&quot;,
+    success: function(data) {
+        for(i = 0; i &amp;lt; data.length; i++){
+          $('ul').append('&amp;lt;li&amp;gt;'+data[i]+'&amp;lt;/li&amp;gt;');
+      }
+    }
+});
+
+
+// POST
+
+$.ajax({
+    type: &quot;POST&quot;,
+    url: &quot;http://127.0.0.1:8000/ajax/AJAXviewsPOST/&quot;,
+    dataType: &quot;json&quot;,
+    data: { &quot;item&quot;: &quot;one&quot; },
+    success: function(data) {
+        alert(data.message);
+        console.log(data);
+    }
+});
+
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
+        <link>https://1modm.github.io/Ajax-JsonRPC_Django.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Ajax-JsonRPC_Django.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Penetration/Exploit/Hijacking decoders for Dshell</title>
