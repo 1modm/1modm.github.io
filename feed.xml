@@ -5,9 +5,105 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 09 Dec 2017 00:05:22 +0000</pubDate>
-    <lastBuildDate>Sat, 09 Dec 2017 00:05:22 +0000</lastBuildDate>
+    <pubDate>Sun, 10 Dec 2017 16:01:31 +0000</pubDate>
+    <lastBuildDate>Sun, 10 Dec 2017 16:01:31 +0000</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Device fingerprint</title>
+        <description>&lt;h2 id=&quot;fingerprint&quot;&gt;Fingerprint&lt;/h2&gt;
+
+&lt;p&gt;A device fingerprint or machine fingerprint or browser fingerprint is information collected about a remote computing device for the purpose of identification. Fingerprints can be used to fully or partially identify individual users or devices even when cookies are turned off. With the assistance of client-side scripting languages, collection of much more esoteric parameters is possible. Recently such fingerprints have proven useful in the detection and prevention of online identity theft and credit card fraud.&lt;/p&gt;
+
+&lt;p&gt;Using Django, some python libraries and &lt;a href=&quot;https://github.com/Valve/fingerprintjs2&quot;&gt;Fingerprintjs2&lt;/a&gt;, I added this way to obtain this information into the website used for Penetration/Exploit/Hijacking honeypot deployed &lt;a href=&quot;/Dshell_Penetration-Exploit-Hijacking_decoders.html&quot;&gt;Penetration/Exploit/Hijacking decoders for Dshell&lt;/a&gt;, so when someone is browsing into a bespoke ‘hello’ website, it could be possible to obtain all this information:&lt;/p&gt;
+
+&lt;h3 id=&quot;http-headers-identified&quot;&gt;HTTP Headers identified&lt;/h3&gt;
+
+&lt;p&gt;Using python libraries.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP_HOST
+HTTP_USER_AGENT
+HTTP_ACCEPT
+HTTP_ACCEPT_LANGUAGE
+HTTP_ACCEPT_ENCODING
+HTTP_CONNECTION
+HTTP_UPGRADE_INSECURE_REQUESTS
+REMOTE_ADDR
+REMOTE_PORT
+REQUEST_METHOD
+REQUEST_URI
+REQUEST_TIME
+SERVER
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;geolocation-information-identified&quot;&gt;Geolocation information identified&lt;/h3&gt;
+
+&lt;p&gt;Using services provided by &lt;a href=&quot;http://freegeoip.net/json/&quot;&gt;freegeoip&lt;/a&gt; or &lt;a href=&quot;https://www.maxmind.com/es/home&quot;&gt;maxmind&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location_city
+location_state
+location_country
+latitude
+longitude
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;browser-fingerprint-identified&quot;&gt;Browser fingerprint identified&lt;/h3&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;https://github.com/Valve/fingerprintjs2&quot;&gt;Fingerprintjs2&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fingerprint
+user_agent
+language
+color_depth
+device_memory
+pixel_ratio
+hardware_concurrency
+resolution
+available_resolution
+timezone_offset
+session_storage
+local_storage
+indexed_db
+cpu_class
+navigator_platform
+do_not_track
+regular_plugins
+canvas
+webgl
+webgl_vendor
+adblock
+has_lied_languages
+has_lied_resolution
+has_lied_os
+has_lied_browser
+touch_support
+js_fonts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;example&quot;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HDwXbQw.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;other-services&quot;&gt;Other services&lt;/h3&gt;
+
+&lt;p&gt;Similar services are provided by thirdparty websites like:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://iplogger.org/&quot;&gt;iplogger&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://grabify.link/&quot;&gt;grabify&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blasze.tk/&quot;&gt;blasze&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ip-adress.com&quot;&gt;ip-adress&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://panopticlick.eff.org&quot;&gt;panopticlick&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+        <link>https://1modm.github.io/Browser-fingerprint.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/Browser-fingerprint.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>AJAX and JSON-RPC with Django</title>
