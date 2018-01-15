@@ -34,6 +34,26 @@
 
 
 {
+"title": "CTF",
+"tags": "",
+"keywords": "Capture The Flag",
+"url": "ctf.html",
+"summary": "Opensource, Security, Tools, Capture The Flag"
+},
+
+
+
+{
+"title": "DDoS",
+"tags": "",
+"keywords": "DDoS",
+"url": "ddos.html",
+"summary": "Opensource, Security, Tools, DDoS"
+},
+
+
+
+{
 "title": "DFIR (Digital Forensics Incident Response) Links",
 "tags": "",
 "keywords": "DFIR (Digital Forensics Incident Response) Links",
@@ -266,6 +286,16 @@
 
 
 {
+"title": "OSCP",
+"tags": "",
+"keywords": "OSCP",
+"url": "oscp.html",
+"summary": "Opensource, Security, Tools, OSCP"
+},
+
+
+
+{
 "title": "OSINT Sec Tools",
 "tags": "",
 "keywords": "OSINT Sec Tools",
@@ -301,6 +331,16 @@
 "keywords": "PostgreSQL",
 "url": "postgresql.html",
 "summary": "Opensource, Security, Tools, PostgreSQL"
+},
+
+
+
+{
+"title": "PowerShell Tools",
+"tags": "",
+"keywords": "PowerShell Tools",
+"url": "powershell-tools.html",
+"summary": "Opensource, Security, Tools, PowerShell Tools"
 },
 
 
@@ -363,6 +403,16 @@
 "keywords": "resources",
 "url": "resources.html",
 "summary": "Opensource, Security, Tools, Resources"
+},
+
+
+
+{
+"title": "Reversing",
+"tags": "",
+"keywords": "Reversing",
+"url": "reversing.html",
+"summary": "Opensource, Security, Tools, Reversing"
 },
 
 

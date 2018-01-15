@@ -5,7 +5,7 @@
     
     {
       "title": "CoderDojo",
-      "url": "/doc-theme/docs/home/"
+      "url": "/docs/home/"
 
     },
   
@@ -13,7 +13,7 @@
     
     {
       "title": "Localization",
-      "url": "/doc-theme/docs/localization/"
+      "url": "/docs/localization/"
 
     },
   
@@ -21,7 +21,7 @@
     
     {
       "title": "Contact",
-      "url": "/doc-theme/docs/contact/"
+      "url": "/docs/contact/"
 
     },
   
@@ -29,7 +29,7 @@
     
     {
       "title": "Attend a Session",
-      "url": "/doc-theme/docs/attend-a-session/"
+      "url": "/docs/attend-a-session/"
 
     },
   
@@ -38,12 +38,12 @@
   
   {
   "title": "Jekyll Doc Theme is published!",
-  "url": "/doc-theme/blog/2017/05/03/jekyll-doc-theme/"
+  "url": "/blog/2017/05/03/jekyll-doc-theme/"
   },
   
   {
   "title": "Welcome to Jekyll!",
-  "url": "/doc-theme/blog/2017/02/01/welcome-to-jekyll/"
+  "url": "/blog/2017/02/01/welcome-to-jekyll/"
   }
   
 ]

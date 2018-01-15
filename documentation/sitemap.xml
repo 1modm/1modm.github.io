@@ -26,6 +26,18 @@
   
   
   <url>
+    <loc>http://localhost:4005/ctf.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/ddos.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4005/dfir_links.html</loc>
   </url>
   
@@ -166,6 +178,12 @@
   
   
   <url>
+    <loc>http://localhost:4005/oscp.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4005/osint-tools.html</loc>
   </url>
   
@@ -185,6 +203,12 @@
   
   <url>
     <loc>http://localhost:4005/postgresql.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/powershell-tools.html</loc>
   </url>
   
   
@@ -223,6 +247,12 @@
   
   <url>
     <loc>http://localhost:4005/resources.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/reversing.html</loc>
   </url>
   
   
