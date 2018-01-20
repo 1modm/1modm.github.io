@@ -1,0 +1,44 @@
+[
+
+  
+    
+    
+    {
+      "title": "CoderDojo",
+      "url": "/docs/home/"
+
+    },
+  
+    
+    
+    {
+      "title": "Localization",
+      "url": "/docs/localization/"
+
+    },
+  
+    
+    
+    {
+      "title": "Contact",
+      "url": "/docs/contact/"
+
+    },
+  
+    
+    
+    {
+      "title": "Attend a Session",
+      "url": "/docs/attend-a-session/"
+
+    },
+  
+
+
+  
+  {
+  "title": "Welcome!",
+  "url": "/blog/2018/01/01/welcome-to-jekyll/"
+  }
+  
+]
