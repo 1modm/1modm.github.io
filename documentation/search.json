@@ -4,6 +4,16 @@
 
 
 {
+"title": "Android",
+"tags": "",
+"keywords": "Android",
+"url": "android.html",
+"summary": "Opensource, Security, Tools, Android"
+},
+
+
+
+{
 "title": "arping",
 "tags": "",
 "keywords": "arping",
@@ -84,6 +94,16 @@
 
 
 {
+"title": "Privilege Escalation",
+"tags": "",
+"keywords": "Privilege Escalation",
+"url": "escalation-priv.html",
+"summary": "Opensource, Security, Tools, Privilege Escalation"
+},
+
+
+
+{
 "title": "ethtool",
 "tags": "",
 "keywords": "ethtool",
@@ -101,6 +121,16 @@
 "keywords": "files",
 "url": "files.html",
 "summary": "files"
+},
+
+
+
+{
+"title": "Fuzzing",
+"tags": "",
+"keywords": "Fuzzing",
+"url": "fuzzing.html",
+"summary": "Opensource, Security, Tools, Fuzzing"
 },
 
 

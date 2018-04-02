@@ -8,6 +8,12 @@
   
   
   <url>
+    <loc>http://localhost:4005/android.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4005/arping.html</loc>
   </url>
   
@@ -56,6 +62,12 @@
   
   
   <url>
+    <loc>http://localhost:4005/escalation-priv.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4005/ethtool.html</loc>
   </url>
   
@@ -65,6 +77,12 @@
   
   <url>
     <loc>http://localhost:4005/files.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/fuzzing.html</loc>
   </url>
   
   
