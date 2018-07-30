@@ -9,13 +9,13 @@
 
   <title>
     
-      Device fingerprint &middot; M
+      API authentication considerations &middot; M
     
   </title>
 
   
-    <meta name="description" content="Device fingerprint or machine fingerprint or browser fingerprint"/>
-    <meta name="keywords" content="">
+    <meta name="description" content="Web API security"/>
+    <meta name="keywords" content="Web API security hackthebox">
   
   <meta name="author" content="Heiswayi Nrird">
 
@@ -23,16 +23,16 @@
   <meta name="twitter:site" content="@1_mod_m">
   <meta name="twitter:creator" content="@1_mod_m">
   
-    <meta name="twitter:title" content="Device fingerprint">
-    <meta name="twitter:description" content="Device fingerprint or machine fingerprint or browser fingerprint">
+    <meta name="twitter:title" content="API authentication considerations">
+    <meta name="twitter:description" content="Web API security">
   
 
   <meta property="og:type" content="website"/>
   
-    <meta property="og:title" content="Device fingerprint"/>
-    <meta property="og:url" content="https://1modm.github.io/Browser-fingerprint.html"/>
-    <meta property="og:description" content="Device fingerprint or machine fingerprint or browser fingerprint"/>
-    <meta property="og:site_name" content="Device fingerprint"/>
+    <meta property="og:title" content="API authentication considerations"/>
+    <meta property="og:url" content="https://1modm.github.io/hackthebox-api.html"/>
+    <meta property="og:description" content="Web API security"/>
+    <meta property="og:site_name" content="API authentication considerations"/>
   
 
   <link rel="apple-touch-icon" sizes="57x57" href="https://1modm.github.io/public/icons/apple-icon-57x57.png">
@@ -109,104 +109,26 @@
       <div class="container content">
         <div class="post">
   <div class="post-top-meta">
-    <div class="post-date">December 09, 2017 &middot; <span class="reading-time" title="Estimated Reading Time">
+    <div class="post-date">July 29, 2018 &middot; <span class="reading-time" title="Estimated Reading Time">
   
   
     1 minute read
   
 </span>
 </div>
-    <h1 class="post-title">Device fingerprint</h1>
+    <h1 class="post-title">API authentication considerations</h1>
   </div>
 
   <div class="hrline"></div>
 
-  <h2 id="fingerprint">Fingerprint</h2>
+  <p>Recently I was learning with hackthebox machines, and I noticed that the reset machine functionality provided by the web application was a call to an API. So the authentication was different than in the Web application. I reported the issue but they told me that they are actually aware of this already and are working on implementing rolling API keys. This has nothing to do with session/cookie data, as API keys grant access only to the API, while other website functionality is still restricted.</p>
 
-<p>A device fingerprint or machine fingerprint or browser fingerprint is information collected about a remote computing device for the purpose of identification. Fingerprints can be used to fully or partially identify individual users or devices even when cookies are turned off. With the assistance of client-side scripting languages, collection of much more esoteric parameters is possible. Recently such fingerprints have proven useful in the detection and prevention of online identity theft and credit card fraud.</p>
+<p>From my point of view this is an issue because this functionality is provided under the web application and not by an external API isolated service (is just one HTTP POST call), so is somebody is able to get my token could play every day reseting machines with something as simple as this HTTP POST:</p>
 
-<p>Using Django, some python libraries and <a href="https://github.com/Valve/fingerprintjs2">Fingerprintjs2</a>, I added this way to obtain this information into the website used for Penetration/Exploit/Hijacking honeypot deployed <a href="/Dshell_Penetration-Exploit-Hijacking_decoders.html">Penetration/Exploit/Hijacking decoders for Dshell</a>, so when someone is browsing into a bespoke ‘hello’ website, it could be possible to obtain all this information:</p>
-
-<h3 id="http-headers-identified">HTTP Headers identified</h3>
-
-<p>Using python libraries.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP_HOST
-HTTP_USER_AGENT
-HTTP_ACCEPT
-HTTP_ACCEPT_LANGUAGE
-HTTP_ACCEPT_ENCODING
-HTTP_CONNECTION
-HTTP_UPGRADE_INSECURE_REQUESTS
-REMOTE_ADDR
-REMOTE_PORT
-REQUEST_METHOD
-REQUEST_URI
-REQUEST_TIME
-SERVER
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -i -s -k -X $'POST' $'https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 </code></pre></div></div>
 
-<h3 id="geolocation-information-identified">Geolocation information identified</h3>
-
-<p>Using services provided by <a href="http://freegeoip.net/json/">freegeoip</a> or <a href="https://www.maxmind.com/es/home">maxmind</a></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location_city
-location_state
-location_country
-latitude
-longitude
-</code></pre></div></div>
-
-<h3 id="browser-fingerprint-identified">Browser fingerprint identified</h3>
-
-<p>Using <a href="https://github.com/Valve/fingerprintjs2">Fingerprintjs2</a></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fingerprint
-user_agent
-language
-color_depth
-device_memory
-pixel_ratio
-hardware_concurrency
-resolution
-available_resolution
-timezone_offset
-session_storage
-local_storage
-indexed_db
-cpu_class
-navigator_platform
-do_not_track
-regular_plugins
-canvas
-webgl
-webgl_vendor
-adblock
-has_lied_languages
-has_lied_resolution
-has_lied_os
-has_lied_browser
-touch_support
-js_fonts
-</code></pre></div></div>
-
-<h3 id="example">Example</h3>
-
-<p><img src="https://i.imgur.com/HDwXbQw.png" alt="Screenshot" /></p>
-
-<h3 id="other-services">Other services</h3>
-
-<p>Similar services are provided by thirdparty websites like:</p>
-
-<p><a href="https://iplogger.org/">iplogger</a></p>
-
-<p><a href="https://grabify.link/">grabify</a></p>
-
-<p><a href="http://blasze.tk/">blasze</a></p>
-
-<p><a href="http://www.ip-adress.com">ip-adress</a></p>
-
-<p><a href="https://panopticlick.eff.org">panopticlick</a></p>
+<p>This is just my thoughts about APIs, called WebAPIs, and the authentication applied to this type of HTTP services, should have more authentication mechanism? In my opinion yes, not just a token string, like other user identification id, expiry date, session expiration, operation id, link the token with the user cookie or session, etc.</p>
 
   
 </div>

