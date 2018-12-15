@@ -5,8 +5,8 @@
         <description>Intended as a documentation site based on Jekyll</description>
         <link>http://localhost:4005/</link>
         <atom:link href="http://localhost:4005/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 30 Jul 2018 22:13:31 +0100</pubDate>
-        <lastBuildDate>Mon, 30 Jul 2018 22:13:31 +0100</lastBuildDate>
+        <pubDate>Sat, 15 Dec 2018 23:32:29 +0000</pubDate>
+        <lastBuildDate>Sat, 15 Dec 2018 23:32:29 +0000</lastBuildDate>
         <generator>Jekyll v3.6.2</generator>
         
     </channel>
