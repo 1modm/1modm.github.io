@@ -17,7 +17,7 @@
     <meta name="description" content="Examples and use of AJAX, using HTTP GET or POST, and JSON-RPC in Django"/>
     <meta name="keywords" content="">
   
-  <meta name="author" content="Heiswayi Nrird">
+  <meta name="author" content="Miguel Morillo">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@1_mod_m">
@@ -127,12 +127,12 @@
 
 <h3 id="url-dispatcher">URL dispatcher</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>url(r'^ajaxjsonrpc/$', views.jsonrpc, name='jsonrpc')
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>url(r'^ajaxjsonrpc/$', views.jsonrpc, name='jsonrpc')
 </code></pre></div></div>
 
 <h3 id="viewcontroller">View/Controller</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@methods.add
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@methods.add
 def ping(request):
     data = request
     # Work with json data received
@@ -148,9 +148,9 @@ def jsonrpc(request):
 
 <h3 id="javascript">JavaScript</h3>
 
-<p>Django use Cross Site Request Forgery protection, to avoid the error <code class="highlighter-rouge">CSRF verification failed. Request aborted.</code> it is needed to pass django csrf token with javascript we can use the next code:</p>
+<p>Django use Cross Site Request Forgery protection, to avoid the error <code class="language-plaintext highlighter-rouge">CSRF verification failed. Request aborted.</code> it is needed to pass django csrf token with javascript we can use the next code:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
 
 function getCookie(name) {
     var cookieValue = null;
@@ -187,7 +187,7 @@ $.ajaxSetup({
 
 <p>Using json rpc we can send the data via HTTP POST to our url previously created in order to be able to manage by our custom view/controller ping.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
 
 data = { "item": "one", "item2": "two"  }
 
@@ -209,14 +209,14 @@ $.jrpc("http://127.0.0.1:8000/ajaxjsonrpc/",
 
 <h3 id="url-dispatcher-1">URL dispatcher</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>url(r'^ajax/AJAXviewsExample/$', views.AJAXviewsExample, name='AJAXviewsExample')
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>url(r'^ajax/AJAXviewsExample/$', views.AJAXviewsExample, name='AJAXviewsExample')
 url(r'^ajax/AJAXviewsGET/$', views.AJAXviewsGET, name='AJAXviewsGET')
 url(r'^ajax/AJAXviewsPOST/$', views.AJAXviewsPOST, name='AJAXviewsPOST')
 </code></pre></div></div>
 
 <h3 id="viewcontroller-1">View/Controller</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@csrf_protect
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@csrf_protect
 def AJAXviewsExample(request):
   if request.method == 'GET':
        print "DATA" + str(request)
@@ -248,7 +248,7 @@ def AJAXviewsPOST(request):
 
 <p>Django use Cross Site Request Forgery protection, to avoid the error ‘CSRF verification failed. Request aborted.’ it is needed to pass django csrf token with javascript we can use the next code:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
   function getCookie(name) {
     var cookieValue = null;
     if (document.cookie &amp;&amp; document.cookie != '') {
@@ -284,7 +284,7 @@ $.ajaxSetup({
 
 <p>Using AJAX we can send the data via HTTP GET or POST to our url previously created in order to be manage by our custom views/controllers AJAXviewsGET and AJAXviewsPOST.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script&gt;
 
 // GET 
 

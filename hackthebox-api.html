@@ -17,7 +17,7 @@
     <meta name="description" content="Web API security"/>
     <meta name="keywords" content="Web API security hackthebox">
   
-  <meta name="author" content="Heiswayi Nrird">
+  <meta name="author" content="Miguel Morillo">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@1_mod_m">
@@ -125,7 +125,7 @@
 
 <p>From my point of view this is an issue because this functionality is provided under the web application and not by an external API isolated service (is just one HTTP POST call), so is somebody is able to get my token could play every day reseting machines with something as simple as this HTTP POST:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -i -s -k -X $'POST' $'https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -i -s -k -X $'POST' $'https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 </code></pre></div></div>
 
 <p>This is just my thoughts about APIs, called WebAPIs, and the authentication applied to this type of HTTP services, should have more authentication mechanism? In my opinion yes, not just a token string, like other user identification id, expiry date, session expiration, operation id, link the token with the user cookie or session, etc.</p>
