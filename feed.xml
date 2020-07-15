@@ -5,8 +5,8 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 15 Jul 2020 00:01:43 +0100</pubDate>
-    <lastBuildDate>Wed, 15 Jul 2020 00:01:43 +0100</lastBuildDate>
+    <pubDate>Thu, 16 Jul 2020 00:21:52 +0100</pubDate>
+    <lastBuildDate>Thu, 16 Jul 2020 00:21:52 +0100</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
@@ -1814,7 +1814,7 @@ $ ./run_dojo.bash
 
 &lt;h3 id=&quot;diagram-elements&quot;&gt;Diagram Elements&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/AcbTZC0.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;public/images/AcbTZC0.png&quot; alt=&quot;AcbTZC0&quot; title=&quot;AcbTZC0&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;starting-the-threat-modeling-process&quot;&gt;Starting the threat modeling process&lt;/h3&gt;
 
@@ -2300,7 +2300,7 @@ js_fonts
 
 &lt;h3 id=&quot;example&quot;&gt;Example&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/HDwXbQw.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;public/images/HDwXbQw.png&quot; alt=&quot;HDwXbQw&quot; title=&quot;HDwXbQw&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;other-services&quot;&gt;Other services&lt;/h3&gt;
 
@@ -2537,7 +2537,7 @@ This pull request has been approved. &lt;a href=&quot;https://github.com/USArmyR
 
 &lt;h3 id=&quot;honeypot-map&quot;&gt;Honeypot Map&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/S1DYsll.png&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;public/images/S1DYsll.png&quot; alt=&quot;S1DYsll&quot; title=&quot;S1DYsll&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;penetrationexploithijacking-tools&quot;&gt;Penetration/Exploit/Hijacking Tools&lt;/h3&gt;
 
@@ -2609,7 +2609,7 @@ Destination IP: 192.168.10.23 - Destination port: 80 - MAC: 68:a3:c4:f0:d6:ce
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/kuUPCFz.png&quot; alt=&quot;OpenVAS&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;public/images/kuUPCFz.png&quot; alt=&quot;OpenVAS&quot; title=&quot;OpenVAS&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;To obtain and show a detailed output we can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--peht_showcontent&lt;/code&gt; option:&lt;/p&gt;
 
