@@ -730,7 +730,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.</div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: netstat [-vWeenNcCF] [&lt;Af&gt;] -r         netstat {-V|--version|-h|--help}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: netstat [-vWeenNcCF] [&lt;Af&gt;] -r         netstat {-V|--version|-h|--help}
        netstat [-vWnNcaeol] [&lt;Socket&gt; ...]
        netstat { [-vWeenNac] -i | [-cWnNe] -M | -s }
 
@@ -770,39 +770,39 @@ $('#toc').on('click', 'a', function() {
 
 <p>List Sockets and connections</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -A inet -p
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -A inet -p
 
 netstat -A inet -p | grep '^tcp' | grep '/' | sed 's_.*/__' | sort | uniq
 </code></pre></div></div>
 
 <p>Check for ports open for local only connections</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -tupan
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -tupan
 </code></pre></div></div>
 
 <p>Kernel interface table</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -i 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -i 
 </code></pre></div></div>
 
 <p>List Sockets listening TCP Ports</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -lt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -lt
 </code></pre></div></div>
 
 <p>Active Internet connections (TCP ports)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -ta
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -ta
 </code></pre></div></div>
 
 <p>Statistics for each protocol</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -s
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -s
 </code></pre></div></div>
 
 <p>PID and process port</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -pt
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -pt
 </code></pre></div></div>
 
 

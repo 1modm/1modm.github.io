@@ -748,7 +748,7 @@ Checking <span class="k">for </span>bad blocks <span class="o">(</span>read-only
 
 <h2 id="mark-bad-sectors-as-unusable">Mark bad sectors as ‘unusable’</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo fsck -l bad-blocks /dev/sdc
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo fsck -l bad-blocks /dev/sdc
 
 </code></pre></div></div>
 
@@ -763,7 +763,7 @@ Checking <span class="k">for </span>bad blocks <span class="o">(</span>read-only
 
 <h2 id="disk-io-test">Disk IO test</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Prepare the test
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Prepare the test
 sysbench --test=fileio --file-total-size=5G prepare &gt; /dev/null
 
 # Sequential Write

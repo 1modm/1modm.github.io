@@ -730,15 +730,15 @@ $('#toc').on('click', 'a', function() {
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This will delete all the files in a directory (and below) that are size zero</span>
 
-find /tmp <span class="nt">-size</span> 0 <span class="nt">-print0</span> |xargs <span class="nt">-0</span> rm 
+find /tmp <span class="nt">-size</span> 0 <span class="nt">-print0</span> |xargs <span class="nt">-0</span> <span class="nb">rm</span> 
 
 <span class="c"># Compress all .log files</span>
 
-find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.log"</span> <span class="nt">-print0</span> | xargs <span class="nt">-0r</span> gzip
+find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.log"</span> <span class="nt">-print0</span> | xargs <span class="nt">-0r</span> <span class="nb">gzip</span>
 
 <span class="c"># Delete files modified in the last numberOfDays</span>
 
-find /var/ossim/logs/<span class="k">*</span> <span class="nt">-type</span> f <span class="nt">-mtime</span> +numberOfDays | xargs rm <span class="nt">-f</span>
+find /var/ossim/logs/<span class="k">*</span> <span class="nt">-type</span> f <span class="nt">-mtime</span> +numberOfDays | xargs <span class="nb">rm</span> <span class="nt">-f</span>
 
 <span class="c"># Get a list of all files last modified in 2013. Useful for passing to xargs or while loop</span>
 

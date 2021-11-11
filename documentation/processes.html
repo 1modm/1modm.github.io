@@ -728,12 +728,12 @@ $('#toc').on('click', 'a', function() {
 
   <h2 id="list-processes-sorted-by-consumption">List processes sorted by consumption</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps <span class="nt">-e</span> <span class="nt">-o</span> pid,vsz,comm<span class="o">=</span> | sort <span class="nt">-n</span> <span class="nt">-k</span> 2 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps <span class="nt">-e</span> <span class="nt">-o</span> pid,vsz,comm<span class="o">=</span> | <span class="nb">sort</span> <span class="nt">-n</span> <span class="nt">-k</span> 2 
 </code></pre></div></div>
 
 <h2 id="kill-amount-of-processes">Kill amount of processes</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> <span class="k">$(</span>ps aux | <span class="nb">grep</span> <span class="s1">'openvas'</span> | awk <span class="s1">'{print $2}'</span><span class="k">)</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">kill</span> <span class="si">$(</span>ps aux | <span class="nb">grep</span> <span class="s1">'openvas'</span> | <span class="nb">awk</span> <span class="s1">'{print $2}'</span><span class="si">)</span>
 </code></pre></div></div>
 
 <h2 id="display-activities-for-each-available-processor">Display activities for each available processor</h2>

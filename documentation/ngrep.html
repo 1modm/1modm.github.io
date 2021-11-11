@@ -730,7 +730,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">ngrep strives to provide most of GNU grep’s common features, applying them to the network layer. ngrep is a pcap-aware tool that will allow you to specify extended regular or hexadecimal expressions to match against data payloads of packets.</div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: ngrep &lt;-hNXViwqpevxlDtTRM&gt; &lt;-IO pcap_dump&gt; &lt;-n num&gt; &lt;-d dev&gt; &lt;-A num&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: ngrep &lt;-hNXViwqpevxlDtTRM&gt; &lt;-IO pcap_dump&gt; &lt;-n num&gt; &lt;-d dev&gt; &lt;-A num&gt;
              &lt;-s snaplen&gt; &lt;-S limitlen&gt; &lt;-W normal|byline|single|none&gt; &lt;-c cols&gt;
              &lt;-P char&gt; &lt;-F file&gt; &lt;match expression&gt; &lt;bpf filter&gt;
    -h  is help/usage
@@ -770,7 +770,7 @@ $('#toc').on('click', 'a', function() {
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep <span class="nt">-d</span> any host 192.168.1.10
 ngrep <span class="nt">-d</span> any port 8080
 ngrep <span class="nt">-d</span> any host 192.168.1.10 and port 22
-ngrep <span class="nt">-d</span> any <span class="nv">id</span><span class="o">=</span><span class="se">\"</span>1234567<span class="se">\"</span> port 3456
+ngrep <span class="nt">-d</span> any <span class="nb">id</span><span class="o">=</span><span class="se">\"</span>1234567<span class="se">\"</span> port 3456
 
 ngrep <span class="nt">-d1</span> <span class="nt">-x</span> PASS
 ngrep <span class="nt">-d1</span> <span class="nt">-e</span> <span class="nt">-x</span> PASS
@@ -790,38 +790,38 @@ ngrep <span class="nt">-d</span> any <span class="nt">-i</span> <span class="nt"
 
 <p>List interfaces</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -L
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -L
 </code></pre></div></div>
 
 <p>Syslog</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -d any 'archiveServerUnreachable' port syslog
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -d any 'archiveServerUnreachable' port syslog
 ngrep -d any 'error' port syslog
 </code></pre></div></div>
 
 <p>Looking case-insensitively words user or pass</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -wi -d any 'user|pass' port 21
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -wi -d any 'user|pass' port 21
 </code></pre></div></div>
 
 <p>Byline mode used to see all headers and aspects of the HTTP transmission</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -W byline port 80
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -W byline port 80
 </code></pre></div></div>
 
 <p>Save a PCAP dump file</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -O /tmp/dns.dump -d any -T port domain
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -O /tmp/dns.dump -d any -T port domain
 </code></pre></div></div>
 
 <p>Search in a pcap file</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -w 'm'  -I /tmp/dns.dump
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -w 'm'  -I /tmp/dns.dump
 </code></pre></div></div>
 
 <p>Observing binary being transferred, let’s assume we have a GIF on a web server that has the data pattern ``0xc5d5e5f55666768696a6b6c6d6e6’’</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -xX '0xc5d5e5f55666768696a6b6c6d6e6' port 80
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ngrep -xX '0xc5d5e5f55666768696a6b6c6d6e6' port 80
 </code></pre></div></div>
 
 

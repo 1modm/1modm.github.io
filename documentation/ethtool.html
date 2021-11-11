@@ -733,11 +733,11 @@ $('#toc').on('click', 'a', function() {
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool eth0
 Settings <span class="k">for </span>eth0:
   Supported ports: <span class="o">[</span> TP <span class="o">]</span>
-  Supported link modes:   10baseT/Half 10baseT/Full 
+  Supported <span class="nb">link </span>modes:   10baseT/Half 10baseT/Full 
                           100baseT/Half 100baseT/Full 
                           1000baseT/Full 
   Supports auto-negotiation: Yes
-  Advertised link modes:  10baseT/Half 10baseT/Full 
+  Advertised <span class="nb">link </span>modes:  10baseT/Half 10baseT/Full 
                           100baseT/Half 100baseT/Full 
                           1000baseT/Full 
   Advertised pause frame use: No
@@ -752,7 +752,7 @@ Settings <span class="k">for </span>eth0:
   Supports Wake-on: d
   Wake-on: d
   Current message level: 0x00000007 <span class="o">(</span>7<span class="o">)</span>
-  Link detected: yes
+  Link detected: <span class="nb">yes</span>
 
 </code></pre></div></div>
 
@@ -774,13 +774,13 @@ Settings <span class="k">for </span>eth0:
 
 <h2 id="mii-tool">mii-tool</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mii-tool eth0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mii-tool eth0
 eth0: no autonegotiation, 1000baseT-FD flow-control, link ok
 </code></pre></div></div>
 
 <h2 id="change-auto-negotiation">Change Auto-negotiation</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifdown eth0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifdown eth0
 ethtool -s eth0 autoneg off
 ifup eth0
 
@@ -788,23 +788,23 @@ ifup eth0
 
 <h2 id="change-the-speed">Change the Speed</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -s eth0 speed 100 autoneg off
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -s eth0 speed 100 autoneg off
 
 </code></pre></div></div>
 
 <h2 id="display-ethernet-driver-settings">Display Ethernet Driver Settings</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -i eth0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -i eth0
 </code></pre></div></div>
 
 <h2 id="display-auto-negotiation-rx-and-tx">Display Auto-negotiation, RX and TX</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -a eth0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -a eth0
 </code></pre></div></div>
 
 <h2 id="display-network-statistics">Display Network Statistics</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -S eth0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ethtool -S eth0
 </code></pre></div></div>
 
 

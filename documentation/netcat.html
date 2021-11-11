@@ -730,7 +730,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">unix utility which reads and writes data across network connections, using TCP or UDP protocol.</div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>connect to somewhere:   nc [-options] hostname port[s] [ports] ... 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>connect to somewhere:   nc [-options] hostname port[s] [ports] ... 
 listen for inbound: nc -l -p port [-options] [hostname] [port]
 options:
     -c shell commands   as `-e'; use /bin/sh to exec [dangerous!!]
@@ -768,12 +768,12 @@ hyphens in port names must be backslash escaped (e.g. 'ftp\-data').
 
 <p>Port Scanning</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat -z -v domain.com 1-1000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat -z -v domain.com 1-1000
 </code></pre></div></div>
 
 <p>Communicate through Netcat</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Listener
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Listener
 netcat -l 4444
 nc -lvp 4444
 
@@ -784,12 +784,12 @@ nc &lt;IP&gt; 4444
 
 <p>Send UDP packets to port 514</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc -u 192.168.1.5 514
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc -u 192.168.1.5 514
 </code></pre></div></div>
 
 <p>Send Files through Netcat</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Listener
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Listener
 netcat -l 4444 &gt; received_file
 netcat -l 4444 | tar xzvf -
 
@@ -800,7 +800,7 @@ tar -czf - * | netcat &lt;IP&gt; 4444
 
 <p>Netcat as a Simple Web Server</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat -l 8888 &lt; index.html
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netcat -l 8888 &lt; index.html
 while true; do nc -l 8888 &lt; index.html; done
 </code></pre></div></div>
 

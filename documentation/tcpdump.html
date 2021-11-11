@@ -730,7 +730,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">Tcpdump prints out a description of the contents of packets on a network interface that match the boolean expression</div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: tcpdump [-aAbdDefhHIJKlLnNOpqRStuUvxX#] [ -B size ] [ -c count ]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: tcpdump [-aAbdDefhHIJKlLnNOpqRStuUvxX#] [ -B size ] [ -c count ]
 		[ -C file_size ] [ -E algo:secret ] [ -F file ] [ -G seconds ]
 		[ -i interface ] [ -j tstamptype ] [ -M secret ] [ --number ]
 		[ -Q in|out|inout ]
@@ -776,10 +776,10 @@ tcpdump portrange 21-23
 tcpdump src port 1025 and tcp
 
 tcpdump <span class="nt">-vv</span> <span class="nt">-i</span> eth0 <span class="s1">'port 22'</span>
-tcpdump <span class="nt">-l</span> <span class="nt">-i</span> eth0 <span class="s1">'port 514'</span> |  awk <span class="s1">'{print $3}'</span> 
+tcpdump <span class="nt">-l</span> <span class="nt">-i</span> eth0 <span class="s1">'port 514'</span> |  <span class="nb">awk</span> <span class="s1">'{print $3}'</span> 
 tcpdump <span class="nt">-n</span> <span class="nt">-i</span> eth0 not tcp port 443 and not tcp port 22
 
-tcpdump <span class="nt">-i</span> eth0 <span class="nt">-n</span>  ip | awk <span class="s1">'{ print gensub(/(.*)\..*/,"\\1","g",$3), $4, gensub(/(.*)\..*/,"\\1","g",$5) }'</span>
+tcpdump <span class="nt">-i</span> eth0 <span class="nt">-n</span>  ip | <span class="nb">awk</span> <span class="s1">'{ print gensub(/(.*)\..*/,"\\1","g",$3), $4, gensub(/(.*)\..*/,"\\1","g",$5) }'</span>
 tcpdump <span class="nt">-n</span> <span class="nt">-i</span> eth0 | egrep <span class="nt">-v</span> <span class="s2">"21.34.141|62.2.21"</span>
 tcpdump <span class="nt">-n</span> <span class="nt">-i</span> eth0 not tcp port 443 and not tcp port 22 and not icmp and not udp port 53
 tcpdump <span class="nt">-nvX</span> src net 192.168.0.0/16 and dst net 10.0.0.0/8 or 172.16.0.0/16
@@ -801,52 +801,52 @@ tcpdump <span class="nt">-r</span> capture_file
 
 <p>All URGENT (URG) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 32!=0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 32!=0'
 </code></pre></div></div>
 
 <p>All ACKNOWLEDGE (ACK) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 16!=0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 16!=0'
 </code></pre></div></div>
 
 <p>All PUSH (PSH) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 8!=0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 8!=0'
 </code></pre></div></div>
 
 <p>All RESET (RST) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 4!=0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 4!=0'
 </code></pre></div></div>
 
 <p>All SYNCHRONIZE (SYN) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 2!=0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 2!=0'
 </code></pre></div></div>
 
 <p>All FINISH (FIN) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 1!=0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13] &amp; 1!=0'
 </code></pre></div></div>
 
 <p>All SYNCHRONIZE/ACKNOWLEDGE (SYNACK) packets…</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13]=18'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'tcp[13]=18'
 </code></pre></div></div>
 
 <p>IPv6 traffic</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump ip6
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump ip6
 </code></pre></div></div>
 
 <p>Packets with both the RST and SYN flags set (why?)</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">tcpdump</span> <span class="s1">'tcp[13] = 6'</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="nx">tcpdump</span> <span class="dl">'</span><span class="s1">tcp[13] = 6</span><span class="dl">'</span>
 </code></pre></div></div>
 
 <p>Traffic with the ‘Evil Bit’ Set</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'ip[6] &amp; 128 != 0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tcpdump 'ip[6] &amp; 128 != 0'
 </code></pre></div></div>
 
 <h2 id="external-links">External links</h2>

@@ -730,7 +730,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="bs-callout bs-callout-primary">send ARP REQUEST to a neighbour host</div>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: arping <span class="o">[</span><span class="nt">-fqbDUAV</span><span class="o">]</span> <span class="o">[</span><span class="nt">-c</span> count] <span class="o">[</span><span class="nt">-w</span> timeout] <span class="o">[</span><span class="nt">-I</span> device] <span class="o">[</span><span class="nt">-s</span> <span class="nb">source</span><span class="o">]</span> destination
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: arping <span class="o">[</span><span class="nt">-fqbDUAV</span><span class="o">]</span> <span class="o">[</span><span class="nt">-c</span> count] <span class="o">[</span><span class="nt">-w</span> <span class="nb">timeout</span><span class="o">]</span> <span class="o">[</span><span class="nt">-I</span> device] <span class="o">[</span><span class="nt">-s</span> <span class="nb">source</span><span class="o">]</span> destination
   <span class="nt">-f</span> : quit on first reply
   <span class="nt">-q</span> : be quiet
   <span class="nt">-b</span> : keep broadcasting, don<span class="s1">'t go unicast
@@ -748,7 +748,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="3-arp-packets-using-eth0-to-ip">3 ARP packets using eth0 to &lt;IP&gt;</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arping -I eth0 -c 3 192.168.9.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arping -I eth0 -c 3 192.168.9.1
 ARPING 192.168.9.1 from 192.168.9.12 wlan0
 Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.679ms
 Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.214ms
@@ -760,7 +760,7 @@ Received 3 response(s)
 
 <h2 id="howto-force-devices-to-refresh-arp-cache-entry-for-a-machine">Howto force Devices to refresh Arp Cache Entry for a machine</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># that will broadcast our source IP and direct it to the broadcast address (255.255.255.255) 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># that will broadcast our source IP and direct it to the broadcast address (255.255.255.255) 
 
 arping -I wlan0  192.168.9.1 -b
 ARPING 192.168.9.1 from 192.168.9.12 wlan0
@@ -772,7 +772,7 @@ Unicast reply from 192.168.9.1 [C0:3E:0F:D2:24:DC]  2.725ms
 
 <h2 id="gratuitous-arp">Gratuitous ARP</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 192.168.9.12 is your IP
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 192.168.9.12 is your IP
 
 arping -A -I wlan0 192.168.9.12
 ARPING 192.168.9.12 from 192.168.9.12 wlan0
