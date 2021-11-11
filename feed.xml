@@ -5,19 +5,13 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Nov 2021 13:27:08 +0000</pubDate>
-    <lastBuildDate>Thu, 11 Nov 2021 13:27:08 +0000</lastBuildDate>
+    <pubDate>Thu, 11 Nov 2021 13:33:15 +0000</pubDate>
+    <lastBuildDate>Thu, 11 Nov 2021 13:33:15 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
       <item>
-        <title>Petereport</title>
-        <description>&lt;p&gt;yout: post
-title: PeTeReport
-description: Pentesting content management and reporting tool
-keywords: Pentesting PeTeReport reporting tool
-—&lt;/p&gt;
-
-&lt;p&gt;The amount of time writing the report during an assessment could frustrate everybody, a good looking report it is necessary to correctly capture the discovered findings. While I was testing other great reporting tools like &lt;a href=&quot;https://github.com/certmichelin/PTART&quot;&gt;PTART&lt;/a&gt;, &lt;a href=&quot;https://github.com/blacklanternsecurity/writehat&quot;&gt;writehat&lt;/a&gt; or &lt;a href=&quot;https://github.com/pwndoc/pwndoc&quot;&gt;pwndoc&lt;/a&gt; I didn’t found the one that could cover all our needs. So why not to do it yourself?&lt;/p&gt;
+        <title>PeTeReport</title>
+        <description>&lt;p&gt;The amount of time writing the report during an assessment could frustrate everybody, a good looking report it is necessary to correctly capture the discovered findings. While I was testing other great reporting tools like &lt;a href=&quot;https://github.com/certmichelin/PTART&quot;&gt;PTART&lt;/a&gt;, &lt;a href=&quot;https://github.com/blacklanternsecurity/writehat&quot;&gt;writehat&lt;/a&gt; or &lt;a href=&quot;https://github.com/pwndoc/pwndoc&quot;&gt;pwndoc&lt;/a&gt; I didn’t found the one that could cover all our needs. So why not to do it yourself?&lt;/p&gt;
 
 &lt;p&gt;To manage the data I used django, for the PDF reporting &lt;a href=&quot;https://github.com/noraj/OSCP-Exam-Report-Template-Markdown&quot;&gt;OSCP-Exam-Report-Template-Markdown&lt;/a&gt; and &lt;a href=&quot;https://pandoc.org/&quot;&gt;pandoc&lt;/a&gt;, for the frontend &lt;a href=&quot;https://adminlte.io/&quot;&gt;AdminLTE&lt;/a&gt;.&lt;/p&gt;
 
