@@ -5,9 +5,30 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Nov 2021 13:33:15 +0000</pubDate>
-    <lastBuildDate>Thu, 11 Nov 2021 13:33:15 +0000</lastBuildDate>
+    <pubDate>Tue, 15 Mar 2022 09:13:33 +0000</pubDate>
+    <lastBuildDate>Tue, 15 Mar 2022 09:13:33 +0000</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>CorkSec Fuzzing Slides</title>
+        <description>&lt;p&gt;Here can be found the slides I used during the &lt;a href=&quot;https://www.meetup.com/en-AU/CorkSec/events/280418335/&quot;&gt;CorkSec 101&lt;/a&gt; talk session on nov 2021.&lt;/p&gt;
+
+&lt;h1 id=&quot;corksec&quot;&gt;Cork|Sec&lt;/h1&gt;
+
+&lt;p&gt;Running since June 2013, every month we have 2 talks focused on Security or Technology - followed by socialising with like minded people – and you can find out exactly what to expect on the About Us section of our Meetup page. Past talk details are on our wiki on &lt;a href=&quot;http://corksec.com/&quot;&gt;CorkSec&lt;/a&gt;. All people with any sort of an interest or level of knowledge in Security, Hacking and Emerging Technology are more than welcome to attend and feel free to bring like minded colleagues and friends. CorkSec is a free event (free as in beer, and as in speech).&lt;/p&gt;
+
+&lt;h2 id=&quot;talk-introduction-to-fuzz-testing-fuzzing&quot;&gt;TALK: Introduction to Fuzz Testing (Fuzzing)&lt;/h2&gt;
+
+&lt;p&gt;Fuzzing, the art of breaking things. Fuzzing is a technique for testing software using automated tools to provide invalid or unexpected input to a program or function in a program. The talk will give an understanding of what fuzzing is, and an introduction to fuzz testing concepts, strategy and techniques which goal is to find bugs. We will take some demos for code coverage for python and blackbox testing for the BACnet network protocol.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/public/CorkSec-Fuzzing.pdf&quot;&gt;Fuzzing CorkSec 101 Slides&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+        <link>https://1modm.github.io/CorkSec.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/CorkSec.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>PeTeReport</title>
@@ -2582,129 +2603,6 @@ $.ajax({
         <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
         <link>https://1modm.github.io/Ajax-JsonRPC_Django.html</link>
         <guid isPermaLink="true">https://1modm.github.io/Ajax-JsonRPC_Django.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Penetration/Exploit/Hijacking decoders for Dshell</title>
-        <description>&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: 
-This pull request has been approved. &lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell/pull/102&quot;&gt;Merged #102&lt;/a&gt;. The decoders for Penetration/Exploit/Hijacking tools are now merged to Dshell. Thanks to USArmyResearchLab and dev195!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/USArmyResearchLab/Dshell&quot;&gt;Dshell&lt;/a&gt; is an extensible network forensic analysis framework and enables rapid development of plugins to support the dissection of network packet captures.&lt;/p&gt;
-
-&lt;p&gt;While I was updating my personal server I checked tons of malicious requests into the HTTP server. I decided to develop a simple “honeypot” for this kind of exploits attempts. With django I stored into a DB all HTTP headers and information about this attempts, also I printed in a world map all the connections made from June to September 2017, &lt;strong&gt;29450&lt;/strong&gt; attempts in total!:&lt;/p&gt;
-
-&lt;h3 id=&quot;honeypot-map&quot;&gt;Honeypot Map&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;public/images/S1DYsll.png&quot; alt=&quot;S1DYsll&quot; title=&quot;S1DYsll&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;penetrationexploithijacking-tools&quot;&gt;Penetration/Exploit/Hijacking Tools&lt;/h3&gt;
-
-&lt;p&gt;Most of the Penetration/Exploit/Hijacking Tools use the HTTP methods to try to inject or execute code into the attacked server, also this tools usually have a well known “hardcoded” User-Agent, URI or request content. This attacks are looking to take advantage using a vulnerability in the system. This tools probes a port, network, api, or any other attack vector to find a vulnerability that can be exploited.&lt;/p&gt;
-
-&lt;p&gt;PHP exploits, Remote Code Execution, and SQL Injections are commonly used by this tools. Some of the most commons tools source and information:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Nmap&lt;/strong&gt;: User-Agent header by default it is “Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)”.
-https://nmap.org/nsedoc/lib/http.html&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Nessus&lt;/strong&gt;: https://www.tenable.com/products/nessus-vulnerability-scanner&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;OpenVAS&lt;/strong&gt;: http://www.openvas.org/src-doc/openvas-libraries/nasl__http_8c_source.html
-User-Agent header by default: #define OPENVAS_USER_AGENT  “Mozilla/5.0 [en] (X11, U; OpenVAS)”&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;MASSCAN&lt;/strong&gt;: https://github.com/robertdavidgraham/masscan&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Morpheus&lt;/strong&gt;: https://github.com/r00t-3xp10it/morpheus
-https://latesthackingnews.com/2016/12/19/morpheus-automated-ettercap-tcpip-hijacking-tool/&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;DataCha0s Web Scanner&lt;/strong&gt;: http://eromang.zataz.com/2011/05/23/suc026-datacha0s-web-scannerrobot/
-https://blogs.harvard.edu/zeroday/2006/06/12/data-cha0s-connect-back-backdoor/&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;HNAP (Home Network Administration Protocol)&lt;/strong&gt;: https://nmap.org/nsedoc/scripts/hnap-info.html&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ZmEu Scanner&lt;/strong&gt;: https://en.wikipedia.org/wiki/ZmEu_(vulnerability_scanner)
-http://linux.m2osw.com/zmeu-attack
-https://code.google.com/archive/p/caffsec-malware-analysis/wikis/ZmEu.wiki
-https://ensourced.wordpress.com/2011/02/25/zmeu-attacks-some-basic-forensic/
-http://philriesch.com/computersecurity_zmeu.html&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Jorgee Scanner&lt;/strong&gt;: http://www.skepticism.us/2015/05/new-malware-user-agent-value-jorgee/
-https://www.checkpoint.com/defense/advisories/public/2016/cpai-2016-0214.html
-https://blog.paranoidpenguin.net/2017/04/jorgee-goes-on-a-rampage/&lt;/p&gt;
-
-&lt;h3 id=&quot;penetrationexploithijacking-tool-decoder&quot;&gt;Penetration/Exploit/Hijacking Tool decoder&lt;/h3&gt;
-
-&lt;p&gt;If the original scanner is not modified, can be detected. This is a PoC in order to generate simple rules to detect and identified some of the most commons Penetration/Exploit/Hijacking Tools. For example an OpenVAS scan:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d peht Openvas.pcap 
-
-Request Timestamp (UTC): 2017-08-25 13:54:44.594979 
-Penetration/Exploit/Hijacking Tool: Open Vulnerability Assessment System
-User-Agent: Mozilla/5.0 [en] (X11, U; OpenVAS 9.0.1)
-Request Method: GET
-URI: /
-Source IP: 192.168.10.66 - Source port: 34263 - MAC: 08:00:27:cd:25:6c
-Host requested: 192.168.10.23
-Referer: 
-
-Response Timestamp (UTC): 2017-08-25 13:54:44.599404 
-Response Reason: OK
-Response Status: 200
-Destination IP: 192.168.10.23 - Destination port: 80 - MAC: 68:a3:c4:f0:d6:ce
-
-Request Timestamp (UTC): 2017-08-25 13:54:44.632552 
-Penetration/Exploit/Hijacking Tool: Open Vulnerability Assessment System
-User-Agent: Mozilla/5.0 [en] (X11, U; OpenVAS 9.0.1)
-Request Method: GET
-URI: /login
-Source IP: 192.168.10.66 - Source port: 39587 - MAC: 08:00:27:cd:25:6c
-Host requested: 192.168.10.23
-Referer: 
-
-Response Timestamp (UTC): 2017-08-25 13:54:44.644189 
-Response Reason: Not Found
-Response Status: 404
-Destination IP: 192.168.10.23 - Destination port: 80 - MAC: 68:a3:c4:f0:d6:ce
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;public/images/kuUPCFz.png&quot; alt=&quot;OpenVAS&quot; title=&quot;OpenVAS&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;To obtain and show a detailed output we can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--peht_showcontent&lt;/code&gt; option:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Dshell&amp;gt; decode -d peht --peht_showcontent &amp;lt;pcap&amp;gt; 
-
-Request Timestamp (UTC): 2017-07-16 02:41:47.238549 
-Penetration/Exploit/Hijacking Tool: Arbitrary Remote Code Execution/injection
-User-Agent: Wget(linux)
-Request Method: POST
-URI: /command.php
-Source IP: 1.2.3.4 - Source port: 666 - MAC: 67:b4:02:39:24:56
-Host requested: example.com
-
-cmd=%63%64%20%2F%76%61%72%2F%74%6D%70%20%26%26%20%65%63%68%6F%20%2D%6E%65%20%5C%5C%78%33%6B%65%72%20%3E%20%6B%65%72%2E%74%78%74%20%26%26%20%63%61%74%20%6B%65%72%2E%74%78%74
-
-
-Response Timestamp (UTC): 2017-07-16 02:41:48.238549
-Response Reason: Found
-Response Status: 302
-Destination IP: 192.168.1.1 - Destination port: 80 - MAC: a4:42:7b:56:b6:23
-
-&amp;lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&amp;gt;
-&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;
-&amp;lt;title&amp;gt;302 Found&amp;lt;/title&amp;gt;
-&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;
-&amp;lt;h1&amp;gt;Found&amp;lt;/h1&amp;gt;
-&amp;lt;p&amp;gt;The document has moved &amp;lt;a href=&quot;https://example.com/command.php&quot;&amp;gt;here&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
-&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-</description>
-        <pubDate>Thu, 21 Sep 2017 00:00:00 +0100</pubDate>
-        <link>https://1modm.github.io/Dshell_Penetration-Exploit-Hijacking_decoders.html</link>
-        <guid isPermaLink="true">https://1modm.github.io/Dshell_Penetration-Exploit-Hijacking_decoders.html</guid>
         
         
       </item>
