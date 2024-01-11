@@ -5,9 +5,131 @@
     <description>M</description>
     <link>https://1modm.github.io/</link>
     <atom:link href="https://1modm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Jan 2024 14:31:57 +0000</pubDate>
-    <lastBuildDate>Thu, 11 Jan 2024 14:31:57 +0000</lastBuildDate>
+    <pubDate>Thu, 11 Jan 2024 14:52:09 +0000</pubDate>
+    <lastBuildDate>Thu, 11 Jan 2024 14:52:09 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>BACnet CVE-2023-51773</title>
+        <description>&lt;p&gt;Is there an increase of interest and focus in Cybersecurity referring to Industrial Control Systems (ICSs), not only PLCs, HMIs, RTUs and sensors, there are other elements like chillers, industrial refrigeration, fire detection, fire suppression, energy storage, HVACs, etc. which can be managed through the BACnet protocol.&lt;/p&gt;
+
+&lt;p&gt;Usually are referenced under the term “Intelligent Buildings”, however, their use is neither exclusive to them nor is it something relatively new. The building management is given by the acronym BMS, Building Management System and must be distinguished between residential buildings or industrial buildings. In general, BMS systems integrate a set of subsystems in charge of lighting, fire, alarm, elevator, ventilation, temperature, etc. control systems. Although many of them are common to both environments we cannot say that they are similar since the applications and scope are different.&lt;/p&gt;
+
+&lt;p&gt;These systems must communicate with each other for their own operation and management. One of the protocols used is BACnet (Buiding Automation Control Network) a Data Communication Protocol for Building Automation and Control Networks approved by the ASHRAE Standards Committee. In June 1987 the American Society of Heating, Refrigeration and Air-conditioning Engineers (ASHRAE) set up the Standard Project Committee 135 (SPC 135) to develop a data communications protocol for Building, Automation and Control Networks (BACnet). As well as becoming a US national standard in 1995 (ASHRAE/ANSI 135-1995) and then updated in 2001, in many countries it also became an ISO standard 16484-5 in January 2003. BACnet also became a European standard CEN TC 247 in 2003.&lt;/p&gt;
+
+&lt;p&gt;BACnet has  been  designed  specifically  to  meet  the  communication  needs  of  building  automation  and  control  systems  for  applications  such  as  heating,  ventilating,  and  air-conditioning control, lighting control, access control, and fire detection systems. The BACnet protocol provides mechanisms by which computerized equipment of arbitrary function may exchange information, regardless of the particular building service it performs. As a result, the BACnet protocol may be used by head-end computers, general-purpose direct digital controllers, and application specific or unitary controllers with equal effect.&lt;/p&gt;
+
+&lt;p&gt;Like many others, each BACNet device is a combination of hardware and software, like devices working as controllers, gateways or user interfaces. Each of them has a unique identifier or instance number that identifies and differentiates them from those existing in the network apart from others with information regarding the inputs and outputs that these devices monitors and controls.&lt;/p&gt;
+
+&lt;p&gt;In BACnet we can find 3 differentiated concepts, Objects, Properties and Services, all the information contained within a BACnet device is ordered as objects, which makes it a protocol oriented precisely to this, to objects. Each “Object” represents a component of the device itself or a set of information that can be requested by another through other protocols or layers such as Ethernet, IP, RS-485, etc. The protocol defines more than 50 types of objects for the most common uses.&lt;/p&gt;
+
+&lt;h2 id=&quot;bacnet&quot;&gt;BACnet&lt;/h2&gt;
+
+&lt;p&gt;BACnet was designed to allow communication of building automation and control systems for applications such as heating, ventilating, and air-conditioning control (HVAC), lighting control, access control, and fire detection systems and their associated equipment. The BACnet protocol provides mechanisms for computerized building automation devices to exchange information, regardless of the particular building service they perform.&lt;/p&gt;
+
+&lt;p&gt;BACnet is a communications protocol for Building Automation and Control (BAC) networks UDP based and contains 3 main headers the BVLC, NPDU and APDU.&lt;/p&gt;
+
+&lt;p&gt;A request to BACnet passes down through the lower layers of the protocol stack in the local device, this process can be observed in the next image &lt;a href=&quot;http://bdocam.com/I2BS_TEST/I2BS/BacNet/Protocol/135_2004.pdf&quot;&gt;Source&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/BACnet_protocol_stack_data_flow.png&quot; alt=&quot;BACnet_protocol_stack_data_flow&quot; title=&quot;BACnet_protocol_stack_data_flow&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The 3 headers can be examined in the &lt;a href=&quot;http://www.bacnetwiki.com/wiki/index.php?title=Main_Page&quot;&gt;BACnet Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/BACnet_packet.png&quot; alt=&quot;BACnet_packet&quot; title=&quot;BACnet_packet&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;bvlc-bacnet-virtual-link-control-4-bytes&quot;&gt;BVLC (BACNet virtual link control): 4 bytes&lt;/h3&gt;
+
+&lt;p&gt;The firts byte defines the type, in this case bacnet/ip 0x81, the second one defines the function 0x0a, and the last 2 bytes defines the length of the whole packet &lt;a href=&quot;http://www.bacnetwiki.com/wiki/index.php?title=BACnet_Virtual_Link_Layer&quot;&gt;BACnet Wiki&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The firts byte defines the type: bacnet/ip 0x81&lt;/li&gt;
+  &lt;li&gt;The second byte defines the function 0x0a (ORIGINAL_UNICAST_NPDU = 10)&lt;/li&gt;
+  &lt;li&gt;The last 2 bytes defines the length of the whole packet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/bvlc.png&quot; alt=&quot;bvlc&quot; title=&quot;bvlc&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NPDU Function:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/bvlc-function.png&quot; alt=&quot;bvlc&quot; title=&quot;bvlc&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see in the BACnet packet the UDP Port number used by BACnet communications over IP is 47808:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/bvlc-pcap.png&quot; alt=&quot;bvlc&quot; title=&quot;bvlc&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;npdu-network-layer-protocol-data-unit-2-bytes&quot;&gt;NPDU (Network layer protocol data unit): 2 bytes&lt;/h3&gt;
+
+&lt;p&gt;The NPDU consists of a NPCI followed by a NSDU. &lt;a href=&quot;http://www.bacnetwiki.com/wiki/index.php?title=Network_Layer_Protocol_Data_Unit&quot;&gt;BACnet Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;According bacnetwiki this is the representation, but be careful here, in practice the headers is just 2 bytes, Version (Always 0x01) and NPCI Control Octet:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/npdu.png&quot; alt=&quot;npdu&quot; title=&quot;npdu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;NPDU Layer:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/npdu-pcap.png&quot; alt=&quot;npdu&quot; title=&quot;npdu&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;apdu-network-layer-protocol-data-unit-2-bytes&quot;&gt;APDU (Network layer protocol data unit): 2 bytes&lt;/h3&gt;
+
+&lt;p&gt;BACnet APDUs carry the Application Layer parameters. The maximum size of an APDU is specified by a device’s Max_APDU_Length_Accepted, be careful with that, otherwise you will face malformed packet issues. &lt;a href=&quot;http://www.bacnetwiki.com/wiki/index.php?title=APDU&quot;&gt;BACnet APDU&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;public/images/apdu-pcap.png&quot; alt=&quot;apdu&quot; title=&quot;apdu&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;testbed&quot;&gt;Testbed&lt;/h2&gt;
+
+&lt;p&gt;If we want to create our own lab and scenario we can install the OpenSource BACnet Protocol Stack and test the connectivity to BACnet port, we need:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bac-test.com/how-to-build-a-foss-bacnet-server-based-on-steve-kargs-sourceforge-project/&quot;&gt;The Free or Open Source Software BACnet Stack&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;A BACNet port open UDP 47808&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install -y build-essential
+$ sudo apt-get install subversion
+$ svn checkout svn://svn.code.sf.net/p/bacnet/code/trunk/bacnet-stack bacnetServer
+$ cd bacnetServer
+$ make clean all
+$ demo/server/bacserv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;cve-2023-51773-bacnet-stack-before-132-has-a-decode-function-apdu-buffer-over-read-in-bacapp_decode_application_data-in-bacappc&quot;&gt;CVE-2023-51773: BACnet Stack before 1.3.2 has a decode function APDU buffer over-read in bacapp_decode_application_data in bacapp.c.&lt;/h1&gt;
+
+&lt;h2 id=&quot;disclosure-timeline&quot;&gt;Disclosure Timeline&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;20/10/2023 Discovered vulnerability and developed baseline proof-of-concept.&lt;/li&gt;
+  &lt;li&gt;20/12/2023 Reported to https://sourceforge.net/p/bacnet/bugs/85/&lt;/li&gt;
+  &lt;li&gt;22/12/2023 Asked for a CVE and coordinated disclosure.&lt;/li&gt;
+  &lt;li&gt;25/12/2023 Mitre response and CVE assigned: CVE-2023-51773&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cve&quot;&gt;CVE&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2023-51773&quot;&gt;NVD CVE-2023-51773 Details&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bug-references-and-exploit&quot;&gt;Bug References and Exploit&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/p/bacnet/bugs/85/&quot;&gt;https://sourceforge.net/p/bacnet/bugs/85/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;fixes&quot;&gt;Fixes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bacnet-stack/bacnet-stack/pull/546&quot;&gt;bacnet-stack/pull/546&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bacnet-stack/bacnet-stack/pull/546/commits/c465412a076ca6c9ddf649612f2b4e1874d8dcb8&quot;&gt;bacnet-stack/pull/546 details&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bacnet-stack/bacnet-stack/blob/master/CHANGELOG.md&quot;&gt;CHANGELOG&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bacnet-stack/bacnet-stack/compare/bacnet-stack-1.3.1...bacnet-stack-1.3.2&quot;&gt;bacnet-stack-1.3.2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+        <link>https://1modm.github.io/CVE-2023-51773.html</link>
+        <guid isPermaLink="true">https://1modm.github.io/CVE-2023-51773.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>CorkSec Fuzzing Slides</title>
@@ -2400,209 +2522,6 @@ js_fonts
         <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
         <link>https://1modm.github.io/Browser-fingerprint.html</link>
         <guid isPermaLink="true">https://1modm.github.io/Browser-fingerprint.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>AJAX and JSON-RPC with Django</title>
-        <description>&lt;h2 id=&quot;json-rpc-and-django&quot;&gt;JSON-RPC and Django&lt;/h2&gt;
-
-&lt;p&gt;JSON-RPC is a stateless, light-weight remote procedure call (RPC) protocol. Primarily this specification defines several data structures and the rules around their processing. It is transport agnostic in that the concepts can be used within the same process, over sockets, over http, or in many various message passing environments. It uses JSON (RFC 4627) as data format.&lt;/p&gt;
-
-&lt;h3 id=&quot;url-dispatcher&quot;&gt;URL dispatcher&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r&apos;^ajaxjsonrpc/$&apos;, views.jsonrpc, name=&apos;jsonrpc&apos;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;viewcontroller&quot;&gt;View/Controller&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@methods.add
-def ping(request):
-    data = request
-    # Work with json data received
-    return &apos;pong&apos;
-
-
-@csrf_protect
-def jsonrpc(request):
-    print &quot;jsonrpc&quot;
-    response = methods.dispatch(request.body.decode())
-    return JsonResponse(response, status=response.http_status)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;/h3&gt;
-
-&lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CSRF verification failed. Request aborted.&lt;/code&gt; it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie &amp;amp;&amp;amp; document.cookie != &apos;&apos;) {
-        var cookies = document.cookie.split(&apos;;&apos;);
-        for (var i = 0; i &amp;lt; cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + &apos;=&apos;)) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
-var csrftoken = getCookie(&apos;csrftoken&apos;);
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) &amp;amp;&amp;amp; !this.crossDomain) {
-            xhr.setRequestHeader(&quot;X-CSRFToken&quot;, csrftoken);
-        }
-    }
-});
-
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Using json rpc we can send the data via HTTP POST to our url previously created in order to be able to manage by our custom view/controller ping.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-
-data = { &quot;item&quot;: &quot;one&quot;, &quot;item2&quot;: &quot;two&quot;  }
-
-$.jrpc(&quot;http://127.0.0.1:8000/ajaxjsonrpc/&quot;,
-      &quot;ping&quot;,
-      [data],
-      function(data) {
-          alert(data);
-          console.log(data);
-      }
-);
-
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;ajax-and-django&quot;&gt;AJAX and Django&lt;/h1&gt;
-
-&lt;p&gt;AJAX (Asynchronous JavaScript And XML) is not a programming language. AJAX just uses a combination of, a browser built-in XMLHttpRequest object (to request data from a web server) and, JavaScript and HTML DOM (to display or use the data). AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.&lt;/p&gt;
-
-&lt;h3 id=&quot;url-dispatcher-1&quot;&gt;URL dispatcher&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;url(r&apos;^ajax/AJAXviewsExample/$&apos;, views.AJAXviewsExample, name=&apos;AJAXviewsExample&apos;)
-url(r&apos;^ajax/AJAXviewsGET/$&apos;, views.AJAXviewsGET, name=&apos;AJAXviewsGET&apos;)
-url(r&apos;^ajax/AJAXviewsPOST/$&apos;, views.AJAXviewsPOST, name=&apos;AJAXviewsPOST&apos;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;viewcontroller-1&quot;&gt;View/Controller&lt;/h3&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@csrf_protect
-def AJAXviewsExample(request):
-  if request.method == &apos;GET&apos;:
-       print &quot;DATA&quot; + str(request)
-  elif request.method == &apos;POST&apos;:
-       print &quot;DATA&quot; + str(request.POST.get(&apos;data&apos;))
-
-@csrf_protect
-def AJAXviewsGET(request):
-    if request.is_ajax():
-        items = [&apos;one 1&apos;, &apos;two 2&apos;]
-        data = json.dumps(items)
-        return HttpResponse(data, content_type=&apos;application/json&apos;)
-    else:
-        raise Http404
-
-@csrf_protect
-def AJAXviewsPOST(request):
-    print &quot;add_todo 1&quot;
-    if request.is_ajax() and request.POST:
-        print &quot;add_todo 2&quot;
-        data = {&apos;message&apos;: &quot;%s added&quot; % request.POST.get(&apos;item&apos;)}
-        return HttpResponse(json.dumps(data), content_type=&apos;application/json&apos;)
-    else:
-        raise Http404
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;javascript-1&quot;&gt;JavaScript&lt;/h3&gt;
-
-&lt;p&gt;Django use Cross Site Request Forgery protection, to avoid the error ‘CSRF verification failed. Request aborted.’ it is needed to pass django csrf token with javascript we can use the next code:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-  function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie &amp;amp;&amp;amp; document.cookie != &apos;&apos;) {
-        var cookies = document.cookie.split(&apos;;&apos;);
-        for (var i = 0; i &amp;lt; cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) == (name + &apos;=&apos;)) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
-var csrftoken = getCookie(&apos;csrftoken&apos;);
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) &amp;amp;&amp;amp; !this.crossDomain) {
-            xhr.setRequestHeader(&quot;X-CSRFToken&quot;, csrftoken);
-        }
-    }
-});
-
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Using AJAX we can send the data via HTTP GET or POST to our url previously created in order to be manage by our custom views/controllers AJAXviewsGET and AJAXviewsPOST.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-
-// GET 
-
-$.ajax({
-    type: &quot;GET&quot;,
-    url: &quot;http://127.0.0.1:8000/ajax/AJAXviewsGET/&quot;,
-    success: function(data) {
-        for(i = 0; i &amp;lt; data.length; i++){
-          $(&apos;ul&apos;).append(&apos;&amp;lt;li&amp;gt;&apos;+data[i]+&apos;&amp;lt;/li&amp;gt;&apos;);
-      }
-    }
-});
-
-
-// POST
-
-$.ajax({
-    type: &quot;POST&quot;,
-    url: &quot;http://127.0.0.1:8000/ajax/AJAXviewsPOST/&quot;,
-    dataType: &quot;json&quot;,
-    data: { &quot;item&quot;: &quot;one&quot; },
-    success: function(data) {
-        alert(data.message);
-        console.log(data);
-    }
-});
-
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 30 Nov 2017 00:00:00 +0000</pubDate>
-        <link>https://1modm.github.io/Ajax-JsonRPC_Django.html</link>
-        <guid isPermaLink="true">https://1modm.github.io/Ajax-JsonRPC_Django.html</guid>
         
         
       </item>
